@@ -12,21 +12,13 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'joulestowatts' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'joulestowatts' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'joulestowatts' ), 'joulestowatts', '<a href="http://theminimalist.in">Gitsy</a>' );
-				?>
-		</div><!-- .site-info -->
+		<h2>heelo</h2>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slick.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.min.js"></script>
 
 <?php wp_footer(); ?>
 
