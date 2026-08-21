@@ -1,10 +1,9 @@
 //BASE CSS
-@import 'base/_global.scss'; //Global CSS
+@use 'base/_global.scss'; //Global CSS
 
 //MODULE CSS
-@import 'module/_header.scss'; //Header CSS
-@import 'module/_footer.scss'; //Footer CSS
+@use 'module/_header.scss'; //Header CSS
+@use 'module/_footer.scss'; //Footer CSS
 
 //PAGES CSS
-@import 'pages/_homepage.scss'; //Homepage CSS
-
+@use 'pages/_homepage.scss'; //Homepage CSS
