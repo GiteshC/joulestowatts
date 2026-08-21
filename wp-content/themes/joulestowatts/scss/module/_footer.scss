@@ -1,0 +1,13 @@
+footer{background: white; border: 1px solid red; padding: 135px 0 30px;
+    .footerWrapper{padding: 0 64px; display: flex; flex-flow: column; gap: 70px;
+        .footerHead{display: flex; align-items: center; justify-content: space-between; padding-bottom: 56px;
+            h2{}
+        }
+        .footerLinks{ padding-bottom: 80px;
+            .linkBoxes{  display: grid;grid-template-columns: auto auto auto;}
+        }
+        .footerlogo{
+            .mailBox{display: flex; align-items: center; justify-content: space-between;}
+        }
+    }
+}

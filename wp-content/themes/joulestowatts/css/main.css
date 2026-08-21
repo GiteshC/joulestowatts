@@ -355,4 +355,34 @@ button:focus {
 
 .hideScrollbarhtml, .hideScrollbar {
   overflow: hidden !important;
+}
+
+footer {
+  background: white;
+  border: 1px solid red;
+  padding: 135px 0 30px;
+}
+footer .footerWrapper {
+  padding: 0 64px;
+  display: flex;
+  flex-flow: column;
+  gap: 70px;
+}
+footer .footerWrapper .footerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 56px;
+}
+footer .footerWrapper .footerLinks {
+  padding-bottom: 80px;
+}
+footer .footerWrapper .footerLinks .linkBoxes {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+footer .footerWrapper .footerlogo .mailBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }/*# sourceMappingURL=main.css.map */
