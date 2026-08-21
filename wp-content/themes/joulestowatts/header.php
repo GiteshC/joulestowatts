@@ -16,7 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	 <link href="<?php bloginfo('template_directory'); ?>/css/slick.min.css" rel="stylesheet">
+	<link href="<?php bloginfo('template_directory'); ?>/css/slick.min.css" rel="stylesheet">
     <link href="<?php bloginfo('template_directory'); ?>/css/main.css" rel="stylesheet">
 
 	<?php wp_head(); ?>
@@ -25,8 +25,12 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'joulestowatts' ); ?></a>
+	
+<header>
+	<div class="logoBox">
+		<a href="#">
+			<img src="">
+		</a>
+	</div>
+</header>
 
-	<header id="masthead" class="site-header">
-		
-	</header><!-- #masthead -->
