@@ -2,13 +2,13 @@
 
 footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px; border-top-right-radius: 32px; 
     .footerWrapper{padding: 0 64px; display: flex; flex-flow: column; gap: 70px; @include wrapper; 
-        .footerHead{display: flex; align-items: center; justify-content: flex-end; padding-bottom: 56px; gap: 115px; position: relative;
-            h2{@include font48; font-family: "Satoshi-Regular"; color: $darkbody; line-height: 140%; letter-spacing: 2px; text-transform: uppercase; width: 74%; }
-            a{width: 26%;}
+        .footerHead{display: flex; align-items: center; padding-bottom: 56px; gap: 115px; position: relative;
+            h2{@include font48; color: $darkbody; line-height: 140%; letter-spacing: 2px; text-transform: uppercase; width: 74%; }
+            
             &::after{content: ""; border-bottom: 1px solid rgba(43, 43, 43, 0.20); position: absolute; bottom: 0; left: 0; width: 100%;}
         }
         .footerLinks{ padding-bottom: 80px; position: relative;
-            .linkBoxes{  display: grid;grid-template-columns: auto auto auto;
+            .linkBoxes{  display: grid; grid-template-columns: repeat(3, 1fr); gap: 156px;
                 .column{
                     p{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 24px;}
                     .links{display: flex; flex-flow: column; gap: 24px;

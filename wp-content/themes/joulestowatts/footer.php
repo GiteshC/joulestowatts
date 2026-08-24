@@ -14,17 +14,20 @@
 	<footer>
 		<div class="footerWrapper">
 			<div class="footerHead">
-				<h2>The future belongs to those who scale without losing their truth
+				<h2 class="roboto-mono">The future belongs to those who scale without losing their truth
 					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
 						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#CC2033"/>
 					</svg>
 				</h2>
-				<a href="http://" target="_blank" >talk to a partner</a>
+				<a href="#" class="primaryBlackCTA roboto-mono "><span>Talk to a Partner</span>
+					<div class="peelBox"></div>
+					<div class="hoverBox"></div>
+				</a>
 			</div>
 			<div class="footerLinks">
 				<div class="linkBoxes">
 					<div class="column">
-						<p>Company</p>
+						<p class="roboto-mono">Company</p>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -53,7 +56,7 @@
 						</div>
 					</div>
 					<div class="column">
-						<p>What we do</p>
+						<p class="roboto-mono">What we do</p>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -82,7 +85,7 @@
 						</div>
 					</div>
 					<div class="column">
-						<p>Who we serve</p>
+						<p class="roboto-mono">Who we serve</p>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
