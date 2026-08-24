@@ -1,1 +1,10 @@
-h1{color: green;}
+@use '../base/_global.scss' as *;
+
+.bannerSection{padding-top: 190px; width: 100%; background: url('../images/banner-grid.png') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center;
+    .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center; flex-flow: wrap;
+        .bannerContent{width: 75%; text-align: center;
+            h1{@include font72; margin-bottom: 20px; line-height: 1.2; color: #ffffff;}
+            p{color: #AAA0AD; @include font24; line-height: 140%; margin-bottom: 42px;}
+        }
+    }
+}

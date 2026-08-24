@@ -222,112 +222,97 @@ button {
 }
 
 /************************************************ Fonts **************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+.roboto-mono {font-family: "Roboto Mono", monospace;font-optical-sizing: auto;font-weight: 400;font-style: normal;}
 @font-face {
-  font-family: 'Satoshi-Light';
-  src: url('../fonts/satoshi/Satoshi-Light.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Light.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-Light';
+    src: url('./fonts/satoshi/Satoshi-Light.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Light.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Satoshi-LightItalic';
-  src: url('../fonts/satoshi/Satoshi-LightItalic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-LightItalic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
+    font-family: 'Satoshi-LightItalic';
+    src: url('./fonts/satoshi/Satoshi-LightItalic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-LightItalic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: italic;
 }
 @font-face {
-  font-family: 'Satoshi-Regular';
-  src: url('../fonts/satoshi/Satoshi-Regular.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Regular.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-Regular';
+    src: url('./fonts/satoshi/Satoshi-Regular.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Regular.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Satoshi-Italic';
-  src: url('../fonts/satoshi/Satoshi-Italic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Italic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
+    font-family: 'Satoshi-Italic';
+    src: url('./fonts/satoshi/Satoshi-Italic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Italic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
 }
 @font-face {
-  font-family: 'Satoshi-Medium';
-  src: url('../fonts/satoshi/Satoshi-Medium.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Medium.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-Medium';
+    src: url('./fonts/satoshi/Satoshi-Medium.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Medium.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Satoshi-MediumItalic';
-  src: url('../fonts/satoshi/Satoshi-MediumItalic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-MediumItalic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
+    font-family: 'Satoshi-MediumItalic';
+    src: url('./fonts/satoshi/Satoshi-MediumItalic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-MediumItalic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: italic;
 }
 @font-face {
-  font-family: 'Satoshi-Bold';
-  src: url('../fonts/satoshi/Satoshi-Bold.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Bold.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-Bold';
+    src: url('./fonts/satoshi/Satoshi-Bold.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Bold.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Satoshi-BoldItalic';
-  src: url('../fonts/satoshi/Satoshi-BoldItalic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-BoldItalic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
+    font-family: 'Satoshi-BoldItalic';
+    src: url('./fonts/satoshi/Satoshi-BoldItalic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-BoldItalic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: italic;
 }
 @font-face {
-  font-family: 'Satoshi-Black';
-  src: url('../fonts/satoshi/Satoshi-Black.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Black.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-Black';
+    src: url('./fonts/satoshi/Satoshi-Black.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Black.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Satoshi-BlackItalic';
-  src: url('../fonts/satoshi/Satoshi-BlackItalic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-BlackItalic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: italic;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 900.0;
-*
-* available axes:
-'wght' (range from 300.0 to 900.0
-*/
-@font-face {
-  font-family: 'Satoshi-Variable';
-  src: url('../fonts/satoshi/Satoshi-Variable.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-Variable.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-Variable.ttf') format('truetype');
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
+    font-family: 'Satoshi-BlackItalic';
+    src: url('./fonts/satoshi/Satoshi-BlackItalic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-BlackItalic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: italic;
 }
 /**
 * This is a variable font
@@ -338,15 +323,37 @@ button {
 'wght' (range from 300.0 to 900.0
 */
 @font-face {
-  font-family: 'Satoshi-VariableItalic';
-  src: url('../fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2'),
-       url('../fonts/satoshi/Satoshi-VariableItalic.woff') format('woff'),
-       url('../fonts/satoshi/Satoshi-VariableItalic.ttf') format('truetype');
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: italic;
+    font-family: 'Satoshi-Variable';
+    src: url('./fonts/satoshi/Satoshi-Variable.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-Variable.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-Variable.ttf') format('truetype');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('./fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2'),
+        url('./fonts/satoshi/Satoshi-VariableItalic.woff') format('woff'),
+        url('./fonts/satoshi/Satoshi-VariableItalic.ttf') format('truetype');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: italic;
 }
 
+.Satoshi-Light{font-family: 'Satoshi-Light'; font-weight: 300;}
+.Satoshi-Regular{font-family: 'Satoshi-Regular'; font-weight: 400;}
+.Satoshi-Medium{font-family: 'Satoshi-Medium'; font-weight: 500;}
+.Satoshi-Bold{font-family: 'Satoshi-Bold'; font-weight: 700;}
+.Satoshi-Black{font-family: 'Satoshi-Black'; font-weight: 900;}
 
 /************************************************ Common CSS **************************************************/
 $darkbg :  #170311;
@@ -357,12 +364,19 @@ $lightheading : #F2EEF2;
 $lightbody : #AAA0AD;
 
 @mixin wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
-
+    padding-left: 100px;
+    padding-right: 100px;
+    @media screen and (max-width:1800px) {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     @media screen and (max-width:1440px) {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    @media screen and (max-width:1280px) {
+        padding-left: 40px;
+        padding-right: 40px;
     }
     @media screen and (max-width:1080px) {
         padding-left: 20px;
@@ -398,7 +412,6 @@ $lightbody : #AAA0AD;
         font-size: 30px;
     }
 }
-
 
 @mixin font64 {
     font-size: 64px;
@@ -511,7 +524,6 @@ $lightbody : #AAA0AD;
     }
 }
 
-
 @mixin font18 {font-size: 18px;
     @media screen and (max-width:1800px) {
         font-size: 16px;
@@ -567,6 +579,11 @@ $fontW900 : 900;
 
 body{
     position: relative;
+    background: $darkbg;
+    font-family: 'Satoshi-Regular';
+    font-weight: 400;
+    &::before{content: ''; left: 30px; top: 0px; width: 1px; height: 100%; border-left: 1px solid rgba(58, 38, 60, 0.2); position: absolute;}
+    &::after{content: ''; right: 30px; top: 0px; width: 1px; height: 100%; border-right: 1px solid rgba(58, 38, 60, 0.2); position: absolute; z-index: 1;}
 }
 
 img {max-width: 100%;}
@@ -606,13 +623,40 @@ button:focus{outline: none;}
     letter-spacing: 0.25px;
 }
 
-@media screen and (max-width:820px) {
-html, body {overflow-x: hidden;}
+.primaryWhiteCTA{color: #000; @include font16; line-height: 140%; background-color: $lightbg; padding: 15px 45px 15px 35px; position: relative; display: inline-block; transition: 0.35s;
+    .peelBox{width: 30px; height: 30px; position: absolute; right: 0; top: 0; background-color: $lightbg; z-index: 1;  transition: 0.35s;
+        &::before{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $darkbg; display: block; transform: rotate(45deg); position: absolute; top: -3px; right: -14px;}
+        &::after{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $darkbg; display: block; transform: rotate(-134deg); position: absolute; bottom: -3px; left: -14px;}
+    }
+    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
+        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
+        &::before {top: 0; right: 0;border-right: 1px solid $lightbg;border-top: 1px solid $lightbg;}
+        &::after {bottom: 0; left: 0;border-left: 1px solid $lightbg;border-bottom: 1px solid $lightbg;}
+    }
+    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
+    &::before {top: 0; left: 0;border-left: 1px solid $lightbg;border-top: 1px solid $lightbg;}
+    &::after {bottom: 0; right: 0;border-right: 1px solid $lightbg;border-bottom: 1px solid $lightbg;}
+    &:hover{color:#ffffff; background-color: transparent;
+        .peelBox{opacity: 0;}
+        .hoverBox{
+            &::before {border-right: 1px solid #ffffff;border-top: 1px solid #ffffff;}
+            &::after {border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
+        }
+        &::before {border-left: 1px solid #ffffff;border-top: 1px solid #ffffff;}
+        &::after {border-right: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
+    }
 }
 
-.fancybox-button{background: #fff;}
-
-.hideScrollbarhtml, .hideScrollbar{overflow: hidden !important;}
-
+.secondaryWhiteCTA{@include font16; padding: 15px 18px; position: relative; color: #ffffff; display: inline-block;
+    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
+        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
+        &::before {top: 0; right: 0;border-right: 1px solid #ffffff;border-top: 1px solid #ffffff;}
+        &::after {bottom: 0; left: 0;border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
+    }
+    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
+    &::before {top: 0; left: 0;border-left: 1px solid #ffffff;border-top: 1px solid #ffffff;}
+    &::after {bottom: 0; right: 0;border-right: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
+    &:hover{color: #ffffff;}
+}
 
 
