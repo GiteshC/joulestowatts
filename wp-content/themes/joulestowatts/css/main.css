@@ -457,33 +457,236 @@ button:focus {
 }
 
 footer {
-  background: white;
-  border: 1px solid red;
+  background: #E4E1DD;
   padding: 135px 0 30px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
 }
 footer .footerWrapper {
   padding: 0 64px;
   display: flex;
   flex-flow: column;
   gap: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  footer .footerWrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  footer .footerWrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 footer .footerWrapper .footerHead {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-bottom: 56px;
+  gap: 115px;
+  position: relative;
+}
+footer .footerWrapper .footerHead h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  footer .footerWrapper .footerHead h2 {
+    font-size: 20px;
+  }
+}
+footer .footerWrapper .footerHead h2 {
+  font-family: "Satoshi-Regular";
+  color: #525454;
+  line-height: 140%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 74%;
+}
+footer .footerWrapper .footerHead a {
+  width: 26%;
+}
+footer .footerWrapper .footerHead::after {
+  content: "";
+  border-bottom: 1px solid rgba(43, 43, 43, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 footer .footerWrapper .footerLinks {
   padding-bottom: 80px;
+  position: relative;
 }
 footer .footerWrapper .footerLinks .linkBoxes {
   display: grid;
   grid-template-columns: auto auto auto;
 }
+footer .footerWrapper .footerLinks .linkBoxes .column p {
+  color: #939393;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column p {
+    font-size: 12px;
+  }
+}
+footer .footerWrapper .footerLinks .linkBoxes .column p {
+  letter-spacing: 5px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links {
+  display: flex;
+  flex-flow: column;
+  gap: 24px;
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+  color: #525454;
+  font-family: "Satoshi-Regular";
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+    font-size: 14px;
+  }
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+  line-height: 170%;
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a .linkGroup {
+  position: relative;
+  overflow: hidden;
+  width: max-content;
+  cursor: pointer;
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a .linkGroup .text-default, footer .footerWrapper .footerLinks .linkBoxes .column .links a .linkGroup .text-hover {
+  transition: transform 0.3s ease-out;
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a .linkGroup .text-hover {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a:hover .text-default {
+  transform: translateY(-100%);
+}
+footer .footerWrapper .footerLinks .linkBoxes .column .links a:hover .text-hover {
+  transform: translateY(0);
+}
+footer .footerWrapper .footerLinks::after {
+  content: "";
+  border-bottom: 1px solid rgba(43, 43, 43, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 footer .footerWrapper .footerlogo .mailBox {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+footer .footerWrapper .footerlogo .mailBox p {
+  color: #525454;
+  font-family: "Satoshi-Regular";
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  footer .footerWrapper .footerlogo .mailBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper .footerlogo .mailBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper .footerlogo .mailBox p {
+    font-size: 14px;
+  }
+}
+footer .footerWrapper .footerlogo .mailBox p {
+  line-height: 170%;
+}
+footer .footerWrapper .footerlogo .mailBox a {
+  font-family: "Satoshi-Regular";
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  footer .footerWrapper .footerlogo .mailBox a {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper .footerlogo .mailBox a {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper .footerlogo .mailBox a {
+    font-size: 14px;
+  }
+}
+footer .footerWrapper .footerlogo .mailBox a {
+  line-height: 170%;
+  color: #525454;
 }
 
 h1 {

@@ -14,94 +14,98 @@
 	<footer>
 		<div class="footerWrapper">
 			<div class="footerHead">
-				<h2>The future belongs to those who scale without losing their truth</h2>
+				<h2>The future belongs to those who scale without losing their truth
+					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
+						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#CC2033"/>
+					</svg>
+				</h2>
 				<a href="http://" target="_blank" >talk to a partner</a>
 			</div>
 			<div class="footerLinks">
 				<div class="linkBoxes">
-					<div class="row">
+					<div class="column">
 						<p>Company</p>
-						<div>
+						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>About</div>
-									<div>About</div>
+								<div class="linkGroup">
+									<div class="text-default">About</div>
+									<div class="text-hover">About</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Leadership</div>
-									<div>Leadership</div>
+								<div class="linkGroup">
+									<div class="text-default">Leadership</div>
+									<div class="text-hover">Leadership</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Careers</div>
-									<div>Careers</div>
+								<div class="linkGroup">
+									<div class="text-default">Careers</div>
+									<div class="text-hover">Careers</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Press</div>
-									<div>Press</div>
+								<div class="linkGroup">
+									<div class="text-default">Press</div>
+									<div class="text-hover">Press</div>
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="row">
+					<div class="column">
 						<p>What we do</p>
-						<div>
+						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Workforce Solutions</div>
-									<div>Workforce Solutions</div>
+								<div class="linkGroup">
+									<div class="text-default" >Workforce Solutions</div>
+									<div class="text-hover">Workforce Solutions</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>AI-First Pods</div>
-									<div>AI-First Pods</div>
+								<div class="linkGroup">
+									<div class="text-default" >AI-First Pods</div>
+									<div class="text-hover">AI-First Pods</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Managed Services</div>
-									<div>Managed Services</div>
+								<div class="linkGroup">
+									<div class="text-default" >Managed Services</div>
+									<div class="text-hover">Managed Services</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>AI Atlas</div>
-									<div>AI Atlas</div>
+								<div class="linkGroup">
+									<div class="text-default" >AI Atlas</div>
+									<div class="text-hover">AI Atlas</div>
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="row">
+					<div class="column">
 						<p>Who we serve</p>
-						<div>
+						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Leadership</div>
-									<div>Leadership</div>
+								<div class="linkGroup">
+									<div class="text-default">Leadership</div>
+									<div class="text-hover">Leadership</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Enterprises</div>
-									<div>Enterprises</div>
+								<div class="linkGroup">
+									<div class="text-default">Enterprises</div>
+									<div class="text-hover">Enterprises</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Investors</div>
-									<div>Investors</div>
+								<div class="linkGroup">
+									<div class="text-default">Investors</div>
+									<div class="text-hover">Investors</div>
 								</div>
 							</a>
 							<a href="http://" target="_blank" rel="noopener noreferrer">
-								<div>
-									<div>Engineers</div>
-									<div>Engineers</div>
+								<div class="linkGroup">
+									<div class="text-default">Engineers</div>
+									<div class="text-hover">Engineers</div>
 								</div>
 							</a>
 						</div>
@@ -114,7 +118,7 @@
 					<a href="mailto:hello@joulestowatts.com">hello@joulestowatts.com</a>
 				</div>
 				<div class="logoBox">
-					<img src="" alt="">
+					<img src="<?php bloginfo('template_directory'); ?>/images/footer-logo.png" alt="">
 				</div>
 			</div>
 		</div>
