@@ -29,8 +29,14 @@
 <header>
 	<div class="logoBox">
 		<a href="#">
-			<img src="">
+			<img src="<?php bloginfo('template_directory');?>/images/logo.png" alt="">
 		</a>
+	</div>
+	<div class="menuBox">
+		<a href="#" class="roboto-mono secondaryWhiteCTA"><span>Talk to a Partner</span>
+			<div class="hoverBox"></div>
+		</a>
+		<nav></nav>
 	</div>
 </header>
 

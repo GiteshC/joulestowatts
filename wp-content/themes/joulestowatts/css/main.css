@@ -1,4 +1,5 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -222,72 +223,79 @@ button {
 }
 
 /************************************************ Fonts **************************************************/
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @font-face {
   font-family: "Satoshi-Light";
-  src: url("../fonts/satoshi/Satoshi-Light.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Light.woff") format("woff"), url("../fonts/satoshi/Satoshi-Light.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Light.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Light.woff") format("woff"), url("./fonts/satoshi/Satoshi-Light.ttf") format("truetype");
   font-weight: 300;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Satoshi-LightItalic";
-  src: url("../fonts/satoshi/Satoshi-LightItalic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-LightItalic.woff") format("woff"), url("../fonts/satoshi/Satoshi-LightItalic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-LightItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-LightItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-LightItalic.ttf") format("truetype");
   font-weight: 300;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
   font-family: "Satoshi-Regular";
-  src: url("../fonts/satoshi/Satoshi-Regular.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Regular.woff") format("woff"), url("../fonts/satoshi/Satoshi-Regular.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Regular.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Regular.woff") format("woff"), url("./fonts/satoshi/Satoshi-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Satoshi-Italic";
-  src: url("../fonts/satoshi/Satoshi-Italic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Italic.woff") format("woff"), url("../fonts/satoshi/Satoshi-Italic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Italic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Italic.woff") format("woff"), url("./fonts/satoshi/Satoshi-Italic.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
   font-family: "Satoshi-Medium";
-  src: url("../fonts/satoshi/Satoshi-Medium.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Medium.woff") format("woff"), url("../fonts/satoshi/Satoshi-Medium.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Medium.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Medium.woff") format("woff"), url("./fonts/satoshi/Satoshi-Medium.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Satoshi-MediumItalic";
-  src: url("../fonts/satoshi/Satoshi-MediumItalic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-MediumItalic.woff") format("woff"), url("../fonts/satoshi/Satoshi-MediumItalic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-MediumItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-MediumItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
   font-family: "Satoshi-Bold";
-  src: url("../fonts/satoshi/Satoshi-Bold.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Bold.woff") format("woff"), url("../fonts/satoshi/Satoshi-Bold.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Bold.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Bold.woff") format("woff"), url("./fonts/satoshi/Satoshi-Bold.ttf") format("truetype");
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Satoshi-BoldItalic";
-  src: url("../fonts/satoshi/Satoshi-BoldItalic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-BoldItalic.woff") format("woff"), url("../fonts/satoshi/Satoshi-BoldItalic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-BoldItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-BoldItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
   font-family: "Satoshi-Black";
-  src: url("../fonts/satoshi/Satoshi-Black.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Black.woff") format("woff"), url("../fonts/satoshi/Satoshi-Black.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Black.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Black.woff") format("woff"), url("./fonts/satoshi/Satoshi-Black.ttf") format("truetype");
   font-weight: 900;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Satoshi-BlackItalic";
-  src: url("../fonts/satoshi/Satoshi-BlackItalic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-BlackItalic.woff") format("woff"), url("../fonts/satoshi/Satoshi-BlackItalic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-BlackItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-BlackItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-BlackItalic.ttf") format("truetype");
   font-weight: 900;
   font-display: swap;
   font-style: italic;
@@ -302,7 +310,7 @@ button {
 */
 @font-face {
   font-family: "Satoshi-Variable";
-  src: url("../fonts/satoshi/Satoshi-Variable.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-Variable.woff") format("woff"), url("../fonts/satoshi/Satoshi-Variable.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-Variable.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Variable.woff") format("woff"), url("./fonts/satoshi/Satoshi-Variable.ttf") format("truetype");
   font-weight: 300 900;
   font-display: swap;
   font-style: normal;
@@ -317,14 +325,61 @@ button {
 */
 @font-face {
   font-family: "Satoshi-VariableItalic";
-  src: url("../fonts/satoshi/Satoshi-VariableItalic.woff2") format("woff2"), url("../fonts/satoshi/Satoshi-VariableItalic.woff") format("woff"), url("../fonts/satoshi/Satoshi-VariableItalic.ttf") format("truetype");
+  src: url("./fonts/satoshi/Satoshi-VariableItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-VariableItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-VariableItalic.ttf") format("truetype");
   font-weight: 300 900;
   font-display: swap;
   font-style: italic;
 }
+.Satoshi-Light {
+  font-family: "Satoshi-Light";
+  font-weight: 300;
+}
+
+.Satoshi-Regular {
+  font-family: "Satoshi-Regular";
+  font-weight: 400;
+}
+
+.Satoshi-Medium {
+  font-family: "Satoshi-Medium";
+  font-weight: 500;
+}
+
+.Satoshi-Bold {
+  font-family: "Satoshi-Bold";
+  font-weight: 700;
+}
+
+.Satoshi-Black {
+  font-family: "Satoshi-Black";
+  font-weight: 900;
+}
+
 /************************************************ Common CSS **************************************************/
 body {
   position: relative;
+  background: #170311;
+  font-family: "Satoshi-Regular";
+  font-weight: 400;
+}
+body::before {
+  content: "";
+  left: 30px;
+  top: 0px;
+  width: 1px;
+  height: 100%;
+  border-left: 1px solid rgba(58, 38, 60, 0.2);
+  position: absolute;
+}
+body::after {
+  content: "";
+  right: 30px;
+  top: 0px;
+  width: 1px;
+  height: 100%;
+  border-right: 1px solid rgba(58, 38, 60, 0.2);
+  position: absolute;
+  z-index: 1;
 }
 
 img {
@@ -443,17 +498,224 @@ button:focus {
   letter-spacing: 0.25px;
 }
 
-@media screen and (max-width: 820px) {
-  html, body {
-    overflow-x: hidden;
+.primaryWhiteCTA {
+  color: #000;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .primaryWhiteCTA {
+    font-size: 14px;
   }
 }
-.fancybox-button {
-  background: #fff;
+@media screen and (max-width: 1440px) {
+  .primaryWhiteCTA {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .primaryWhiteCTA {
+    font-size: 10px;
+  }
+}
+.primaryWhiteCTA {
+  line-height: 140%;
+  background-color: #E4E1DD;
+  padding: 15px 45px 15px 35px;
+  position: relative;
+  display: inline-block;
+  transition: 0.35s;
+}
+.primaryWhiteCTA .peelBox {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #E4E1DD;
+  z-index: 1;
+  transition: 0.35s;
+}
+.primaryWhiteCTA .peelBox::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #170311;
+  display: block;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -3px;
+  right: -14px;
+}
+.primaryWhiteCTA .peelBox::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #170311;
+  display: block;
+  transform: rotate(-134deg);
+  position: absolute;
+  bottom: -3px;
+  left: -14px;
+}
+.primaryWhiteCTA .hoverBox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+.primaryWhiteCTA .hoverBox::before, .primaryWhiteCTA .hoverBox::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.primaryWhiteCTA .hoverBox::before {
+  top: 0;
+  right: 0;
+  border-right: 1px solid #E4E1DD;
+  border-top: 1px solid #E4E1DD;
+}
+.primaryWhiteCTA .hoverBox::after {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #E4E1DD;
+  border-bottom: 1px solid #E4E1DD;
+}
+.primaryWhiteCTA::before, .primaryWhiteCTA::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.primaryWhiteCTA::before {
+  top: 0;
+  left: 0;
+  border-left: 1px solid #E4E1DD;
+  border-top: 1px solid #E4E1DD;
+}
+.primaryWhiteCTA::after {
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid #E4E1DD;
+  border-bottom: 1px solid #E4E1DD;
+}
+.primaryWhiteCTA:hover {
+  color: #ffffff;
+  background-color: transparent;
+}
+.primaryWhiteCTA:hover .peelBox {
+  opacity: 0;
+}
+.primaryWhiteCTA:hover .hoverBox::before {
+  border-right: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+}
+.primaryWhiteCTA:hover .hoverBox::after {
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.primaryWhiteCTA:hover::before {
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+}
+.primaryWhiteCTA:hover::after {
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
 
-.hideScrollbarhtml, .hideScrollbar {
-  overflow: hidden !important;
+.secondaryWhiteCTA {
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .secondaryWhiteCTA {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .secondaryWhiteCTA {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .secondaryWhiteCTA {
+    font-size: 10px;
+  }
+}
+.secondaryWhiteCTA {
+  padding: 15px 18px;
+  position: relative;
+  color: #ffffff;
+  display: inline-block;
+}
+.secondaryWhiteCTA .hoverBox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+.secondaryWhiteCTA .hoverBox::before, .secondaryWhiteCTA .hoverBox::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.secondaryWhiteCTA .hoverBox::before {
+  top: 0;
+  right: 0;
+  border-right: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+}
+.secondaryWhiteCTA .hoverBox::after {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.secondaryWhiteCTA::before, .secondaryWhiteCTA::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.secondaryWhiteCTA::before {
+  top: 0;
+  left: 0;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+}
+.secondaryWhiteCTA::after {
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.secondaryWhiteCTA:hover {
+  color: #ffffff;
+}
+
+header {
+  padding: 20px 80px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 footer {
@@ -467,13 +729,25 @@ footer .footerWrapper {
   display: flex;
   flex-flow: column;
   gap: 70px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  footer .footerWrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1440px) {
   footer .footerWrapper {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 @media screen and (max-width: 1080px) {
@@ -689,6 +963,132 @@ footer .footerWrapper .footerlogo .mailBox a {
   color: #525454;
 }
 
-h1 {
-  color: green;
+.bannerSection {
+  padding-top: 190px;
+  width: 100%;
+  background: url("../images/banner-grid.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bannerSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .bannerSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .bannerSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .bannerSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .bannerSection .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .bannerSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.bannerSection .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.bannerSection .wrapper .bannerContent {
+  width: 75%;
+  text-align: center;
+}
+.bannerSection .wrapper .bannerContent h1 {
+  font-size: 72px;
+}
+@media screen and (max-width: 1800px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 58px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 46px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .bannerSection .wrapper .bannerContent h1 {
+    font-size: 30px;
+  }
+}
+.bannerSection .wrapper .bannerContent h1 {
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+.bannerSection .wrapper .bannerContent p {
+  color: #AAA0AD;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .bannerSection .wrapper .bannerContent p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .bannerSection .wrapper .bannerContent p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .bannerSection .wrapper .bannerContent p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .bannerSection .wrapper .bannerContent p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .bannerSection .wrapper .bannerContent p {
+    font-size: 14px;
+  }
+}
+.bannerSection .wrapper .bannerContent p {
+  line-height: 140%;
+  margin-bottom: 42px;
 }/*# sourceMappingURL=main.css.map */
