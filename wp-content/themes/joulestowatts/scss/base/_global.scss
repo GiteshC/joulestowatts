@@ -364,25 +364,13 @@ $lightheading : #F2EEF2;
 $lightbody : #AAA0AD;
 
 @mixin wrapper {
-    padding-left: 100px;
-    padding-right: 100px;
-    @media screen and (max-width:1800px) {
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-    @media screen and (max-width:1440px) {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
+    padding-left: 30px;
+    padding-right: 30px;
     @media screen and (max-width:1280px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    @media screen and (max-width:1080px) {
         padding-left: 20px;
         padding-right: 20px;
     }
-    @media screen and (max-width:720px) {
+    @media screen and (max-width: 768px) {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -683,4 +671,12 @@ button:focus{outline: none;}
     }
 }
 
-
+.headingIcon{transform: translateX(-20px); animation: blinker 1.5s infinite;
+    @keyframes blinker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    @media screen and (max-width: 1280px) {
+        transform: translateX(-16px);
+    }
+}

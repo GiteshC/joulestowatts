@@ -838,6 +838,24 @@ button:focus {
   border-bottom: 1px solid #000;
 }
 
+.headingIcon {
+  transform: translateX(-20px);
+  animation: blinker 1.5s infinite;
+}
+@keyframes blinker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .headingIcon {
+    transform: translateX(-16px);
+  }
+}
+
 header {
   padding: 20px 80px;
   display: flex;
@@ -862,34 +880,16 @@ footer .footerWrapper {
   display: flex;
   flex-flow: column;
   gap: 70px;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-@media screen and (max-width: 1800px) {
-  footer .footerWrapper {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  footer .footerWrapper {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media screen and (max-width: 1280px) {
-  footer .footerWrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media screen and (max-width: 1080px) {
   footer .footerWrapper {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   footer .footerWrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1102,34 +1102,16 @@ footer .footerWrapper .footerlogo .mailBox a {
   justify-content: center;
 }
 .bannerSection .wrapper {
-  padding-left: 100px;
-  padding-right: 100px;
-}
-@media screen and (max-width: 1800px) {
-  .bannerSection .wrapper {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .bannerSection .wrapper {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media screen and (max-width: 1280px) {
-  .bannerSection .wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media screen and (max-width: 1080px) {
   .bannerSection .wrapper {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .bannerSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1227,34 +1209,16 @@ footer .footerWrapper .footerlogo .mailBox a {
   width: 100%;
 }
 .enterpriseSection .wrapper {
-  padding-left: 100px;
-  padding-right: 100px;
-}
-@media screen and (max-width: 1800px) {
-  .enterpriseSection .wrapper {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .enterpriseSection .wrapper {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media screen and (max-width: 1280px) {
-  .enterpriseSection .wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media screen and (max-width: 1080px) {
   .enterpriseSection .wrapper {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .enterpriseSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1352,34 +1316,16 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding: 0 30px;
 }
 .outcomeSection .secWrapper .secHeading {
-  padding-left: 100px;
-  padding-right: 100px;
-}
-@media screen and (max-width: 1800px) {
-  .outcomeSection .secWrapper .secHeading {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .secHeading {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .secHeading {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media screen and (max-width: 1080px) {
   .outcomeSection .secWrapper .secHeading {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .outcomeSection .secWrapper .secHeading {
     padding-left: 15px;
     padding-right: 15px;

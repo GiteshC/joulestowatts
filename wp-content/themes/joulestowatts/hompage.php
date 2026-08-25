@@ -3,7 +3,11 @@
 <section class="bannerSection">
     <div class="wrapper">
         <div class="bannerContent">
-            <h1 class="roboto-mono">Your Enterprise Truth Amplified</h1>
+            <h1 class="roboto-mono">Your Enterprise Truth Amplified
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
+                    <path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4"/>
+                </svg>
+            </h1>
             <p>We take what already makes your enterprise work and scale it, with AI-native talent, embedded engineers, and outcome-owned enterprise solutions. Built for enterprises and the GCCs that run them.</p>
             <a href="#" class="primaryWhiteCTA roboto-mono"><span>See The Platform</span>
                 <div class="peelBox"></div>
@@ -20,7 +24,11 @@
             <img src="<?php bloginfo('template_directory');?>/images/globe.png" alt="">
         </div>
         <div class="enterpriseContent">
-            <h2 class="roboto-mono">The idea behind Enterprise Truth</h2>
+            <h2 class="roboto-mono">The idea behind Enterprise Truth
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
+                    <path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4"/>
+                </svg>
+            </h2>
             <p>Every great organization has its own recipe for decisions. That is the real source of advantage. We call it your Enterprise Truth, and it cannot be copied. It can only be grown</p>
         </div>
     </div>
@@ -31,7 +39,7 @@
         <div class="secHeading ">
             <div class="headingGroup">
                 <h2 class="roboto-mono">Outcomes, Not Promises
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
 						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4"/>
 					</svg>
                 </h2>

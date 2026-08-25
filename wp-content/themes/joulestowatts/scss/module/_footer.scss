@@ -1,6 +1,6 @@
 @use '../base/_global.scss' as *;
 
-footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px; border-top-right-radius: 32px; 
+footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px; border-top-right-radius: 32px;
     .footerWrapper{padding: 0 64px; display: flex; flex-flow: column; gap: 70px; @include wrapper; 
         .footerHead{display: flex; align-items: center; padding-bottom: 56px; gap: 115px; position: relative;
             h2{@include font48; color: $darkbody; line-height: 140%; letter-spacing: 2px; text-transform: uppercase; width: 74%; }
