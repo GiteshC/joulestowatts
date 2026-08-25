@@ -51,23 +51,49 @@
                 <p>Three things you can buy, running on one operating model. Take them together as a platform, or take the one you need.</p>
             </div>
             <div class="headerCTA">
-                <a href="#" class="roboto-mono secondaryBlackCTA"><span>How it Works</span>
+                <a href="#" class="roboto-mono secondaryBlackCTA">
+                    <span class="boxIcon"></span>
+                    <span class="hoverTxt">How it Works</span>
                     <div class="hoverBox"></div>
                 </a>
             </div>
         </div>
         <div class="whatwedoContent">
-            <div class="contentBox">
+            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg">
                 <h3 class="roboto-mono">Greenfield ODC setup</h3>
                 <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
             </div>
-            <div class="contentBox">
+            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-2.jpg">
                 <h3 class="roboto-mono">Talent at scale</h3>
                 <p>Engineers and functional specialists who know your industry, ramped fast, run as a managed team. Roughly half of what we run is functional.</p>
             </div>
-            <div class="contentBox">
+            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-3.jpg">
                 <h3 class="roboto-mono">Enterprise AI solutions</h3>
                 <p>AI where it earns its place, and engineering where it does not. Two tracks, one delivery model, outcome-bound either way.</p>
+            </div>
+
+            <div class="hoverFollowImage">
+                <img src="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg" alt="">
+            </div>
+        </div>
+        <div class="counterSection">
+            <div class="counterBox">
+                <div class="counter">
+                    <h4 class="roboto-mono">1000</h4>
+                    <p>GCCs enabled</p>
+                </div>
+                <div class="counter">
+                    <h4 class="roboto-mono">2000</h4>
+                    <p>Enterprise clients served</p>
+                </div>
+                <div class="counter">
+                    <h4 class="roboto-mono">5,500+</h4>
+                    <p>Professionals deployed</p>
+                </div>
+                <div class="counter">
+                    <h4 class="roboto-mono">150+</h4>
+                    <p>AI ACCELERATORS</p>
+                </div>
             </div>
         </div>
     </div>

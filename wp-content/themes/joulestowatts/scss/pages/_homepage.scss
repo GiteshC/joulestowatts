@@ -2,7 +2,7 @@
 
 .bannerSection{padding-top: 190px; width: 100%; background: url('../images/banner-grid.png') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center;
     .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center; flex-flow: wrap;
-        .bannerContent{width: 75%; text-align: center;
+        .bannerContent{width: 65%; text-align: center;
             h1{@include font72; margin-bottom: 20px; line-height: 1.2; color: #ffffff;}
             p{color: #AAA0AD; @include font24; line-height: 140%; margin-bottom: 42px;}
         }
@@ -23,7 +23,7 @@
     }
 }
 
-.whatwedoSection{margin-bottom: 200px; padding: 200px 0; background: #E4E1DD; border-radius: 32px;
+.whatwedoSection{margin-bottom: 200px; padding: 200px 0 50px; background: #E4E1DD; border-radius: 32px;
     .wrapper{@include wrapper;
         .secHeading{display: flex; align-items: center; justify-content: space-between; padding: 0px 70px; margin-bottom: 64px;
             .headingGroup{
@@ -32,8 +32,8 @@
             }
             .headerCTA{}
         }
-        .whatwedoContent{
-            .contentBox{display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; padding: 56px 70px; position: relative;
+        .whatwedoContent{position: relative; margin-bottom: 200px;
+            .contentBox{display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; padding: 56px 70px; position: relative; cursor: pointer;
                 &::before{content: ''; position: absolute; bottom: 0; left: 0; right: 0; background: #B0B0B0; height: 1px; width: 100%; transition: width 2s ease;}
                 h3{@include font56; color: $darkheading; line-height: 140%; text-transform: uppercase; width: 50%; transition: color 0.5s ease;}
                 p{width: 50%; color: $darkbody; @include font24; line-height: 140%;}
@@ -41,6 +41,22 @@
                 &:hover{
                     h3{color: #00ACB4;}
                     &::before{width: 0;}
+                }
+            }
+            .hoverFollowImage{position: fixed; top: 0; left: 0; width: 280px; height: 180px; pointer-events: none; z-index: 40; opacity: 0; overflow: hidden; border-radius: 6px; transform: translate(-50%, -50%) scale(0.85); will-change: transform, opacity;
+                img{width: 100%; height: 100%; object-fit: cover; display: block;}
+                &.is-active{opacity: 1;}
+            }
+            @media screen and (max-width: 991px){
+                .hoverFollowImage{display: none;}
+            }
+        }
+        .counterSection{border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; padding: 42px 0;
+            .counterBox{display: grid; grid-template-columns: repeat(4, 1fr); justify-content: space-between; align-items: center; border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; padding: 20px 0;
+                .counter{border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; border-right: 1px solid #CBCBCB; padding: 56px 0 56px 46px;
+                    h4{@include font56; color: $darkheading; margin-bottom: 10px;}
+                    p{color: $darkbody; @include font20; line-height: 140%;}
+                    &:last-child{border-right: none;}
                 }
             }
         }

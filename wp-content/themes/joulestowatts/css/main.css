@@ -653,7 +653,31 @@ button:focus {
   padding: 15px 18px;
   position: relative;
   color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+}
+.secondaryWhiteCTA span {
   display: inline-block;
+  transition: 0.35s;
+  transform: translateX(-8px);
+}
+.secondaryWhiteCTA .boxIcon {
+  width: 8px;
+  height: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: 0.35s;
+  background: #1B98A0;
+}
+.secondaryWhiteCTA .boxIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .secondaryWhiteCTA .hoverBox {
   width: 100%;
@@ -703,6 +727,13 @@ button:focus {
 }
 .secondaryWhiteCTA:hover {
   color: #ffffff;
+}
+.secondaryWhiteCTA:hover span {
+  transform: translateX(6px);
+}
+.secondaryWhiteCTA:hover .boxIcon {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .primaryBlackCTA {
@@ -860,7 +891,31 @@ button:focus {
   padding: 15px 18px;
   position: relative;
   color: #181818;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+}
+.secondaryBlackCTA span {
   display: inline-block;
+  transition: 0.35s;
+  transform: translateX(-8px);
+}
+.secondaryBlackCTA .boxIcon {
+  width: 8px;
+  height: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: 0.35s;
+  background: #1B98A0;
+}
+.secondaryBlackCTA .boxIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .secondaryBlackCTA .hoverBox {
   width: 100%;
@@ -911,6 +966,13 @@ button:focus {
 .secondaryBlackCTA:hover {
   color: #181818;
 }
+.secondaryBlackCTA:hover span {
+  transform: translateX(6px);
+}
+.secondaryBlackCTA:hover .boxIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 .headingIcon {
   transform: translateX(-20px);
@@ -941,6 +1003,12 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
+}
+header.scrolled {
+  border-radius: 4px;
+  border-bottom: 1px solid #2B2B2B;
+  background: rgba(89, 89, 89, 0.1);
+  backdrop-filter: blur(50px);
 }
 
 footer {
@@ -1198,7 +1266,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   flex-flow: wrap;
 }
 .bannerSection .wrapper .bannerContent {
-  width: 75%;
+  width: 65%;
   text-align: center;
 }
 .bannerSection .wrapper .bannerContent h1 {
@@ -1419,7 +1487,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 
 .whatwedoSection {
   margin-bottom: 200px;
-  padding: 200px 0;
+  padding: 200px 0 50px;
   background: #E4E1DD;
   border-radius: 32px;
 }
@@ -1516,6 +1584,10 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+.whatwedoSection .wrapper .whatwedoContent {
+  position: relative;
+  margin-bottom: 200px;
+}
 .whatwedoSection .wrapper .whatwedoContent .contentBox {
   display: flex;
   flex-flow: wrap;
@@ -1523,6 +1595,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: center;
   padding: 56px 70px;
   position: relative;
+  cursor: pointer;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
   content: "";
@@ -1608,6 +1681,111 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox:hover::before {
   width: 0;
+}
+.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 180px;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  transform: translate(-50%, -50%) scale(0.85);
+  will-change: transform, opacity;
+}
+.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage.is-active {
+  opacity: 1;
+}
+@media screen and (max-width: 991px) {
+  .whatwedoSection .wrapper .whatwedoContent .hoverFollowImage {
+    display: none;
+  }
+}
+.whatwedoSection .wrapper .counterSection {
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+  padding: 42px 0;
+}
+.whatwedoSection .wrapper .counterSection .counterBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+  padding: 20px 0;
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter {
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+  border-right: 1px solid #CBCBCB;
+  padding: 56px 0 56px 46px;
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  font-size: 56px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 24px;
+  }
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  color: #181818;
+  margin-bottom: 10px;
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter p {
+  color: #525454;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+    font-size: 14px;
+  }
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter p {
+  line-height: 140%;
+}
+.whatwedoSection .wrapper .counterSection .counterBox .counter:last-child {
+  border-right: none;
 }
 
 .outcomeSection {

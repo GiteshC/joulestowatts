@@ -635,7 +635,13 @@ button:focus{outline: none;}
     }
 }
 
-.secondaryWhiteCTA{@include font16; padding: 15px 18px; position: relative; color: #ffffff; display: inline-block;
+.secondaryWhiteCTA{@include font16; padding: 15px 18px; position: relative; color: #ffffff; display: inline-flex; align-items: center; overflow: hidden;
+    span{display: inline-block; transition: 0.35s; transform: translateX(-8px);}
+    .boxIcon{width: 8px; height: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 5px; opacity: 0; transform: translateX(-8px); transition: 0.35s; background: #1B98A0;
+        svg{width: 100%; height: 100%; display: block;}
+    }
+    // .boxicon{width: 10px; height: 10px;  display: inline-block; margin-right: 10px; opacity: 1;}
+    // .hoverTxt{transform: translateX(-10px);}
     .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
         &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
         &::before {top: 0; right: 0;border-right: 1px solid #ffffff;border-top: 1px solid #ffffff;}
@@ -644,7 +650,10 @@ button:focus{outline: none;}
     &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
     &::before {top: 0; left: 0;border-left: 1px solid #ffffff;border-top: 1px solid #ffffff;}
     &::after {bottom: 0; right: 0;border-right: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
-    &:hover{color: #ffffff;}
+    &:hover{color: #ffffff;
+        span{transform: translateX(6px);}
+        .boxIcon{opacity: 1; transform: translateX(0);}
+    }
 }
 
 .primaryBlackCTA{color: #fff; @include font16; line-height: 140%; background-color: $darkbg; padding: 15px 45px 15px 35px; position: relative; display: inline-block; transition: 0.35s;
@@ -671,7 +680,13 @@ button:focus{outline: none;}
     }
 }
 
-.secondaryBlackCTA{@include font16; padding: 15px 18px; position: relative; color: #181818; display: inline-block;
+.secondaryBlackCTA{@include font16; padding: 15px 18px; position: relative; color: #181818; display: inline-flex; align-items: center; overflow: hidden;
+    span{display: inline-block; transition: 0.35s; transform: translateX(-8px);}
+    .boxIcon{width: 8px; height: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 5px; opacity: 0; transform: translateX(-8px); transition: 0.35s; background: #1B98A0;
+        svg{width: 100%; height: 100%; display: block;}
+    }
+    // .boxicon{width: 10px; height: 10px;  display: inline-block; margin-right: 10px; opacity: 1;}
+    // .hoverTxt{transform: translateX(-10px);}
     .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
         &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
         &::before {top: 0; right: 0;border-right: 1px solid #181818;border-top: 1px solid #181818;}
@@ -680,7 +695,10 @@ button:focus{outline: none;}
     &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
     &::before {top: 0; left: 0;border-left: 1px solid #181818;border-top: 1px solid #181818;}
     &::after {bottom: 0; right: 0;border-right: 1px solid #181818;border-bottom: 1px solid #181818;}
-    &:hover{color: #181818;}
+    &:hover{color: #181818;
+        span{transform: translateX(6px);}
+        .boxIcon{opacity: 1; transform: translateX(0);}
+    }
 }
 
 .headingIcon{transform: translateX(-20px); animation: blinker 1.5s infinite;

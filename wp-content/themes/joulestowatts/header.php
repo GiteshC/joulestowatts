@@ -33,7 +33,9 @@
 		</a>
 	</div>
 	<div class="menuBox">
-		<a href="#" class="roboto-mono secondaryWhiteCTA"><span>Talk to a Partner</span>
+		<a href="#" class="roboto-mono secondaryWhiteCTA">
+			<span class="boxIcon"></span>
+			<span class="hoverTxt">Talk to a Partner</span>
 			<div class="hoverBox"></div>
 		</a>
 		<nav></nav>

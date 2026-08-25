@@ -1,3 +1,15 @@
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.create({
+    start: "150% top",
+    onEnter: () => {
+        document.querySelector("header").classList.add("scrolled");
+    },
+    onLeaveBack: () => {
+        document.querySelector("header").classList.remove("scrolled");
+    }
+});
+
 ( function () {
 	'use strict';
 
@@ -42,5 +54,63 @@
 				{ opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' },
 				'-=0.75'
 			);
+	} );
+} )();
+
+// What We Do — cursor-follow image reveal, one floating image swapped/moved
+// as the user hovers each .contentBox (same pattern as Agilitas's
+// "Where to next / Keep moving" section).
+( function () {
+	'use strict';
+
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var wrap = document.querySelector( '.whatwedoContent' );
+
+		if ( ! wrap ) {
+			return;
+		}
+
+		var followImage = wrap.querySelector( '.hoverFollowImage' );
+		var followImgTag = followImage ? followImage.querySelector( 'img' ) : null;
+		var boxes = wrap.querySelectorAll( '.contentBox' );
+
+		if ( ! followImage || ! followImgTag || ! boxes.length ) {
+			return;
+		}
+
+		var hasGsap = typeof gsap !== 'undefined';
+		var moveX, moveY;
+
+		if ( hasGsap ) {
+			moveX = gsap.quickTo( followImage, 'x', { duration: 0.5, ease: 'power3' } );
+			moveY = gsap.quickTo( followImage, 'y', { duration: 0.5, ease: 'power3' } );
+		}
+
+		function positionImage( e ) {
+			if ( hasGsap ) {
+				moveX( e.clientX );
+				moveY( e.clientY );
+			} else {
+				followImage.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
+			}
+		}
+
+		boxes.forEach( function ( box ) {
+			var imgSrc = box.getAttribute( 'data-hover-img' );
+
+			box.addEventListener( 'mouseenter', function ( e ) {
+				if ( imgSrc ) {
+					followImgTag.src = imgSrc;
+				}
+				followImage.classList.add( 'is-active' );
+				positionImage( e );
+			} );
+
+			box.addEventListener( 'mousemove', positionImage );
+
+			box.addEventListener( 'mouseleave', function () {
+				followImage.classList.remove( 'is-active' );
+			} );
+		} );
 	} );
 } )();
