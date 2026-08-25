@@ -838,6 +838,80 @@ button:focus {
   border-bottom: 1px solid #000;
 }
 
+.secondaryBlackCTA {
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .secondaryBlackCTA {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .secondaryBlackCTA {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .secondaryBlackCTA {
+    font-size: 10px;
+  }
+}
+.secondaryBlackCTA {
+  padding: 15px 18px;
+  position: relative;
+  color: #181818;
+  display: inline-block;
+}
+.secondaryBlackCTA .hoverBox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+.secondaryBlackCTA .hoverBox::before, .secondaryBlackCTA .hoverBox::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.secondaryBlackCTA .hoverBox::before {
+  top: 0;
+  right: 0;
+  border-right: 1px solid #181818;
+  border-top: 1px solid #181818;
+}
+.secondaryBlackCTA .hoverBox::after {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #181818;
+  border-bottom: 1px solid #181818;
+}
+.secondaryBlackCTA::before, .secondaryBlackCTA::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  transition: 0.35s;
+  position: absolute;
+}
+.secondaryBlackCTA::before {
+  top: 0;
+  left: 0;
+  border-left: 1px solid #181818;
+  border-top: 1px solid #181818;
+}
+.secondaryBlackCTA::after {
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid #181818;
+  border-bottom: 1px solid #181818;
+}
+.secondaryBlackCTA:hover {
+  color: #181818;
+}
+
 .headingIcon {
   transform: translateX(-20px);
   animation: blinker 1.5s infinite;
@@ -1207,6 +1281,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 .enterpriseSection {
   margin-top: 200px;
   width: 100%;
+  margin-bottom: 200px;
 }
 .enterpriseSection .wrapper {
   padding-left: 30px;
@@ -1307,6 +1382,232 @@ footer .footerWrapper .footerlogo .mailBox a {
 .enterpriseSection .wrapper .enterpriseContent p {
   line-height: 140%;
   margin-bottom: 42px;
+}
+.enterpriseSection .enterpriseAnim {
+  text-align: center;
+}
+.enterpriseSection .enterpriseAnim .enterpriseimg {
+  margin-bottom: 50px;
+}
+.enterpriseSection .enterpriseAnim p {
+  color: #AAA0AD;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .enterpriseSection .enterpriseAnim p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection .enterpriseAnim p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .enterpriseSection .enterpriseAnim p {
+    font-size: 14px;
+  }
+}
+.enterpriseSection .enterpriseAnim p {
+  width: 48%;
+  margin: 0 auto;
+  line-height: 154%;
+}
+.enterpriseSection .enterpriseAnim img {
+  margin: 0 auto;
+}
+
+.whatwedoSection {
+  margin-bottom: 200px;
+  padding: 200px 0;
+  background: #E4E1DD;
+  border-radius: 32px;
+}
+.whatwedoSection .wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .whatwedoSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.whatwedoSection .wrapper .secHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 70px;
+  margin-bottom: 64px;
+}
+.whatwedoSection .wrapper .secHeading .headingGroup h2 {
+  color: #181818;
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    font-size: 20px;
+  }
+}
+.whatwedoSection .wrapper .secHeading .headingGroup h2 {
+  line-height: 140%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.whatwedoSection .wrapper .secHeading .headingGroup p {
+  line-height: 140%;
+  color: #525454;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 14px;
+  }
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 56px 70px;
+  position: relative;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #B0B0B0;
+  height: 1px;
+  width: 100%;
+  transition: width 2s ease;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+  font-size: 56px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 24px;
+  }
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+  color: #181818;
+  line-height: 140%;
+  text-transform: uppercase;
+  width: 50%;
+  transition: color 0.5s ease;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  width: 50%;
+  color: #525454;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+    font-size: 14px;
+  }
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  line-height: 140%;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox:hover h3 {
+  color: #00ACB4;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox:hover::before {
+  width: 0;
 }
 
 .outcomeSection {

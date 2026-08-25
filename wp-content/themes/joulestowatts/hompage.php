@@ -32,6 +32,45 @@
             <p>Every great organization has its own recipe for decisions. That is the real source of advantage. We call it your Enterprise Truth, and it cannot be copied. It can only be grown</p>
         </div>
     </div>
+    <div class="enterpriseAnim">
+        <img src="<?php bloginfo('template_directory');?>/images/enterprise.png" class="enterpriseimg" alt="">
+        <p>As the enterprise grows It has to travel across people, through process, and into new technology The tribal knowledge that made the work exceptional is the first thing to thin</p>
+        <img src="<?php bloginfo('template_directory');?>/images/enterprise-seprator.png" alt="">
+    </div>
+</section>
+
+<section class="whatwedoSection">
+    <div class="wrapper">
+        <div class="secHeading">
+            <div class="headingGroup">
+                <h2 class="roboto-mono">What We Do
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
+                        <path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#CC2033"/>
+                    </svg>
+                </h2>
+                <p>Three things you can buy, running on one operating model. Take them together as a platform, or take the one you need.</p>
+            </div>
+            <div class="headerCTA">
+                <a href="#" class="roboto-mono secondaryBlackCTA"><span>How it Works</span>
+                    <div class="hoverBox"></div>
+                </a>
+            </div>
+        </div>
+        <div class="whatwedoContent">
+            <div class="contentBox">
+                <h3 class="roboto-mono">Greenfield ODC setup</h3>
+                <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
+            </div>
+            <div class="contentBox">
+                <h3 class="roboto-mono">Talent at scale</h3>
+                <p>Engineers and functional specialists who know your industry, ramped fast, run as a managed team. Roughly half of what we run is functional.</p>
+            </div>
+            <div class="contentBox">
+                <h3 class="roboto-mono">Enterprise AI solutions</h3>
+                <p>AI where it earns its place, and engineering where it does not. Two tracks, one delivery model, outcome-bound either way.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="outcomeSection">
