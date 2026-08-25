@@ -856,6 +856,8 @@ footer {
   padding: 135px 0 30px;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
+  z-index: 101;
+  position: relative;
 }
 footer .footerWrapper {
   padding: 0 64px;

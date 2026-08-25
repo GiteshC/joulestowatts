@@ -20,7 +20,17 @@
             <div class="headingGroup">
                 <h2 class="roboto-mono">Outcomes, Not Promises
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
-						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4"/>
+                        <style>
+                            .blink-element {
+                            animation: blinker 1.5s infinite;
+                            }
+                            
+                            @keyframes blinker {
+                            0%, 100% { opacity: 1; }
+                            50% { opacity: 0; }
+                            }
+                        </style>                    
+						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4" class="blink-element"/>
 					</svg>
                 </h2>
                 <p class="Satoshi-Regular">A few representative outcomes. Real, anonymized, and measured against a baseline.</p>
@@ -41,7 +51,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-1.png" alt="">
+                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-2.png" alt="">
                 <div class="contentBox">
                     <h5 class="roboto-mono">AI DATA & BFSI</h5>
                     <div class="bottomContent">
@@ -51,7 +61,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-1.png" alt="">
+                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-3.png" alt="">
                 <div class="contentBox">
                     <h5 class="roboto-mono">AI & DATA, RENEWABLE ENERGY</h5>
                     <div class="bottomContent">
@@ -61,7 +71,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-1.png" alt="">
+                <img src="<?php bloginfo('template_directory'); ?>/images/outcome-card-4.png" alt="">
                 <div class="contentBox">
                     <h5 class="roboto-mono">TRANSFORMATION, INDIAN BANK</h5>
                     <div class="bottomContent">
