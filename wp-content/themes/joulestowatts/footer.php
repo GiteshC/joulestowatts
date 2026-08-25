@@ -15,7 +15,7 @@
 		<div class="footerWrapper">
 			<div class="footerHead">
 				<h2 class="roboto-mono">The future belongs to those who scale without losing their truth
-					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
+					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
 						<path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#CC2033"/>
 					</svg>
 				</h2>
@@ -130,8 +130,12 @@
 </div><!-- #page -->
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
 
 <?php wp_footer(); ?>
 
