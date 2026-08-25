@@ -14,4 +14,16 @@
     </div>
 </section>
 
+<section class="enterpriseSection">
+    <div class="wrapper">
+        <div class="globeEffect">
+            <img src="<?php bloginfo('template_directory');?>/images/globe.png" alt="">
+        </div>
+        <div class="enterpriseContent">
+            <h2 class="roboto-mono">The idea behind Enterprise Truth</h2>
+            <p>Every great organization has its own recipe for decisions. That is the real source of advantage. We call it your Enterprise Truth, and it cannot be copied. It can only be grown</p>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>

@@ -846,4 +846,127 @@ header {
 .bannerSection .wrapper .bannerContent p {
   line-height: 140%;
   margin-bottom: 42px;
+}
+
+.enterpriseSection {
+  margin-top: 200px;
+  width: 100%;
+}
+.enterpriseSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .enterpriseSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .enterpriseSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .enterpriseSection .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .enterpriseSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.enterpriseSection .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.enterpriseSection .wrapper .enterpriseContent {
+  width: 70%;
+  text-align: center;
+  margin-top: -250px;
+}
+.enterpriseSection .wrapper .enterpriseContent h2 {
+  width: 70%;
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    font-size: 20px;
+  }
+}
+.enterpriseSection .wrapper .enterpriseContent h2 {
+  margin: 0 auto 24px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.enterpriseSection .wrapper .enterpriseContent p {
+  color: #AAA0AD;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 14px;
+  }
+}
+.enterpriseSection .wrapper .enterpriseContent p {
+  line-height: 140%;
+  margin-bottom: 42px;
 }/*# sourceMappingURL=main.css.map */

@@ -17,8 +17,12 @@
 </div><!-- #page -->
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slick.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
 
 <?php wp_footer(); ?>
 

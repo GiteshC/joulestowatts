@@ -8,3 +8,12 @@
         }
     }
 }
+
+.enterpriseSection{margin-top: 200px; width: 100%;
+    .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center; flex-flow: wrap;
+        .enterpriseContent{width: 70%; text-align: center; margin-top: -250px;
+            h2{width: 70%; @include font48; margin: 0 auto 24px; line-height: 1.2; color: #ffffff; text-transform: uppercase;}
+            p{color: #AAA0AD; @include font24; line-height: 140%; margin-bottom: 42px;}
+        }
+    }
+}
