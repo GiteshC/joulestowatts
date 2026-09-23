@@ -222,159 +222,59 @@ button {
 }
 
 /************************************************ Fonts **************************************************/
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-.roboto-mono {font-family: "Roboto Mono", monospace;font-optical-sizing: auto;font-weight: 400;font-style: normal;}
-@font-face {
-    font-family: 'Satoshi-Light';
-    src: url('./fonts/satoshi/Satoshi-Light.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Light.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Satoshi-LightItalic';
-    src: url('./fonts/satoshi/Satoshi-LightItalic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-LightItalic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-display: swap;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Satoshi-Regular';
-    src: url('./fonts/satoshi/Satoshi-Regular.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Regular.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Satoshi-Italic';
-    src: url('./fonts/satoshi/Satoshi-Italic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Italic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-display: swap;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Satoshi-Medium';
-    src: url('./fonts/satoshi/Satoshi-Medium.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Medium.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Satoshi-MediumItalic';
-    src: url('./fonts/satoshi/Satoshi-MediumItalic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-MediumItalic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-display: swap;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Satoshi-Bold';
-    src: url('./fonts/satoshi/Satoshi-Bold.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Bold.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Satoshi-BoldItalic';
-    src: url('./fonts/satoshi/Satoshi-BoldItalic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-BoldItalic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-BoldItalic.ttf') format('truetype');
-    font-weight: 700;
-    font-display: swap;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Satoshi-Black';
-    src: url('./fonts/satoshi/Satoshi-Black.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Black.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Satoshi-BlackItalic';
-    src: url('./fonts/satoshi/Satoshi-BlackItalic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-BlackItalic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-display: swap;
-    font-style: italic;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 900.0;
-*
-* available axes:
-'wght' (range from 300.0 to 900.0
-*/
-@font-face {
-    font-family: 'Satoshi-Variable';
-    src: url('./fonts/satoshi/Satoshi-Variable.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-Variable.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-Variable.ttf') format('truetype');
-    font-weight: 300 900;
-    font-display: swap;
-    font-style: normal;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 900.0;
-*
-* available axes:
-'wght' (range from 300.0 to 900.0
-*/
-@font-face {
-    font-family: 'Satoshi-VariableItalic';
-    src: url('./fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2'),
-        url('./fonts/satoshi/Satoshi-VariableItalic.woff') format('woff'),
-        url('./fonts/satoshi/Satoshi-VariableItalic.ttf') format('truetype');
-    font-weight: 300 900;
-    font-display: swap;
-    font-style: italic;
-}
-
-.Satoshi-Light{font-family: 'Satoshi-Light'; font-weight: 300;}
-.Satoshi-Regular{font-family: 'Satoshi-Regular'; font-weight: 400;}
-.Satoshi-Medium{font-family: 'Satoshi-Medium'; font-weight: 500;}
-.Satoshi-Bold{font-family: 'Satoshi-Bold'; font-weight: 700;}
-.Satoshi-Black{font-family: 'Satoshi-Black'; font-weight: 900;}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.manrope {font-family: "Manrope", sans-serif;font-optical-sizing: auto;font-style: normal;}
+.poppins {font-family: "Poppins", sans-serif; font-style: normal;}
 
 /************************************************ Common CSS **************************************************/
-$darkbg :  #170311;
-$lightbg : #E4E1DD;
+$darkbg :  #210214;
+$lightbg : #ffffff;
 $darkheading: #181818;
 $darkbody : #525454;
-$lightheading : #F2EEF2;
-$lightbody : #AAA0AD;
+$lightbody : #D9D9D9;
+@mixin Gradienthighlight {background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);}
 
 @mixin wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    @media screen and (max-width:1440px) {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     @media screen and (max-width:1280px) {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
     @media screen and (max-width: 768px) {
         padding-left: 15px;
         padding-right: 15px;
     }
 } 
+
+@mixin font100 {
+    font-size: 100px;
+    @media screen and (max-width:1800px) {
+        font-size: 80px;
+    }
+    @media screen and (max-width:1600px) {
+        font-size: 52px;
+    }
+    @media screen and (max-width: 1440px) {
+        font-size: 46px;
+    }
+    @media screen and (max-width: 1280px) {
+        font-size: 40px;
+    }
+    @media screen and (max-width:1024px) {
+        font-size: 36px;
+    }
+    @media screen and (max-width:820px) {
+        font-size: 32px;
+    }
+    @media screen and (max-width:720px) {
+        font-size: 30px;
+    }
+}
 
 @mixin font72 {
     font-size: 72px;
@@ -398,44 +298,6 @@ $lightbody : #AAA0AD;
     }
     @media screen and (max-width:720px) {
         font-size: 30px;
-    }
-}
-
-@mixin font64 {
-    font-size: 64px;
-    @media screen and (max-width:1800px) {
-        font-size: 54px;
-    }
-    @media screen and (max-width:1600px) {
-        font-size: 48px;
-    }
-    @media screen and (max-width: 1440px) {
-        font-size: 46px;
-    }
-    @media screen and (max-width: 1280px) {
-        font-size: 40px;
-    }
-    @media screen and (max-width:720px) {
-        font-size: 32px;
-    }
-}
-
-@mixin font56 {
-    font-size: 56px;
-    @media screen and (max-width:1800px) {
-        font-size:  52px;
-    }
-    @media screen and (max-width:1600px) {
-        font-size: 44px;
-    }
-    @media screen and (max-width: 1440px) {
-        font-size: 42px;
-    }
-    @media screen and (max-width: 1280px) {
-        font-size: 36px;
-    }
-    @media screen and (max-width:720px) {
-        font-size: 24px;
     }
 }
 
@@ -554,25 +416,7 @@ $lightbody : #AAA0AD;
     }
 }
 
-
-$fontW100 : 100;
-$fontW200 : 200;
-$fontW300 : 300;
-$fontW400 : 400;
-$fontW500 : 500;
-$fontW600 : 600;
-$fontW700 : 700;
-$fontW800 : 800;
-$fontW900 : 900;
-
-body{
-    position: relative;
-    background: $darkbg;
-    font-family: 'Satoshi-Regular';
-    font-weight: 400;
-    &::before{content: ''; left: 30px; top: 0px; width: 1px; height: 100%; border-left: 1px solid rgba(58, 38, 60, 0.2); position: absolute;}
-    &::after{content: ''; right: 30px; top: 0px; width: 1px; height: 100%; border-right: 1px solid rgba(58, 38, 60, 0.2); position: absolute; z-index: 1;}
-}
+body{position: relative; background: $darkbg; font-family: "Poppins", sans-serif; font-weight: 400;}
 
 img {max-width: 100%;}
 .slick-track {display: flex !important;}
@@ -582,7 +426,7 @@ button:focus{outline: none;}
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: 636363;
-    font-weight: $fontW400;
+    font-weight: 400;
     @include font16;
     letter-spacing: 0.25px;
 }
@@ -590,7 +434,7 @@ button:focus{outline: none;}
 ::-moz-placeholder {
     /* Firefox 19+ */
     color: 636363;
-    font-weight: $fontW400;
+    font-weight: 400;
     @include font16;
     letter-spacing: 0.25px;
 }
@@ -598,7 +442,7 @@ button:focus{outline: none;}
 :-ms-input-placeholder {
     /* IE 10+ */
     color: 636363;
-    font-weight: $fontW400;
+    font-weight: 400;
     @include font16;
     letter-spacing: 0.25px;
 }
@@ -606,98 +450,26 @@ button:focus{outline: none;}
 :-moz-placeholder {
     /* Firefox 18- */
     color: 636363;
-    font-weight: $fontW400;
+    font-weight: 400;
     @include font16;
     letter-spacing: 0.25px;
 }
 
-.primaryWhiteCTA{color: #000; @include font16; line-height: 140%; background-color: $lightbg; padding: 15px 45px 15px 35px; position: relative; display: inline-block; transition: 0.35s;
-    .peelBox{width: 30px; height: 30px; position: absolute; right: 0; top: 0; background-color: $lightbg; z-index: 1;  transition: 0.35s;
-        &::before{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $darkbg; display: block; transform: rotate(45deg); position: absolute; top: -3px; right: -14px;}
-        &::after{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $darkbg; display: block; transform: rotate(-134deg); position: absolute; bottom: -3px; left: -14px;}
-    }
-    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
-        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-        &::before {top: 0; right: 0;border-right: 1px solid $lightbg;border-top: 1px solid $lightbg;}
-        &::after {bottom: 0; left: 0;border-left: 1px solid $lightbg;border-bottom: 1px solid $lightbg;}
-    }
-    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-    &::before {top: 0; left: 0;border-left: 1px solid $lightbg;border-top: 1px solid $lightbg;}
-    &::after {bottom: 0; right: 0;border-right: 1px solid $lightbg;border-bottom: 1px solid $lightbg;}
-    &:hover{color:#ffffff; background-color: transparent;
-        .peelBox{opacity: 0;}
-        .hoverBox{
-            &::before {border-right: 1px solid #ffffff;border-top: 1px solid #ffffff;}
-            &::after {border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
-        }
-        &::before {border-left: 1px solid #ffffff;border-top: 1px solid #ffffff;}
-        &::after {border-right: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
-    }
-}
-
-.secondaryWhiteCTA{@include font16; padding: 15px 18px; position: relative; color: #ffffff; display: inline-flex; align-items: center; overflow: hidden;
-    span{display: inline-block; transition: 0.35s; transform: translateX(-8px);}
-    .boxIcon{width: 8px; height: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 5px; opacity: 0; transform: translateX(-8px); transition: 0.35s; background: #1B98A0;
+.primaryWhiteCTA{border: 1px solid #2B2B2B; background: #00ACB4; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
+    .arrowBox{transition: 0.35s; width: 24px; height: 24px;
         svg{width: 100%; height: 100%; display: block;}
     }
-    // .boxicon{width: 10px; height: 10px;  display: inline-block; margin-right: 10px; opacity: 1;}
-    // .hoverTxt{transform: translateX(-10px);}
-    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
-        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-        &::before {top: 0; right: 0;border-right: 1px solid #ffffff;border-top: 1px solid #ffffff;}
-        &::after {bottom: 0; left: 0;border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
-    }
-    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-    &::before {top: 0; left: 0;border-left: 1px solid #ffffff;border-top: 1px solid #ffffff;}
-    &::after {bottom: 0; right: 0;border-right: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
-    &:hover{color: #ffffff;
-        span{transform: translateX(6px);}
-        .boxIcon{opacity: 1; transform: translateX(0);}
+    &:hover{color:#19060F; background: #D9D9D9;
+        .arrowBox{transform: rotate(45deg);}
     }
 }
 
-.primaryBlackCTA{color: #fff; @include font16; line-height: 140%; background-color: $darkbg; padding: 15px 45px 15px 35px; position: relative; display: inline-block; transition: 0.35s;
-    .peelBox{width: 30px; height: 30px; position: absolute; right: 0; top: 0; background-color: $darkbg; z-index: 1;  transition: 0.35s;
-        &::before{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $lightbg; display: block; transform: rotate(45deg); position: absolute; top: -3px; right: -14px;}
-        &::after{content: ""; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 20px solid $lightbg; display: block; transform: rotate(-134deg); position: absolute; bottom: -3px; left: -14px;}
-    }
-    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
-        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-        &::before {top: 0; right: 0;border-right: 1px solid $darkbg; border-top: 1px solid $darkbg;}
-        &::after {bottom: 0; left: 0;border-left: 1px solid $darkbg; border-bottom: 1px solid $darkbg;}
-    }
-    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-    &::before {top: 0; left: 0;border-left: 1px solid $darkbg; border-top: 1px solid $darkbg;}
-    &::after {bottom: 0; right: 0;border-right: 1px solid $darkbg; border-bottom: 1px solid $darkbg;}
-    &:hover{color:#000; background-color: transparent;
-        .peelBox{opacity: 0;}
-        .hoverBox{
-            &::before {border-right: 1px solid #000;border-top: 1px solid #000;}
-            &::after {border-left: 1px solid #000;border-bottom: 1px solid #000;}
-        }
-        &::before {border-left: 1px solid #000;border-top: 1px solid #000;}
-        &::after {border-right: 1px solid #000;border-bottom: 1px solid #000;}
-    }
-}
-
-.secondaryBlackCTA{@include font16; padding: 15px 18px; position: relative; color: #181818; display: inline-flex; align-items: center; overflow: hidden;
-    span{display: inline-block; transition: 0.35s; transform: translateX(-8px);}
-    .boxIcon{width: 8px; height: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 5px; opacity: 0; transform: translateX(-8px); transition: 0.35s; background: #1B98A0;
+.secondaryWhiteCTA{border: 1px solid #2B2B2B; background: #D9D9D9; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
+    .arrowBox{transition: 0.35s; width: 24px; height: 24px;
         svg{width: 100%; height: 100%; display: block;}
     }
-    // .boxicon{width: 10px; height: 10px;  display: inline-block; margin-right: 10px; opacity: 1;}
-    // .hoverTxt{transform: translateX(-10px);}
-    .hoverBox{width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: block;
-        &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-        &::before {top: 0; right: 0;border-right: 1px solid #181818;border-top: 1px solid #181818;}
-        &::after {bottom: 0; left: 0;border-left: 1px solid #181818;border-bottom: 1px solid #181818;}
-    }
-    &::before, &::after {content: ''; width: 14px; height: 14px;transition: 0.35s; position: absolute;}
-    &::before {top: 0; left: 0;border-left: 1px solid #181818;border-top: 1px solid #181818;}
-    &::after {bottom: 0; right: 0;border-right: 1px solid #181818;border-bottom: 1px solid #181818;}
-    &:hover{color: #181818;
-        span{transform: translateX(6px);}
-        .boxIcon{opacity: 1; transform: translateX(0);}
+    &:hover{color:#19060F; background: #00ACB4;
+        .arrowBox{transform: rotate(45deg);}
     }
 }
 

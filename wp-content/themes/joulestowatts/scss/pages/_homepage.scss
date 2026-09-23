@@ -1,9 +1,11 @@
 @use '../base/_global.scss' as *;
 
-.bannerSection{padding-top: 190px; width: 100%; background: url('../images/banner-grid.png') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center;
+.bannerSection{padding-top: 164px; width: 100%; display: flex; align-items: center; justify-content: center;
     .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center; flex-flow: wrap;
-        .bannerContent{width: 65%; text-align: center;
-            h1{@include font72; margin-bottom: 20px; line-height: 1.2; color: #ffffff;}
+        .bannerContent{width: 75%; text-align: center;
+            h1{@include font100; font-weight: 500; margin-bottom: 20px; line-height: 130%; color: #ffffff;
+                span{background: linear-gradient(90deg, #FFF 88.77%, rgba(1, 211, 199, 0.98) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+            }
             p{color: #AAA0AD; @include font24; line-height: 140%; margin-bottom: 42px;}
         }
     }
@@ -35,7 +37,7 @@
         .whatwedoContent{position: relative; margin-bottom: 200px;
             .contentBox{display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; padding: 56px 70px; position: relative; cursor: pointer;
                 &::before{content: ''; position: absolute; bottom: 0; left: 0; right: 0; background: #B0B0B0; height: 1px; width: 100%; transition: width 2s ease;}
-                h3{@include font56; color: $darkheading; line-height: 140%; text-transform: uppercase; width: 50%; transition: color 0.5s ease;}
+                h3{@include font48; color: $darkheading; line-height: 140%; text-transform: uppercase; width: 50%; transition: color 0.5s ease;}
                 p{width: 50%; color: $darkbody; @include font24; line-height: 140%;}
 
                 &:hover{
@@ -54,7 +56,7 @@
         .counterSection{border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; padding: 42px 0;
             .counterBox{display: grid; grid-template-columns: repeat(4, 1fr); justify-content: space-between; align-items: center; border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; padding: 20px 0;
                 .counter{border-top: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; border-right: 1px solid #CBCBCB; padding: 56px 0 56px 46px;
-                    h4{@include font56; color: $darkheading; margin-bottom: 10px;}
+                    h4{@include font48; color: $darkheading; margin-bottom: 10px;}
                     p{color: $darkbody; @include font20; line-height: 140%;}
                     &:last-child{border-right: none;}
                 }

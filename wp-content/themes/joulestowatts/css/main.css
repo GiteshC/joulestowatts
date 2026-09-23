@@ -1,5 +1,5 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -223,163 +223,23 @@ button {
 }
 
 /************************************************ Fonts **************************************************/
-.roboto-mono {
-  font-family: "Roboto Mono", monospace;
+.manrope {
+  font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
   font-style: normal;
 }
 
-@font-face {
-  font-family: "Satoshi-Light";
-  src: url("./fonts/satoshi/Satoshi-Light.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Light.woff") format("woff"), url("./fonts/satoshi/Satoshi-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
+.poppins {
+  font-family: "Poppins", sans-serif;
   font-style: normal;
-}
-@font-face {
-  font-family: "Satoshi-LightItalic";
-  src: url("./fonts/satoshi/Satoshi-LightItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-LightItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Satoshi-Regular";
-  src: url("./fonts/satoshi/Satoshi-Regular.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Regular.woff") format("woff"), url("./fonts/satoshi/Satoshi-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Satoshi-Italic";
-  src: url("./fonts/satoshi/Satoshi-Italic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Italic.woff") format("woff"), url("./fonts/satoshi/Satoshi-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Satoshi-Medium";
-  src: url("./fonts/satoshi/Satoshi-Medium.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Medium.woff") format("woff"), url("./fonts/satoshi/Satoshi-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Satoshi-MediumItalic";
-  src: url("./fonts/satoshi/Satoshi-MediumItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-MediumItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Satoshi-Bold";
-  src: url("./fonts/satoshi/Satoshi-Bold.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Bold.woff") format("woff"), url("./fonts/satoshi/Satoshi-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Satoshi-BoldItalic";
-  src: url("./fonts/satoshi/Satoshi-BoldItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-BoldItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Satoshi-Black";
-  src: url("./fonts/satoshi/Satoshi-Black.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Black.woff") format("woff"), url("./fonts/satoshi/Satoshi-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Satoshi-BlackItalic";
-  src: url("./fonts/satoshi/Satoshi-BlackItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-BlackItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-BlackItalic.ttf") format("truetype");
-  font-weight: 900;
-  font-display: swap;
-  font-style: italic;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 900.0;
-*
-* available axes:
-'wght' (range from 300.0 to 900.0
-*/
-@font-face {
-  font-family: "Satoshi-Variable";
-  src: url("./fonts/satoshi/Satoshi-Variable.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-Variable.woff") format("woff"), url("./fonts/satoshi/Satoshi-Variable.ttf") format("truetype");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 900.0;
-*
-* available axes:
-'wght' (range from 300.0 to 900.0
-*/
-@font-face {
-  font-family: "Satoshi-VariableItalic";
-  src: url("./fonts/satoshi/Satoshi-VariableItalic.woff2") format("woff2"), url("./fonts/satoshi/Satoshi-VariableItalic.woff") format("woff"), url("./fonts/satoshi/Satoshi-VariableItalic.ttf") format("truetype");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: italic;
-}
-.Satoshi-Light {
-  font-family: "Satoshi-Light";
-  font-weight: 300;
-}
-
-.Satoshi-Regular {
-  font-family: "Satoshi-Regular";
-  font-weight: 400;
-}
-
-.Satoshi-Medium {
-  font-family: "Satoshi-Medium";
-  font-weight: 500;
-}
-
-.Satoshi-Bold {
-  font-family: "Satoshi-Bold";
-  font-weight: 700;
-}
-
-.Satoshi-Black {
-  font-family: "Satoshi-Black";
-  font-weight: 900;
 }
 
 /************************************************ Common CSS **************************************************/
 body {
   position: relative;
-  background: #170311;
-  font-family: "Satoshi-Regular";
+  background: #210214;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
-}
-body::before {
-  content: "";
-  left: 30px;
-  top: 0px;
-  width: 1px;
-  height: 100%;
-  border-left: 1px solid rgba(58, 38, 60, 0.2);
-  position: absolute;
-}
-body::after {
-  content: "";
-  right: 30px;
-  top: 0px;
-  width: 1px;
-  height: 100%;
-  border-right: 1px solid rgba(58, 38, 60, 0.2);
-  position: absolute;
-  z-index: 1;
 }
 
 img {
@@ -499,7 +359,14 @@ button:focus {
 }
 
 .primaryWhiteCTA {
-  color: #000;
+  border: 1px solid #2B2B2B;
+  background: #00ACB4;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #19060F;
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
@@ -518,120 +385,39 @@ button:focus {
   }
 }
 .primaryWhiteCTA {
+  font-weight: 500;
   line-height: 140%;
-  background-color: #E4E1DD;
-  padding: 15px 45px 15px 35px;
+  transition: 0.35s;
+  width: fit-content;
   position: relative;
-  display: inline-block;
+}
+.primaryWhiteCTA .arrowBox {
   transition: 0.35s;
+  width: 24px;
+  height: 24px;
 }
-.primaryWhiteCTA .peelBox {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #E4E1DD;
-  z-index: 1;
-  transition: 0.35s;
-}
-.primaryWhiteCTA .peelBox::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #170311;
-  display: block;
-  transform: rotate(45deg);
-  position: absolute;
-  top: -3px;
-  right: -14px;
-}
-.primaryWhiteCTA .peelBox::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #170311;
-  display: block;
-  transform: rotate(-134deg);
-  position: absolute;
-  bottom: -3px;
-  left: -14px;
-}
-.primaryWhiteCTA .hoverBox {
+.primaryWhiteCTA .arrowBox svg {
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
   display: block;
-}
-.primaryWhiteCTA .hoverBox::before, .primaryWhiteCTA .hoverBox::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.primaryWhiteCTA .hoverBox::before {
-  top: 0;
-  right: 0;
-  border-right: 1px solid #E4E1DD;
-  border-top: 1px solid #E4E1DD;
-}
-.primaryWhiteCTA .hoverBox::after {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid #E4E1DD;
-  border-bottom: 1px solid #E4E1DD;
-}
-.primaryWhiteCTA::before, .primaryWhiteCTA::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.primaryWhiteCTA::before {
-  top: 0;
-  left: 0;
-  border-left: 1px solid #E4E1DD;
-  border-top: 1px solid #E4E1DD;
-}
-.primaryWhiteCTA::after {
-  bottom: 0;
-  right: 0;
-  border-right: 1px solid #E4E1DD;
-  border-bottom: 1px solid #E4E1DD;
 }
 .primaryWhiteCTA:hover {
-  color: #ffffff;
-  background-color: transparent;
+  color: #19060F;
+  background: #D9D9D9;
 }
-.primaryWhiteCTA:hover .peelBox {
-  opacity: 0;
-}
-.primaryWhiteCTA:hover .hoverBox::before {
-  border-right: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-}
-.primaryWhiteCTA:hover .hoverBox::after {
-  border-left: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-.primaryWhiteCTA:hover::before {
-  border-left: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-}
-.primaryWhiteCTA:hover::after {
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
+.primaryWhiteCTA:hover .arrowBox {
+  transform: rotate(45deg);
 }
 
 .secondaryWhiteCTA {
+  border: 1px solid #2B2B2B;
+  background: #D9D9D9;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #19060F;
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
@@ -650,328 +436,28 @@ button:focus {
   }
 }
 .secondaryWhiteCTA {
-  padding: 15px 18px;
+  font-weight: 500;
+  line-height: 140%;
+  transition: 0.35s;
+  width: fit-content;
   position: relative;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
 }
-.secondaryWhiteCTA span {
-  display: inline-block;
+.secondaryWhiteCTA .arrowBox {
   transition: 0.35s;
-  transform: translateX(-8px);
+  width: 24px;
+  height: 24px;
 }
-.secondaryWhiteCTA .boxIcon {
-  width: 8px;
-  height: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: 0.35s;
-  background: #1B98A0;
-}
-.secondaryWhiteCTA .boxIcon svg {
+.secondaryWhiteCTA .arrowBox svg {
   width: 100%;
   height: 100%;
   display: block;
-}
-.secondaryWhiteCTA .hoverBox {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-}
-.secondaryWhiteCTA .hoverBox::before, .secondaryWhiteCTA .hoverBox::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.secondaryWhiteCTA .hoverBox::before {
-  top: 0;
-  right: 0;
-  border-right: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-}
-.secondaryWhiteCTA .hoverBox::after {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-.secondaryWhiteCTA::before, .secondaryWhiteCTA::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.secondaryWhiteCTA::before {
-  top: 0;
-  left: 0;
-  border-left: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
-}
-.secondaryWhiteCTA::after {
-  bottom: 0;
-  right: 0;
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
 }
 .secondaryWhiteCTA:hover {
-  color: #ffffff;
+  color: #19060F;
+  background: #00ACB4;
 }
-.secondaryWhiteCTA:hover span {
-  transform: translateX(6px);
-}
-.secondaryWhiteCTA:hover .boxIcon {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.primaryBlackCTA {
-  color: #fff;
-  font-size: 16px;
-}
-@media screen and (max-width: 1600px) {
-  .primaryBlackCTA {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .primaryBlackCTA {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .primaryBlackCTA {
-    font-size: 10px;
-  }
-}
-.primaryBlackCTA {
-  line-height: 140%;
-  background-color: #170311;
-  padding: 15px 45px 15px 35px;
-  position: relative;
-  display: inline-block;
-  transition: 0.35s;
-}
-.primaryBlackCTA .peelBox {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #170311;
-  z-index: 1;
-  transition: 0.35s;
-}
-.primaryBlackCTA .peelBox::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #E4E1DD;
-  display: block;
+.secondaryWhiteCTA:hover .arrowBox {
   transform: rotate(45deg);
-  position: absolute;
-  top: -3px;
-  right: -14px;
-}
-.primaryBlackCTA .peelBox::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #E4E1DD;
-  display: block;
-  transform: rotate(-134deg);
-  position: absolute;
-  bottom: -3px;
-  left: -14px;
-}
-.primaryBlackCTA .hoverBox {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-}
-.primaryBlackCTA .hoverBox::before, .primaryBlackCTA .hoverBox::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.primaryBlackCTA .hoverBox::before {
-  top: 0;
-  right: 0;
-  border-right: 1px solid #170311;
-  border-top: 1px solid #170311;
-}
-.primaryBlackCTA .hoverBox::after {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid #170311;
-  border-bottom: 1px solid #170311;
-}
-.primaryBlackCTA::before, .primaryBlackCTA::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.primaryBlackCTA::before {
-  top: 0;
-  left: 0;
-  border-left: 1px solid #170311;
-  border-top: 1px solid #170311;
-}
-.primaryBlackCTA::after {
-  bottom: 0;
-  right: 0;
-  border-right: 1px solid #170311;
-  border-bottom: 1px solid #170311;
-}
-.primaryBlackCTA:hover {
-  color: #000;
-  background-color: transparent;
-}
-.primaryBlackCTA:hover .peelBox {
-  opacity: 0;
-}
-.primaryBlackCTA:hover .hoverBox::before {
-  border-right: 1px solid #000;
-  border-top: 1px solid #000;
-}
-.primaryBlackCTA:hover .hoverBox::after {
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-.primaryBlackCTA:hover::before {
-  border-left: 1px solid #000;
-  border-top: 1px solid #000;
-}
-.primaryBlackCTA:hover::after {
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-
-.secondaryBlackCTA {
-  font-size: 16px;
-}
-@media screen and (max-width: 1600px) {
-  .secondaryBlackCTA {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .secondaryBlackCTA {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .secondaryBlackCTA {
-    font-size: 10px;
-  }
-}
-.secondaryBlackCTA {
-  padding: 15px 18px;
-  position: relative;
-  color: #181818;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-}
-.secondaryBlackCTA span {
-  display: inline-block;
-  transition: 0.35s;
-  transform: translateX(-8px);
-}
-.secondaryBlackCTA .boxIcon {
-  width: 8px;
-  height: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: 0.35s;
-  background: #1B98A0;
-}
-.secondaryBlackCTA .boxIcon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.secondaryBlackCTA .hoverBox {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-}
-.secondaryBlackCTA .hoverBox::before, .secondaryBlackCTA .hoverBox::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.secondaryBlackCTA .hoverBox::before {
-  top: 0;
-  right: 0;
-  border-right: 1px solid #181818;
-  border-top: 1px solid #181818;
-}
-.secondaryBlackCTA .hoverBox::after {
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid #181818;
-  border-bottom: 1px solid #181818;
-}
-.secondaryBlackCTA::before, .secondaryBlackCTA::after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  transition: 0.35s;
-  position: absolute;
-}
-.secondaryBlackCTA::before {
-  top: 0;
-  left: 0;
-  border-left: 1px solid #181818;
-  border-top: 1px solid #181818;
-}
-.secondaryBlackCTA::after {
-  bottom: 0;
-  right: 0;
-  border-right: 1px solid #181818;
-  border-bottom: 1px solid #181818;
-}
-.secondaryBlackCTA:hover {
-  color: #181818;
-}
-.secondaryBlackCTA:hover span {
-  transform: translateX(6px);
-}
-.secondaryBlackCTA:hover .boxIcon {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .headingIcon {
@@ -1012,7 +498,7 @@ header.scrolled {
 }
 
 footer {
-  background: #E4E1DD;
+  background: #ffffff;
   padding: 135px 0 30px;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
@@ -1022,13 +508,19 @@ footer .footerWrapper {
   display: flex;
   flex-flow: column;
   gap: 70px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  footer .footerWrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1280px) {
   footer .footerWrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1235,22 +727,26 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 
 .bannerSection {
-  padding-top: 190px;
+  padding-top: 164px;
   width: 100%;
-  background: url("../images/banner-grid.png") no-repeat center center;
-  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .bannerSection .wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  .bannerSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1280px) {
   .bannerSection .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1266,15 +762,15 @@ footer .footerWrapper .footerlogo .mailBox a {
   flex-flow: wrap;
 }
 .bannerSection .wrapper .bannerContent {
-  width: 65%;
+  width: 75%;
   text-align: center;
 }
 .bannerSection .wrapper .bannerContent h1 {
-  font-size: 72px;
+  font-size: 100px;
 }
 @media screen and (max-width: 1800px) {
   .bannerSection .wrapper .bannerContent h1 {
-    font-size: 58px;
+    font-size: 80px;
   }
 }
 @media screen and (max-width: 1600px) {
@@ -1308,9 +804,16 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 .bannerSection .wrapper .bannerContent h1 {
+  font-weight: 500;
   margin-bottom: 20px;
-  line-height: 1.2;
+  line-height: 130%;
   color: #ffffff;
+}
+.bannerSection .wrapper .bannerContent h1 span {
+  background: linear-gradient(90deg, #FFF 88.77%, rgba(1, 211, 199, 0.98) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .bannerSection .wrapper .bannerContent p {
   color: #AAA0AD;
@@ -1352,13 +855,19 @@ footer .footerWrapper .footerlogo .mailBox a {
   margin-bottom: 200px;
 }
 .enterpriseSection .wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1280px) {
   .enterpriseSection .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1492,13 +1001,19 @@ footer .footerWrapper .footerlogo .mailBox a {
   border-radius: 32px;
 }
 .whatwedoSection .wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1280px) {
   .whatwedoSection .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1609,31 +1124,36 @@ footer .footerWrapper .footerlogo .mailBox a {
   transition: width 2s ease;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-  font-size: 56px;
+  font-size: 48px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 52px;
-  }
-}
-@media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
     font-size: 44px;
   }
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 42px;
+    font-size: 38px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
     font-size: 36px;
   }
 }
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
+    font-size: 30px;
+  }
+}
 @media screen and (max-width: 720px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
@@ -1731,31 +1251,36 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding: 56px 0 56px 46px;
 }
 .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
-  font-size: 56px;
+  font-size: 48px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
-    font-size: 52px;
-  }
-}
-@media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
     font-size: 44px;
   }
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
-    font-size: 42px;
+    font-size: 38px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
     font-size: 36px;
   }
 }
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+    font-size: 30px;
+  }
+}
 @media screen and (max-width: 720px) {
   .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
@@ -1795,13 +1320,19 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding: 0 30px;
 }
 .outcomeSection .secWrapper .secHeading {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  .outcomeSection .secWrapper .secHeading {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 @media screen and (max-width: 1280px) {
   .outcomeSection .secWrapper .secHeading {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1858,7 +1389,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .outcomeSection .secWrapper .secHeading .headingGroup p {
   line-height: 154%;
-  color: #AAA0AD;
+  color: #D9D9D9;
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
