@@ -160,14 +160,21 @@
 .platformSection{margin-bottom: 200px; position: relative; 
     .secWrapper{
         .mainGridContainer{ display: grid; grid-template-columns:  33.333% 16.667% 33.333% 16.667%; grid-template-rows:320px 320px 320px;
-            .headingBox {grid-column: 1 / 3; grid-row: 1;
-                h2{}
-                p{}
+            .headingBox {grid-column: 1 / 3; grid-row: 1; padding: 80px 10px 10px 100px;
+                h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 32px;}
+                p{color: #CBC6C6; @include font20; line-height: 170%; }
             }
             .box{border: 1px solid #6F6363; }
 
             /* R1 C3 + R2 C3 */
-            .sliderBox {grid-column: 3; grid-row: 1 / 3;}
+            .sliderBox {grid-column: 3; grid-row: 1 / 3;
+                .mainSliderBox{
+                    .slide{position: relative;
+                        img{}
+                        .tag{@include font20; text-transform: uppercase; color: #D9D9D9; border-radius: 24px; background: rgba(5,5,5, 0.20); backdrop-filter: blur(2px); padding: 10px 16px; position: absolute; top: 24px; left: 29px;}
+                    }
+                }
+            }
             
             /* R1 C4 */
             .box-r1-c4 {grid-column: 4; grid-row: 1;}
@@ -176,19 +183,47 @@
             .box-r2-c1 {grid-column: 1;grid-row: 2;}
 
             /* R2 C2 */
-            .box-r2-c2 {grid-column: 2;grid-row: 2;}
+            .box-r2-c2 {grid-column: 2;grid-row: 2; position: relative; overflow: hidden; height: 100%;
+                &::before{content: ""; position: absolute; inset: 0; background:lightgray -373px -125px / 344.36% 199.743% no-repeat; transform: translateY(100%); animation: gradientUp 4s ease-in-out infinite;;}
+            }
 
             /* R2 C4 */
             .box-r2-c4 {grid-column: 4; grid-row: 2;}
 
             /* R3 C1 */
-            .box-r3-c1 {grid-column: 1;grid-row: 3;}
+            .box-r3-c1 {grid-column: 1;grid-row: 3; padding-left: 100px; display: flex; align-items: center;
+                .arrowBox{display: flex; align-items: center; justify-content: center; gap: 20px;
+                    .prevArrow, .nextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer;
+                        svg{width: 24px; height: 24px;}
+                        &.slick-disabled{border-color: rgba(0,0,0,0.25);
+                            svg{
+                                path{opacity: 0.25;}
+                            }
+                        } 
+                    }
+                }
+            }
 
             /* R3 C2 + C3 */
-            .bottom-content {grid-column: 2 / 4; grid-row: 3;}
+            .bottomContent {grid-column: 2 / 4; grid-row: 3; padding: 74px 40px 40px 60px;
+                .textSlider{
+                    .textSlide{
+                        h5{color: #D9D9D9; @include font32; font-weight: 500; text-transform: capitalize; margin-bottom: 24px;}
+                        .detailsBox{display: flex; align-items: center; justify-content: space-between;
+                            p{color: #D9D9D9; @include font20; line-height: 170%; width: 55%;}
+                        }
+                    }
+                }
+            }
 
             /* R3 C4 */
             .box-r3-c4 {grid-column: 4;grid-row: 3;}
+
+            @keyframes gradientUp {
+                0% {transform: translateY(-100%);}
+                40% {transform: translateY(-50%);}
+                100% {transform: translateY(0);}
+            }
         }
     }
 }
@@ -235,7 +270,7 @@
                     }
                 }
             }
-            .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 40px;
+            .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
                 .prevArrow, .nextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer;
                     svg{width: 24px; height: 24px;}
                     &.slick-disabled{border-color: rgba(0,0,0,0.25);

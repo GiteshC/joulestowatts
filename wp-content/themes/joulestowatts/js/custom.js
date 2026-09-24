@@ -158,3 +158,26 @@ $('.resultCardSlider').slick({
 	nextArrow: $(".nextArrow"),
 	focusOnSelect: true,
 });
+
+
+$('.mainSliderBox').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	fade: true,
+	infinite: false,
+	asNavFor: '.textSlider'
+});
+$('.textSlider').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: true,
+	prevArrow: $(".prevArrow"),
+	nextArrow: $(".nextArrow"),
+	asNavFor: '.mainSliderBox',
+	dots: false,
+	fade: true,
+	infinite: false,
+	centerMode: false,
+	focusOnSelect: false
+});

@@ -1950,6 +1950,72 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .headingBox {
   grid-column: 1/3;
   grid-row: 1;
+  padding: 80px 10px 10px 100px;
+}
+.platformSection .secWrapper .mainGridContainer .headingBox h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 20px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .headingBox h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 32px;
+}
+.platformSection .secWrapper .mainGridContainer .headingBox p {
+  color: #CBC6C6;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .headingBox p {
+  line-height: 170%;
 }
 .platformSection .secWrapper .mainGridContainer .box {
   border: 1px solid #6F6363;
@@ -1960,6 +2026,38 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .sliderBox {
   grid-column: 3;
   grid-row: 1/3;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide {
+  position: relative;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+  text-transform: uppercase;
+  color: #D9D9D9;
+  border-radius: 24px;
+  background: rgba(5, 5, 5, 0.2);
+  backdrop-filter: blur(2px);
+  padding: 10px 16px;
+  position: absolute;
+  top: 24px;
+  left: 29px;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R1 C4 */
@@ -1981,6 +2079,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r2-c2 {
   grid-column: 2;
   grid-row: 2;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.platformSection .secWrapper .mainGridContainer .box-r2-c2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: lightgray -373px -125px/344.36% 199.743% no-repeat;
+  transform: translateY(100%);
+  animation: gradientUp 4s ease-in-out infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R2 C4 */
@@ -1995,13 +2104,106 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r3-c1 {
   grid-column: 1;
   grid-row: 3;
+  padding-left: 100px;
+  display: flex;
+  align-items: center;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow svg, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow svg {
+  width: 24px;
+  height: 24px;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled svg path, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled svg path {
+  opacity: 0.25;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C2 + C3 */
 }
-.platformSection .secWrapper .mainGridContainer .bottom-content {
+.platformSection .secWrapper .mainGridContainer .bottomContent {
   grid-column: 2/4;
   grid-row: 3;
+  padding: 74px 40px 40px 60px;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  color: #D9D9D9;
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 16px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+  color: #D9D9D9;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+  line-height: 170%;
+  width: 55%;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C4 */
@@ -2009,6 +2211,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r3-c4 {
   grid-column: 4;
   grid-row: 3;
+}
+@keyframes gradientUp {
+  0% {
+    transform: translateY(-100%);
+  }
+  40% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .buildingSection {
@@ -2268,7 +2481,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   justify-content: flex-start;
   display: flex;
   margin-top: 50px;
-  gap: 40px;
+  gap: 20px;
 }
 .resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow {
   background: #D9D9D9;
