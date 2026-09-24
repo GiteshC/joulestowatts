@@ -14,14 +14,11 @@ ScrollTrigger.create({
 
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
 		var section = document.querySelector( '.enterpriseSection' );
-
 		if ( ! section ) {
 			return;
 		}
-
 		// GSAP + ScrollTrigger are expected to be loaded already (enqueued
 		// in header.php, before this script runs in the footer).
 		if ( typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
@@ -29,17 +26,13 @@ ScrollTrigger.create({
 			// the section stuck invisible.
 			return;
 		}
-
 		gsap.registerPlugin( ScrollTrigger );
-
 		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 		var globe = section.querySelector( '.globeEffect' );
 		var content = section.querySelector( '.enterpriseContent' );
-
 		if ( reduceMotion || ! globe || ! content ) {
 			return;
 		}
-
 		gsap.timeline( {
 			scrollTrigger: {
 				trigger: section,
@@ -62,26 +55,19 @@ ScrollTrigger.create({
 // What We Do — each content box slides in from the right edge of the screen.
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
 		var section = document.querySelector( '.whatwedoSection' );
-
 		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
 			return;
 		}
-
 		var boxes = section.querySelectorAll( '.contentBox' );
-
 		if ( ! boxes.length ) {
 			return;
 		}
-
 		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-
 		if ( reduceMotion ) {
 			return;
 		}
-
 		boxes.forEach( function ( box ) {
 			gsap.fromTo( box,
 				{ opacity: 0, x: '100vw' },
@@ -106,32 +92,24 @@ ScrollTrigger.create({
 // once it scrolls into view.
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
 		var counters = document.querySelectorAll( '.counterSection .counterBox h4' );
-
 		if ( ! counters.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
 			return;
 		}
-
 		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-
 		counters.forEach( function ( counter ) {
 			// Numbers may contain commas (e.g. "5,500") — strip them to get
 			// the numeric target, keep the original for comma formatting.
 			var target = parseInt( counter.textContent.replace( /,/g, '' ), 10 );
-
 			if ( isNaN( target ) ) {
 				return;
 			}
-
 			if ( reduceMotion ) {
 				counter.textContent = target.toLocaleString( 'en-US' );
 				return;
 			}
-
 			var counterObj = { value: 0 };
-
 			gsap.to( counterObj, {
 				value: target,
 				duration: 1.6,
@@ -150,24 +128,17 @@ ScrollTrigger.create({
 	} );
 } )();
 
-// Compounds section — trigger the SVG's inline CSS animations (line-draw,
-// circle blink, text fade-in) only once the section enters the viewport.
-// The SVG's own <style> tag ships these animations `paused` by default;
-// this just adds `.in-view`, which a higher-specificity CSS rule uses to
-// flip them to `running` (see scss/pages/_homepage.scss).
+// Compounds section — trigger the SVG's inline CSS animations
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
 		var section = document.querySelector( '.compoundsSection' );
-
 		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
 			return;
 		}
-
 		ScrollTrigger.create( {
 			trigger: section,
-			start: 'top 70%',
+			start: 'top 30%',
 			once: true,
 			onEnter: function () {
 				section.classList.add( 'in-view' );

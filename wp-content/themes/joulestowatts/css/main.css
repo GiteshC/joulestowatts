@@ -1107,7 +1107,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   height: 100%;
   transform: rotate(-180deg);
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 1s ease;
   z-index: -1;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
@@ -1195,7 +1195,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   line-height: 140%;
   letter-spacing: 2px;
   text-transform: uppercase;
-  transition: color 0.5s ease;
+  transition: color 1s ease;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox p {
   width: 30%;
@@ -1385,14 +1385,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   background: radial-gradient(109.66% 402.88% at 45.23% 409.94%, rgba(20, 255, 242, 0.97) 0%, rgba(33, 2, 20, 0.98) 100%);
   transform: rotate(-180deg);
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 1s ease;
 }
 .counterSection .wrapper .counterContent .counterBox .counterImg {
   display: flex;
   justify-content: flex-end;
   padding: 0px 15px 15px 0px;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 1s ease;
 }
 .counterSection .wrapper .counterContent .counterBox:nth-child(odd) {
   flex-flow: column-reverse;
@@ -1565,7 +1565,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .compoundsSection .wrapper .compoundsContent .compoundsAnim .text1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text4 {
   opacity: 0;
-  animation: textFadeIn 0.4s ease 3.2s forwards;
+  animation: textFadeIn 0.8s ease 3.2s forwards;
   animation-play-state: paused;
 }
 @keyframes dash {
@@ -1589,6 +1589,6 @@ footer .footerWrapper .footerlogo .mailBox a {
     opacity: 1;
   }
 }
-.compoundsSection.in-view .compoundsAnim svg .line1, .compoundsSection.in-view .compoundsAnim svg .line2, .compoundsSection.in-view .compoundsAnim svg .line3, .compoundsSection.in-view .compoundsAnim svg .line4, .compoundsSection.in-view .compoundsAnim svg .circle1, .compoundsSection.in-view .compoundsAnim svg .circle2, .compoundsSection.in-view .compoundsAnim svg .circle3, .compoundsSection.in-view .compoundsAnim svg .circle4, .compoundsSection.in-view .compoundsAnim svg .text1, .compoundsSection.in-view .compoundsAnim svg .text2, .compoundsSection.in-view .compoundsAnim svg .text3, .compoundsSection.in-view .compoundsAnim svg .text4 {
+.compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text4 {
   animation-play-state: running;
 }/*# sourceMappingURL=main.css.map */
