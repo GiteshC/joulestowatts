@@ -1568,6 +1568,27 @@ footer .footerWrapper .footerlogo .mailBox a {
   animation: textFadeIn 0.4s ease 3.2s forwards;
   animation-play-state: paused;
 }
-.compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line4, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle4, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text4 {
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes circleBlink {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.compoundsSection.in-view .compoundsAnim svg .line1, .compoundsSection.in-view .compoundsAnim svg .line2, .compoundsSection.in-view .compoundsAnim svg .line3, .compoundsSection.in-view .compoundsAnim svg .line4, .compoundsSection.in-view .compoundsAnim svg .circle1, .compoundsSection.in-view .compoundsAnim svg .circle2, .compoundsSection.in-view .compoundsAnim svg .circle3, .compoundsSection.in-view .compoundsAnim svg .circle4, .compoundsSection.in-view .compoundsAnim svg .text1, .compoundsSection.in-view .compoundsAnim svg .text2, .compoundsSection.in-view .compoundsAnim svg .text3, .compoundsSection.in-view .compoundsAnim svg .text4 {
   animation-play-state: running;
 }/*# sourceMappingURL=main.css.map */

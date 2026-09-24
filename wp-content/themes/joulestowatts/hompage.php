@@ -146,22 +146,6 @@
             </div>
             <div class="compoundsAnim">
                 <svg width="778" height="705" viewBox="0 0 778 705" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                    .line1, .line2, .line3, .line4{stroke-dasharray:2300; stroke-dashoffset:2300; animation: dash 10s linear forwards;}
-                    .circle1, .circle2, .circle3, .circle4{opacity: 0; animation: circleBlink 1.5s ease-in-out 2.5s infinite;}
-                    .text1, .text2, .text3, .text4{opacity: 0; animation: textFadeIn 0.4s ease 3.2s forwards;}
-                    @keyframes dash {
-                    to {stroke-dashoffset: 0;}
-                    }
-                    @keyframes circleBlink {
-                    0%, 100% { opacity: 0.30; }
-                    50% { opacity: 1; }
-                    }
-                    @keyframes textFadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                    }
-                    </style>
                     <g filter="url(#filter3_n_857_3741)"><path class="line1" d="M167.41 488.166V219.716" stroke="#1A9BA4"/></g>
                     <circle class="circle1" cx="166.544" cy="217.276" r="8.46936" fill="#16E9FB"/>
                     <g filter="url(#filter2_n_857_3741)"><path class="line2" d="M362.39 515.649V132.649" stroke="#1A9BA4"/></g>
