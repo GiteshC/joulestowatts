@@ -1941,11 +1941,10 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection {
   margin-bottom: 200px;
   position: relative;
-  overflow: hidden;
 }
 .platformSection .secWrapper .mainGridContainer {
   display: grid;
-  grid-template-columns: 640px 320px 640px 320px;
+  grid-template-columns: 33.333% 16.667% 33.333% 16.667%;
   grid-template-rows: 320px 320px 320px;
 }
 .platformSection .secWrapper .mainGridContainer .headingBox {
