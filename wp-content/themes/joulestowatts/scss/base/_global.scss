@@ -232,6 +232,7 @@ $lightbg : #ffffff;
 $darkheading: #181818;
 $darkbody : #525454;
 $lightbody : #D9D9D9;
+
 @mixin Gradienthighlight {background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);}
 
 @mixin wrapper {
