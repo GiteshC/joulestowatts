@@ -1419,199 +1419,136 @@ footer .footerWrapper .footerlogo .mailBox a {
   opacity: 1;
 }
 
-.outcomeSection {
+.compoundsSection {
   margin-bottom: 200px;
 }
-.outcomeSection .secWrapper {
-  padding: 0 30px;
-}
-.outcomeSection .secWrapper .secHeading {
+.compoundsSection .wrapper {
   padding-left: 100px;
   padding-right: 100px;
 }
 @media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .secHeading {
+  .compoundsSection .wrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .secHeading {
+  .compoundsSection .wrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
 @media screen and (max-width: 768px) {
-  .outcomeSection .secWrapper .secHeading {
+  .compoundsSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
   }
 }
-.outcomeSection .secWrapper .secHeading {
+.compoundsSection .wrapper .compoundsContent {
   display: flex;
-  align-items: center;
+  flex-flow: wrap;
   justify-content: space-between;
-  margin-bottom: 48px;
+  align-items: center;
 }
-.outcomeSection .secWrapper .secHeading .headingGroup h2 {
-  color: #D9D9D9;
+.compoundsSection .wrapper .compoundsContent .headingBox {
+  width: 40%;
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 12px;
+  }
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h4 {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 160%;
+  margin-bottom: 16px;
+  letter-spacing: 1.8px;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h2 {
+  font-family: "Manrope", sans-serif;
   font-size: 48px;
 }
 @media screen and (max-width: 1800px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 44px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 38px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup h2 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 20px;
   }
 }
-.outcomeSection .secWrapper .secHeading .headingGroup h2 {
-  line-height: 140%;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
+.compoundsSection .wrapper .compoundsContent .headingBox h2 {
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 120%;
+  margin-bottom: 48px;
+  text-transform: capitalize;
+  background: linear-gradient(355deg, rgba(1, 211, 199, 0.98) 14.5%, rgba(255, 255, 255, 0.98) 50.86%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.outcomeSection .secWrapper .secHeading .headingGroup p {
-  line-height: 154%;
+.compoundsSection .wrapper .compoundsContent .headingBox p {
   color: #D9D9D9;
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .secHeading .headingGroup p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 14px;
   }
 }
-.outcomeSection .secWrapper .boxLayout {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  position: relative;
+.compoundsSection .wrapper .compoundsContent .headingBox p {
+  line-height: 150%;
+  margin-bottom: 60px;
 }
-.outcomeSection .secWrapper .boxLayout .box {
-  position: relative;
-}
-.outcomeSection .secWrapper .boxLayout .box img {
-  width: 100%;
-  height: 100%;
-}
-.outcomeSection .secWrapper .boxLayout .box .contentBox {
-  position: absolute;
-  top: 0;
-  padding: 48px 71px;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
-.outcomeSection .secWrapper .boxLayout .box .contentBox h5 {
-  color: #00ACB4;
-  font-size: 20px;
-}
-@media screen and (max-width: 1600px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox h5 {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox h5 {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox h5 {
-    font-size: 14px;
-  }
-}
-.outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-  font-size: 32px;
-}
-@media screen and (max-width: 1800px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-    font-size: 30px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-    font-size: 26px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-    font-size: 24px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-    font-size: 22px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-    font-size: 16px;
-  }
-}
-.outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent h4 {
-  text-transform: uppercase;
-  color: #D4D2D2;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
-.outcomeSection .secWrapper .boxLayout .box .contentBox .bottomContent p {
-  color: #D4D2D2;
-  margin: 15px 0 0;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-.outcomeSection .secWrapper .boxLayout .box:hover .contentBox .bottomContent h4 {
-  transform: translateY(-20px);
-}
-.outcomeSection .secWrapper .boxLayout .box:hover .contentBox .bottomContent p {
-  transform: translateY(0);
-  opacity: 1;
-}
-.outcomeSection .secWrapper .boxLayout .box:nth-child(odd) {
-  border-right: 1px solid #2b2b2b;
-}
-.outcomeSection .secWrapper .boxLayout .box:nth-child(n+3) {
-  border-top: 1px solid #2b2b2b;
-}
-.outcomeSection .secWrapper .boxLayout .starIcon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.compoundsSection .wrapper .compoundsContent .compoundsAnim {
+  width: 50%;
 }/*# sourceMappingURL=main.css.map */

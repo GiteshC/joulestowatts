@@ -101,3 +101,51 @@ ScrollTrigger.create({
 		} );
 	} );
 } )();
+
+// Counter section — each number animates from 0 up to its target value
+// once it scrolls into view.
+( function () {
+	'use strict';
+
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var counters = document.querySelectorAll( '.counterSection .counterBox h4' );
+
+		if ( ! counters.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
+			return;
+		}
+
+		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+		counters.forEach( function ( counter ) {
+			// Numbers may contain commas (e.g. "5,500") — strip them to get
+			// the numeric target, keep the original for comma formatting.
+			var target = parseInt( counter.textContent.replace( /,/g, '' ), 10 );
+
+			if ( isNaN( target ) ) {
+				return;
+			}
+
+			if ( reduceMotion ) {
+				counter.textContent = target.toLocaleString( 'en-US' );
+				return;
+			}
+
+			var counterObj = { value: 0 };
+
+			gsap.to( counterObj, {
+				value: target,
+				duration: 1.6,
+				delay: 0.3,
+				ease: 'power1.out',
+				onUpdate: function () {
+					counter.textContent = Math.round( counterObj.value ).toLocaleString( 'en-US' );
+				},
+				scrollTrigger: {
+					trigger: counter.closest( '.counterBox' ),
+					start: 'top 85%',
+					toggleActions: 'restart none restart none',
+				},
+			} );
+		} );
+	} );
+} )();
