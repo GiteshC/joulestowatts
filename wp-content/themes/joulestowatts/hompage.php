@@ -11,22 +11,18 @@
 
 <section class="enterpriseSection">
     <div class="wrapper">
-        <div class="globeEffect">
-            <img src="<?php bloginfo('template_directory');?>/images/globe.png" alt="">
-        </div>
         <div class="enterpriseContent">
-            <h2 class="roboto-mono">The idea behind Enterprise Truth
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
-                    <path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#00ACB4"/>
-                </svg>
-            </h2>
-            <p>Every great organization has its own recipe for decisions. That is the real source of advantage. We call it your Enterprise Truth, and it cannot be copied. It can only be grown</p>
+            <h2 class="manrope">Most enterprise AI is built for everyone, <br>so it works for no one.</h2>
+            <p>95% of enterprise GenAI pilots deliver no measurable P&L impact (MIT NANDA, 2025). The AI leaders who beat that grow revenue at roughly twice the rate of laggards (BCG, 2025). The difference is whether it was built around the business.<br><br>AI Atlas is how we fix that: a diagnostic that produces your AI Charter , then delivers it end to end, from strategy through to agents running in production. ROI-first, for CIOs, CFOs, COOs, and Boards.</p>
+            <a href="#" class="primaryWhiteCTA">Read our take: AI Atlas and the Charter
+                <div class="arrowBox">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                    </svg>
+                </div>
+            </a>
         </div>
-    </div>
-    <div class="enterpriseAnim">
-        <img src="<?php bloginfo('template_directory');?>/images/enterprise.png" class="enterpriseimg" alt="">
-        <p>As the enterprise grows It has to travel across people, through process, and into new technology The tribal knowledge that made the work exceptional is the first thing to thin</p>
-        <img src="<?php bloginfo('template_directory');?>/images/enterprise-seprator.png" alt="">
+        <div class="enterpriseAnim"></div>
     </div>
 </section>
 
@@ -34,56 +30,99 @@
     <div class="wrapper">
         <div class="secHeading">
             <div class="headingGroup">
-                <h2 class="roboto-mono">What We Do
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" class="headingIcon" viewBox="0 0 12 16" fill="none">
-                        <path d="M0 15.7028V11.0988H3.69961V8.30356H0V3.78182H3.69961V0H8.30356V3.78182H12.0032V8.30356H8.30356V11.0988H12.0032V15.7028H7.48143V11.921H4.52174V15.7028H0Z" fill="#CC2033"/>
-                    </svg>
-                </h2>
-                <p>Three things you can buy, running on one operating model. Take them together as a platform, or take the one you need.</p>
+                <h2 class="manrope">What We Do</h2>
+                <p>Three things you can buy, running on one operating model. <br>Take them together as a platform, or take the one you need.</p>
             </div>
             <div class="headerCTA">
-                <a href="#" class="roboto-mono secondaryBlackCTA">
-                    <span class="boxIcon"></span>
-                    <span class="hoverTxt">How it Works</span>
-                    <div class="hoverBox"></div>
-                </a>
+                <a href="#" class="primaryWhiteCTA">See how they work together
+                <div class="arrowBox">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                    </svg>
+                </div>
+            </a>
             </div>
         </div>
         <div class="whatwedoContent">
-            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg">
-                <h3 class="roboto-mono">Greenfield ODC setup</h3>
+            <div class="contentBox">
+                <div class="headingBox">
+                    <h3 class="manrope">01</h3>
+                    <h4 class="manrope">Greenfield ODC setup</h4>
+                </div>
                 <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
+                <div class="whatwedoImgbox">
+                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg" alt="">
+                </div>
             </div>
-            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-2.jpg">
-                <h3 class="roboto-mono">Talent at scale</h3>
+            <div class="contentBox">
+                <div class="headingBox">
+                    <h3>02</h3>
+                    <h4>Talent at scale</h4>
+                </div>
                 <p>Engineers and functional specialists who know your industry, ramped fast, run as a managed team. Roughly half of what we run is functional.</p>
+                <div class="whatwedoImgbox">
+                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-2.jpg" alt="">
+                </div>
             </div>
-            <div class="contentBox" data-hover-img="<?php bloginfo('template_directory');?>/images/whatwedo-3.jpg">
-                <h3 class="roboto-mono">Enterprise AI solutions</h3>
+            <div class="contentBox">
+                <div class="headingBox">
+                    <h3>03</h3>
+                    <h4>Enterprise AI solutions</h4>
+                </div>
                 <p>AI where it earns its place, and engineering where it does not. Two tracks, one delivery model, outcome-bound either way.</p>
-            </div>
-
-            <div class="hoverFollowImage">
-                <img src="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg" alt="">
+                <div class="whatwedoImgbox">
+                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-3.jpg" alt="">
+                </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="counterSection">
+    <div class="wrapper">
         <div class="counterSection">
             <div class="counterBox">
                 <div class="counter">
-                    <h4 class="roboto-mono">1000</h4>
-                    <p>GCCs enabled</p>
+                    <div>
+                        <h4>330</h4><span>+</span>
+                    </div>
+                    <p>GCCs <br>enabled</p>
                 </div>
-                <div class="counter">
-                    <h4 class="roboto-mono">2000</h4>
-                    <p>Enterprise clients served</p>
+                <div class="counterImg">
+                    <img src="<?php bloginfo('template_directory');?>/images/counter1.png" alt="">
                 </div>
+            </div>
+            <div class="counterBox">
                 <div class="counter">
-                    <h4 class="roboto-mono">5,500+</h4>
-                    <p>Professionals deployed</p>
+                    <div>
+                        <h4>320</h4><span>+</span>
+                    </div>
+                    <p>Enterprise clients <br>served</p>
                 </div>
+                <div class="counterImg">
+                    <img src="<?php bloginfo('template_directory');?>/images/counter2.png" alt="">
+                </div>
+            </div>
+            <div class="counterBox">
                 <div class="counter">
-                    <h4 class="roboto-mono">150+</h4>
+                    <div>
+                        <h4>5,500</h4><span>+</span>
+                    </div>
+                    <p>Professionals <br>deployed</p>
+                </div>
+                <div class="counterImg">
+                    <img src="<?php bloginfo('template_directory');?>/images/counter3.png" alt="">
+                </div>
+            </div>
+            <div class="counterBox">
+                <div class="counter">
+                    <div>
+                        <h4>150</h4><span>+</span>
+                    </div>
                     <p>AI ACCELERATORS</p>
+                </div>
+                <div class="counterImg">
+                    <img src="<?php bloginfo('template_directory');?>/images/counter4.png" alt="">
                 </div>
             </div>
         </div>

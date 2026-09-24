@@ -1,7 +1,9 @@
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.create({
-    start: "150% top",
+    start: function () {
+        return window.innerHeight * 0.2;
+    },
     onEnter: () => {
         document.querySelector("header").classList.add("scrolled");
     },
@@ -57,60 +59,45 @@ ScrollTrigger.create({
 	} );
 } )();
 
-// What We Do — cursor-follow image reveal, one floating image swapped/moved
-// as the user hovers each .contentBox (same pattern as Agilitas's
-// "Where to next / Keep moving" section).
+// What We Do — each content box slides in from the right edge of the screen.
 ( function () {
 	'use strict';
 
 	document.addEventListener( 'DOMContentLoaded', function () {
-		var wrap = document.querySelector( '.whatwedoContent' );
+		var section = document.querySelector( '.whatwedoSection' );
 
-		if ( ! wrap ) {
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
 			return;
 		}
 
-		var followImage = wrap.querySelector( '.hoverFollowImage' );
-		var followImgTag = followImage ? followImage.querySelector( 'img' ) : null;
-		var boxes = wrap.querySelectorAll( '.contentBox' );
+		var boxes = section.querySelectorAll( '.contentBox' );
 
-		if ( ! followImage || ! followImgTag || ! boxes.length ) {
+		if ( ! boxes.length ) {
 			return;
 		}
 
-		var hasGsap = typeof gsap !== 'undefined';
-		var moveX, moveY;
+		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
-		if ( hasGsap ) {
-			moveX = gsap.quickTo( followImage, 'x', { duration: 0.5, ease: 'power3' } );
-			moveY = gsap.quickTo( followImage, 'y', { duration: 0.5, ease: 'power3' } );
-		}
-
-		function positionImage( e ) {
-			if ( hasGsap ) {
-				moveX( e.clientX );
-				moveY( e.clientY );
-			} else {
-				followImage.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
-			}
+		if ( reduceMotion ) {
+			return;
 		}
 
 		boxes.forEach( function ( box ) {
-			var imgSrc = box.getAttribute( 'data-hover-img' );
-
-			box.addEventListener( 'mouseenter', function ( e ) {
-				if ( imgSrc ) {
-					followImgTag.src = imgSrc;
+			gsap.fromTo( box,
+				{ opacity: 0, x: '100vw' },
+				{
+					opacity: 1,
+					x: 0,
+					duration: 1.5,
+					delay: 0.5,
+					ease: 'power2.out',
+					scrollTrigger: {
+						trigger: box,
+						start: 'top 85%',
+						toggleActions: 'restart none restart none',
+					},
 				}
-				followImage.classList.add( 'is-active' );
-				positionImage( e );
-			} );
-
-			box.addEventListener( 'mousemove', positionImage );
-
-			box.addEventListener( 'mouseleave', function () {
-				followImage.classList.remove( 'is-active' );
-			} );
+			);
 		} );
 	} );
 } )();
