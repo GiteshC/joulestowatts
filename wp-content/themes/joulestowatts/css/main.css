@@ -237,9 +237,28 @@ button {
 /************************************************ Common CSS **************************************************/
 body {
   position: relative;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  body {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 14px;
+  }
+}
+body {
   background: #210214;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 img {
@@ -358,7 +377,7 @@ button:focus {
   letter-spacing: 0.25px;
 }
 
-.primaryWhiteCTA {
+.primaryCTA {
   border: 1px solid #2B2B2B;
   background: #00ACB4;
   display: flex;
@@ -370,46 +389,46 @@ button:focus {
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 10px;
   }
 }
-.primaryWhiteCTA {
+.primaryCTA {
   font-weight: 500;
   line-height: 140%;
   transition: 0.35s;
   width: fit-content;
   position: relative;
 }
-.primaryWhiteCTA .arrowBox {
+.primaryCTA .arrowBox {
   transition: 0.35s;
   width: 24px;
   height: 24px;
 }
-.primaryWhiteCTA .arrowBox svg {
+.primaryCTA .arrowBox svg {
   width: 100%;
   height: 100%;
   display: block;
 }
-.primaryWhiteCTA:hover {
+.primaryCTA:hover {
   color: #19060F;
   background: #D9D9D9;
 }
-.primaryWhiteCTA:hover .arrowBox {
+.primaryCTA:hover .arrowBox {
   transform: rotate(45deg);
 }
 
-.secondaryWhiteCTA {
+.secondaryCTA {
   border: 1px solid #2B2B2B;
   background: #D9D9D9;
   display: flex;
@@ -421,43 +440,95 @@ button:focus {
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 10px;
   }
 }
-.secondaryWhiteCTA {
+.secondaryCTA {
   font-weight: 500;
   line-height: 140%;
   transition: 0.35s;
   width: fit-content;
   position: relative;
 }
-.secondaryWhiteCTA .arrowBox {
+.secondaryCTA .arrowBox {
   transition: 0.35s;
   width: 24px;
   height: 24px;
 }
-.secondaryWhiteCTA .arrowBox svg {
+.secondaryCTA .arrowBox svg {
   width: 100%;
   height: 100%;
   display: block;
 }
-.secondaryWhiteCTA:hover {
+.secondaryCTA:hover {
   color: #19060F;
   background: #00ACB4;
 }
-.secondaryWhiteCTA:hover .arrowBox {
+.secondaryCTA:hover .arrowBox {
   transform: rotate(45deg);
+}
+
+.teritaryCTA {
+  border-radius: 100px;
+  border: 2px solid #CC2033;
+  background: #140409;
+  display: inline-flex;
+  padding: 12px 20px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 11px;
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .teritaryCTA {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .teritaryCTA {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teritaryCTA {
+    font-size: 12px;
+  }
+}
+.teritaryCTA {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.teritaryCTA span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #CC2033;
+  border-radius: 100px;
+  transition: 0.35s;
+}
+.teritaryCTA span svg {
+  display: block;
+}
+.teritaryCTA:hover {
+  color: #fff;
+}
+.teritaryCTA:hover span {
+  transform: rotate(-45deg);
 }
 
 .headingIcon {
@@ -737,9 +808,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 .bannerSection {
   padding-top: 164px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
 .bannerSection .wrapper {
   padding-left: 100px;
@@ -765,9 +834,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .bannerSection .wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-flow: wrap;
+  height: 100%;
+  position: relative;
 }
 .bannerSection .wrapper .bannerContent {
   width: 75%;
@@ -856,6 +927,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   line-height: 140%;
   margin-bottom: 42px;
 }
+.bannerSection .wrapper .casestudyCTA {
+  position: absolute;
+  bottom: 35px;
+  right: 100px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
 
 .enterpriseSection {
   margin-top: 200px;
@@ -891,9 +970,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   flex-flow: wrap;
 }
 .enterpriseSection .wrapper .enterpriseContent {
-  width: 70%;
-  text-align: center;
-  margin-top: -250px;
+  width: 50%;
 }
 .enterpriseSection .wrapper .enterpriseContent h2 {
   width: 70%;
@@ -930,83 +1007,44 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 .enterpriseSection .wrapper .enterpriseContent h2 {
-  margin: 0 auto 24px;
-  line-height: 1.2;
-  color: #ffffff;
-  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 32px;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .enterpriseSection .wrapper .enterpriseContent p {
-  color: #AAA0AD;
-  font-size: 24px;
-}
-@media screen and (max-width: 1800px) {
-  .enterpriseSection .wrapper .enterpriseContent p {
-    font-size: 22px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .enterpriseSection .wrapper .enterpriseContent p {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .enterpriseSection .wrapper .enterpriseContent p {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .enterpriseSection .wrapper .enterpriseContent p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .enterpriseSection .wrapper .enterpriseContent p {
-    font-size: 14px;
-  }
-}
-.enterpriseSection .wrapper .enterpriseContent p {
-  line-height: 140%;
-  margin-bottom: 42px;
-}
-.enterpriseSection .enterpriseAnim {
-  text-align: center;
-}
-.enterpriseSection .enterpriseAnim .enterpriseimg {
-  margin-bottom: 50px;
-}
-.enterpriseSection .enterpriseAnim p {
-  color: #AAA0AD;
+  color: #C0C6C6;
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .enterpriseSection .enterpriseAnim p {
+  .enterpriseSection .wrapper .enterpriseContent p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .enterpriseSection .enterpriseAnim p {
+  .enterpriseSection .wrapper .enterpriseContent p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .enterpriseSection .enterpriseAnim p {
+  .enterpriseSection .wrapper .enterpriseContent p {
     font-size: 14px;
   }
 }
-.enterpriseSection .enterpriseAnim p {
-  width: 48%;
-  margin: 0 auto;
-  line-height: 154%;
+.enterpriseSection .wrapper .enterpriseContent p {
+  line-height: 170%;
+  margin-bottom: 60px;
 }
-.enterpriseSection .enterpriseAnim img {
-  margin: 0 auto;
+.enterpriseSection .wrapper .enterpriseAnim {
+  width: 50%;
 }
 
 .whatwedoSection {
   margin-bottom: 200px;
-  padding: 200px 0 50px;
-  background: #E4E1DD;
-  border-radius: 32px;
 }
 .whatwedoSection .wrapper {
   padding-left: 100px;
@@ -1034,11 +1072,12 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 70px;
-  margin-bottom: 64px;
+  margin-bottom: 60px;
+}
+.whatwedoSection .wrapper .secHeading .headingGroup {
+  width: 45%;
 }
 .whatwedoSection .wrapper .secHeading .headingGroup h2 {
-  color: #181818;
   font-size: 48px;
 }
 @media screen and (max-width: 1800px) {
@@ -1072,114 +1111,166 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 .whatwedoSection .wrapper .secHeading .headingGroup h2 {
-  line-height: 140%;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 32px;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .whatwedoSection .wrapper .secHeading .headingGroup p {
-  line-height: 140%;
-  color: #525454;
-  font-size: 24px;
-}
-@media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .secHeading .headingGroup p {
-    font-size: 22px;
-  }
+  line-height: 170%;
+  color: #C0C6C6;
+  font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .secHeading .headingGroup p {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .secHeading .headingGroup p {
     font-size: 18px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .secHeading .headingGroup p {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1280px) {
   .whatwedoSection .wrapper .secHeading .headingGroup p {
     font-size: 14px;
   }
 }
+.whatwedoSection .wrapper .secHeading .headerCTA {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
 .whatwedoSection .wrapper .whatwedoContent {
   position: relative;
-  margin-bottom: 200px;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 56px 70px;
+  padding: 56px 0px;
   position: relative;
   cursor: pointer;
+  transition: background 0.8s ease;
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #B0B0B0;
-  height: 1px;
-  width: 100%;
-  transition: width 2s ease;
+  top: 0;
+  left: -100px;
+  width: 100vw;
+  height: 2px;
+  background: #767676;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-  font-size: 48px;
+.whatwedoSection .wrapper .whatwedoContent .contentBox::after {
+  background: radial-gradient(111.37% 408.52% at 53.15% 415.54%, rgba(20, 255, 242, 0.97) 0%, rgba(33, 2, 20, 0.98) 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 100vw;
+  height: 100%;
+  transform: rotate(-180deg);
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: -1;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  font-size: 100px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 44px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 80px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 38px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 52px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 36px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 46px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 32px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 30px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 32px;
   }
 }
 @media screen and (max-width: 720px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-    font-size: 20px;
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+    font-size: 30px;
   }
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox h3 {
-  color: #181818;
-  line-height: 140%;
-  text-transform: uppercase;
-  width: 50%;
-  transition: color 0.5s ease;
-}
-.whatwedoSection .wrapper .whatwedoContent .contentBox p {
-  width: 50%;
+.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  font-weight: 500;
   color: #525454;
-  font-size: 24px;
+  line-height: 50%;
+  letter-spacing: -1.328px;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  width: 70%;
+  font-size: 32px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
     font-size: 22px;
   }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+    font-size: 16px;
+  }
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 140%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 1s ease;
+}
+.whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  width: 30%;
+  color: #AEAEAE;
+  font-size: 22px;
 }
 @media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox p {
@@ -1196,129 +1287,380 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 720px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
-    font-size: 14px;
-  }
-}
 .whatwedoSection .wrapper .whatwedoContent .contentBox p {
-  line-height: 140%;
+  line-height: 150%;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox:hover h3 {
-  color: #00ACB4;
+.whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+  width: 300px;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox:hover::before {
-  width: 0;
-}
-.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 180px;
-  pointer-events: none;
-  z-index: 40;
-  opacity: 0;
-  overflow: hidden;
-  border-radius: 6px;
-  transform: translate(-50%, -50%) scale(0.85);
-  will-change: transform, opacity;
-}
-.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.whatwedoSection .wrapper .whatwedoContent .hoverFollowImage.is-active {
+.whatwedoSection .wrapper .whatwedoContent .contentBox:hover::after {
   opacity: 1;
 }
-@media screen and (max-width: 991px) {
-  .whatwedoSection .wrapper .whatwedoContent .hoverFollowImage {
-    display: none;
-  }
+.whatwedoSection .wrapper .whatwedoContent .contentBox:hover h4 {
+  color: #FF3535;
 }
-.whatwedoSection .wrapper .counterSection {
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
-  padding: 42px 0;
+
+.counterSection {
+  margin-bottom: 200px;
 }
-.whatwedoSection .wrapper .counterSection .counterBox {
+.counterSection .wrapper .counterContent {
+  border-top: 1px solid #6F6363;
+  border-bottom: 1px solid #6F6363;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
-  padding: 20px 0;
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter {
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
-  border-right: 1px solid #CBCBCB;
-  padding: 56px 0 56px 46px;
+.counterSection .wrapper .counterContent .counterBox {
+  border-right: 1px solid #6F6363;
+  display: flex;
+  flex-flow: column;
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+.counterSection .wrapper .counterContent .counterBox .counter {
+  padding: 50px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+}
+.counterSection .wrapper .counterContent .counterBox .counter h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 72px;
+}
+@media screen and (max-width: 1800px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 58px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 46px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
+    font-size: 30px;
+  }
+}
+.counterSection .wrapper .counterContent .counterBox .counter h4 {
+  font-weight: 400;
+  letter-spacing: -0.673px;
+  margin-bottom: 16px;
+  background: linear-gradient(120deg, rgba(1, 211, 199, 0.98) -8.27%, rgba(255, 255, 255, 0.98) 68.11%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+}
+.counterSection .wrapper .counterContent .counterBox .counter span {
+  color: #FF3535;
+  font-family: "Manrope", sans-serif;
+  font-size: 72px;
+}
+@media screen and (max-width: 1800px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 58px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 46px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
+    font-size: 30px;
+  }
+}
+.counterSection .wrapper .counterContent .counterBox .counter span {
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
+}
+.counterSection .wrapper .counterContent .counterBox .counter p {
+  color: #D9D9D9;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
+    font-size: 10px;
+  }
+}
+.counterSection .wrapper .counterContent .counterBox .counter p {
+  line-height: 140%;
+  z-index: 1;
+  position: relative;
+}
+.counterSection .wrapper .counterContent .counterBox .counter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(109.66% 402.88% at 45.23% 409.94%, rgba(20, 255, 242, 0.97) 0%, rgba(33, 2, 20, 0.98) 100%);
+  transform: rotate(-180deg);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.counterSection .wrapper .counterContent .counterBox .counterImg {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 15px 15px 0px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) {
+  flex-flow: column-reverse;
+}
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) .counter {
+  justify-content: flex-end;
+}
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) .counter::before {
+  transform: rotate(0deg);
+}
+.counterSection .wrapper .counterContent .counterBox:first-child .counter {
+  padding-left: 100px;
+}
+.counterSection .wrapper .counterContent .counterBox:last-child {
+  border-right: none;
+}
+.counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
+  padding-right: 100px;
+}
+.counterSection .wrapper .counterContent .counterBox:hover .counter::before {
+  opacity: 1;
+}
+.counterSection .wrapper .counterContent .counterBox:hover .counterImg {
+  opacity: 1;
+}
+
+.compoundsSection {
+  margin-bottom: 200px;
+}
+.compoundsSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1440px) {
+  .compoundsSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compoundsSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .compoundsSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.compoundsSection .wrapper .compoundsContent {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.compoundsSection .wrapper .compoundsContent .headingBox {
+  width: 40%;
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h4 {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 12px;
+  }
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h4 {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 160%;
+  margin-bottom: 16px;
+  letter-spacing: 1.8px;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+}
+.compoundsSection .wrapper .compoundsContent .headingBox h2 {
+  font-family: "Manrope", sans-serif;
   font-size: 48px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 44px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 38px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 20px;
   }
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter h4 {
-  color: #181818;
-  margin-bottom: 10px;
+.compoundsSection .wrapper .compoundsContent .headingBox h2 {
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 120%;
+  margin-bottom: 48px;
+  text-transform: capitalize;
+  background: linear-gradient(355deg, rgba(1, 211, 199, 0.98) 14.5%, rgba(255, 255, 255, 0.98) 50.86%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter p {
-  color: #525454;
+.compoundsSection .wrapper .compoundsContent .headingBox p {
+  color: #D9D9D9;
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .counterSection .counterBox .counter p {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
     font-size: 14px;
   }
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter p {
-  line-height: 140%;
+.compoundsSection .wrapper .compoundsContent .headingBox p {
+  line-height: 150%;
+  margin-bottom: 60px;
 }
-.whatwedoSection .wrapper .counterSection .counterBox .counter:last-child {
-  border-right: none;
+.compoundsSection .wrapper .compoundsContent .compoundsAnim {
+  width: 50%;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .line1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line4 {
+  stroke-dasharray: 2300;
+  stroke-dashoffset: 2300;
+  animation: dash 10s linear forwards;
+  animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .circle1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle4 {
+  opacity: 0;
+  animation: circleBlink 1.5s ease-in-out 2.5s infinite;
+  animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .text1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text4 {
+  opacity: 0;
+  animation: textFadeIn 0.8s ease 3.2s forwards;
+  animation-play-state: paused;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes circleBlink {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text4 {
+  animation-play-state: running;
 }
 
 .whyItSection {

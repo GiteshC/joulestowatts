@@ -1,7 +1,9 @@
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.create({
-    start: "150% top",
+    start: function () {
+        return window.innerHeight * 0.2;
+    },
     onEnter: () => {
         document.querySelector("header").classList.add("scrolled");
     },
@@ -12,14 +14,11 @@ ScrollTrigger.create({
 
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
 		var section = document.querySelector( '.enterpriseSection' );
-
 		if ( ! section ) {
 			return;
 		}
-
 		// GSAP + ScrollTrigger are expected to be loaded already (enqueued
 		// in header.php, before this script runs in the footer).
 		if ( typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
@@ -27,17 +26,13 @@ ScrollTrigger.create({
 			// the section stuck invisible.
 			return;
 		}
-
 		gsap.registerPlugin( ScrollTrigger );
-
 		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 		var globe = section.querySelector( '.globeEffect' );
 		var content = section.querySelector( '.enterpriseContent' );
-
 		if ( reduceMotion || ! globe || ! content ) {
 			return;
 		}
-
 		gsap.timeline( {
 			scrollTrigger: {
 				trigger: section,
@@ -57,64 +52,100 @@ ScrollTrigger.create({
 	} );
 } )();
 
-// What We Do — cursor-follow image reveal, one floating image swapped/moved
-// as the user hovers each .contentBox (same pattern as Agilitas's
-// "Where to next / Keep moving" section).
+// What We Do — each content box slides in from the right edge of the screen.
 ( function () {
 	'use strict';
-
 	document.addEventListener( 'DOMContentLoaded', function () {
-		var wrap = document.querySelector( '.whatwedoContent' );
-
-		if ( ! wrap ) {
+		var section = document.querySelector( '.whatwedoSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
 			return;
 		}
-
-		var followImage = wrap.querySelector( '.hoverFollowImage' );
-		var followImgTag = followImage ? followImage.querySelector( 'img' ) : null;
-		var boxes = wrap.querySelectorAll( '.contentBox' );
-
-		if ( ! followImage || ! followImgTag || ! boxes.length ) {
+		var boxes = section.querySelectorAll( '.contentBox' );
+		if ( ! boxes.length ) {
 			return;
 		}
-
-		var hasGsap = typeof gsap !== 'undefined';
-		var moveX, moveY;
-
-		if ( hasGsap ) {
-			moveX = gsap.quickTo( followImage, 'x', { duration: 0.5, ease: 'power3' } );
-			moveY = gsap.quickTo( followImage, 'y', { duration: 0.5, ease: 'power3' } );
+		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+		if ( reduceMotion ) {
+			return;
 		}
-
-		function positionImage( e ) {
-			if ( hasGsap ) {
-				moveX( e.clientX );
-				moveY( e.clientY );
-			} else {
-				followImage.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
-			}
-		}
-
 		boxes.forEach( function ( box ) {
-			var imgSrc = box.getAttribute( 'data-hover-img' );
-
-			box.addEventListener( 'mouseenter', function ( e ) {
-				if ( imgSrc ) {
-					followImgTag.src = imgSrc;
+			gsap.fromTo( box,
+				{ opacity: 0, x: '100vw' },
+				{
+					opacity: 1,
+					x: 0,
+					duration: 1.5,
+					delay: 0.5,
+					ease: 'power2.out',
+					scrollTrigger: {
+						trigger: box,
+						start: 'top 85%',
+						toggleActions: 'restart none restart none',
+					},
 				}
-				followImage.classList.add( 'is-active' );
-				positionImage( e );
-			} );
+			);
+		} );
+	} );
+} )();
 
-			box.addEventListener( 'mousemove', positionImage );
-
-			box.addEventListener( 'mouseleave', function () {
-				followImage.classList.remove( 'is-active' );
+// Counter section — each number animates from 0 up to its target value
+// once it scrolls into view.
+( function () {
+	'use strict';
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var counters = document.querySelectorAll( '.counterSection .counterBox h4' );
+		if ( ! counters.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
+			return;
+		}
+		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+		counters.forEach( function ( counter ) {
+			// Numbers may contain commas (e.g. "5,500") — strip them to get
+			// the numeric target, keep the original for comma formatting.
+			var target = parseInt( counter.textContent.replace( /,/g, '' ), 10 );
+			if ( isNaN( target ) ) {
+				return;
+			}
+			if ( reduceMotion ) {
+				counter.textContent = target.toLocaleString( 'en-US' );
+				return;
+			}
+			var counterObj = { value: 0 };
+			gsap.to( counterObj, {
+				value: target,
+				duration: 1.6,
+				delay: 0.3,
+				ease: 'power1.out',
+				onUpdate: function () {
+					counter.textContent = Math.round( counterObj.value ).toLocaleString( 'en-US' );
+				},
+				scrollTrigger: {
+					trigger: counter.closest( '.counterBox' ),
+					start: 'top 85%',
+					toggleActions: 'restart none restart none',
+				},
 			} );
 		} );
 	} );
 } )();
 
+// Compounds section — trigger the SVG's inline CSS animations
+( function () {
+	'use strict';
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var section = document.querySelector( '.compoundsSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
+			return;
+		}
+		ScrollTrigger.create( {
+			trigger: section,
+			start: 'top 30%',
+			once: true,
+			onEnter: function () {
+				section.classList.add( 'in-view' );
+			},
+		} );
+	} );
+} )();
 
 $('.resultCardSlider').slick({
 	slidesToShow: 3.5,
