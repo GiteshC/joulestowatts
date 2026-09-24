@@ -377,7 +377,7 @@ button:focus {
   letter-spacing: 0.25px;
 }
 
-.primaryWhiteCTA {
+.primaryCTA {
   border: 1px solid #2B2B2B;
   background: #00ACB4;
   display: flex;
@@ -389,46 +389,46 @@ button:focus {
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .primaryWhiteCTA {
+  .primaryCTA {
     font-size: 10px;
   }
 }
-.primaryWhiteCTA {
+.primaryCTA {
   font-weight: 500;
   line-height: 140%;
   transition: 0.35s;
   width: fit-content;
   position: relative;
 }
-.primaryWhiteCTA .arrowBox {
+.primaryCTA .arrowBox {
   transition: 0.35s;
   width: 24px;
   height: 24px;
 }
-.primaryWhiteCTA .arrowBox svg {
+.primaryCTA .arrowBox svg {
   width: 100%;
   height: 100%;
   display: block;
 }
-.primaryWhiteCTA:hover {
+.primaryCTA:hover {
   color: #19060F;
   background: #D9D9D9;
 }
-.primaryWhiteCTA:hover .arrowBox {
+.primaryCTA:hover .arrowBox {
   transform: rotate(45deg);
 }
 
-.secondaryWhiteCTA {
+.secondaryCTA {
   border: 1px solid #2B2B2B;
   background: #D9D9D9;
   display: flex;
@@ -440,43 +440,95 @@ button:focus {
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .secondaryWhiteCTA {
+  .secondaryCTA {
     font-size: 10px;
   }
 }
-.secondaryWhiteCTA {
+.secondaryCTA {
   font-weight: 500;
   line-height: 140%;
   transition: 0.35s;
   width: fit-content;
   position: relative;
 }
-.secondaryWhiteCTA .arrowBox {
+.secondaryCTA .arrowBox {
   transition: 0.35s;
   width: 24px;
   height: 24px;
 }
-.secondaryWhiteCTA .arrowBox svg {
+.secondaryCTA .arrowBox svg {
   width: 100%;
   height: 100%;
   display: block;
 }
-.secondaryWhiteCTA:hover {
+.secondaryCTA:hover {
   color: #19060F;
   background: #00ACB4;
 }
-.secondaryWhiteCTA:hover .arrowBox {
+.secondaryCTA:hover .arrowBox {
   transform: rotate(45deg);
+}
+
+.teritaryCTA {
+  border-radius: 100px;
+  border: 2px solid #CC2033;
+  background: #140409;
+  display: inline-flex;
+  padding: 12px 20px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 11px;
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .teritaryCTA {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .teritaryCTA {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teritaryCTA {
+    font-size: 12px;
+  }
+}
+.teritaryCTA {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.teritaryCTA span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #CC2033;
+  border-radius: 100px;
+  transition: 0.35s;
+}
+.teritaryCTA span svg {
+  display: block;
+}
+.teritaryCTA:hover {
+  color: #fff;
+}
+.teritaryCTA:hover span {
+  transform: rotate(-45deg);
 }
 
 .headingIcon {
@@ -774,9 +826,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .bannerSection .wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-flow: wrap;
+  height: 100%;
+  position: relative;
 }
 .bannerSection .wrapper .bannerContent {
   width: 75%;
@@ -864,6 +918,14 @@ footer .footerWrapper .footerlogo .mailBox a {
 .bannerSection .wrapper .bannerContent p {
   line-height: 140%;
   margin-bottom: 42px;
+}
+.bannerSection .wrapper .casestudyCTA {
+  position: absolute;
+  bottom: 35px;
+  right: 100px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
 }
 
 .enterpriseSection {

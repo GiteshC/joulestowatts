@@ -469,7 +469,7 @@ button:focus{outline: none;}
     letter-spacing: 0.25px;
 }
 
-.primaryWhiteCTA{border: 1px solid #2B2B2B; background: #00ACB4; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
+.primaryCTA{border: 1px solid #2B2B2B; background: #00ACB4; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
     .arrowBox{transition: 0.35s; width: 24px; height: 24px;
         svg{width: 100%; height: 100%; display: block;}
     }
@@ -478,12 +478,21 @@ button:focus{outline: none;}
     }
 }
 
-.secondaryWhiteCTA{border: 1px solid #2B2B2B; background: #D9D9D9; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
+.secondaryCTA{border: 1px solid #2B2B2B; background: #D9D9D9; display: flex; padding: 20px; justify-content: center;align-items: center; gap: 12px; color: #19060F; @include font16; font-weight: 500; line-height: 140%; transition: 0.35s; width: fit-content; position: relative;
     .arrowBox{transition: 0.35s; width: 24px; height: 24px;
         svg{width: 100%; height: 100%; display: block;}
     }
     &:hover{color:#19060F; background: #00ACB4;
         .arrowBox{transform: rotate(45deg);}
+    }
+}
+
+.teritaryCTA{border-radius: 100px; border: 2px solid #CC2033; background: #140409; display: inline-flex; padding: 12px 20px; justify-content: flex-end; align-items: center; gap: 11px; color: #FFF; font-family: $manrope; @include font18; font-weight: 500; text-transform: capitalize;
+    span{width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border: 2px solid #CC2033; border-radius: 100px; transition: 0.35s;
+        svg{display: block;}
+    }
+    &:hover{color:#fff;
+        span{transform: rotate(-45deg);}
     }
 }
 
