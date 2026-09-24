@@ -89,7 +89,14 @@
                 h2{font-family: $manrope; @include font48; font-weight: 500; color: #ffffff; line-height: 120%; margin-bottom: 48px; text-transform: capitalize; background: linear-gradient(355deg, rgba(1, 211, 199, 0.98) 14.5%, rgba(255, 255, 255, 0.98) 50.86%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
                 p{color: #D9D9D9; @include font20; line-height: 150%; margin-bottom: 60px;}
             }
-            .compoundsAnim{width: 50%;}
+            .compoundsAnim{width: 50%;
+                .line1, .line2, .line3, .line4{stroke-dasharray:2300; stroke-dashoffset:2300; animation: dash 10s linear forwards; animation-play-state: paused;}
+                .circle1, .circle2, .circle3, .circle4{opacity: 0; animation: circleBlink 1.5s ease-in-out 2.5s infinite; animation-play-state: paused;}
+                .text1, .text2, .text3, .text4{opacity: 0; animation: textFadeIn 0.4s ease 3.2s forwards; animation-play-state: paused;}
+            }
+            &.in-view .compoundsAnim svg{
+                .line1, .line2, .line3, .line4, .circle1, .circle2, .circle3, .circle4, .text1, .text2, .text3, .text4{animation-play-state: running;}
+            }
         }
     }
 }

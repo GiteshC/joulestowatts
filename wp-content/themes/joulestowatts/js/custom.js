@@ -149,3 +149,29 @@ ScrollTrigger.create({
 		} );
 	} );
 } )();
+
+// Compounds section — trigger the SVG's inline CSS animations (line-draw,
+// circle blink, text fade-in) only once the section enters the viewport.
+// The SVG's own <style> tag ships these animations `paused` by default;
+// this just adds `.in-view`, which a higher-specificity CSS rule uses to
+// flip them to `running` (see scss/pages/_homepage.scss).
+( function () {
+	'use strict';
+
+	document.addEventListener( 'DOMContentLoaded', function () {
+		var section = document.querySelector( '.compoundsSection' );
+
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
+			return;
+		}
+
+		ScrollTrigger.create( {
+			trigger: section,
+			start: 'top 70%',
+			once: true,
+			onEnter: function () {
+				section.classList.add( 'in-view' );
+			},
+		} );
+	} );
+} )();

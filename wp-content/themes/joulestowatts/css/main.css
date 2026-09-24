@@ -1551,4 +1551,23 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .compoundsSection .wrapper .compoundsContent .compoundsAnim {
   width: 50%;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .line1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line4 {
+  stroke-dasharray: 2300;
+  stroke-dashoffset: 2300;
+  animation: dash 10s linear forwards;
+  animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .circle1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .circle4 {
+  opacity: 0;
+  animation: circleBlink 1.5s ease-in-out 2.5s infinite;
+  animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .text1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text4 {
+  opacity: 0;
+  animation: textFadeIn 0.4s ease 3.2s forwards;
+  animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .line4, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .circle4, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text1, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text2, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text3, .compoundsSection .wrapper .compoundsContent.in-view .compoundsAnim svg .text4 {
+  animation-play-state: running;
 }/*# sourceMappingURL=main.css.map */
