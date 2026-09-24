@@ -1233,7 +1233,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 .counterSection {
   margin-bottom: 200px;
 }
-.counterSection .wrapper .counterSection {
+.counterSection .wrapper .counterContent {
   border-top: 1px solid #6F6363;
   border-bottom: 1px solid #6F6363;
   display: grid;
@@ -1241,12 +1241,12 @@ footer .footerWrapper .footerlogo .mailBox a {
   justify-content: space-between;
   align-items: center;
 }
-.counterSection .wrapper .counterSection .counterBox {
+.counterSection .wrapper .counterContent .counterBox {
   border-right: 1px solid #6F6363;
   display: flex;
   flex-flow: column;
 }
-.counterSection .wrapper .counterSection .counterBox .counter {
+.counterSection .wrapper .counterContent .counterBox .counter {
   padding: 50px;
   height: 500px;
   position: relative;
@@ -1254,46 +1254,46 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: flex-start;
   flex-flow: column;
 }
-.counterSection .wrapper .counterSection .counterBox .counter h4 {
+.counterSection .wrapper .counterContent .counterBox .counter h4 {
   font-family: "Manrope", sans-serif;
   font-size: 72px;
 }
 @media screen and (max-width: 1800px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 58px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 52px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 46px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 40px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 820px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 720px) {
-  .counterSection .wrapper .counterSection .counterBox .counter h4 {
+  .counterSection .wrapper .counterContent .counterBox .counter h4 {
     font-size: 30px;
   }
 }
-.counterSection .wrapper .counterSection .counterBox .counter h4 {
+.counterSection .wrapper .counterContent .counterBox .counter h4 {
   font-weight: 400;
   letter-spacing: -0.673px;
   margin-bottom: 16px;
@@ -1306,76 +1306,76 @@ footer .footerWrapper .footerlogo .mailBox a {
   z-index: 1;
   position: relative;
 }
-.counterSection .wrapper .counterSection .counterBox .counter span {
+.counterSection .wrapper .counterContent .counterBox .counter span {
   color: #FF3535;
   font-family: "Manrope", sans-serif;
   font-size: 72px;
 }
 @media screen and (max-width: 1800px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 58px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 52px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 46px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 40px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 820px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 720px) {
-  .counterSection .wrapper .counterSection .counterBox .counter span {
+  .counterSection .wrapper .counterContent .counterBox .counter span {
     font-size: 30px;
   }
 }
-.counterSection .wrapper .counterSection .counterBox .counter span {
+.counterSection .wrapper .counterContent .counterBox .counter span {
   font-weight: 400;
   z-index: 1;
   position: relative;
 }
-.counterSection .wrapper .counterSection .counterBox .counter p {
+.counterSection .wrapper .counterContent .counterBox .counter p {
   color: #D9D9D9;
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .counterSection .wrapper .counterSection .counterBox .counter p {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .counterSection .wrapper .counterSection .counterBox .counter p {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .counterSection .wrapper .counterSection .counterBox .counter p {
+  .counterSection .wrapper .counterContent .counterBox .counter p {
     font-size: 10px;
   }
 }
-.counterSection .wrapper .counterSection .counterBox .counter p {
+.counterSection .wrapper .counterContent .counterBox .counter p {
   line-height: 140%;
   z-index: 1;
   position: relative;
 }
-.counterSection .wrapper .counterSection .counterBox .counter::before {
+.counterSection .wrapper .counterContent .counterBox .counter::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1387,35 +1387,35 @@ footer .footerWrapper .footerlogo .mailBox a {
   opacity: 0;
   transition: opacity 0.6s ease;
 }
-.counterSection .wrapper .counterSection .counterBox .counterImg {
+.counterSection .wrapper .counterContent .counterBox .counterImg {
   display: flex;
   justify-content: flex-end;
   padding: 0px 15px 15px 0px;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
-.counterSection .wrapper .counterSection .counterBox:nth-child(odd) {
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) {
   flex-flow: column-reverse;
 }
-.counterSection .wrapper .counterSection .counterBox:nth-child(odd) .counter {
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) .counter {
   justify-content: flex-end;
 }
-.counterSection .wrapper .counterSection .counterBox:nth-child(odd) .counter::before {
+.counterSection .wrapper .counterContent .counterBox:nth-child(odd) .counter::before {
   transform: rotate(0deg);
 }
-.counterSection .wrapper .counterSection .counterBox:first-child .counter {
+.counterSection .wrapper .counterContent .counterBox:first-child .counter {
   padding-left: 100px;
 }
-.counterSection .wrapper .counterSection .counterBox:last-child {
+.counterSection .wrapper .counterContent .counterBox:last-child {
   border-right: none;
 }
-.counterSection .wrapper .counterSection .counterBox:last-child .counterImg {
+.counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
   padding-right: 100px;
 }
-.counterSection .wrapper .counterSection .counterBox:hover .counter::before {
+.counterSection .wrapper .counterContent .counterBox:hover .counter::before {
   opacity: 1;
 }
-.counterSection .wrapper .counterSection .counterBox:hover .counterImg {
+.counterSection .wrapper .counterContent .counterBox:hover .counterImg {
   opacity: 1;
 }
 

@@ -50,7 +50,7 @@
 
 .counterSection{margin-bottom: 200px;
     .wrapper{
-        .counterSection{border-top: 1px solid #6F6363; border-bottom: 1px solid #6F6363; display: grid; grid-template-columns: repeat(4, 1fr); justify-content: space-between; align-items: center;
+        .counterContent{border-top: 1px solid #6F6363; border-bottom: 1px solid #6F6363; display: grid; grid-template-columns: repeat(4, 1fr); justify-content: space-between; align-items: center;
             .counterBox{border-right: 1px solid #6F6363; display: flex; flex-flow: column;
                 .counter{padding: 50px; height: 500px; position: relative; display: flex; align-items: flex-start; flex-flow: column;
                     h4{font-family: $manrope; @include font72; font-weight: 400; letter-spacing: -0.673px; margin-bottom: 16px; background: linear-gradient(120deg, rgba(1, 211, 199, 0.98) -8.27%, rgba(255, 255, 255, 0.98) 68.11%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; display: inline-block; z-index: 1; position: relative;}

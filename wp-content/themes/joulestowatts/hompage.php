@@ -80,7 +80,7 @@
 
 <section class="counterSection">
     <div class="wrapper">
-        <div class="counterSection">
+        <div class="counterContent">
             <div class="counterBox">
                 <div class="counter">
                     <div>
