@@ -1,13 +1,12 @@
 @use '../base/_global.scss' as *;
 
 footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px; border-top-right-radius: 32px; z-index: 101; position: relative;
-    .footerWrapper{padding: 0 64px; display: flex; flex-flow: column; gap: 70px; @include wrapper; 
-        .footerHead{display: flex; align-items: center; padding-bottom: 56px; gap: 115px; position: relative;
-            h2{@include font48; color: $darkbody; line-height: 140%; letter-spacing: 2px; text-transform: uppercase; width: 74%; }
-            
+    .footerWrapper{display: flex; flex-flow: column; gap: 70px; @include wrapper; 
+        .footerHead{display: flex; align-items: center; padding-bottom: 56px; gap: 115px; position: relative; padding-left: 70px; padding-right: 70px;
+            h2{@include font48; color: $darkbody; line-height: 140%; text-transform: capitalize; width: 74%; color: #12161F; }
             &::after{content: ""; border-bottom: 1px solid rgba(43, 43, 43, 0.20); position: absolute; bottom: 0; left: 0; width: 100%;}
         }
-        .footerLinks{ padding-bottom: 80px; position: relative;
+        .footerLinks{ padding-bottom: 80px; position: relative; padding-left: 70px; padding-right: 70px;
             .linkBoxes{  display: grid; grid-template-columns: repeat(3, 1fr); gap: 156px;
                 .column{
                     p{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 24px;}
@@ -25,7 +24,7 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
             }
             &::after{content: ""; border-bottom: 1px solid rgba(43, 43, 43, 0.20); position: absolute; bottom: 0; left: 0; width: 100%;}
         }
-        .footerlogo{
+        .footerlogo{padding-left: 70px; padding-right: 70px;
             .mailBox{display: flex; align-items: center; justify-content: space-between;
                 p{color: $darkbody; font-family: "Satoshi-Regular"; @include font20; line-height: 170%;}
                 a{font-family: "Satoshi-Regular"; @include font20; line-height: 170%; color: $darkbody;}
