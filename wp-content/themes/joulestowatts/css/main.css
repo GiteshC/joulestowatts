@@ -809,6 +809,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding-top: 164px;
   width: 100%;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 .bannerSection .wrapper {
   padding-left: 100px;
@@ -839,6 +841,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   flex-flow: wrap;
   height: 100%;
   position: relative;
+  z-index: 2;
 }
 .bannerSection .wrapper .bannerContent {
   width: 75%;
@@ -889,7 +892,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   color: #ffffff;
 }
 .bannerSection .wrapper .bannerContent h1 span {
-  background: linear-gradient(90deg, #FFF 88.77%, rgba(1, 211, 199, 0.98) 100%);
+  background: linear-gradient(270deg, #FFF 41.65%, rgba(1, 211, 199, 0.98) 66.21%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -935,11 +938,31 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: flex;
   justify-content: center;
 }
+.bannerSection .bannerBG {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
 
 .enterpriseSection {
-  margin-top: 200px;
+  padding-top: 200px;
   width: 100%;
   margin-bottom: 200px;
+  position: relative;
+}
+.enterpriseSection .enterpriseBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  transform: rotate(180deg);
 }
 .enterpriseSection .wrapper {
   padding-left: 100px;

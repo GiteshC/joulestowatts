@@ -1,18 +1,20 @@
 @use '../base/_global.scss' as *;
 
-.bannerSection{padding-top: 164px; width: 100%; height: 100vh;
-    .wrapper{@include wrapper; display: flex; align-items: flex-start; justify-content: center; flex-flow: wrap; height: 100%; position: relative;
+.bannerSection{padding-top: 164px; width: 100%; height: 100vh; position: relative; overflow: hidden;
+    .wrapper{@include wrapper; display: flex; align-items: flex-start; justify-content: center; flex-flow: wrap; height: 100%; position: relative; z-index: 2;
         .bannerContent{width: 75%; text-align: center;
             h1{@include font100; font-weight: 500; margin-bottom: 20px; line-height: 130%; color: #ffffff;
-                span{background: linear-gradient(90deg, #FFF 88.77%, rgba(1, 211, 199, 0.98) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                span{background: linear-gradient(270deg, #FFF 41.65%, rgba(1, 211, 199, 0.98) 66.21%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
             }
             p{color: #AAA0AD; @include font24; line-height: 140%; margin-bottom: 42px;}
         }
         .casestudyCTA{position: absolute; bottom: 35px; right: 100px; width: fit-content; display: flex; justify-content: center;}
     }
+    .bannerBG{position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: flex-end;}
 }
 
-.enterpriseSection{margin-top: 200px; width: 100%; margin-bottom: 200px;
+.enterpriseSection{padding-top: 200px; width: 100%; margin-bottom: 200px; position: relative;
+    .enterpriseBG{position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; transform: rotate(180deg);}
     .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center; flex-flow: wrap;
         .enterpriseContent{width: 50%;
             h2{width: 70%; @include font48; font-weight: 500; margin-bottom: 32px; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
