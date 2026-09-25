@@ -154,8 +154,8 @@ $('.resultCardSlider').slick({
 	autoplaySpeed: 2500,
 	infinite: false,
 	arrows: true,
-	prevArrow: $(".prevArrow"),
-	nextArrow: $(".nextArrow"),
+	prevArrow: $(".resultPrevArrow"),
+	nextArrow: $(".resultNextArrow"),
 	focusOnSelect: true,
 });
 

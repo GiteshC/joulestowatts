@@ -193,13 +193,15 @@
             /* R3 C1 */
             .box-r3-c1 {grid-column: 1;grid-row: 3; padding-left: 100px; display: flex; align-items: center;
                 .arrowBox{display: flex; align-items: center; justify-content: center; gap: 20px;
-                    .prevArrow, .nextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer;
-                        svg{width: 24px; height: 24px;}
-                        &.slick-disabled{border-color: rgba(0,0,0,0.25);
+                    .prevArrow, .nextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
+                    svg{width: 24px; height: 24px;}
+                        &.slick-disabled{background: #525454; cursor: default; pointer-events: none;
                             svg{
-                                path{opacity: 0.25;}
+                                path{opacity: 1;}
                             }
-                        } 
+                            &:hover{background: #525454;}
+                        }
+                        &:hover{background: #00ACB4;}
                     }
                 }
             }
@@ -271,13 +273,15 @@
                 }
             }
             .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
-                .prevArrow, .nextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer;
+                .resultPrevArrow, .resultNextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
                     svg{width: 24px; height: 24px;}
-                    &.slick-disabled{border-color: rgba(0,0,0,0.25);
+                    &.slick-disabled{background: #525454; cursor: default; pointer-events: none;
                         svg{
-                            path{opacity: 0.25;}
+                            path{opacity: 1;}
                         }
-                    } 
+                        &:hover{background: #525454;}
+                    }
+                    &:hover{background: #00ACB4;}
                 }
             }
         }

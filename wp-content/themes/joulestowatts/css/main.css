@@ -607,8 +607,6 @@ footer .footerWrapper .footerHead {
   padding-bottom: 56px;
   gap: 115px;
   position: relative;
-  padding-left: 70px;
-  padding-right: 70px;
 }
 footer .footerWrapper .footerHead h2 {
   font-size: 48px;
@@ -648,7 +646,7 @@ footer .footerWrapper .footerHead h2 {
   line-height: 140%;
   font-weight: 600;
   text-transform: capitalize;
-  width: 74%;
+  width: 80%;
   color: #12161F;
 }
 footer .footerWrapper .footerHead::after {
@@ -656,14 +654,12 @@ footer .footerWrapper .footerHead::after {
   border-bottom: 1px solid rgba(43, 43, 43, 0.2);
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: -68px;
+  width: calc(100% + 136px);
 }
 footer .footerWrapper .footerLinks {
   padding-bottom: 80px;
   position: relative;
-  padding-left: 70px;
-  padding-right: 70px;
 }
 footer .footerWrapper .footerLinks .linkBoxes {
   display: grid;
@@ -747,12 +743,8 @@ footer .footerWrapper .footerLinks::after {
   border-bottom: 1px solid rgba(43, 43, 43, 0.2);
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-}
-footer .footerWrapper .footerlogo {
-  padding-left: 70px;
-  padding-right: 70px;
+  left: -68px;
+  width: calc(100% + 136px);
 }
 footer .footerWrapper .footerlogo .mailBox {
   display: flex;
@@ -2124,16 +2116,25 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow svg, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow svg {
   width: 24px;
   height: 24px;
 }
 .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled {
-  border-color: rgba(0, 0, 0, 0.25);
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
 }
 .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled svg path, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled svg path {
-  opacity: 0.25;
+  opacity: 1;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled:hover, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow:hover, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow:hover {
+  background: #00ACB4;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C2 + C3 */
@@ -2483,7 +2484,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   margin-top: 50px;
   gap: 20px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow {
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
   background: #D9D9D9;
   border: 1px solid #000;
   border-radius: 50%;
@@ -2493,14 +2494,23 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow svg {
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
   width: 24px;
   height: 24px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow.slick-disabled {
-  border-color: rgba(0, 0, 0, 0.25);
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow.slick-disabled svg path {
-  opacity: 0.25;
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow:hover {
+  background: #00ACB4;
 }/*# sourceMappingURL=main.css.map */
