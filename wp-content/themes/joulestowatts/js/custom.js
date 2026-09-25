@@ -154,7 +154,30 @@ $('.resultCardSlider').slick({
 	autoplaySpeed: 2500,
 	infinite: false,
 	arrows: true,
+	prevArrow: $(".resultPrevArrow"),
+	nextArrow: $(".resultNextArrow"),
+	focusOnSelect: true,
+});
+
+
+$('.mainSliderBox').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	fade: true,
+	infinite: false,
+	asNavFor: '.textSlider'
+});
+$('.textSlider').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: true,
 	prevArrow: $(".prevArrow"),
 	nextArrow: $(".nextArrow"),
-	focusOnSelect: true,
+	asNavFor: '.mainSliderBox',
+	dots: false,
+	fade: true,
+	infinite: false,
+	centerMode: false,
+	focusOnSelect: false
 });

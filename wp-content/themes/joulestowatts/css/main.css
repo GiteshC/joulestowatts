@@ -607,8 +607,6 @@ footer .footerWrapper .footerHead {
   padding-bottom: 56px;
   gap: 115px;
   position: relative;
-  padding-left: 70px;
-  padding-right: 70px;
 }
 footer .footerWrapper .footerHead h2 {
   font-size: 48px;
@@ -648,7 +646,7 @@ footer .footerWrapper .footerHead h2 {
   line-height: 140%;
   font-weight: 600;
   text-transform: capitalize;
-  width: 74%;
+  width: 80%;
   color: #12161F;
 }
 footer .footerWrapper .footerHead::after {
@@ -656,14 +654,12 @@ footer .footerWrapper .footerHead::after {
   border-bottom: 1px solid rgba(43, 43, 43, 0.2);
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: -68px;
+  width: calc(100% + 136px);
 }
 footer .footerWrapper .footerLinks {
   padding-bottom: 80px;
   position: relative;
-  padding-left: 70px;
-  padding-right: 70px;
 }
 footer .footerWrapper .footerLinks .linkBoxes {
   display: grid;
@@ -747,12 +743,8 @@ footer .footerWrapper .footerLinks::after {
   border-bottom: 1px solid rgba(43, 43, 43, 0.2);
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-}
-footer .footerWrapper .footerlogo {
-  padding-left: 70px;
-  padding-right: 70px;
+  left: -68px;
+  width: calc(100% + 136px);
 }
 footer .footerWrapper .footerlogo .mailBox {
   display: flex;
@@ -1964,16 +1956,81 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection {
   margin-bottom: 200px;
   position: relative;
-  overflow: hidden;
 }
 .platformSection .secWrapper .mainGridContainer {
   display: grid;
-  grid-template-columns: 640px 320px 640px 320px;
+  grid-template-columns: 33.333% 16.667% 33.333% 16.667%;
   grid-template-rows: 320px 320px 320px;
 }
 .platformSection .secWrapper .mainGridContainer .headingBox {
   grid-column: 1/3;
   grid-row: 1;
+  padding: 80px 10px 10px 100px;
+}
+.platformSection .secWrapper .mainGridContainer .headingBox h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
+    font-size: 20px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .headingBox h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 32px;
+}
+.platformSection .secWrapper .mainGridContainer .headingBox p {
+  color: #CBC6C6;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .headingBox p {
+  line-height: 170%;
 }
 .platformSection .secWrapper .mainGridContainer .box {
   border: 1px solid #6F6363;
@@ -1984,6 +2041,38 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .sliderBox {
   grid-column: 3;
   grid-row: 1/3;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide {
+  position: relative;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+  text-transform: uppercase;
+  color: #D9D9D9;
+  border-radius: 24px;
+  background: rgba(5, 5, 5, 0.2);
+  backdrop-filter: blur(2px);
+  padding: 10px 16px;
+  position: absolute;
+  top: 24px;
+  left: 29px;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R1 C4 */
@@ -2005,6 +2094,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r2-c2 {
   grid-column: 2;
   grid-row: 2;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.platformSection .secWrapper .mainGridContainer .box-r2-c2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: lightgray -373px -125px/344.36% 199.743% no-repeat;
+  transform: translateY(100%);
+  animation: gradientUp 4s ease-in-out infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R2 C4 */
@@ -2019,13 +2119,115 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r3-c1 {
   grid-column: 1;
   grid-row: 3;
+  padding-left: 100px;
+  display: flex;
+  align-items: center;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow svg, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow svg {
+  width: 24px;
+  height: 24px;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled svg path, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow.slick-disabled:hover, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow:hover, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow:hover {
+  background: #00ACB4;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C2 + C3 */
 }
-.platformSection .secWrapper .mainGridContainer .bottom-content {
+.platformSection .secWrapper .mainGridContainer .bottomContent {
   grid-column: 2/4;
   grid-row: 3;
+  padding: 74px 40px 40px 60px;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  color: #D9D9D9;
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+    font-size: 16px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+  color: #D9D9D9;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 14px;
+  }
+}
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+  line-height: 170%;
+  width: 55%;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C4 */
@@ -2033,6 +2235,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r3-c4 {
   grid-column: 4;
   grid-row: 3;
+}
+@keyframes gradientUp {
+  0% {
+    transform: translateY(-100%);
+  }
+  40% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .buildingSection {
@@ -2292,9 +2505,9 @@ footer .footerWrapper .footerlogo .mailBox a {
   justify-content: flex-start;
   display: flex;
   margin-top: 50px;
-  gap: 40px;
+  gap: 20px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow {
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
   background: #D9D9D9;
   border: 1px solid #000;
   border-radius: 50%;
@@ -2304,14 +2517,23 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow svg {
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
   width: 24px;
   height: 24px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow.slick-disabled {
-  border-color: rgba(0, 0, 0, 0.25);
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .prevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .arrowBox .nextArrow.slick-disabled svg path {
-  opacity: 0.25;
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow:hover {
+  background: #00ACB4;
 }/*# sourceMappingURL=main.css.map */
