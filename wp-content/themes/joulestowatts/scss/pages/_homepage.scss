@@ -233,13 +233,33 @@
 }
 
 .buildingSection{margin-bottom: 200px;
-    .secWrapper{@include wrapper;
-        .cardContainer{display: flex; align-items: center; 
-            .slide{opacity: 5; 
-                &.centerSlide{position: relative; z-index: 9;  
-                    .media{transform: scale(1);}
+    .secWrapper{padding: 0 30px;
+        .cardContainer{
+            .slide{position: relative; margin-bottom: 40px; border: 1px solid #2B2B2B; background: #fff;
+                > 
+                h2{@include font48; font-weight: 500; line-height: 120%; text-align: center; margin-bottom: 32px; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                .media img{width: 100%; display: block; aspect-ratio: 1295 / 558; object-fit: cover;}
+                .card-link{display: block; background: #fff; color: #12161F;
+                    .body{display: flex; justify-content: space-between; gap: 24px; padding: 38px;
+                        h2{@include font32; font-weight: 500; color: #12161F; margin-bottom: 12px;}
+                        p{@include font24; color: #4A4A4A; line-height: 150%; margin: 0;}
+                        .arrow{flex-shrink: 0; svg{display: block;}}
+                    }
                 }
-                .media{transform: scale(1);}
+            }
+        }
+    }
+
+    // Desktop pinned carousel (class added by JS)
+    &.is-carousel{min-height: 100vh; display: flex; align-items: center; padding-top: 100px; box-sizing: border-box;
+        .secWrapper{width: 100%;
+            .cardContainer{display: grid; place-items: center;
+                .slide{grid-area: 1 / 1; width: min(75vw, calc((100vh - 260px) * 1.7)); margin-bottom: 0; will-change: transform, opacity; pointer-events: none;
+                    > h2{position: absolute; bottom: 100%; left: 0; right: 0; margin-bottom: 28px; opacity: 0; transition: opacity 0.4s ease;}
+                    &.is-active{pointer-events: auto;
+                        > h2{opacity: 1;}
+                    }
+                }
             }
         }
     }

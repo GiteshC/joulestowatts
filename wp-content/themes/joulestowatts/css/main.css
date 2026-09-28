@@ -2252,43 +2252,181 @@ footer .footerWrapper .footerlogo .mailBox a {
   margin-bottom: 200px;
 }
 .buildingSection .secWrapper {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 0 30px;
+}
+.buildingSection .secWrapper .cardContainer .slide {
+  position: relative;
+  margin-bottom: 40px;
+  border: 1px solid #2B2B2B;
+  background: #fff;
+}
+.buildingSection .secWrapper .cardContainer .slide > h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 38px;
+  }
 }
 @media screen and (max-width: 1440px) {
-  .buildingSection .secWrapper {
-    padding-left: 80px;
-    padding-right: 80px;
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .buildingSection .secWrapper {
-    padding-left: 60px;
-    padding-right: 60px;
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 32px;
   }
 }
-@media screen and (max-width: 768px) {
-  .buildingSection .secWrapper {
-    padding-left: 15px;
-    padding-right: 15px;
+@media screen and (max-width: 1024px) {
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 30px;
   }
 }
-.buildingSection .secWrapper .cardContainer {
+@media screen and (max-width: 720px) {
+  .buildingSection .secWrapper .cardContainer .slide > h2 {
+    font-size: 20px;
+  }
+}
+.buildingSection .secWrapper .cardContainer .slide > h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 32px;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.buildingSection .secWrapper .cardContainer .slide .media img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1295/558;
+  object-fit: cover;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link {
+  display: block;
+  background: #fff;
+  color: #12161F;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 38px;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+    font-size: 16px;
+  }
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  font-weight: 500;
+  color: #12161F;
+  margin-bottom: 12px;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+    font-size: 14px;
+  }
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body p {
+  color: #4A4A4A;
+  line-height: 150%;
+  margin: 0;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body .arrow {
+  flex-shrink: 0;
+}
+.buildingSection .secWrapper .cardContainer .slide .card-link .body .arrow svg {
+  display: block;
+}
+.buildingSection.is-carousel {
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: 100px;
+  box-sizing: border-box;
 }
-.buildingSection .secWrapper .cardContainer .slide {
-  opacity: 5;
+.buildingSection.is-carousel .secWrapper {
+  width: 100%;
 }
-.buildingSection .secWrapper .cardContainer .slide.centerSlide {
-  position: relative;
-  z-index: 9;
+.buildingSection.is-carousel .secWrapper .cardContainer {
+  display: grid;
+  place-items: center;
 }
-.buildingSection .secWrapper .cardContainer .slide.centerSlide .media {
-  transform: scale(1);
+.buildingSection.is-carousel .secWrapper .cardContainer .slide {
+  grid-area: 1/1;
+  width: min(75vw, (100vh - 260px) * 1.7);
+  margin-bottom: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
-.buildingSection .secWrapper .cardContainer .slide .media {
-  transform: scale(1);
+.buildingSection.is-carousel .secWrapper .cardContainer .slide > h2 {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.buildingSection.is-carousel .secWrapper .cardContainer .slide.is-active {
+  pointer-events: auto;
+}
+.buildingSection.is-carousel .secWrapper .cardContainer .slide.is-active > h2 {
+  opacity: 1;
 }
 
 .resultSection {

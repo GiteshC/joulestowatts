@@ -181,3 +181,119 @@ $('.textSlider').slick({
 	centerMode: false,
 	focusOnSelect: false
 });
+
+// Building section — pinned 3-card carousel driven by scroll.
+( function () {
+	'use strict';
+
+	var EDGE_GAP = 30;    // px between screen edge and outer edge of the side cards
+	var SIDE_SCALE = 0.85;
+
+	function initBuilding() {
+		var section = document.querySelector( '.buildingSection' );
+
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) {
+			return;
+		}
+
+		var slides = gsap.utils.toArray( section.querySelectorAll( '.cardContainer .slide' ) );
+		var total = slides.length;
+		var isDesktop = window.matchMedia( '(min-width: 992px)' ).matches;
+		var reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+		if ( total < 2 || ! isDesktop || reduceMotion ) {
+			return;
+		}
+
+		gsap.registerPlugin( ScrollTrigger );
+		section.classList.add( 'is-carousel' );
+
+		// Side offset (in % of card width) so the side cards' outer edge
+		// sits exactly EDGE_GAP px from the screen edge.
+		var sideX = 30;
+
+		function measureSide() {
+			var w = slides[ 0 ].offsetWidth;
+			var half = section.clientWidth / 2;
+
+			sideX = Math.max( 0, ( ( half - EDGE_GAP - ( SIDE_SCALE * w ) / 2 ) / w ) * 100 );
+		}
+
+		function slot( i, state ) {
+			var pos = i - state;
+			var dir = pos < 0 ? -1 : 1;
+
+			if ( pos === 0 ) {
+				return { x: 0, scale: 1, opacity: 1 };
+			}
+			if ( Math.abs( pos ) === 1 ) {
+				return { x: dir * sideX, scale: SIDE_SCALE, opacity: 0.25 };
+			}
+			return { x: dir * sideX, scale: 0.75, opacity: 0 };
+		}
+
+		function stateVars( state ) {
+			return {
+				xPercent: function ( i ) { return slot( i, state ).x; },
+				scale: function ( i ) { return slot( i, state ).scale; },
+				opacity: function ( i ) { return slot( i, state ).opacity; },
+			};
+		}
+
+		function setActive( state ) {
+			slides.forEach( function ( slide, i ) {
+				slide.classList.toggle( 'is-active', i === state );
+				slide.style.zIndex = total - Math.abs( i - state );
+			} );
+		}
+
+		measureSide();
+		gsap.set( slides, stateVars( 0 ) );
+		setActive( 0 );
+
+		var tl = gsap.timeline( {
+			defaults: { duration: 1, ease: 'power2.inOut' },
+			scrollTrigger: {
+				trigger: section,
+				start: 'top top',
+				end: function () {
+					return '+=' + ( total - 1 ) * window.innerHeight * 0.9;
+				},
+				pin: true,
+				anticipatePin: 1,
+				refreshPriority: 1,
+				scrub: 0.6,
+				snap: {
+					snapTo: 1 / ( total - 1 ),
+					duration: { min: 0.2, max: 0.5 },
+					ease: 'power1.inOut',
+				},
+				invalidateOnRefresh: true,
+				// Re-measure on resize/refresh so the 30px gap stays exact.
+				onRefreshInit: function () {
+					measureSide();
+					gsap.set( slides, stateVars( 0 ) );
+				},
+				onUpdate: function ( self ) {
+					setActive( Math.round( self.progress * ( total - 1 ) ) );
+				},
+			},
+		} );
+
+		for ( var s = 1; s < total; s++ ) {
+			tl.to( slides, stateVars( s ) );
+		}
+
+		if ( document.fonts && document.fonts.ready ) {
+			document.fonts.ready.then( function () {
+				ScrollTrigger.refresh();
+			} );
+		}
+	}
+
+	if ( document.readyState === 'complete' ) {
+		initBuilding();
+	} else {
+		window.addEventListener( 'load', initBuilding );
+	}
+} )();
