@@ -306,7 +306,7 @@
                 .media img{width: 100%; display: block; aspect-ratio: 1295 / 558; object-fit: cover;}
                 .card-link{display: block; background: #fff; color: #12161F;
                     .body{display: flex; justify-content: space-between; gap: 24px; padding: 38px;
-                        h2{@include font32; font-weight: 500; color: #12161F; margin-bottom: 12px;}
+                        h3{@include font32; font-weight: 500; color: #12161F; margin-bottom: 12px;}
                         p{@include font24; color: #4A4A4A; line-height: 150%; margin: 0;}
                         .arrow{flex-shrink: 0; svg{display: block;}}
                     }

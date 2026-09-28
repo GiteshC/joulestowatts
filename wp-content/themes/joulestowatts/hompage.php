@@ -903,15 +903,15 @@
                 </a>
             </div>
             <div class="slide centerSlide" data-index="0">
-                <h2 class="manrope">Building or scaling a GCC?</h2>
+                <h2 class="manrope">AI spend, no P&L impact?</h2>
                 <div class="media">
-                    <img src="<?php bloginfo('template_directory');?>/images/buildsec-image-1.webp" alt="">
+                    <img src="<?php bloginfo('template_directory');?>/images/buildsec-image-2.webp" alt="">
                 </div>
                 <a class="card-link" href="#" aria-label="Run the GCC Navigator">
                     <div class="body">
                         <div>
-                            <h2>Run the GCC Navigator</h2>
-                            <p>Twelve questions, ten minutes, free. A readiness score, a city shortlist and a compliance roadmap.</p>
+                            <h3>Take the AI Charter diagnostic</h3>
+                            <p>See exactly which parts of your business AI should touch, and which it should not.</p>
                             </div>
                             <div class="arrow" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
@@ -922,15 +922,15 @@
                 </a>
             </div>
             <div class="slide" data-index="0">
-                <h2 class="manrope">Building or scaling a GCC?</h2>
+                <h2 class="manrope">Ready to talk?</h2>
                 <div class="media">
-                    <img src="<?php bloginfo('template_directory');?>/images/buildsec-image-1.webp" alt="">
+                    <img src="<?php bloginfo('template_directory');?>/images/buildsec-image-3.webp" alt="">
                 </div>
                 <a class="card-link" href="#" aria-label="Run the GCC Navigator">
                     <div class="body">
                         <div>
-                            <h2>Run the GCC Navigator</h2>
-                            <p>Twelve questions, ten minutes, free. A readiness score, a city shortlist and a compliance roadmap.</p>
+                            <h2>Talk to a partner</h2>
+                            <p>Bring us a function or a mandate. We'll show you where value lands first.</p>
                             </div>
                             <div class="arrow" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">

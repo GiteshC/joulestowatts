@@ -2365,35 +2365,35 @@ footer .footerWrapper .footerlogo .mailBox a {
   gap: 24px;
   padding: 38px;
 }
-.buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+.buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
   font-size: 32px;
 }
 @media screen and (max-width: 1800px) {
-  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
     font-size: 26px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 720px) {
-  .buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
     font-size: 16px;
   }
 }
-.buildingSection .secWrapper .cardContainer .slide .card-link .body h2 {
+.buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
   font-weight: 500;
   color: #12161F;
   margin-bottom: 12px;
