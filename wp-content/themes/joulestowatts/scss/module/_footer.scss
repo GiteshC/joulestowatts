@@ -2,14 +2,14 @@
 
 footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px; border-top-right-radius: 32px; z-index: 101; position: relative;
     .footerWrapper{display: flex; flex-flow: column; gap: 70px; @include wrapper; 
-        .footerHead{display: flex; align-items: center; padding-bottom: 56px; gap: 115px; position: relative; 
+        .footerHead{display: flex; align-items: center; padding-bottom: 56px; justify-content: space-between; position: relative; 
             h2{@include font48; color: $darkbody; line-height: 140%; font-weight: 600; text-transform: capitalize; width: 80%; color: #12161F; }
             &::after{content: ""; border-bottom: 1px solid rgba(43, 43, 43, 0.20); position: absolute; bottom: 0; left: -68px; width: calc(100% + 136px);}
         }
         .footerLinks{ padding-bottom: 80px; position: relative; 
             .linkBoxes{  display: grid; grid-template-columns: repeat(3, 1fr); gap: 156px;
                 .column{
-                    p{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 24px;}
+                    h3{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 24px;}
                     .links{display: flex; flex-flow: column; gap: 24px;
                         a{color: #525454; @include font20; line-height: 170%;
                             .linkGroup{position: relative; overflow: hidden; width: max-content; cursor: pointer; 

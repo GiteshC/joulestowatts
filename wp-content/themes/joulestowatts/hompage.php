@@ -717,12 +717,11 @@
                 <div class="contentBox">
                     <h4>01</h4>
                     <div class="headingContent">
-                        <h5>A single focus</h5>
+                        <h3>A single focus</h3>
                         <div class="moreContent">
                             <p>Ten years spent only on GCCs and enterprise capability. That focus is why the way we work is refined and repeatable.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="card">
@@ -732,7 +731,7 @@
                 <div class="contentBox">
                     <h4>02</h4>
                     <div class="headingContent">
-                        <h5>You start ahead</h5>
+                        <h3>You start ahead</h3>
                         <div class="moreContent">
                             <p>We carry patterns across hundreds of engagements, so your build begins further along than a first attempt ever could.</p>
                         </div>
@@ -747,7 +746,7 @@
                 <div class="contentBox">
                     <h4>03</h4>
                     <div class="headingContent">
-                        <h5>We decide what not to automate</h5>
+                        <h3>We decide what not to automate</h3>
                         <div class="moreContent">
                             <p>Our business context architects judge where AI belongs and where it does not.</p>
                         </div>
@@ -762,7 +761,7 @@
                 <div class="contentBox">
                     <h4>04</h4>
                     <div class="headingContent">
-                        <h5>We test on ourselves first</h5>
+                        <h3>We test on ourselves first</h3>
                         <div class="moreContent">
                             <p>No AI intervention reaches a client until it has cleared a real benchmark on our own operations.</p>
                         </div>
@@ -770,9 +769,7 @@
 
                 </div>
             </div>
-            
         </div>
-
     </div>
 </section>
 
@@ -844,7 +841,7 @@
             <div class="box bottomContent">
                 <div class="textSlider">
                     <div class="textSlide">
-                        <h5 class="manrope">$1.2B annual value</h5>
+                        <h3 class="manrope">$1.2B annual value</h3>
                         <div class="detailsBox">
                             <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
                             <a href="#" class="secondaryCTA"><span>Greenfield ODC setup</span>
@@ -857,7 +854,7 @@
                         </div>
                     </div>
                     <div class="textSlide">
-                        <h5 class="manrope">A center that already runs</h5>
+                        <h3 class="manrope">A center that already runs</h3>
                         <div class="detailsBox">
                             <p>Move it up the value chain, or embed AI into a function without adding headcount.</p>
                             <a href="#" class="secondaryCTA"><span>See the platform</span>
@@ -870,7 +867,7 @@
                         </div>
                     </div>
                     <div class="textSlide">
-                        <h5 class="manrope">You build things</h5>
+                        <h3 class="manrope">You build things</h3>
                         <div class="detailsBox">
                             <p>Configure a proven platform against real enterprise problems, then operate what you built.</p>
                             <a href="#" class="secondaryCTA"><span>Careers</span>
@@ -975,21 +972,21 @@
         <div class="resultsCardLayout">
             <div class="resultCardSlider">
                 <a href="#">
-                <div class="box">
-                    <h5 class="tag manrope">GCC build, APAC bank</h5>
-                    <div class="bottomContent">
-                        <h4 class="manrope">$1.2B annual value</h4>
-                        <div class="moreContent">
-                            <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
+                    <div class="box">
+                        <span class="tag manrope">GCC build, APAC bank</span>
+                        <div class="bottomContent">
+                            <h3 class="manrope">$1.2B annual value</h3>
+                            <div class="moreContent">
+                                <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
                 <a href="#">
                     <div class="box">
-                        <h5 class="tag manrope">AI DATA & BFSI</h5>
+                        <span class="tag manrope">AI DATA & BFSI</span>
                         <div class="bottomContent">
-                            <h4 class="manrope">$2.3M annual OPEX saved</h4>
+                            <h3 class="manrope">$2.3M annual OPEX saved</h3>
                             <div class="moreContent">
                                 <p>Intelligent batch rescheduling on mainframe workloads, delivered in a 60-day cycle.</p>
                             </div>
@@ -998,9 +995,9 @@
                 </a>
                 <a href="#" >
                     <div class="box">
-                        <h5 class="tag manrope">AI & DATA, RENEWABLE ENERGY</h5>
+                        <span class="tag manrope">AI & DATA, RENEWABLE ENERGY</span>
                         <div class="bottomContent">
-                            <h4 class="manrope">70-80% less manual inspection</h4>
+                            <h3 class="manrope">70-80% less manual inspection</h3>
                             <div class="moreContent">
                                 <p>Automated drone thermal analysis and predictive O&M across renewable generation assets.</p>
                             </div>
@@ -1009,9 +1006,9 @@
                 </a>
                 <a href="#" >
                     <div class="box">
-                        <h5 class="tag manrope">TRANSFORMATION, INDIAN BANK</h5>
+                        <span class="tag manrope">TRANSFORMATION, INDIAN BANK</span>
                         <div class="bottomContent">
-                            <h4 class="manrope">42% turnaround-time cut</h4>
+                            <h3 class="manrope">42% turnaround-time cut</h3>
                             <div class="moreContent">
                                 <p>Outcome-owned delivery across core banking and compliance, measured against the prior baseline.</p>
                             </div>

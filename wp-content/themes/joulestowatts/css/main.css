@@ -605,7 +605,7 @@ footer .footerWrapper .footerHead {
   display: flex;
   align-items: center;
   padding-bottom: 56px;
-  gap: 115px;
+  justify-content: space-between;
   position: relative;
 }
 footer .footerWrapper .footerHead h2 {
@@ -666,26 +666,26 @@ footer .footerWrapper .footerLinks .linkBoxes {
   grid-template-columns: repeat(3, 1fr);
   gap: 156px;
 }
-footer .footerWrapper .footerLinks .linkBoxes .column p {
+footer .footerWrapper .footerLinks .linkBoxes .column h3 {
   color: #939393;
   font-size: 18px;
 }
 @media screen and (max-width: 1800px) {
-  footer .footerWrapper .footerLinks .linkBoxes .column p {
+  footer .footerWrapper .footerLinks .linkBoxes .column h3 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1600px) {
-  footer .footerWrapper .footerLinks .linkBoxes .column p {
+  footer .footerWrapper .footerLinks .linkBoxes .column h3 {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1280px) {
-  footer .footerWrapper .footerLinks .linkBoxes .column p {
+  footer .footerWrapper .footerLinks .linkBoxes .column h3 {
     font-size: 12px;
   }
 }
-footer .footerWrapper .footerLinks .linkBoxes .column p {
+footer .footerWrapper .footerLinks .linkBoxes .column h3 {
   letter-spacing: 5px;
   line-height: 100%;
   text-transform: uppercase;
@@ -1857,25 +1857,25 @@ footer .footerWrapper .footerlogo .mailBox a {
   opacity: 0.5;
   margin-bottom: 80px;
 }
-.whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h5 {
+.whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h5 {
+  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h5 {
+  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h5 {
+  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
     font-size: 14px;
   }
 }
-.whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h5 {
+.whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
   letter-spacing: 2px;
   text-transform: uppercase;
   background: linear-gradient(180deg, rgba(1, 211, 199, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
@@ -2167,36 +2167,36 @@ footer .footerWrapper .footerlogo .mailBox a {
   grid-row: 3;
   padding: 74px 40px 40px 60px;
 }
-.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
   color: #D9D9D9;
   font-size: 32px;
 }
 @media screen and (max-width: 1800px) {
-  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     font-size: 26px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 720px) {
-  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     font-size: 16px;
   }
 }
-.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h5 {
+.platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 24px;
@@ -2433,7 +2433,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   margin-bottom: 200px;
   padding-top: 185px;
   position: relative;
-  background: url(../images/result-sec-shadow.png) no-repeat 50% 40%;
+  background: url(../images/result-sec-shadow.png) no-repeat center top;
+  background-size: contain;
 }
 .resultSection .secWrapper .secHeading {
   display: flex;
@@ -2523,7 +2524,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   overflow: hidden;
   transition: 0.5s all ease-in;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box h5 {
+.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
   border-radius: 24px;
   position: absolute;
   top: 32px;
@@ -2533,21 +2534,21 @@ footer .footerWrapper .footerlogo .mailBox a {
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box h5 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box h5 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box h5 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 14px;
   }
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box h5 {
+.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
   text-transform: uppercase;
   color: #1B98A0;
   background: #fff;
@@ -2559,35 +2560,35 @@ footer .footerWrapper .footerlogo .mailBox a {
   right: 32px;
   bottom: 32px;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
   font-size: 32px;
 }
 @media screen and (max-width: 1800px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 26px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 720px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 16px;
   }
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h4 {
+.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
   font-weight: 500;
   text-transform: capitalize;
   color: #19060F;
