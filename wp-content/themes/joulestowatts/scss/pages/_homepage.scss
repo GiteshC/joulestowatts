@@ -178,15 +178,21 @@
                 }
             }
             
+            .gradientBox{position: relative; overflow: hidden; height: 100%;
+                &::before{content: ""; position: absolute; inset: 0; background: linear-gradient(322deg, rgba(1, 211, 199, 0.41) 24.7%, rgba(33, 2, 20, 0.98) 60.64%); filter: blur(100px); transform: translateY(100%);}
+            }
+            
             /* R1 C4 */
-            .box-r1-c4 {grid-column: 4; grid-row: 1;}
+            .box-r1-c4 {grid-column: 4; grid-row: 1;
+                &::before {animation: gradientCard1 8s linear infinite;}
+            }
 
             /* R2 C1 */
             .box-r2-c1 {grid-column: 1;grid-row: 2;}
 
             /* R2 C2 */
-            .box-r2-c2 {grid-column: 2;grid-row: 2; position: relative; overflow: hidden; height: 100%;
-                &::before{content: ""; position: absolute; inset: 0; background:lightgray -373px -125px / 344.36% 199.743% no-repeat; transform: translateY(100%); animation: gradientUp 4s ease-in-out infinite;;}
+            .box-r2-c2 {grid-column: 2;grid-row: 2;
+                &::before {animation: gradientCard2 8s linear infinite;}
             }
 
             /* R2 C4 */
@@ -206,6 +212,7 @@
                         &:hover{background: #00ACB4;}
                     }
                 }
+                &::before {animation: gradientCard3 8s linear infinite;}
             }
 
             /* R3 C2 + C3 */
@@ -221,12 +228,70 @@
             }
 
             /* R3 C4 */
-            .box-r3-c4 {grid-column: 4;grid-row: 3;}
+            .box-r3-c4 {grid-column: 4;grid-row: 3;
+                &::before {animation: gradientCard4 8s linear infinite;}
+            }
 
-            @keyframes gradientUp {
-                0% {transform: translateY(-100%);}
-                40% {transform: translateY(-50%);}
-                100% {transform: translateY(0);}
+            @keyframes gradientCard1 {
+
+                0% {
+                    transform: translateY(100%);
+                }
+
+                15% {
+                    transform: translateY(0);
+                }
+
+                25%,
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes gradientCard2 {
+
+                /* Waiting */
+                0%,25% {
+                    transform: translateY(100%);
+                }
+
+                40% {
+                    transform: translateY(0);
+                }
+
+                50%,100% {
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes gradientCard3 {
+
+                0%,
+                50% {
+                    transform: translateY(100%);
+                }
+
+                65% {
+                    transform: translateY(0);
+                }
+
+                75%,
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes gradientCard4 {
+
+                0%,
+                75% {
+                    transform: translateY(100%);
+                }
+
+                90%,
+                100% {
+                    transform: translateY(0);
+                }
             }
         }
     }
