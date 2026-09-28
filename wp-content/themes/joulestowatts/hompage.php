@@ -801,27 +801,19 @@
             </div>
 
             <!-- Row 1: Column 4 -->
-            <div class="box box-r1-c4">
-                R1 C4
-            </div>
+            <div class="box gradientBox box-r1-c4"></div>
 
             <!-- Row 2: Column 1 -->
-            <div class="box box-r2-c1">
-                R2 C1
-            </div>
+            <div class="box box-r2-c1"></div>
 
             <!-- Row 2: Column 2 -->
-            <div class="box box-r2-c2">
-                R2 C2
-            </div>
+            <div class="box gradientBox box-r2-c2"></div>
 
             <!-- Row 2: Column 4 -->
-            <div class="box box-r2-c4">
-                R2 C4
-            </div>
+            <div class="box box-r2-c4"></div>
 
             <!-- Row 3: Column 1 -->
-            <div class="box box-r3-c1">
+            <div class="box gradientBox box-r3-c1">
                 <div class="arrowBox">
                     <span class="prevArrow ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
@@ -883,9 +875,7 @@
             </div>
 
             <!-- Row 3: Column 4 -->
-            <div class="box box-r3-c4">
-                R3 C4
-            </div>
+            <div class="box gradientBox box-r3-c4"></div>
         </div>   
     </div>
 </section>
