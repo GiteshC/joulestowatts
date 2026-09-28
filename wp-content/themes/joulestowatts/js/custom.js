@@ -12,6 +12,107 @@ ScrollTrigger.create({
     }
 });
 
+// Banner heading — letter-by-letter typing effect on the plain text only.
+// Anything wrapped in a child element (e.g. <span>Amplified</span>) is left alone.
+( function () {
+	'use strict';
+
+	function initBannerTyping() {
+		var heading = document.querySelector( '.bannerSection h1' );
+
+		if ( ! heading || typeof gsap === 'undefined' ) {
+			return;
+		}
+
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
+			return;
+		}
+
+		var chars = [];
+
+		// The stylesheet's `h1 span` gradient rule would also hit the spans we
+		// create here, so force them back to plain white text.
+		function makePlain( el ) {
+			el.style.background = 'none';
+			el.style.webkitTextFillColor = 'currentColor';
+		}
+
+		// Keep the full sentence readable for screen readers / SEO.
+		heading.setAttribute( 'aria-label', heading.textContent.replace( /\s+/g, ' ' ).trim() );
+
+		// Only the h1's own text nodes (not the ones inside <span>).
+		Array.prototype.slice.call( heading.childNodes ).forEach( function ( node ) {
+			if ( node.nodeType !== 3 || ! node.textContent.trim() ) {
+				return;
+			}
+
+			var text = node.textContent;
+			var parts = text.split( /\s+/ ).filter( Boolean );
+			var frag = document.createDocumentFragment();
+
+			// Keep the spaces at the edges of the text (e.g. the space
+			// between "Truth" and <span>Amplified</span>).
+			if ( /^\s/.test( text ) ) {
+				frag.appendChild( document.createTextNode( ' ' ) );
+			}
+
+			parts.forEach( function ( word, i ) {
+				var wordSpan = document.createElement( 'span' );
+
+				wordSpan.className = 'typeWord';
+				wordSpan.style.whiteSpace = 'nowrap';
+				wordSpan.setAttribute( 'aria-hidden', 'true' );
+				makePlain( wordSpan );
+
+				word.split( '' ).forEach( function ( letter ) {
+					var charSpan = document.createElement( 'span' );
+
+					charSpan.className = 'typeChar';
+					charSpan.style.display = 'inline-block';
+					makePlain( charSpan );
+					charSpan.textContent = letter;
+					wordSpan.appendChild( charSpan );
+					chars.push( charSpan );
+				} );
+
+				frag.appendChild( wordSpan );
+
+				if ( i < parts.length - 1 ) {
+					frag.appendChild( document.createTextNode( ' ' ) );
+				}
+			} );
+
+			if ( /\s$/.test( text ) ) {
+				frag.appendChild( document.createTextNode( ' ' ) );
+			}
+
+			heading.replaceChild( frag, node );
+		} );
+
+		if ( ! chars.length ) {
+			return;
+		}
+
+		// Letters start hidden and slightly lower (autoAlpha keeps layout stable).
+		gsap.set( chars, { autoAlpha: 0, y: 20 } );
+
+		gsap.to( chars, {
+			autoAlpha: 1,
+			y: 0,
+			duration: 0.5,
+			ease: 'power2.out',
+			stagger: 0.05,
+			delay: 0.3,
+		} );
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initBannerTyping );
+	} else {
+		initBannerTyping();
+	}
+} )();
+
 ( function () {
 	'use strict';
 	document.addEventListener( 'DOMContentLoaded', function () {
