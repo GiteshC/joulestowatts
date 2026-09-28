@@ -26,7 +26,7 @@
 			<div class="footerLinks">
 				<div class="linkBoxes">
 					<div class="column">
-						<p class="manrope">Company</p>
+						<h3 class="manrope">Company</h3>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="column">
-						<p class="manrope">What we do</p>
+						<h3 class="manrope">What we do</h3>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 					<div class="column">
-						<p class="manrope">Who we serve</p>
+						<h3 class="manrope">Who we serve</h3>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">

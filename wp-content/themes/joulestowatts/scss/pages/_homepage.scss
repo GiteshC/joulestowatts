@@ -128,7 +128,7 @@
                 .contentBox{border: 1px solid rgba(152, 152, 152, 0.39); padding: 32px;position: absolute; left: 0; right: 0; bottom: 0;border-radius: 0px 12px 12px 12px; width: 100%; z-index: 4; background: #210214; padding-top: 20px;
                     h4{ color: #7E7F82; @include font72; font-weight: 500; letter-spacing: -1.02px; opacity: 0.5; margin-bottom: 80px;}
                     .headingContent{
-                        h5{ @include font20; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(180deg, rgba(1, 211, 199, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                        h3{ @include font20; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(180deg, rgba(1, 211, 199, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
                         }
                         .moreContent{display: grid; grid-template-rows: 0fr; opacity: 0;transition: grid-template-rows 0.5s cubic-bezier(.22,.7,.2,1), opacity .5s ease .05s;
                             p{ color: #757575; font-size: 18px; line-height: 144%; margin: 0; padding-top: 0; overflow: hidden; transition: padding-top 0.5s cubic-bezier(.22,.7,.2,1), opacity 0.5s ease-in-out;}
@@ -210,7 +210,7 @@
             .bottomContent {grid-column: 2 / 4; grid-row: 3; padding: 74px 40px 40px 60px;
                 .textSlider{
                     .textSlide{
-                        h5{color: #D9D9D9; @include font32; font-weight: 500; text-transform: capitalize; margin-bottom: 24px;}
+                        h3{color: #D9D9D9; @include font32; font-weight: 500; text-transform: capitalize; margin-bottom: 24px;}
                         .detailsBox{display: flex; align-items: center; justify-content: space-between;
                             p{color: #D9D9D9; @include font20; line-height: 170%; width: 55%;}
                         }
@@ -243,7 +243,7 @@
     }
 }
 
-.resultSection{margin-bottom: 200px; padding-top: 185px; position: relative;background: url(../images/result-sec-shadow.png) no-repeat 50% 40%;
+.resultSection{margin-bottom: 200px; padding-top: 185px; position: relative;background: url(../images/result-sec-shadow.png) no-repeat center top; background-size: contain;
     .secWrapper{
         .secHeading{display: flex; align-items: end; justify-content: space-between; margin-bottom: 60px; padding: 0 100px;
             .headingGroup{width: 50%;
@@ -255,9 +255,9 @@
             .resultCardSlider{
                 a{margin-right: 40px;
                     .box{background: #E4E1DD; border-radius: 12px; height: 400px !important; position: relative; overflow: hidden;  transition: 0.5s all ease-in;
-                        h5{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
+                    .tag{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
                         .bottomContent{position:absolute; left:32px; right:32px; bottom:32px;
-                            h4{@include font32; font-weight: 500; text-transform: capitalize; color: #19060F; margin: 0;}
+                            h3{@include font32; font-weight: 500; text-transform: capitalize; color: #19060F; margin: 0;}
                             .moreContent{display:grid; grid-template-rows:0fr; opacity:0; transition: grid-template-rows 0.8s cubic-bezier(.22,.7,.2,1), opacity .5s ease .05s;
                                 p{color: #504747; @include font20; line-height: 150%; transition: padding-top 0.5s cubic-bezier(.22,.7,.2,1); overflow: hidden; margin: 0; padding-top: 0;}
                             }
