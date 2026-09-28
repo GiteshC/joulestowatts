@@ -16,9 +16,55 @@
             </a>
         </div>
     </div>
+    <div class="bannerBG">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" viewBox="0 0 2168 658" fill="none">
+            <g filter="url(#filter0_f_952_6788)">
+                <path d="M1891.15 658C1891.15 517.314 1806.12 382.39 1654.74 282.91C1503.37 183.43 1298.07 127.542 1084 127.542C869.929 127.542 664.626 183.43 513.255 282.91C361.885 382.39 276.845 517.314 276.845 658L1891.15 658Z" fill="url(#paint0_linear_952_6788)" fill-opacity="0.984314"/>
+            </g>
+            <defs>
+                <filter id="filter0_f_952_6788" x="-123.155" y="-272.458" width="2414.31" height="1330.46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_952_6788"/>
+                </filter>
+                <linearGradient id="paint0_linear_952_6788" x1="1084" y1="658" x2="1109.13" y2="-74.7586" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#01D3C7"/>
+                    <stop offset="0.151345" stop-color="#08A8A2" stop-opacity="0.57"/>
+                    <stop offset="0.237738" stop-color="#0B908E" stop-opacity="0.49"/>
+                    <stop offset="0.320429" stop-color="#0F797A" stop-opacity="0.34"/>
+                    <stop offset="0.43204" stop-color="#14595F" stop-opacity="0.28"/>
+                    <stop offset="0.740931" stop-color="#210214" stop-opacity="0"/>
+                    <stop offset="1" stop-color="#210214"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
 </section>
 
 <section class="enterpriseSection">
+    <div class="enterpriseBG">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" viewBox="0 0 2168 658" fill="none">
+            <g filter="url(#filter0_f_952_6788)">
+                <path d="M1891.15 658C1891.15 517.314 1806.12 382.39 1654.74 282.91C1503.37 183.43 1298.07 127.542 1084 127.542C869.929 127.542 664.626 183.43 513.255 282.91C361.885 382.39 276.845 517.314 276.845 658L1891.15 658Z" fill="url(#paint0_linear_952_6788)" fill-opacity="0.984314"/>
+            </g>
+            <defs>
+                <filter id="filter0_f_952_6788" x="-123.155" y="-272.458" width="2414.31" height="1330.46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_952_6788"/>
+                </filter>
+                <linearGradient id="paint0_linear_952_6788" x1="1084" y1="658" x2="1109.13" y2="-74.7586" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#01D3C7"/>
+                    <stop offset="0.151345" stop-color="#08A8A2" stop-opacity="0.57"/>
+                    <stop offset="0.237738" stop-color="#0B908E" stop-opacity="0.49"/>
+                    <stop offset="0.320429" stop-color="#0F797A" stop-opacity="0.34"/>
+                    <stop offset="0.43204" stop-color="#14595F" stop-opacity="0.28"/>
+                    <stop offset="0.740931" stop-color="#210214" stop-opacity="0"/>
+                    <stop offset="1" stop-color="#210214"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
     <div class="wrapper">
         <div class="enterpriseContent">
             <h2 class="manrope">Most enterprise AI is built for everyone, <br>so it works for no one.</h2>
