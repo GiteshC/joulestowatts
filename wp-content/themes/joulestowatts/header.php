@@ -46,7 +46,7 @@
 			<div class="line"></div>
 			<div class="line"></div>
 		</div>
-		<!-- <div class="mainMenu">
+		<div class="mainMenu">
 			<nav>
 				<ul>
 					<li><a href="#">Home</a></li>
@@ -55,7 +55,7 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</nav>
-		</div> -->
+		</div>
 	</div>
 </header>
 

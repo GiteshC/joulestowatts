@@ -491,7 +491,6 @@
             }
         }
     }
-
     // Desktop pinned carousel (class added by JS)
     &.is-carousel{min-height: 100vh; display: flex; align-items: center; padding-top: 100px; box-sizing: border-box;
         .secWrapper{width: 100%;
@@ -515,8 +514,8 @@
                 p{line-height: 170%; color: #CBC6C6; @include font20; }
             }
         }
-        .resultsCardLayout{ padding-left: 100px; padding-right: 0px;
-            .resultCardSlider{
+        .resultsCardLayout{ padding-left: 100px; padding-right: 0px; position: relative;
+            .resultCardSlider{width: 100%;
                 a{display: block;
                     .box{background: #E4E1DD; border-radius: 12px; height: 400px !important; position: relative; overflow: hidden;  transition: 0.5s all ease-in;
                         .tag{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
@@ -535,7 +534,7 @@
                         }
                     }
                     &.slick-slide {
-                        padding: 0 20px;
+                        padding: 0 20px; box-sizing: border-box;
                     }
                 }
                 .slick-list {
@@ -556,17 +555,23 @@
             }
         }
     }
-    @media all and (max-width: 1600px){margin-bottom: 160px;
+    @media all and (max-width: 1800px){
+        .secWrapper{
+            .resultsCardLayout{padding-left: 80px;}
+        }
+    }
+    @media all and (max-width: 1600px){ padding-top: 150px;
         .secWrapper{
             .secHeading{margin-bottom: 50px;
                 .headingGroup{
                     h2{margin-bottom: 30px;}
                 }
             }
-            .resultsCardLayout{
+            .resultsCardLayout{padding-left: 60px;
                 .resultCardSlider{
                     a{
                         .box{
+                            .tag{left: 30px; top: 30px;}
                             .bottomContent{padding: 30px;}
                         }
                     }
@@ -574,18 +579,17 @@
             }
         }
     }
-    @media all and (max-width: 1440px){margin-bottom: 140px;
+    @media all and (max-width: 1440px){ padding-top: 120px;
         .secWrapper{
             .secHeading{margin-bottom: 50px;
                 .headingGroup{
                     h2{margin-bottom: 30px;}
                 }
             }
-            .resultsCardLayout{
+            .resultsCardLayout{padding-left: 60px;
                 .resultCardSlider{
                     a{
                         .box{
-                            .bottomContent{padding: 30px;}
                             &:hover{
                                 .bottomContent{
                                     .moreContent{
@@ -603,5 +607,74 @@
                 }
             }
         }
+    }
+    @media all and (max-width: 1280px){ padding-top: 100px;
+        .secWrapper{
+            .secHeading{margin-bottom: 40px;
+                .headingGroup{
+                    h2{margin-bottom: 25px;}
+                }
+            }
+            .resultsCardLayout{padding-left: 40px;
+                .resultCardSlider{
+                    a{
+                        .box{height: 350px !important;
+                            .tag{left: 25px; top: 25px;}
+                            .bottomContent{padding: 25px;}
+                        }
+                            &.slick-slide {
+                            padding: 0 15px;
+                        }
+                    }
+                    .slick-list {
+                        margin: 0 -15px;
+                    }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 720px){ padding-top: 60px;
+        .secWrapper{
+            .secHeading{margin-bottom: 40px; flex-flow: column; align-items: flex-start; justify-content: flex-start; gap: 32px;
+                .headingGroup{width: 100%; 
+                    h2{margin-bottom: 25px; margin-bottom: 16px; font-size: 24px; line-height: 120%;}
+                    
+                }
+            }
+            .resultsCardLayout{padding-left: 15px;
+                .resultCardSlider{
+                    a{
+                        .box{height: 280px !important; border-radius: 12px;
+                            .tag{left: 16px; top: 16px; padding: 8px; font-size: 14px;}
+                            .bottomContent{padding: 16px;
+                                .moreContent {grid-template-rows: 1fr;opacity: 1;
+                                    p{padding-top: 12px;}
+                                }
+                            }
+                            &:hover{background: #E4E1DD;
+                                .bottomContent{
+                                    .moreContent{
+                                        p{padding-top: 12px;}
+                                    }
+                                }
+                            }
+                        }
+                            &.slick-slide {
+                            padding: 0 6px;
+                        }
+                    }
+                    .slick-list {
+                        margin: 0 -6px;
+                    }
+                }
+                .arrowBox{margin-top: 30px;
+                    .resultPrevArrow, .resultNextArrow{width: 40px; height: 40px;
+                        svg{width: 16px; height: 16px;}
+                    }
+                }
+            
+            }
+        }
+
     }
 }

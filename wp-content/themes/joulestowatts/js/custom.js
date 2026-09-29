@@ -13,57 +13,60 @@ ScrollTrigger.create({
 });
 
 // Header — hamburger toggles the slide-in main menu (and morphs into a close icon).
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
-	document.addEventListener( 'DOMContentLoaded', function () {
-		var header = document.querySelector( 'header' );
-		var burger = header ? header.querySelector( '.hamburger' ) : null;
-		var menu = header ? header.querySelector( '.mainMenu' ) : null;
+	document.addEventListener("DOMContentLoaded", function () {
+		var header = document.querySelector("header");
+		var burger = header ? header.querySelector(".hamburger") : null;
+		var menu = header ? header.querySelector(".mainMenu") : null;
 
-		if ( ! burger || ! menu ) {
+		if (!burger || !menu) {
 			return;
 		}
 
 		// Make the div behave like a proper button for keyboard/screen readers.
-		menu.id = menu.id || 'mainMenu';
-		burger.setAttribute( 'role', 'button' );
-		burger.setAttribute( 'tabindex', '0' );
-		burger.setAttribute( 'aria-controls', menu.id );
-		burger.setAttribute( 'aria-label', 'Open menu' );
-		burger.setAttribute( 'aria-expanded', 'false' );
+		menu.id = menu.id || "mainMenu";
+		burger.setAttribute("role", "button");
+		burger.setAttribute("tabindex", "0");
+		burger.setAttribute("aria-controls", menu.id);
+		burger.setAttribute("aria-label", "Open menu");
+		burger.setAttribute("aria-expanded", "false");
 
-		function setOpen( open ) {
-			header.classList.toggle( 'menu-open', open );
-			burger.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
-			burger.setAttribute( 'aria-label', open ? 'Close menu' : 'Open menu' );
+		function setOpen(open) {
+			header.classList.toggle("menu-open", open);
+			burger.setAttribute("aria-expanded", open ? "true" : "false");
+			burger.setAttribute(
+				"aria-label",
+				open ? "Close menu" : "Open menu",
+			);
 		}
 
-		burger.addEventListener( 'click', function () {
-			setOpen( ! header.classList.contains( 'menu-open' ) );
-		} );
+		burger.addEventListener("click", function () {
+			setOpen(!header.classList.contains("menu-open"));
+		});
 
-		burger.addEventListener( 'keydown', function ( e ) {
-			if ( e.key === 'Enter' || e.key === ' ' ) {
+		burger.addEventListener("keydown", function (e) {
+			if (e.key === "Enter" || e.key === " ") {
 				e.preventDefault();
 				burger.click();
 			}
-		} );
+		});
 
 		// Close after picking a link, or with Escape.
-		menu.querySelectorAll( 'a' ).forEach( function ( link ) {
-			link.addEventListener( 'click', function () {
-				setOpen( false );
-			} );
-		} );
+		menu.querySelectorAll("a").forEach(function (link) {
+			link.addEventListener("click", function () {
+				setOpen(false);
+			});
+		});
 
-		document.addEventListener( 'keydown', function ( e ) {
-			if ( e.key === 'Escape' ) {
-				setOpen( false );
+		document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape") {
+				setOpen(false);
 			}
-		} );
-	} );
-} )();
+		});
+	});
+})();
 
 // Banner heading — letter-by-letter typing effect on the plain text only.
 // Anything wrapped in a child element (e.g. <span>Amplified</span>) is left alone.
@@ -487,36 +490,47 @@ $(".textSlider").slick({
 	focusOnSelect: false,
 });
 
-$(".resultCardSlider").slick({
-	slidesToShow: 3.5,
-	slidesToScroll: 1,
-	autoplay: false,
-	autoplaySpeed: 2500,
-	infinite: false,
-	arrows: true,
-	prevArrow: $(".resultPrevArrow"),
-	nextArrow: $(".resultNextArrow"),
-	focusOnSelect: true,
-	responsive: [
-        {
-            breakpoint: 1281,
-            settings: {
-                slidesToShow: 2.3,
-            },
-        },
-        {
-            breakpoint: 1025,
-            settings: {
-                slidesToShow: 2.3,
-            },
-        },
-        {
-            breakpoint: 721,
-            settings: {
-                slidesToShow: 1.2,
-            },
-        },
-    ],
+// $(document).ready(function () {
+//   $(".resultCardSlider").slick({
+//     slidesToShow: 3.5,
+//     slidesToScroll: 1,
+//     autoplay: false,
+//     infinite: false,
+//     arrows: true,
+//     prevArrow: $(".resultPrevArrow"),
+//     nextArrow: $(".resultNextArrow"),
+//     focusOnSelect: true,
+//     responsive: [
+//       { breakpoint: 1281, settings: { slidesToShow: 3 } },
+//       { breakpoint: 1025, settings: { slidesToShow: 2.3 } },
+//       { breakpoint: 721,  settings: { slidesToShow: 1.2 } },
+//     ],
+//   });
+// });
+
+$(document).ready(function () {
+	const $slider = $(".resultCardSlider");
+
+	function getSlides() {
+		const w = window.innerWidth;
+		if (w <= 720) return 1.4;
+		if (w <= 1024) return 2.3;
+		if (w <= 1280) return 2.8;
+		return 3.5;
+	}
+
+	$slider.slick({
+		slidesToShow: getSlides(),
+		slidesToScroll: 1,
+		infinite: false,
+		arrows: true,
+		prevArrow: $(".resultPrevArrow"),
+		nextArrow: $(".resultNextArrow"),
+	});
+
+	$(window).on("resize", function () {
+		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
+	});
 });
 
 //footer accordian

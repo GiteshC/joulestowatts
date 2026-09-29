@@ -3419,6 +3419,10 @@ footer .footerWrapper .footerlogo .mailBox a {
 .resultSection .secWrapper .resultsCardLayout {
   padding-left: 100px;
   padding-right: 0px;
+  position: relative;
+}
+.resultSection .secWrapper .resultsCardLayout .resultCardSlider {
+  width: 100%;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a {
   display: block;
@@ -3559,6 +3563,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
   padding: 0 20px;
+  box-sizing: border-box;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
   margin: 0 -20px;
@@ -3600,15 +3605,27 @@ footer .footerWrapper .footerlogo .mailBox a {
 .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow:hover {
   background: #00ACB4;
 }
+@media all and (max-width: 1800px) {
+  .resultSection .secWrapper .resultsCardLayout {
+    padding-left: 80px;
+  }
+}
 @media all and (max-width: 1600px) {
   .resultSection {
-    margin-bottom: 160px;
+    padding-top: 150px;
   }
   .resultSection .secWrapper .secHeading {
     margin-bottom: 50px;
   }
   .resultSection .secWrapper .secHeading .headingGroup h2 {
     margin-bottom: 30px;
+  }
+  .resultSection .secWrapper .resultsCardLayout {
+    padding-left: 60px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+    left: 30px;
+    top: 30px;
   }
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
     padding: 30px;
@@ -3616,7 +3633,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media all and (max-width: 1440px) {
   .resultSection {
-    margin-bottom: 140px;
+    padding-top: 120px;
   }
   .resultSection .secWrapper .secHeading {
     margin-bottom: 50px;
@@ -3624,8 +3641,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
     margin-bottom: 30px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
-    padding: 30px;
+  .resultSection .secWrapper .resultsCardLayout {
+    padding-left: 60px;
   }
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent p {
     padding-top: 20px;
@@ -3640,5 +3657,102 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
     width: 20px;
     height: 20px;
+  }
+}
+@media all and (max-width: 1280px) {
+  .resultSection {
+    padding-top: 100px;
+  }
+  .resultSection .secWrapper .secHeading {
+    margin-bottom: 40px;
+  }
+  .resultSection .secWrapper .secHeading .headingGroup h2 {
+    margin-bottom: 25px;
+  }
+  .resultSection .secWrapper .resultsCardLayout {
+    padding-left: 40px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
+    height: 350px !important;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+    left: 25px;
+    top: 25px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+    padding: 25px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+    padding: 0 15px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+    margin: 0 -15px;
+  }
+}
+@media all and (max-width: 720px) {
+  .resultSection {
+    padding-top: 60px;
+  }
+  .resultSection .secWrapper .secHeading {
+    margin-bottom: 40px;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  .resultSection .secWrapper .secHeading .headingGroup {
+    width: 100%;
+  }
+  .resultSection .secWrapper .secHeading .headingGroup h2 {
+    margin-bottom: 25px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .resultSection .secWrapper .resultsCardLayout {
+    padding-left: 15px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
+    height: 280px !important;
+    border-radius: 12px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+    left: 16px;
+    top: 16px;
+    padding: 8px;
+    font-size: 14px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+    padding: 16px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
+    padding-top: 12px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover {
+    background: #E4E1DD;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent p {
+    padding-top: 12px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+    padding: 0 6px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+    margin: 0 -6px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .arrowBox {
+    margin-top: 30px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+    width: 40px;
+    height: 40px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+    width: 16px;
+    height: 16px;
   }
 }/*# sourceMappingURL=main.css.map */
