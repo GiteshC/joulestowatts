@@ -332,7 +332,7 @@
 
 .resultSection{margin-bottom: 200px; padding-top: 185px; position: relative;background: url(../images/result-sec-shadow.png) no-repeat center top; background-size: contain;
     .secWrapper{
-        .secHeading{display: flex; align-items: end; justify-content: space-between; margin-bottom: 60px; padding: 0 100px;
+        .secHeading{display: flex; align-items: end; justify-content: space-between; margin-bottom: 60px; @include wrapper;
             .headingGroup{width: 50%;
                 h2{@include font48; line-height: 120%; text-transform: capitalize; font-weight: 500; margin-bottom: 32px; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text;-webkit-background-clip: text; -webkit-text-fill-color: transparent;}
                 p{line-height: 170%; color: #CBC6C6; @include font20; }
@@ -340,10 +340,10 @@
         }
         .resultsCardLayout{ padding-left: 100px; padding-right: 0px;
             .resultCardSlider{
-                a{margin-right: 40px;
+                a{display: block;
                     .box{background: #E4E1DD; border-radius: 12px; height: 400px !important; position: relative; overflow: hidden;  transition: 0.5s all ease-in;
-                    .tag{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
-                        .bottomContent{position:absolute; left:32px; right:32px; bottom:32px;
+                        .tag{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
+                        .bottomContent{position:absolute; left:0; right:0; bottom:0; padding: 32px;
                             h3{@include font32; font-weight: 500; text-transform: capitalize; color: #19060F; margin: 0;}
                             .moreContent{display:grid; grid-template-rows:0fr; opacity:0; transition: grid-template-rows 0.8s cubic-bezier(.22,.7,.2,1), opacity .5s ease .05s;
                                 p{color: #504747; @include font20; line-height: 150%; transition: padding-top 0.5s cubic-bezier(.22,.7,.2,1); overflow: hidden; margin: 0; padding-top: 0;}
@@ -357,6 +357,12 @@
                             }
                         }
                     }
+                    &.slick-slide {
+                        padding: 0 20px;
+                    }
+                }
+                .slick-list {
+                    margin: 0 -20px;
                 }
             }
             .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
@@ -369,6 +375,54 @@
                         &:hover{background: #525454;}
                     }
                     &:hover{background: #00ACB4;}
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1600px){margin-bottom: 160px;
+        .secWrapper{
+            .secHeading{margin-bottom: 50px;
+                .headingGroup{
+                    h2{margin-bottom: 30px;}
+                }
+            }
+            .resultsCardLayout{
+                .resultCardSlider{
+                    a{
+                        .box{
+                            .bottomContent{padding: 30px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1440px){margin-bottom: 140px;
+        .secWrapper{
+            .secHeading{margin-bottom: 50px;
+                .headingGroup{
+                    h2{margin-bottom: 30px;}
+                }
+            }
+            .resultsCardLayout{
+                .resultCardSlider{
+                    a{
+                        .box{
+                            .bottomContent{padding: 30px;}
+                            &:hover{
+                                .bottomContent{
+                                    .moreContent{
+                                        p{padding-top: 20px;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .arrowBox{margin-top: 40px;
+                    .resultPrevArrow, .resultNextArrow{width: 50px; height: 50px;
+                        svg{width: 20px; height: 20px;}
+                    }
                 }
             }
         }

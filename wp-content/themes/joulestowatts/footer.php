@@ -26,7 +26,14 @@
 			<div class="footerLinks">
 				<div class="linkBoxes">
 					<div class="column">
-						<h3 class="manrope">Company</h3>
+						<div class="linkHeading">
+							<h3 class="manrope">Company</h3>
+							<span class="downIcon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+									<path d="M0.884766 0.884277L6.19148 6.191L11.4982 0.884277" stroke="black" stroke-width="1.76891" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
+						</div>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -55,7 +62,15 @@
 						</div>
 					</div>
 					<div class="column">
-						<h3 class="manrope">What we do</h3>
+						<div class="linkHeading">
+							<h3 class="manrope">What we do</h3>
+							<span class="downIcon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+									<path d="M0.884766 0.884277L6.19148 6.191L11.4982 0.884277" stroke="black" stroke-width="1.76891" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
+						</div>
+						
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
@@ -84,7 +99,14 @@
 						</div>
 					</div>
 					<div class="column">
-						<h3 class="manrope">Who we serve</h3>
+						<div class="linkHeading">
+							<h3 class="manrope">Who we serve</h3>
+							<span class="downIcon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+									<path d="M0.884766 0.884277L6.19148 6.191L11.4982 0.884277" stroke="black" stroke-width="1.76891" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
+						</div>
 						<div class="links">
 							<a href="http://" target="_blank" rel="noopener noreferrer">
 								<div class="linkGroup">
