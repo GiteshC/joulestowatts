@@ -254,6 +254,11 @@ body {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 12px;
+  }
+}
 body {
   background: #210214;
   font-family: "Poppins", sans-serif;
@@ -293,9 +298,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   ::-webkit-input-placeholder {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 ::-webkit-input-placeholder {
@@ -318,9 +323,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   ::-moz-placeholder {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 ::-moz-placeholder {
@@ -343,9 +348,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   :-ms-input-placeholder {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 :-ms-input-placeholder {
@@ -368,9 +373,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   :-moz-placeholder {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 :-moz-placeholder {
@@ -398,9 +403,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   .primaryCTA {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 .primaryCTA {
@@ -427,6 +432,32 @@ button:focus {
 .primaryCTA:hover .arrowBox {
   transform: rotate(45deg);
 }
+@media screen and (max-width: 1800px) {
+  .primaryCTA {
+    padding: 18px;
+    gap: 10px;
+  }
+  .primaryCTA .arrowBox {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .primaryCTA {
+    padding: 16px;
+    gap: 8px;
+  }
+  .primaryCTA .arrowBox {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .primaryCTA {
+    padding: 14px;
+    gap: 6px;
+  }
+}
 
 .secondaryCTA {
   border: 1px solid #2B2B2B;
@@ -449,9 +480,9 @@ button:focus {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   .secondaryCTA {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 .secondaryCTA {
@@ -477,6 +508,32 @@ button:focus {
 }
 .secondaryCTA:hover .arrowBox {
   transform: rotate(45deg);
+}
+@media screen and (max-width: 1800px) {
+  .secondaryCTA {
+    padding: 18px;
+    gap: 10px;
+  }
+  .secondaryCTA .arrowBox {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .secondaryCTA {
+    padding: 16px;
+    gap: 8px;
+  }
+  .secondaryCTA .arrowBox {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .secondaryCTA {
+    padding: 14px;
+    gap: 6px;
+  }
 }
 
 .teritaryCTA {
@@ -505,6 +562,11 @@ button:focus {
 @media screen and (max-width: 1280px) {
   .teritaryCTA {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teritaryCTA {
+    font-size: 11px;
   }
 }
 .teritaryCTA {
@@ -550,7 +612,7 @@ button:focus {
 }
 
 header {
-  padding: 20px 80px;
+  padding: 20px 100px;
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
@@ -566,6 +628,107 @@ header.scrolled {
   border-bottom: 1px solid #2B2B2B;
   background: rgba(89, 89, 89, 0.1);
   backdrop-filter: blur(50px);
+}
+header .menuBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+header .menuBox .hamburger {
+  width: 28px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+header .menuBox .hamburger .line {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: #ffffff;
+  transform-origin: center;
+  transition: transform 0.4s ease, opacity 0.25s ease;
+}
+header .menuBox .mainMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 140px 60px 60px;
+  background: #19060F;
+  border-left: 1px solid #2B2B2B;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), visibility 0s linear 0.6s;
+}
+header .menuBox .mainMenu nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 28px;
+  text-align: right;
+}
+header .menuBox .mainMenu nav ul a {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 120%;
+  transition: color 0.3s ease;
+}
+header .menuBox .mainMenu nav ul a:hover {
+  color: #00ACB4;
+}
+header.menu-open .menuBox .hamburger .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+header.menu-open .menuBox .hamburger .line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+header.menu-open .menuBox .hamburger .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+header.menu-open .menuBox .mainMenu {
+  transform: translateX(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+@media screen and (max-width: 1800px) {
+  header {
+    padding: 16px 80px;
+  }
+  header .logoBox img {
+    width: 280px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  header {
+    padding: 16px 60px;
+  }
+  header .logoBox img {
+    width: 260px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  header {
+    padding: 16px 40px;
+  }
+  header .logoBox img {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 720px) {
+  header {
+    padding: 15px 15px;
+  }
 }
 
 footer {
@@ -583,19 +746,25 @@ footer .footerWrapper {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   footer .footerWrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   footer .footerWrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  footer .footerWrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   footer .footerWrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -623,22 +792,17 @@ footer .footerWrapper .footerHead h2 {
 }
 @media screen and (max-width: 1440px) {
   footer .footerWrapper .footerHead h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  footer .footerWrapper .footerHead h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   footer .footerWrapper .footerHead h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   footer .footerWrapper .footerHead h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 footer .footerWrapper .footerHead h2 {
@@ -685,6 +849,11 @@ footer .footerWrapper .footerLinks .linkBoxes .column h3 {
     font-size: 12px;
   }
 }
+@media screen and (max-width: 720px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column h3 {
+    font-size: 11px;
+  }
+}
 footer .footerWrapper .footerLinks .linkBoxes .column h3 {
   letter-spacing: 5px;
   line-height: 100%;
@@ -713,6 +882,11 @@ footer .footerWrapper .footerLinks .linkBoxes .column .links a {
 @media screen and (max-width: 1280px) {
   footer .footerWrapper .footerLinks .linkBoxes .column .links a {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  footer .footerWrapper .footerLinks .linkBoxes .column .links a {
+    font-size: 12px;
   }
 }
 footer .footerWrapper .footerLinks .linkBoxes .column .links a {
@@ -771,6 +945,11 @@ footer .footerWrapper .footerlogo .mailBox p {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  footer .footerWrapper .footerlogo .mailBox p {
+    font-size: 12px;
+  }
+}
 footer .footerWrapper .footerlogo .mailBox p {
   line-height: 170%;
 }
@@ -792,6 +971,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  footer .footerWrapper .footerlogo .mailBox a {
+    font-size: 12px;
+  }
+}
 footer .footerWrapper .footerlogo .mailBox a {
   line-height: 170%;
   color: #525454;
@@ -808,19 +992,25 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   .bannerSection .wrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .bannerSection .wrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .bannerSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   .bannerSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -849,32 +1039,22 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1600px) {
   .bannerSection .wrapper .bannerContent h1 {
-    font-size: 52px;
+    font-size: 64px;
   }
 }
 @media screen and (max-width: 1440px) {
   .bannerSection .wrapper .bannerContent h1 {
-    font-size: 46px;
+    font-size: 52px;
   }
 }
 @media screen and (max-width: 1280px) {
   .bannerSection .wrapper .bannerContent h1 {
-    font-size: 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .bannerSection .wrapper .bannerContent h1 {
-    font-size: 36px;
+    font-size: 42px;
   }
 }
 @media screen and (max-width: 820px) {
   .bannerSection .wrapper .bannerContent h1 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .bannerSection .wrapper .bannerContent h1 {
-    font-size: 30px;
+    font-size: 34px;
   }
 }
 .bannerSection .wrapper .bannerContent h1 {
@@ -920,7 +1100,6 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .bannerSection .wrapper .bannerContent p {
   line-height: 140%;
-  margin-bottom: 42px;
 }
 .bannerSection .wrapper .casestudyCTA {
   position: absolute;
@@ -939,11 +1118,64 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: flex;
   align-items: flex-end;
 }
+@media screen and (max-width: 1800px) {
+  .bannerSection {
+    padding-top: 140px;
+  }
+  .bannerSection .wrapper .bannerContent {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .bannerSection {
+    padding-top: 120px;
+  }
+  .bannerSection .wrapper .bannerContent {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .bannerSection {
+    padding-top: 100px;
+  }
+}
 
+.enterpriseSection {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .enterpriseSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .enterpriseSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .enterpriseSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .enterpriseSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .enterpriseSection {
+    margin-bottom: 80px;
+  }
+}
 .enterpriseSection {
   padding-top: 200px;
   width: 100%;
-  margin-bottom: 200px;
   position: relative;
 }
 .enterpriseSection .enterpriseBG {
@@ -960,19 +1192,25 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   .enterpriseSection .wrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .enterpriseSection .wrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .enterpriseSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   .enterpriseSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -983,6 +1221,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: center;
   justify-content: center;
   flex-flow: wrap;
+  position: relative;
+  z-index: 1;
 }
 .enterpriseSection .wrapper .enterpriseContent {
   width: 50%;
@@ -1003,22 +1243,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .enterpriseSection .wrapper .enterpriseContent h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .enterpriseSection .wrapper .enterpriseContent h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .enterpriseSection .wrapper .enterpriseContent h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .enterpriseSection .wrapper .enterpriseContent h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .enterpriseSection .wrapper .enterpriseContent h2 {
@@ -1050,6 +1285,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  .enterpriseSection .wrapper .enterpriseContent p {
+    font-size: 12px;
+  }
+}
 .enterpriseSection .wrapper .enterpriseContent p {
   line-height: 170%;
   margin-bottom: 60px;
@@ -1057,27 +1297,95 @@ footer .footerWrapper .footerlogo .mailBox a {
 .enterpriseSection .wrapper .enterpriseAnim {
   width: 50%;
 }
+@media screen and (max-width: 1800px) {
+  .enterpriseSection {
+    padding-top: 180px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    width: 70%;
+    margin-bottom: 28px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent p {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .enterpriseSection {
+    padding-top: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .enterpriseSection {
+    padding-top: 140px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    width: 70%;
+    margin-bottom: 24px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent p {
+    margin-bottom: 40px;
+  }
+}
 
 .whatwedoSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .whatwedoSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .whatwedoSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection {
+    margin-bottom: 80px;
+  }
+}
+.whatwedoSection {
+  overflow: hidden;
 }
 .whatwedoSection .wrapper {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   .whatwedoSection .wrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   .whatwedoSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1107,22 +1415,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .whatwedoSection .wrapper .secHeading .headingGroup h2 {
@@ -1153,6 +1456,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .whatwedoSection .wrapper .secHeading .headingGroup p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup p {
+    font-size: 12px;
   }
 }
 .whatwedoSection .wrapper .secHeading .headerCTA {
@@ -1211,32 +1519,22 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1600px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 52px;
+    font-size: 64px;
   }
 }
 @media screen and (max-width: 1440px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 46px;
+    font-size: 52px;
   }
 }
 @media screen and (max-width: 1280px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 36px;
+    font-size: 42px;
   }
 }
 @media screen and (max-width: 820px) {
   .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
-    font-size: 30px;
+    font-size: 34px;
   }
 }
 .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
@@ -1314,9 +1612,104 @@ footer .footerWrapper .footerlogo .mailBox a {
 .whatwedoSection .wrapper .whatwedoContent .contentBox:hover h4 {
   color: #FF3535;
 }
+@media screen and (max-width: 1800px) {
+  .whatwedoSection .wrapper .secHeading {
+    margin-bottom: 50px;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup {
+    width: 45%;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    margin-bottom: 30px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox {
+    padding: 48px 0px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
+    left: -80px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+    gap: 36px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+    width: 280px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatwedoSection .wrapper .secHeading {
+    margin-bottom: 40px;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    margin-bottom: 26px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox {
+    padding: 44px 0px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+    gap: 32px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    margin-bottom: 22px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
+    left: -60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatwedoSection .wrapper .secHeading {
+    margin-bottom: 34px;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    margin-bottom: 22px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox {
+    padding: 40px 0px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
+    left: -45px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+    gap: 30px;
+  }
+  .whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+    width: 260px;
+  }
+}
 
 .counterSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .counterSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .counterSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .counterSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .counterSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .counterSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .counterSection {
+    margin-bottom: 80px;
+  }
 }
 .counterSection .wrapper .counterContent {
   border-top: 1px solid #6F6363;
@@ -1450,9 +1843,9 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 720px) {
   .counterSection .wrapper .counterContent .counterBox .counter p {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 .counterSection .wrapper .counterContent .counterBox .counter p {
@@ -1503,27 +1896,107 @@ footer .footerWrapper .footerlogo .mailBox a {
 .counterSection .wrapper .counterContent .counterBox:hover .counterImg {
   opacity: 1;
 }
+@media screen and (max-width: 1800px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    padding: 40px;
+    height: 400px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:first-child .counter {
+    padding-left: 80px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    height: 340px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    padding: 32px;
+    height: 300px;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counterImg img {
+    width: 200px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:first-child .counter {
+    padding-left: 60px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    padding: 30px;
+    height: 260px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:first-child .counter {
+    padding-left: 40px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
+    padding-right: 40px;
+  }
+}
 
 .compoundsSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .compoundsSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .compoundsSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .compoundsSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compoundsSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .compoundsSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .compoundsSection {
+    margin-bottom: 80px;
+  }
 }
 .compoundsSection .wrapper {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   .compoundsSection .wrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .compoundsSection .wrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .compoundsSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   .compoundsSection .wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1557,11 +2030,15 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 12px;
   }
 }
+@media screen and (max-width: 720px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h4 {
+    font-size: 11px;
+  }
+}
 .compoundsSection .wrapper .compoundsContent .headingBox h4 {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.65);
   line-height: 160%;
-  margin-bottom: 16px;
   letter-spacing: 1.8px;
   text-transform: capitalize;
   margin-bottom: 14px;
@@ -1582,22 +2059,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .compoundsSection .wrapper .compoundsContent .headingBox h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .compoundsSection .wrapper .compoundsContent .headingBox h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .compoundsSection .wrapper .compoundsContent .headingBox h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .compoundsSection .wrapper .compoundsContent .headingBox h2 {
@@ -1630,12 +2102,21 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
+    font-size: 12px;
+  }
+}
 .compoundsSection .wrapper .compoundsContent .headingBox p {
   line-height: 150%;
   margin-bottom: 60px;
 }
 .compoundsSection .wrapper .compoundsContent .compoundsAnim {
   width: 50%;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim svg {
+  width: 100%;
+  height: auto;
 }
 .compoundsSection .wrapper .compoundsContent .compoundsAnim .line1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .line4 {
   stroke-dasharray: 2300;
@@ -1650,8 +2131,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .compoundsSection .wrapper .compoundsContent .compoundsAnim .text1, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text2, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text3, .compoundsSection .wrapper .compoundsContent .compoundsAnim .text4 {
   opacity: 0;
-  animation: textFadeIn 0.8s ease 3.2s forwards;
+  animation: textFadeIn 1s ease 3.2s forwards;
   animation-play-state: paused;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .text2 {
+  animation-delay: 4.2s;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .text3 {
+  animation-delay: 5.2s;
+}
+.compoundsSection .wrapper .compoundsContent .compoundsAnim .text4 {
+  animation-delay: 6.2s;
 }
 @keyframes dash {
   to {
@@ -1677,27 +2167,84 @@ footer .footerWrapper .footerlogo .mailBox a {
 .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .line4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .circle4, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text1, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text2, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text3, .compoundsSection.in-view .wrapper .compoundsContent .compoundsAnim svg .text4 {
   animation-play-state: running;
 }
+@media screen and (max-width: 1800px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
+    margin-bottom: 42px;
+  }
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
+    margin-bottom: 32px;
+  }
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
+    margin-bottom: 44px;
+  }
+}
 
 .whyItSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .whyItSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whyItSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whyItSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whyItSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .whyItSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whyItSection {
+    margin-bottom: 80px;
+  }
 }
 .whyItSection .secWrapper {
   padding-left: 100px;
   padding-right: 100px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1800px) {
   .whyItSection .secWrapper {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1440px) {
   .whyItSection .secWrapper {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .whyItSection .secWrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
   .whyItSection .secWrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1722,22 +2269,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .whyItSection .secWrapper .secHeading h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whyItSection .secWrapper .secHeading h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .whyItSection .secWrapper .secHeading h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .whyItSection .secWrapper .secHeading h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .whyItSection .secWrapper .secHeading h2 {
@@ -1767,6 +2309,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .whyItSection .secWrapper .secHeading p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whyItSection .secWrapper .secHeading p {
+    font-size: 12px;
   }
 }
 .whyItSection .secWrapper .secHeading p {
@@ -1875,6 +2422,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
+    font-size: 12px;
+  }
+}
 .whyItSection .secWrapper .cardContainer .card .contentBox .headingContent h3 {
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1955,6 +2507,38 @@ footer .footerWrapper .footerlogo .mailBox a {
 
 .platformSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .platformSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .platformSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection {
+    margin-bottom: 80px;
+  }
+}
+.platformSection {
   position: relative;
 }
 .platformSection .secWrapper .mainGridContainer {
@@ -1982,22 +2566,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .platformSection .secWrapper .mainGridContainer .headingBox h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .platformSection .secWrapper .mainGridContainer .headingBox h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .platformSection .secWrapper .mainGridContainer .headingBox h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .platformSection .secWrapper .mainGridContainer .headingBox h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .platformSection .secWrapper .mainGridContainer .headingBox h2 {
@@ -2027,6 +2606,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .platformSection .secWrapper .mainGridContainer .headingBox p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .headingBox p {
+    font-size: 12px;
   }
 }
 .platformSection .secWrapper .mainGridContainer .headingBox p {
@@ -2061,6 +2645,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
+    font-size: 12px;
   }
 }
 .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
@@ -2236,6 +2825,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     font-size: 14px;
   }
 }
+@media screen and (max-width: 720px) {
+  .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
+    font-size: 12px;
+  }
+}
 .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
   line-height: 170%;
   width: 55%;
@@ -2296,6 +2890,36 @@ footer .footerWrapper .footerlogo .mailBox a {
 .buildingSection {
   margin-bottom: 200px;
 }
+@media screen and (max-width: 1800px) {
+  .buildingSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .buildingSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .buildingSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .buildingSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .buildingSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .buildingSection {
+    margin-bottom: 80px;
+  }
+}
 .buildingSection .secWrapper {
   padding: 0 30px;
 }
@@ -2320,22 +2944,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .buildingSection .secWrapper .cardContainer .slide > h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .buildingSection .secWrapper .cardContainer .slide > h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .buildingSection .secWrapper .cardContainer .slide > h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .buildingSection .secWrapper .cardContainer .slide > h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .buildingSection .secWrapper .cardContainer .slide > h2 {
@@ -2476,6 +3095,38 @@ footer .footerWrapper .footerlogo .mailBox a {
 
 .resultSection {
   margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .resultSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .resultSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .resultSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .resultSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .resultSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resultSection {
+    margin-bottom: 80px;
+  }
+}
+.resultSection {
   padding-top: 185px;
   position: relative;
   background: url(../images/result-sec-shadow.png) no-repeat center top;
@@ -2506,22 +3157,17 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media screen and (max-width: 1440px) {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .resultSection .secWrapper .secHeading .headingGroup h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1024px) {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 720px) {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .resultSection .secWrapper .secHeading .headingGroup h2 {
@@ -2552,6 +3198,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .resultSection .secWrapper .secHeading .headingGroup p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resultSection .secWrapper .secHeading .headingGroup p {
+    font-size: 12px;
   }
 }
 .resultSection .secWrapper .resultsCardLayout {
@@ -2591,6 +3242,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+    font-size: 12px;
   }
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
@@ -2662,6 +3318,11 @@ footer .footerWrapper .footerlogo .mailBox a {
 @media screen and (max-width: 1280px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
+    font-size: 12px;
   }
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
