@@ -468,6 +468,27 @@ ScrollTrigger.create({
 	}
 })();
 
+
+if (window.innerWidth <= 1024) {
+    $('.whyItSlider').slick({
+        slidesToShow: 2.6,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        centerMode:false,
+        infinite:false,
+        responsive: [
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 1.4,
+                    slidesToScroll: 1,
+                }
+            },
+        ]
+    }); 
+}
+
 $(".mainSliderBox").slick({
 	slidesToShow: 1,
 	slidesToScroll: 1,
@@ -490,23 +511,7 @@ $(".textSlider").slick({
 	focusOnSelect: false,
 });
 
-// $(document).ready(function () {
-//   $(".resultCardSlider").slick({
-//     slidesToShow: 3.5,
-//     slidesToScroll: 1,
-//     autoplay: false,
-//     infinite: false,
-//     arrows: true,
-//     prevArrow: $(".resultPrevArrow"),
-//     nextArrow: $(".resultNextArrow"),
-//     focusOnSelect: true,
-//     responsive: [
-//       { breakpoint: 1281, settings: { slidesToShow: 3 } },
-//       { breakpoint: 1025, settings: { slidesToShow: 2.3 } },
-//       { breakpoint: 721,  settings: { slidesToShow: 1.2 } },
-//     ],
-//   });
-// });
+
 
 $(document).ready(function () {
 	const $slider = $(".resultCardSlider");
