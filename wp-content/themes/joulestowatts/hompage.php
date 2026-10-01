@@ -1,21 +1,25 @@
 <?php /* Template Name: Homepage */ get_header(); ?>
 
 <section class="bannerSection">
-    <div class="wrapper">
-        <div class="bannerContent">
-            <h1 class="manrope">Your Enterprise Truth <span>Amplified</span></h1>
-            <p>A GCC First Enterprise AI Platform.</p>
-        </div>
-        <div class="casestudyCTA">
-            <a href="#" class="teritaryCTA">Explore Case Studies
-                <span>
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/>
-                    </svg>
-                </span>
-            </a>
-        </div>
-    </div>
+    <?php if( have_rows('banner_section') ): ?>
+        <?php while( have_rows('banner_section') ): the_row(); ?>
+            <div class="wrapper">
+                <div class="bannerContent">
+                    <h1 class="manrope"><?php echo get_sub_field('banner_heading'); ?></h1>
+                    <p><?php echo get_sub_field('banner_description'); ?></p>
+                </div>
+                <div class="casestudyCTA">
+                    <a href="<?php echo get_sub_field('banner_cta_link'); ?>" class="teritaryCTA"><?php echo get_sub_field('banner_cta_text'); ?>
+                        <span>
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
     <div class="bannerBG">
         <svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" viewBox="0 0 2168 658" fill="none">
             <g filter="url(#filter0_f_952_6788)">
@@ -65,121 +69,88 @@
             </defs>
         </svg>
     </div>
-    <div class="wrapper">
-        <div class="enterpriseContent">
-            <h2 class="manrope">Most enterprise AI is built for everyone, <br>so it works for no one.</h2>
-            <p>95% of enterprise GenAI pilots deliver no measurable P&L impact (MIT NANDA, 2025). The AI leaders who beat that grow revenue at roughly twice the rate of laggards (BCG, 2025). The difference is whether it was built around the business.<br><br>AI Atlas is how we fix that: a diagnostic that produces your AI Charter , then delivers it end to end, from strategy through to agents running in production. ROI-first, for CIOs, CFOs, COOs, and Boards.</p>
-            <a href="#" class="primaryCTA">Read our take: AI Atlas and the Charter
-                <div class="arrowBox">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                    </svg>
+    <?php if( have_rows('enterprise_section') ): ?>
+        <?php while( have_rows('enterprise_section') ): the_row(); ?>
+            <div class="wrapper">
+                <div class="enterpriseContent">
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
+                    <a href="<?php echo get_sub_field('cta_link'); ?>" class="primaryCTA"><?php echo get_sub_field('cta_text'); ?>
+                        <div class="arrowBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="enterpriseAnim"></div>
-    </div>
+                <div class="enterpriseAnim"></div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="whatwedoSection">
-    <div class="wrapper">
-        <div class="secHeading">
-            <div class="headingGroup">
-                <h2 class="manrope">What We Do</h2>
-                <p>Three things you can buy, running on one operating model. <br>Take them together as a platform, or take the one you need.</p>
-            </div>
-            <div class="headerCTA">
-                <a href="#" class="primaryCTA">See how they work together
-                    <div class="arrowBox">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                        </svg>
+    <?php if( have_rows('what_we_do_section') ): ?>
+        <?php while( have_rows('what_we_do_section') ): the_row(); ?>
+            <div class="wrapper">
+                <div class="secHeading">
+                    <div class="headingGroup">
+                        <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                        <p><?php echo get_sub_field('description'); ?></p>
                     </div>
-                </a>
-            </div>
-        </div>
-        <div class="whatwedoContent">
-            <div class="contentBox">
-                <div class="headingBox">
-                    <h3 class="manrope">01</h3>
-                    <h4 class="manrope">Greenfield ODC setup</h4>
+                    <div class="headerCTA">
+                        <a href="<?php echo get_sub_field('cta_link'); ?>" class="primaryCTA"><?php echo get_sub_field('cta_text'); ?>
+                            <div class="arrowBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
-                <div class="whatwedoImgbox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-1.jpg" alt="">
-                </div>
-            </div>
-            <div class="contentBox">
-                <div class="headingBox">
-                    <h3>02</h3>
-                    <h4>Talent at scale</h4>
-                </div>
-                <p>Engineers and functional specialists who know your industry, ramped fast, run as a managed team. Roughly half of what we run is functional.</p>
-                <div class="whatwedoImgbox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="contentBox">
-                <div class="headingBox">
-                    <h3>03</h3>
-                    <h4>Enterprise AI solutions</h4>
-                </div>
-                <p>AI where it earns its place, and engineering where it does not. Two tracks, one delivery model, outcome-bound either way.</p>
-                <div class="whatwedoImgbox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whatwedo-3.jpg" alt="">
+                <div class="whatwedoContent">
+                    <?php if( have_rows('what_we_do_content') ): ?>
+                        <?php $counter=1; while( have_rows('what_we_do_content') ): the_row(); ?>
+                            <div class="contentBox">
+                                <div class="headingBox">
+                                    <h3 class="manrope"><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></h3>
+                                    <h4 class="manrope"><?php echo get_sub_field('box_heading'); ?></h4>
+                                </div>
+                                <p><?php echo get_sub_field('box_description'); ?></p>
+                                <div class="whatwedoImgbox">
+                                    <?php $whatweboximg = get_sub_field('box_image'); if( !empty( $whatweboximg ) ): ?>
+                                        <img src="<?php echo esc_url($whatweboximg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whatweboximg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php $counter=$counter+1; endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
-        </div>
-    </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="counterSection">
     <div class="wrapper">
         <div class="counterContent">
-            <div class="counterBox">
-                <div class="counter">
-                    <div>
-                        <h4>330</h4><span>+</span>
+            <?php if( have_rows('counter_section') ): ?>
+                <?php while( have_rows('counter_section') ): the_row(); ?>
+                    <div class="counterBox">
+                        <div class="counter">
+                            <div>
+                                <h4><?php echo get_sub_field('counter_number'); ?></h4><span>+</span>
+                            </div>
+                            <p><?php echo get_sub_field('counter_heading'); ?></p>
+                        </div>
+                        <div class="counterImg">
+                            <?php $counterimg = get_sub_field('counter_image'); if( !empty( $counterimg ) ): ?>
+                                <img src="<?php echo esc_url($counterimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($counterimg['alt']); ?>" />
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <p>GCCs <br>enabled</p>
-                </div>
-                <div class="counterImg">
-                    <img src="<?php bloginfo('template_directory');?>/images/counter1.png" alt="">
-                </div>
-            </div>
-            <div class="counterBox">
-                <div class="counter">
-                    <div>
-                        <h4>320</h4><span>+</span>
-                    </div>
-                    <p>Enterprise clients <br>served</p>
-                </div>
-                <div class="counterImg">
-                    <img src="<?php bloginfo('template_directory');?>/images/counter2.png" alt="">
-                </div>
-            </div>
-            <div class="counterBox">
-                <div class="counter">
-                    <div>
-                        <h4>5,500</h4><span>+</span>
-                    </div>
-                    <p>Professionals <br>deployed</p>
-                </div>
-                <div class="counterImg">
-                    <img src="<?php bloginfo('template_directory');?>/images/counter3.png" alt="">
-                </div>
-            </div>
-            <div class="counterBox">
-                <div class="counter">
-                    <div>
-                        <h4>150</h4><span>+</span>
-                    </div>
-                    <p>AI ACCELERATORS</p>
-                </div>
-                <div class="counterImg">
-                    <img src="<?php bloginfo('template_directory');?>/images/counter4.png" alt="">
-                </div>
-            </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -187,18 +158,22 @@
 <section class="compoundsSection">
     <div class="wrapper">
         <div class="compoundsContent">
-            <div class="headingBox">
-                <h4 class="manrope">THE IDEA BEHIND ENTERPRISE TRUTH</h4>
-                <h2 class="manrope">Every great organization has its own recipe for decisions. It Compounds Over Time</h2>
-                <p>Decisions made every day. Patterns repeated over years. Principles that harden. Operating logic that takes shape. Together, they form your Enterprise Truth — a unique advantage that cannot be copied, only grown.</p>
-                <a href="#" class="primaryCTA">How We Unlock It
-                    <div class="arrowBox">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                        </svg>
+            <?php if( have_rows('compounds_section') ): ?>
+                <?php while( have_rows('compounds_section') ): the_row(); ?>
+                    <div class="headingBox">
+                        <h4 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h4>
+                        <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                        <p><?php echo get_sub_field('description'); ?></p>
+                        <a href="<?php echo get_sub_field('cta_link'); ?>" class="primaryCTA"><?php echo get_sub_field('cta_text'); ?>
+                            <div class="arrowBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
             <div class="compoundsAnim">
                 <svg width="778" height="705" viewBox="0 0 778 705" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter3_n_857_3741)"><path class="line1" d="M167.41 488.166V219.716" stroke="#1A9BA4"/></g>
@@ -704,180 +679,115 @@
 </section>
 
 <section class="whyItSection">
-    <div class="secWrapper">
-        <div class="secHeading">
-            <h2 class="manrope">Why it compounds over time</h2>
-            <p>Four things that make each engagement build on the last.</p>
-        </div>
-        <div class="cardContainer">
-            <div class="card">
-                <div class="imgBox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whyIt-img-1.png" alt="">
+    <?php if( have_rows('why_it_section') ): ?>
+        <?php while( have_rows('why_it_section') ): the_row(); ?>
+            <div class="secWrapper">
+                <div class="secHeading">
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
                 </div>
-                <div class="contentBox">
-                    <h4>01</h4>
-                    <div class="headingContent">
-                        <h3>A single focus</h3>
-                        <div class="moreContent">
-                            <p>Ten years spent only on GCCs and enterprise capability. That focus is why the way we work is refined and repeatable.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="imgBox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whyIt-img-2.png" alt="">
-                </div>
-                <div class="contentBox">
-                    <h4>02</h4>
-                    <div class="headingContent">
-                        <h3>You start ahead</h3>
-                        <div class="moreContent">
-                            <p>We carry patterns across hundreds of engagements, so your build begins further along than a first attempt ever could.</p>
-                        </div>
-                    </div>
-
+                <div class="cardContainer">
+                    <?php if( have_rows('why_it_cards') ): ?>
+                        <?php $counter=1; while( have_rows('why_it_cards') ): the_row(); ?>
+                            <div class="card">
+                                <div class="imgBox">
+                                    <?php $whyitcardimg = get_sub_field('card_image'); if( !empty( $whyitcardimg ) ): ?>
+                                        <img src="<?php echo esc_url($whyitcardimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whyitcardimg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="contentBox">
+                                    <h4><?php echo sprintf('%02d', $counter); ?></h4>
+                                    <div class="headingContent">
+                                        <h3><?php echo get_sub_field('card_heading'); ?></h3>
+                                        <div class="moreContent">
+                                            <p><?php echo get_sub_field('card_description'); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $counter=$counter+1; endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
-            <div class="card">
-                <div class="imgBox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whyIt-img-3.png" alt="">
-                </div>
-                <div class="contentBox">
-                    <h4>03</h4>
-                    <div class="headingContent">
-                        <h3>We decide what not to automate</h3>
-                        <div class="moreContent">
-                            <p>Our business context architects judge where AI belongs and where it does not.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="imgBox">
-                    <img src="<?php bloginfo('template_directory');?>/images/whyIt-img-4.png" alt="">
-                </div>
-                <div class="contentBox">
-                    <h4>04</h4>
-                    <div class="headingContent">
-                        <h3>We test on ourselves first</h3>
-                        <div class="moreContent">
-                            <p>No AI intervention reaches a client until it has cleared a real benchmark on our own operations.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="platformSection">
-    <div class="secWrapper">
-        <div class="mainGridContainer ">
-            <div class="box headingBox">
-                <h2 class="manrope">Start where you are</h2>
-                <p>Three doors into the same platform. Pick the one that fits.</p>
-            </div>
-
-            <!-- Row 1 + Row 2: Column 3 -->
-            <div class="box sliderBox">
-                <div class="mainSliderBox">
-                    <div class="slide">
-                        <img src="<?php bloginfo('template_directory');?>/images/platform-img-1.png" alt="">
-                        <span class="manrope tag">Greenfield</span>
+    <?php if( have_rows('platform_section') ): ?>
+        <?php while( have_rows('platform_section') ): the_row(); ?>
+            <div class="secWrapper">
+                <div class="mainGridContainer ">
+                    <div class="box headingBox">
+                        <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                        <p><?php echo get_sub_field('description'); ?></p>
                     </div>
-                    <div class="slide">
-                        <img src="<?php bloginfo('template_directory');?>/images/platform-img-2.png" alt="">
-                        <span  class="manrope tag">Brownfield</span>
-                    </div>
-                    <div class="slide">
-                        <img src="<?php bloginfo('template_directory');?>/images/platform-img-3.png" alt="">
-                        <span  class="manrope tag">Engineers</span>
-                    </div>
-                </div>
-                
-            </div>
-
-            <!-- Row 1: Column 4 -->
-            <div class="box gradientBox box-r1-c4"></div>
-
-            <!-- Row 2: Column 1 -->
-            <div class="box box-r2-c1"></div>
-
-            <!-- Row 2: Column 2 -->
-            <div class="box gradientBox box-r2-c2"></div>
-
-            <!-- Row 2: Column 4 -->
-            <div class="box box-r2-c4"></div>
-
-            <!-- Row 3: Column 1 -->
-            <div class="box gradientBox box-r3-c1">
-                <div class="arrowBox">
-                    <span class="prevArrow ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
-                            <path d="M9.90509 20.9813L0.305793 11.382C0.109955 11.1861 -6.67789e-05 10.9205 -6.81276e-05 10.6436C-6.67789e-05 10.3666 0.109955 10.101 0.305793 9.90515L9.90509 0.305849C10.1009 0.110011 10.3665 -1.03086e-05 10.6435 -1.0983e-05C10.9205 -1.014e-05 11.1861 0.11001 11.3819 0.305848C11.5777 0.501686 11.6878 0.7673 11.6878 1.04426C11.6878 1.32121 11.5777 1.58683 11.3819 1.78266L3.56494 9.59963L24.6732 9.59871C24.9504 9.59871 25.2161 9.70879 25.4121 9.90474C25.608 10.1007 25.7181 10.3664 25.7181 10.6436C25.7181 10.9207 25.608 11.1864 25.4121 11.3824C25.2161 11.5783 24.9504 11.6884 24.6732 11.6884L3.56494 11.6875L11.3819 19.5044C11.5777 19.7003 11.6878 19.9659 11.6878 20.2429C11.6878 20.5198 11.5777 20.7854 11.3819 20.9813C11.1861 21.1771 10.9205 21.2871 10.6435 21.2871C10.3665 21.2871 10.1009 21.1771 9.90509 20.9813Z" fill="#19060F"/>
-                        </svg>
-                        
-                    </span>
-                    <span class="nextArrow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
-                            <path d="M15.8129 20.9813L25.4122 11.382C25.6081 11.1861 25.7181 10.9205 25.7181 10.6436C25.7181 10.3666 25.6081 10.101 25.4122 9.90515L15.8129 0.305849C15.6171 0.110011 15.3515 -1.03086e-05 15.0745 -1.0983e-05C14.7976 -1.014e-05 14.5319 0.11001 14.3361 0.305848C14.1403 0.501686 14.0303 0.7673 14.0303 1.04426C14.0303 1.32121 14.1403 1.58683 14.3361 1.78266L22.1531 9.59963L1.04478 9.59871C0.767665 9.59871 0.501903 9.70879 0.305957 9.90474C0.11001 10.1007 -7.1796e-05 10.3664 -7.17854e-05 10.6436C-7.1796e-05 10.9207 0.11001 11.1864 0.305957 11.3824C0.501903 11.5783 0.767665 11.6884 1.04478 11.6884L22.1531 11.6875L14.3361 19.5044C14.1403 19.7003 14.0303 19.9659 14.0303 20.2429C14.0303 20.5198 14.1403 20.7854 14.3361 20.9813C14.5319 21.1771 14.7976 21.2871 15.0745 21.2871C15.3515 21.2871 15.6171 21.1771 15.8129 20.9813Z" fill="#19060F"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-
-            <!-- Row 3: Column 2 + 3 -->
-            <div class="box bottomContent">
-                <div class="textSlider">
-                    <div class="textSlide">
-                        <h3 class="manrope">$1.2B annual value</h3>
-                        <div class="detailsBox">
-                            <p>Stand up a new center, from location and entity through to a team that runs without us. A decade of doing this, greenfield and brownfield.</p>
-                            <a href="#" class="secondaryCTA"><span>Greenfield ODC setup</span>
-                                <div class="arrowBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                                    </svg>
-                                </div>
-                            </a>
+                    <!-- Row 1 + Row 2: Column 3 -->
+                    <div class="box sliderBox">
+                        <div class="mainSliderBox">
+                            <?php if( have_rows('platforms_cards') ): ?>
+                                <?php while( have_rows('platforms_cards') ): the_row(); ?>
+                                    <div class="slide">
+                                        <?php $platformimg = get_sub_field('card_image'); if( !empty( $platformimg ) ): ?>
+                                            <img src="<?php echo esc_url($platformimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($platformimg['alt']); ?>" />
+                                        <?php endif; ?>
+                                        <span class="manrope tag"><?php echo get_sub_field('card_tag'); ?></span>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    <div class="textSlide">
-                        <h3 class="manrope">A center that already runs</h3>
-                        <div class="detailsBox">
-                            <p>Move it up the value chain, or embed AI into a function without adding headcount.</p>
-                            <a href="#" class="secondaryCTA"><span>See the platform</span>
-                                <div class="arrowBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                                    </svg>
-                                </div>
-                            </a>
+                    <!-- Row 1: Column 4 -->
+                    <div class="box gradientBox box-r1-c4"></div>
+                    <!-- Row 2: Column 1 -->
+                    <div class="box box-r2-c1"></div>
+                    <!-- Row 2: Column 2 -->
+                    <div class="box gradientBox box-r2-c2"></div>
+                    <!-- Row 2: Column 4 -->
+                    <div class="box box-r2-c4"></div>
+                    <!-- Row 3: Column 1 -->
+                    <div class="box gradientBox box-r3-c1">
+                        <div class="arrowBox">
+                            <span class="prevArrow ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
+                                    <path d="M9.90509 20.9813L0.305793 11.382C0.109955 11.1861 -6.67789e-05 10.9205 -6.81276e-05 10.6436C-6.67789e-05 10.3666 0.109955 10.101 0.305793 9.90515L9.90509 0.305849C10.1009 0.110011 10.3665 -1.03086e-05 10.6435 -1.0983e-05C10.9205 -1.014e-05 11.1861 0.11001 11.3819 0.305848C11.5777 0.501686 11.6878 0.7673 11.6878 1.04426C11.6878 1.32121 11.5777 1.58683 11.3819 1.78266L3.56494 9.59963L24.6732 9.59871C24.9504 9.59871 25.2161 9.70879 25.4121 9.90474C25.608 10.1007 25.7181 10.3664 25.7181 10.6436C25.7181 10.9207 25.608 11.1864 25.4121 11.3824C25.2161 11.5783 24.9504 11.6884 24.6732 11.6884L3.56494 11.6875L11.3819 19.5044C11.5777 19.7003 11.6878 19.9659 11.6878 20.2429C11.6878 20.5198 11.5777 20.7854 11.3819 20.9813C11.1861 21.1771 10.9205 21.2871 10.6435 21.2871C10.3665 21.2871 10.1009 21.1771 9.90509 20.9813Z" fill="#19060F"/>
+                                </svg>
+                            </span>
+                            <span class="nextArrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
+                                    <path d="M15.8129 20.9813L25.4122 11.382C25.6081 11.1861 25.7181 10.9205 25.7181 10.6436C25.7181 10.3666 25.6081 10.101 25.4122 9.90515L15.8129 0.305849C15.6171 0.110011 15.3515 -1.03086e-05 15.0745 -1.0983e-05C14.7976 -1.014e-05 14.5319 0.11001 14.3361 0.305848C14.1403 0.501686 14.0303 0.7673 14.0303 1.04426C14.0303 1.32121 14.1403 1.58683 14.3361 1.78266L22.1531 9.59963L1.04478 9.59871C0.767665 9.59871 0.501903 9.70879 0.305957 9.90474C0.11001 10.1007 -7.1796e-05 10.3664 -7.17854e-05 10.6436C-7.1796e-05 10.9207 0.11001 11.1864 0.305957 11.3824C0.501903 11.5783 0.767665 11.6884 1.04478 11.6884L22.1531 11.6875L14.3361 19.5044C14.1403 19.7003 14.0303 19.9659 14.0303 20.2429C14.0303 20.5198 14.1403 20.7854 14.3361 20.9813C14.5319 21.1771 14.7976 21.2871 15.0745 21.2871C15.3515 21.2871 15.6171 21.1771 15.8129 20.9813Z" fill="#19060F"/>
+                                </svg>
+                            </span>
                         </div>
                     </div>
-                    <div class="textSlide">
-                        <h3 class="manrope">You build things</h3>
-                        <div class="detailsBox">
-                            <p>Configure a proven platform against real enterprise problems, then operate what you built.</p>
-                            <a href="#" class="secondaryCTA"><span>Careers</span>
-                                <div class="arrowBox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                                    </svg>
-                                </div>
-                            </a>
+                    <!-- Row 3: Column 2 + 3 -->
+                    <div class="box bottomContent">
+                        <div class="textSlider">
+                            <?php if( have_rows('platforms_cards') ): ?>
+                                <?php while( have_rows('platforms_cards') ): the_row(); ?>
+                                    <div class="textSlide">
+                                        <h3 class="manrope"><?php echo get_sub_field('card_heading'); ?></h3>
+                                        <div class="detailsBox">
+                                            <p><?php echo get_sub_field('card_description'); ?></p>
+                                            <a href="<?php echo get_sub_field('card_cta_link'); ?>" class="secondaryCTA"><span><?php echo get_sub_field('card_cta_text'); ?></span>
+                                                <div class="arrowBox">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </div>
+                    <!-- Row 3: Column 4 -->
+                    <div class="box gradientBox box-r3-c4"></div>
+                </div>   
             </div>
-
-            <!-- Row 3: Column 4 -->
-            <div class="box gradientBox box-r3-c4"></div>
-        </div>   
-    </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="buildingSection">

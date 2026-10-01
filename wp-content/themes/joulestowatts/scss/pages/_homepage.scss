@@ -317,7 +317,6 @@
                     
                     &:after{content: "";position: absolute; top: -26px; left: -1px; width: calc(100% - 180px); height: 25px; background-color: #210214; border-top-right-radius: 50px; border-top-left-radius: 22px; border-top: 1px solid rgba(152, 152, 152, 0.39); border-right: 1px solid rgba(152, 152, 152, 0.39); border-left: 1px solid rgba(152, 152, 152, 0.39); z-index: 5;}
                 }
-
                 &:hover{
                     .imgBox{
                         img{transform: scale(1);}
@@ -329,7 +328,6 @@
                         &::before{opacity: 1;}
                     }
                 }
-
             }
             &::before{content: ""; position: absolute; top: 55%; left: 46%; width: 200px; height: 399px; border-radius: 100%;background: #82FFFA;filter: blur(200px); transform: rotate(14.589deg) translate(-50%, -50%);}
         }
