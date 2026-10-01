@@ -790,7 +790,7 @@
     <?php endif; ?>
 </section>
 
-<section class="buildingSection">
+<!-- <section class="buildingSection">
     <div class="secWrapper">
         <div class="cardContainer">
             <div class="slide" data-index="0">
@@ -852,7 +852,8 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
 
 <section class="resultSection">
     <div class="secWrapper">
