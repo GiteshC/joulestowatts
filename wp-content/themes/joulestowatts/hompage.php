@@ -816,13 +816,13 @@
             <div class="box gradientBox box-r1-c4"></div>
 
             <!-- Row 2: Column 1 -->
-            <div class="box box-r2-c1"></div>
+            <div class="box gradientBox box-r2-c1"></div>
 
             <!-- Row 2: Column 2 -->
             <div class="box gradientBox box-r2-c2"></div>
 
             <!-- Row 2: Column 4 -->
-            <div class="box box-r2-c4"></div>
+            <div class="box gradientBox box-r2-c4"></div>
 
             <!-- Row 3: Column 1 -->
             <div class="box gradientBox box-r3-c1">
@@ -892,7 +892,7 @@
     </div>
 </section>
 
-<!-- <section class="buildingSection">
+<section class="buildingSection">
     <div class="secWrapper">
         <div class="cardContainer">
             <div class="slide" data-index="0">
@@ -903,7 +903,7 @@
                 <a class="card-link" href="#" aria-label="Run the GCC Navigator">
                     <div class="body">
                         <div>
-                            <h2>Run the GCC Navigator</h2>
+                            <h3>Run the GCC Navigator</h3>
                             <p>Twelve questions, ten minutes, free. A readiness score, a city shortlist and a compliance roadmap.</p>
                             </div>
                             <div class="arrow" aria-hidden="true">
@@ -941,7 +941,7 @@
                 <a class="card-link" href="#" aria-label="Run the GCC Navigator">
                     <div class="body">
                         <div>
-                            <h2>Talk to a partner</h2>
+                            <h3>Talk to a partner</h3>
                             <p>Bring us a function or a mandate. We'll show you where value lands first.</p>
                             </div>
                             <div class="arrow" aria-hidden="true">
@@ -954,8 +954,7 @@
             </div>
         </div>
     </div>
-</section> -->
-
+</section>
 
 <section class="resultSection">
     <div class="secWrapper">
