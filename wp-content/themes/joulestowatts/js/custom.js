@@ -468,25 +468,24 @@ ScrollTrigger.create({
 	}
 })();
 
-
 if (window.innerWidth <= 1024) {
-    $('.whyItSlider').slick({
-        slidesToShow: 2.6,
-        slidesToScroll: 1,
-        arrows: false,
-        dots: false,
-        centerMode:false,
-        infinite:false,
-        responsive: [
-            {
-                breakpoint: 720,
-                settings: {
-                    slidesToShow: 1.4,
-                    slidesToScroll: 1,
-                }
-            },
-        ]
-    }); 
+	$(".whyItSlider").slick({
+		slidesToShow: 2.6,
+		slidesToScroll: 1,
+		arrows: false,
+		dots: false,
+		centerMode: false,
+		infinite: false,
+		responsive: [
+			{
+				breakpoint: 720,
+				settings: {
+					slidesToShow: 1.4,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	});
 }
 
 $(".mainSliderBox").slick({
@@ -510,8 +509,6 @@ $(".textSlider").slick({
 	centerMode: false,
 	focusOnSelect: false,
 });
-
-
 
 $(document).ready(function () {
 	const $slider = $(".resultCardSlider");
@@ -539,7 +536,6 @@ $(document).ready(function () {
 });
 
 //footer accordian
-
 document.addEventListener("DOMContentLoaded", () => {
 	const mq = window.matchMedia("(max-width: 768px)");
 	const columns = document.querySelectorAll(".footerLinks .column");

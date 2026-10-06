@@ -686,7 +686,7 @@
                     <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
                     <p><?php echo get_sub_field('description'); ?></p>
                 </div>
-                <div class="cardContainer">
+                <div class="cardContainer whyItSlider">
                     <?php if( have_rows('why_it_cards') ): ?>
                         <?php $counter=1; while( have_rows('why_it_cards') ): the_row(); ?>
                             <div class="card">
