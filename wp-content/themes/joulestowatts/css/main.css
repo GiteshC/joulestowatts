@@ -235,6 +235,10 @@ button {
 }
 
 /************************************************ Common CSS **************************************************/
+html {
+  overflow-x: hidden;
+}
+
 body {
   position: relative;
   font-size: 20px;
