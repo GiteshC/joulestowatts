@@ -3140,9 +3140,19 @@ footer .footerWrapper .footerlogo .mailBox a {
   grid-column: 3;
   grid-row: 1/3;
   overflow: hidden;
+  height: 100%;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox {
+  height: 100%;
 }
 .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide {
   position: relative;
+  height: 100%;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slide .tag {
   font-size: 20px;
@@ -3177,6 +3187,12 @@ footer .footerWrapper .footerlogo .mailBox a {
   position: absolute;
   top: 24px;
   left: 29px;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slick-list {
+  height: 100%;
+}
+.platformSection .secWrapper .mainGridContainer .sliderBox .mainSliderBox .slick-list .slick-track {
+  height: 100%;
 }
 .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl {
   display: none;
@@ -3225,8 +3241,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(322deg, rgba(1, 211, 199, 0.41) 24.7%, rgba(33, 2, 20, 0.98) 60.64%);
-  filter: blur(100px);
+  transform: scaleX(-1);
   transform: translateY(100%);
 }
 .platformSection .secWrapper .mainGridContainer {
@@ -3237,7 +3252,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   grid-row: 1;
 }
 .platformSection .secWrapper .mainGridContainer .box-r1-c4::before {
-  animation: gradientCard1 8s linear infinite;
+  background: linear-gradient(223deg, #210214 48.48%, #1E1D2C 61.81%, #203847 75.14%, #6A8089 100%);
+  animation: gradientCard2 8s linear infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R2 C1 */
@@ -3245,6 +3261,12 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r2-c1 {
   grid-column: 1;
   grid-row: 2;
+}
+.platformSection .secWrapper .mainGridContainer .box-r2-c1.gradientBox::before {
+  display: none;
+  background: linear-gradient(90deg, #210214 -12.67%, #1E1D2C 26.18%, #203847 65.02%, #6A8089 137.45%);
+  transform: translate(100%, 0);
+  animation: moveRightToLeft 2s linear infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R2 C2 */
@@ -3254,7 +3276,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   grid-row: 2;
 }
 .platformSection .secWrapper .mainGridContainer .box-r2-c2::before {
-  animation: gradientCard2 8s linear infinite;
+  background: linear-gradient(172deg, #210214 11.35%, #1E1D2C 39.11%, #203847 66.86%, #6A8089 118.61%);
+  animation: gradientCard1 8s linear infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R2 C4 */
@@ -3262,6 +3285,12 @@ footer .footerWrapper .footerlogo .mailBox a {
 .platformSection .secWrapper .mainGridContainer .box-r2-c4 {
   grid-column: 4;
   grid-row: 2;
+}
+.platformSection .secWrapper .mainGridContainer .box-r2-c4.gradientBox::before {
+  display: none;
+  background: linear-gradient(270deg, #210214 -12.67%, #1E1D2C 26.18%, #203847 65.02%, #6A8089 137.45%);
+  transform: translate(-100%, 0);
+  animation: moveLeftToRight 2s linear infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
   /* R3 C1 */
@@ -3312,6 +3341,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   background: #00ACB4;
 }
 .platformSection .secWrapper .mainGridContainer .box-r3-c1::before {
+  background: linear-gradient(203deg, #210214 46.7%, #1E1D2C 62.01%, #203847 77.31%, #6A8089 105.85%);
   animation: gradientCard3 8s linear infinite;
 }
 .platformSection .secWrapper .mainGridContainer {
@@ -3397,6 +3427,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   grid-row: 3;
 }
 .platformSection .secWrapper .mainGridContainer .box-r3-c4::before {
+  background: linear-gradient(320deg, #210214 61.72%, #1E1D2C 75.33%, #203847 88.94%, #6A8089 114.31%);
   animation: gradientCard4 8s linear infinite;
 }
 @keyframes gradientCard1 {
@@ -3435,16 +3466,29 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @keyframes gradientCard4 {
   0%, 75% {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
   90%, 100% {
     transform: translateY(0);
   }
 }
-@media all and (max-width: 1800px) {
-  .platformSection .secWrapper .mainGridContainer {
-    grid-template-rows: 280px 280px 280px;
+@keyframes moveRightToLeft {
+  from {
+    transform: translateX(100%);
   }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes moveLeftToRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@media all and (max-width: 1800px) {
   .platformSection .secWrapper .mainGridContainer .headingBox {
     padding: 60px 10px 10px 80px;
   }
@@ -3457,7 +3501,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media all and (max-width: 1600px) {
   .platformSection .secWrapper .mainGridContainer {
-    grid-template-rows: 250px 250px 250px;
+    grid-template-rows: 270px 270px 270px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox {
     padding: 60px 10px 10px 60px;
@@ -3469,7 +3513,7 @@ footer .footerWrapper .footerlogo .mailBox a {
     padding-left: 60px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent {
-    padding: 40px 35px 35px 50px;
+    padding: 50px 35px 35px 50px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
     width: 60%;
@@ -3477,7 +3521,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media all and (max-width: 1440px) {
   .platformSection .secWrapper .mainGridContainer {
-    grid-template-rows: 230px 230px 230px;
+    grid-template-rows: 250px 250px 250px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox {
     padding: 50px 10px 10px 50px;
@@ -3486,7 +3530,7 @@ footer .footerWrapper .footerlogo .mailBox a {
     padding-left: 50px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent {
-    padding: 35px 30px 30px 45px;
+    padding: 40px 30px 30px 30px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide h3 {
     margin-bottom: 20px;
@@ -3508,16 +3552,27 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media all and (max-width: 1280px) {
   .platformSection .secWrapper .mainGridContainer {
-    grid-template-rows: 210px 210px 210px;
+    grid-template-rows: 230px 230px 230px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox {
-    padding: 50px 10px 10px 50px;
+    padding: 45px 10px 10px 45px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox h2 {
     margin-bottom: 25px;
   }
   .platformSection .secWrapper .mainGridContainer .box-r3-c1 {
-    padding-left: 50px;
+    padding-left: 45px;
+  }
+  .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox {
+    margin-top: 40px;
+  }
+  .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow {
+    width: 40px;
+    height: 40px;
+  }
+  .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .prevArrow svg, .platformSection .secWrapper .mainGridContainer .box-r3-c1 .arrowBox .nextArrow svg {
+    width: 18px;
+    height: 18px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent {
     padding: 35px 30px 30px 45px;
@@ -3528,25 +3583,25 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 @media all and (max-width: 1080px) {
   .platformSection .secWrapper .mainGridContainer {
-    grid-template-rows: 180px 180px 180px;
+    grid-template-rows: 200px 200px 200px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox {
-    padding: 50px 10px 10px 50px;
+    padding: 40px 10px 10px 40px;
   }
   .platformSection .secWrapper .mainGridContainer .headingBox h2 {
     margin-bottom: 25px;
   }
   .platformSection .secWrapper .mainGridContainer .box-r3-c1 {
-    padding-left: 50px;
+    padding-left: 40px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent {
-    padding: 35px 30px 30px 45px;
+    padding: 20px;
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
     width: 60%;
   }
 }
-@media all and (max-width: 820px) {
+@media all and (max-width: 1024px) {
   .platformSection .secWrapper .mainGridContainer {
     grid-template-columns: 200px 1fr 200px;
     grid-template-rows: auto auto auto;
@@ -3575,17 +3630,17 @@ footer .footerWrapper .footerlogo .mailBox a {
   .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl {
     display: flex;
     position: absolute;
-    top: 37%;
+    top: 45%;
     left: 0;
     width: 100%;
     justify-content: space-between;
     padding: 0 40px;
   }
   .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
   }
-  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow svg path, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow svg path {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow svg, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow svg {
     width: 20px;
     height: 20px;
   }
@@ -3599,6 +3654,9 @@ footer .footerWrapper .footerlogo .mailBox a {
     border: none;
     border-bottom: 1px solid #6F6363;
   }
+  .platformSection .secWrapper .mainGridContainer .box-r2-c1.gradientBox::before {
+    display: block;
+  }
   .platformSection .secWrapper .mainGridContainer .box-r2-c2 {
     display: none;
   }
@@ -3608,6 +3666,9 @@ footer .footerWrapper .footerlogo .mailBox a {
     grid-area: right;
     border: none;
     border-bottom: 1px solid #6F6363;
+  }
+  .platformSection .secWrapper .mainGridContainer .box-r2-c4.gradientBox::before {
+    display: block;
   }
   .platformSection .secWrapper .mainGridContainer .box-r3-c1 {
     display: none;
@@ -3630,6 +3691,26 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .platformSection .secWrapper .mainGridContainer .bottomContent .textSlider .textSlide .detailsBox p {
     width: 80%;
+    text-align: center;
+  }
+}
+@media all and (max-width: 820px) {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl {
+    display: flex;
+    position: absolute;
+    top: 37%;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow {
+    width: 45px;
+    height: 45px;
+  }
+  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow svg, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow svg {
+    width: 18px;
+    height: 18px;
   }
 }
 @media all and (max-width: 720px) {
@@ -3656,11 +3737,10 @@ footer .footerWrapper .footerlogo .mailBox a {
     padding: 0 20px;
   }
   .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow {
-    width: 35px;
-    height: 35px;
-    padding: 10px;
+    width: 32px;
+    height: 32px;
   }
-  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow svg path, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow svg path {
+  .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .prevArrow svg, .platformSection .secWrapper .mainGridContainer .sliderBox .arrowBoxMbl .nextArrow svg {
     width: 12px;
     height: 12px;
   }
@@ -4300,6 +4380,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
     margin: 0 -15px;
   }
+  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+    width: 45px;
+    height: 45px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 @media all and (max-width: 720px) {
   .resultSection {
@@ -4361,11 +4449,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     margin-top: 30px;
   }
   .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
   .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
   }
 }/*# sourceMappingURL=main.css.map */
