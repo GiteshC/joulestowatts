@@ -590,3 +590,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!e.matches) closeAll();
 	});
 });
+
+if (window.innerWidth <= 820) {
+    document.querySelectorAll('.whatwedoSection .wrapper .secHeading .headingGroup p').forEach(p => {
+        p.innerHTML = p.innerHTML.replace(/<br\s*\/?>/gi, ' ');
+    });
+}

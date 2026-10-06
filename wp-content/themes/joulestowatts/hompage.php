@@ -108,24 +108,24 @@
                         </a>
                     </div>
                 </div>
-                <div class="whatwedoContent">
-                    <?php if( have_rows('what_we_do_content') ): ?>
-                        <?php $counter=1; while( have_rows('what_we_do_content') ): the_row(); ?>
-                            <div class="contentBox">
-                                <div class="headingBox">
-                                    <h3 class="manrope"><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></h3>
-                                    <h4 class="manrope"><?php echo get_sub_field('box_heading'); ?></h4>
-                                </div>
-                                <p><?php echo get_sub_field('box_description'); ?></p>
-                                <div class="whatwedoImgbox">
-                                    <?php $whatweboximg = get_sub_field('box_image'); if( !empty( $whatweboximg ) ): ?>
-                                        <img src="<?php echo esc_url($whatweboximg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whatweboximg['alt']); ?>" />
-                                    <?php endif; ?>
-                                </div>
+            </div>
+            <div class="whatwedoContent">
+                <?php if( have_rows('what_we_do_content') ): ?>
+                    <?php $counter=1; while( have_rows('what_we_do_content') ): the_row(); ?>
+                        <div class="contentBox">
+                            <div class="headingBox">
+                                <h3 class="manrope"><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></h3>
+                                <h4 class="manrope"><?php echo get_sub_field('box_heading'); ?></h4>
                             </div>
-                        <?php $counter=$counter+1; endwhile; ?>
-                    <?php endif; ?>
-                </div>
+                            <p><?php echo get_sub_field('box_description'); ?></p>
+                            <div class="whatwedoImgbox">
+                                <?php $whatweboximg = get_sub_field('box_image'); if( !empty( $whatweboximg ) ): ?>
+                                    <img src="<?php echo esc_url($whatweboximg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whatweboximg['alt']); ?>" />
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php $counter=$counter+1; endwhile; ?>
+                <?php endif; ?>
             </div>
         <?php endwhile; ?>
     <?php endif; ?>
