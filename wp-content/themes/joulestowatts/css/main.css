@@ -729,6 +729,12 @@ header.menu-open .menuBox .mainMenu {
   header {
     padding: 15px 15px;
   }
+  header .logoBox img {
+    width: 200px;
+  }
+  header .primaryCTA {
+    display: none;
+  }
 }
 
 footer {
@@ -1374,6 +1380,10 @@ footer .footerWrapper .footerlogo .mailBox a {
   align-items: flex-end;
   transform: rotate(180deg);
 }
+.enterpriseSection .enterpriseBG svg {
+  width: 100%;
+  height: auto;
+}
 .enterpriseSection .wrapper {
   padding-left: 100px;
   padding-right: 100px;
@@ -1510,6 +1520,29 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .enterpriseSection .wrapper .enterpriseContent p {
     margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .enterpriseSection {
+    padding-top: 100px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent {
+    width: 100%;
+  }
+  .enterpriseSection .wrapper .enterpriseAnim {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .enterpriseSection .wrapper .enterpriseContent h2 {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .enterpriseSection .wrapper .enterpriseContent p {
+    margin-bottom: 32px;
+  }
+  .enterpriseSection .wrapper .enterpriseAnim {
+    width: 100%;
   }
 }
 
@@ -1654,29 +1687,21 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: flex;
   justify-content: flex-end;
 }
-.whatwedoSection .wrapper .whatwedoContent {
+.whatwedoSection .whatwedoContent {
   position: relative;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox {
+.whatwedoSection .whatwedoContent .contentBox {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 56px 0px;
+  padding: 56px 100px;
   position: relative;
   cursor: pointer;
   transition: background 0.8s ease;
+  border-top: 2px solid #767676;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100px;
-  width: 100vw;
-  height: 2px;
-  background: #767676;
-}
-.whatwedoSection .wrapper .whatwedoContent .contentBox::after {
+.whatwedoSection .whatwedoContent .contentBox::after {
   background: radial-gradient(111.37% 408.52% at 53.15% 415.54%, rgba(20, 255, 242, 0.97) 0%, rgba(33, 2, 20, 0.98) 100%);
   content: "";
   position: absolute;
@@ -1689,76 +1714,76 @@ footer .footerWrapper .footerlogo .mailBox a {
   transition: opacity 1s ease;
   z-index: -1;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+.whatwedoSection .whatwedoContent .contentBox .headingBox {
   width: 25%;
   display: flex;
   align-items: center;
   gap: 40px;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+.whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
   font-size: 100px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
     font-size: 80px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
     font-size: 64px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
     font-size: 52px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
     font-size: 42px;
   }
 }
 @media screen and (max-width: 820px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
     font-size: 34px;
   }
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h3 {
+.whatwedoSection .whatwedoContent .contentBox .headingBox h3 {
   font-weight: 500;
   color: #525454;
   line-height: 50%;
   letter-spacing: -1.328px;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+.whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
   width: 70%;
   font-size: 32px;
 }
 @media screen and (max-width: 1800px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
     font-size: 26px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 720px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
     font-size: 16px;
   }
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox h4 {
+.whatwedoSection .whatwedoContent .contentBox .headingBox h4 {
   font-weight: 400;
   color: #ffffff;
   line-height: 140%;
@@ -1766,36 +1791,36 @@ footer .footerWrapper .footerlogo .mailBox a {
   text-transform: uppercase;
   transition: color 1s ease;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox p {
+.whatwedoSection .whatwedoContent .contentBox p {
   width: 30%;
   color: #AEAEAE;
   font-size: 22px;
 }
 @media screen and (max-width: 1600px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  .whatwedoSection .whatwedoContent .contentBox p {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  .whatwedoSection .whatwedoContent .contentBox p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .whatwedoSection .wrapper .whatwedoContent .contentBox p {
+  .whatwedoSection .whatwedoContent .contentBox p {
     font-size: 16px;
   }
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox p {
+.whatwedoSection .whatwedoContent .contentBox p {
   line-height: 150%;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+.whatwedoSection .whatwedoContent .contentBox .whatwedoImgbox {
   width: 300px;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox:hover::after {
+.whatwedoSection .whatwedoContent .contentBox:hover::after {
   opacity: 1;
 }
-.whatwedoSection .wrapper .whatwedoContent .contentBox:hover h4 {
+.whatwedoSection .whatwedoContent .contentBox:hover h4 {
   color: #FF3535;
 }
 @media screen and (max-width: 1800px) {
@@ -1808,16 +1833,13 @@ footer .footerWrapper .footerlogo .mailBox a {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
     margin-bottom: 30px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox {
-    padding: 48px 0px;
+  .whatwedoSection .whatwedoContent .contentBox {
+    padding: 48px 80px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
-    left: -80px;
-  }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox {
     gap: 36px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+  .whatwedoSection .whatwedoContent .contentBox .whatwedoImgbox {
     width: 280px;
   }
 }
@@ -1828,10 +1850,10 @@ footer .footerWrapper .footerlogo .mailBox a {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
     margin-bottom: 26px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox {
-    padding: 44px 0px;
+  .whatwedoSection .whatwedoContent .contentBox {
+    padding: 44px 80px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox {
     gap: 32px;
   }
 }
@@ -1839,8 +1861,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
     margin-bottom: 22px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
-    left: -60px;
+  .whatwedoSection .whatwedoContent .contentBox {
+    padding: 44px 60px;
   }
 }
 @media screen and (max-width: 1280px) {
@@ -1850,17 +1872,59 @@ footer .footerWrapper .footerlogo .mailBox a {
   .whatwedoSection .wrapper .secHeading .headingGroup h2 {
     margin-bottom: 22px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox {
-    padding: 40px 0px;
+  .whatwedoSection .whatwedoContent .contentBox {
+    padding: 40px 40px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox::before {
-    left: -45px;
-  }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .headingBox {
+  .whatwedoSection .whatwedoContent .contentBox .headingBox {
     gap: 30px;
   }
-  .whatwedoSection .wrapper .whatwedoContent .contentBox .whatwedoImgbox {
+  .whatwedoSection .whatwedoContent .contentBox .whatwedoImgbox {
     width: 260px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .whatwedoSection .wrapper .secHeading .headerCTA {
+    width: 40%;
+  }
+  .whatwedoSection .whatwedoContent .contentBox .headingBox {
+    width: 50%;
+  }
+  .whatwedoSection .whatwedoContent .contentBox p {
+    order: 3;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .whatwedoSection .whatwedoContent .contentBox .whatwedoImgbox {
+    order: 2;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatwedoSection .wrapper .secHeading {
+    margin-bottom: 40px;
+    flex-flow: wrap;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup {
+    width: 100%;
+  }
+  .whatwedoSection .wrapper .secHeading .headingGroup h2 {
+    margin-bottom: 16px;
+  }
+  .whatwedoSection .wrapper .secHeading .headerCTA {
+    width: 100%;
+    margin-top: 32px;
+    justify-content: flex-start;
+  }
+  .whatwedoSection .whatwedoContent .contentBox {
+    padding: 24px 24px;
+  }
+  .whatwedoSection .whatwedoContent .contentBox .headingBox {
+    gap: 15px;
+    width: 50%;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .whatwedoSection .whatwedoContent .contentBox .whatwedoImgbox {
+    width: 135px;
   }
 }
 
@@ -2126,6 +2190,53 @@ footer .footerWrapper .footerlogo .mailBox a {
     padding-right: 40px;
   }
 }
+@media screen and (max-width: 820px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    padding: 20px;
+    height: 200px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:first-child .counter {
+    padding-left: 20px;
+  }
+  .counterSection .wrapper .counterContent .counterBox:last-child .counterImg {
+    padding-right: 20px;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counterImg img {
+    width: 140px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    height: 150px;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counterImg img {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .counterSection .wrapper .counterContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .counterSection .wrapper .counterContent .counterBox {
+    flex-flow: column-reverse;
+  }
+  .counterSection .wrapper .counterContent .counterBox:nth-child(1n+1) {
+    border-bottom: 1px solid #6F6363;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counter {
+    height: 120px;
+    padding: 16px;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counterImg {
+    opacity: 1;
+    justify-content: flex-start;
+    padding: 0px 15px 0px 15px;
+  }
+  .counterSection .wrapper .counterContent .counterBox .counterImg img {
+    width: 120px;
+  }
+}
 
 .compoundsSection {
   margin-bottom: 200px;
@@ -2372,6 +2483,21 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .compoundsSection .wrapper .compoundsContent .headingBox p {
     margin-bottom: 44px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .compoundsSection .wrapper .compoundsContent .headingBox {
+    width: 100%;
+  }
+  .compoundsSection .wrapper .compoundsContent .headingBox h2 {
+    margin-bottom: 16px;
+  }
+  .compoundsSection .wrapper .compoundsContent .headingBox p {
+    margin-bottom: 32px;
+  }
+  .compoundsSection .wrapper .compoundsContent .compoundsAnim {
+    width: 100%;
+    margin-top: 50px;
   }
 }
 
