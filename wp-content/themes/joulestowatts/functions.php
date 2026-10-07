@@ -194,3 +194,16 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug' => 'theme-general-settings',
 	));
 }
+
+/**
+ * Footer menus: wrap each link label in .linkGroup (default + hover text)
+ * so the slide-up hover effect in the footer keeps working.
+ */
+function joulestowatts_footer_menu_item_title( $title, $item, $args, $depth ) {
+	if ( ! empty( $args->theme_location ) && 0 === strpos( $args->theme_location, 'Footer-Menu-' ) ) {
+		$title = '<div class="linkGroup"><div class="text-default">' . $title . '</div><div class="text-hover">' . $title . '</div></div>';
+	}
+
+	return $title;
+}
+add_filter( 'nav_menu_item_title', 'joulestowatts_footer_menu_item_title', 10, 4 );

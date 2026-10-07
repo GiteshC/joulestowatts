@@ -34,40 +34,14 @@
 								</svg>
 							</span>
 						</div>
-						<ul class="links">
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default">About</div>
-										<div class="text-hover">About</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default">Leadership</div>
-										<div class="text-hover">Leadership</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default">Careers</div>
-										<div class="text-hover">Careers</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default">Press</div>
-										<div class="text-hover">Press</div>
-									</div>
-								</a>
-							</li>
-						</ul>
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'Footer-Menu-One',
+								'container'      => false,
+								'items_wrap'     => '<ul class="links">%3$s</ul>',
+								'fallback_cb'    => false,
+							) );
+						?>
 					</div>
 					<div class="column">
 						<div class="linkHeading">
@@ -78,40 +52,14 @@
 								</svg>
 							</span>
 						</div>
-						<ul class="links">
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default" >Workforce Solutions</div>
-										<div class="text-hover">Workforce Solutions</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default" >AI-First Pods</div>
-										<div class="text-hover">AI-First Pods</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default" >Managed Services</div>
-										<div class="text-hover">Managed Services</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="http://" target="_blank" rel="noopener noreferrer">
-									<div class="linkGroup">
-										<div class="text-default" >AI Atlas</div>
-										<div class="text-hover">AI Atlas</div>
-									</div>
-								</a>
-							</li>
-						</ul>
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'Footer-Menu-Two',
+								'container'      => false,
+								'items_wrap'     => '<ul class="links">%3$s</ul>',
+								'fallback_cb'    => false,
+							) );
+						?>
 					</div>
 					<div class="column">
 						<div class="linkHeading">
@@ -122,51 +70,26 @@
 								</svg>
 							</span>
 						</div>
-						<div class="links">
-							<ul class="links">
-								<li>
-									<a href="http://" target="_blank" rel="noopener noreferrer">
-										<div class="linkGroup">
-											<div class="text-default">Leadership</div>
-											<div class="text-hover">Leadership</div>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="http://" target="_blank" rel="noopener noreferrer">
-										<div class="linkGroup">
-											<div class="text-default">Enterprises</div>
-											<div class="text-hover">Enterprises</div>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="http://" target="_blank" rel="noopener noreferrer">
-										<div class="linkGroup">
-											<div class="text-default">Investors</div>
-											<div class="text-hover">Investors</div>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="http://" target="_blank" rel="noopener noreferrer">
-										<div class="linkGroup">
-											<div class="text-default">Engineers</div>
-											<div class="text-hover">Engineers</div>
-										</div>
-									</a>
-								</li>
-							</ul>
-						</div>
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'Footer-Menu-Three',
+								'container'      => false,
+								'items_wrap'     => '<ul class="links">%3$s</ul>',
+								'fallback_cb'    => false,
+							) );
+						?>
 					</div>
 				</div>
 			</div>
 			<div class="footerlogo">
 				<div class="mailBox">
-					<p class="manrope">ISO 9001:2015 · CMMI Certified · Women-Owned · © JoulestoWatts 2026</p>
-					<a href="mailto:hello@joulestowatts.com">hello@joulestowatts.com</a>
+					<p class="manrope"><?php the_field('copyright','option'); ?></p>
+					<a href="mailto: <?php the_field('email_id','option'); ?>"><?php the_field('email_id','option'); ?></a>
 				</div>
 				<div class="logoBox">
+					<?php $footerlogo = get_sub_field('footer_logo'); if( !empty( $footerlogo ) ): ?>
+						<img src="<?php echo esc_url($footerlogo['url']); ?>" loading="lazy" alt="<?php echo esc_attr($footerlogo['alt']); ?>" />
+					<?php endif; ?>
 					<img src="<?php bloginfo('template_directory'); ?>/images/footer-logo.png" alt="">
 				</div>
 			</div>
