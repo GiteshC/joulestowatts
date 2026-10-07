@@ -50,6 +50,9 @@ function joulestowatts_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'joulestowatts' ),
+			'Footer-Menu-One' => esc_html__( 'Footer Menu One', 'joulestowatts' ),
+			'Footer-Menu-Two' => esc_html__( 'Footer Menu Two', 'joulestowatts' ),
+			'Footer-Menu-Three' => esc_html__( 'Footer Menu Three', 'joulestowatts' ),
 		)
 	);
 
@@ -176,3 +179,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Template Setting - functions.php
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title'  => 'Theme General Settings',
+		'menu_title'  => 'Theme Settings',
+		'menu_slug'   => 'theme-general-settings',
+		'capability'  => 'edit_posts',
+		'redirect'    => false
+	));
+	acf_add_options_sub_page(array(
+		'page_title'  => 'Theme Footer Settings',
+		'menu_title'  => 'Footer Settings',
+		'parent_slug' => 'theme-general-settings',
+	));
+}
+
+/**
+ * Footer menus: wrap each link label in .linkGroup (default + hover text)
+ * so the slide-up hover effect in the footer keeps working.
+ */
+function joulestowatts_footer_menu_item_title( $title, $item, $args, $depth ) {
+	if ( ! empty( $args->theme_location ) && 0 === strpos( $args->theme_location, 'Footer-Menu-' ) ) {
+		$title = '<div class="linkGroup"><div class="text-default">' . $title . '</div><div class="text-hover">' . $title . '</div></div>';
+	}
+
+	return $title;
+}
+add_filter( 'nav_menu_item_title', 'joulestowatts_footer_menu_item_title', 10, 4 );
