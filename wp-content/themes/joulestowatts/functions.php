@@ -50,6 +50,9 @@ function joulestowatts_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'joulestowatts' ),
+			'Footer-Menu-One' => esc_html__( 'Footer Menu One', 'joulestowatts' ),
+			'Footer-Menu-Two' => esc_html__( 'Footer Menu Two', 'joulestowatts' ),
+			'Footer-Menu-Three' => esc_html__( 'Footer Menu Three', 'joulestowatts' ),
 		)
 	);
 
