@@ -4316,9 +4316,6 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
     margin-bottom: 30px;
   }
-  .resultSection .secWrapper .resultsCardLayout {
-    padding-left: 60px;
-  }
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     left: 30px;
     top: 30px;
@@ -4459,5 +4456,189 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
     width: 12px;
     height: 12px;
+  }
+}
+
+.platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.platformResultSec .secWrapper .resultsCardLayout {
+  padding-left: 0;
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
+  width: 100%;
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a {
+  display: block;
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
+  height: 320px !important;
+  background: gray;
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+    font-size: 11px;
+  }
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
+  padding: 32px 32px 58px;
+}
+.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+  color: #fff;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
+    font-size: 14px;
+  }
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  margin-top: 50px;
+  gap: 20px;
+  padding-left: 100px;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow svg, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow svg {
+  width: 24px;
+  height: 24px;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow.slick-disabled, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow.slick-disabled svg path, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow.slick-disabled:hover, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow:hover, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow:hover {
+  background: #00ACB4;
+}
+.platformResultSec::after {
+  content: "";
+  position: absolute;
+  background: url(../images/platform-result-bg-img.svg) no-repeat;
+  background-size: contain;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@media all and (max-width: 1800px) {
+  .platformResultSec .secWrapper .resultsCardLayout {
+    padding-left: 0;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
+    padding-left: 80px;
+  }
+}
+@media all and (max-width: 1600px) {
+  .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
+    margin-bottom: 26px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
+    width: 100%;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
+    height: 300px !important;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
+    padding: 30px 30px 50px;
+  }
+}
+@media all and (max-width: 1440px) {
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
+    width: 100%;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
+    height: 300px !important;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
+    margin-top: 40px;
+    padding-left: 60px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow {
+    width: 50px;
+    height: 50px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow svg, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media all and (max-width: 1280px) {
+  .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
+    margin-bottom: 20px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
+    width: 100%;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
+    height: 260px !important;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+    top: 25px;
+    left: 25px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
+    padding: 25px 25px 40px;
+  }
+  .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
+    margin-top: 40px;
+    padding-left: 40px;
   }
 }/*# sourceMappingURL=main.css.map */
