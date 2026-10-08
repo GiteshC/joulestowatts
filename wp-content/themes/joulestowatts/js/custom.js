@@ -634,3 +634,99 @@ $(document).ready(function () {
 		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
 	});
 });
+
+// Platform page — Diagnosis section intro:
+// heading rises from the section centre to its place, then the image zooms in
+// at the centre, then the left box slides in from the left and the right box
+// from the right.
+( function () {
+	'use strict';
+
+	// 1 = base timing below. Higher = slower (1.5 = 50% slower, 2 = twice as slow).
+	var SPEED = 1.2;
+
+	var D = {
+		heading: 1.2,   // heading drops into place
+		image:   1.4,   // image zoom-in
+		label:   1.6,   // "AI CHARTER" fade
+		side:    1.6,   // leftBox / rightBox slide-in
+	};
+	var GAP = 0.3;      // pause between steps (seconds, before SPEED is applied)
+	var SIDE_OFFSET = 200;
+
+	function initDiagnosis() {
+		var section = document.querySelector( '.diagnosisSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+
+		var heading  = section.querySelector( '.secHeading' );
+		var content  = section.querySelector( '.diagnosisContent' );
+		var leftBox  = section.querySelector( '.leftBox' );
+		var rightBox = section.querySelector( '.rightBox' );
+		var image    = section.querySelector( '.middleBox img' );
+		var label    = section.querySelector( '.middleBox p' );
+		if ( ! heading || ! content || ! leftBox || ! rightBox || ! image ) { return; }
+
+		gsap.registerPlugin( ScrollTrigger );
+
+		// Distance from the heading's natural spot to the centre of the content area.
+		function headingStartY() {
+			var h = heading.getBoundingClientRect();
+			var c = content.getBoundingClientRect();
+			var current = gsap.getProperty( heading, 'y' ) || 0;
+			return ( c.top + c.height / 2 ) - ( h.top + h.height / 2 ) + current;
+		}
+
+		var tl = gsap.timeline( {
+			defaults: { ease: 'power3.out' },
+			scrollTrigger: {
+				trigger: section,
+				start: 'center 80%',
+				toggleActions: 'restart none restart none',
+				invalidateOnRefresh: true,
+			},
+		} );
+
+		// 1. Heading
+		tl.fromTo( heading,
+			{ y: headingStartY, autoAlpha: 0 },
+			{ y: 0, autoAlpha: 1, duration: D.heading, ease: 'power2.out' }
+		);
+
+		// 2. Image zoom (starts while heading is settling)
+		tl.fromTo( image,
+			{ scale: 0.4, autoAlpha: 0, transformOrigin: '50% 50%' },
+			{ scale: 1, autoAlpha: 1, duration: D.image, ease: 'power2.inOut' },
+			'>-0.3'
+		);
+
+		if ( label ) {
+			tl.fromTo( label, { autoAlpha: 0 }, { autoAlpha: 1, duration: D.label, ease: 'power1.out' }, '<0.9' );
+		}
+
+		// 3. Side boxes
+		tl.fromTo( leftBox,
+			{ x: -SIDE_OFFSET, autoAlpha: 0 },
+			{ x: 0, autoAlpha: 1, duration: D.side, ease: 'power2.out' },
+			'>' + ( GAP - 0.3 )
+		);
+		tl.fromTo( rightBox,
+			{ x: SIDE_OFFSET, autoAlpha: 0 },
+			{ x: 0, autoAlpha: 1, duration: D.side, ease: 'power2.out' },
+			'<'
+		);
+
+		// Slow everything uniformly.
+		tl.timeScale( 1 / SPEED );
+
+		if ( document.fonts && document.fonts.ready ) {
+			document.fonts.ready.then( function () { ScrollTrigger.refresh(); } );
+		}
+	}
+
+	if ( document.readyState === 'complete' ) {
+		initDiagnosis();
+	} else {
+		window.addEventListener( 'load', initDiagnosis );
+	}
+} )();
