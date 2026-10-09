@@ -1,5 +1,135 @@
 @use '../base/_global.scss' as *;
 
+
+.solutionSection{
+    .secWrapper{@include wrapper;
+        .secHeading{margin-bottom: 48px; width: 70%; margin: 0 auto; text-align: center; margin-bottom: 48px;
+            h2{margin-bottom: 12px; @include font48; font-weight: 500; line-height: 120%; text-transform: capitalize;  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+            p{color: #C0C6C6; @include font20;  line-height: 170%}
+        }
+        .cardContainer{display: flex; position: relative;
+            .solutionCard{padding: 24px; border: 1px solid rgba(131, 29, 29, 0.1);  position: relative;  transition: width 750ms ease-in-out; transition-delay: 250ms; min-height: 600px; height: auto; width: calc(100% / 4); display: flex; flex-flow: column; justify-content:space-between; background: linear-gradient(172deg, #291122 11.35%, #292232 39.11%, #2B2536 66.86%, #413C4A 118.61%);overflow: hidden;  transition: width 750ms ease-in-out; transition-delay:250ms ;
+                .imgBox{margin-bottom: 25px; opacity: 0; transition: opacity 0.5s ease-in-out; transition-delay: 260ms; position: relative; z-index: 2;
+                    img{width: 100%; display: block; object-fit: cover;}
+                }
+                .bottomContent{position: relative; z-index: 2;
+                    .num{color: #D9D9D9; @include font18; font-weight: 500;letter-spacing: 3.6px; text-transform: uppercase;}
+                    h3{@include font24; color: #FFF;font-weight: 600;letter-spacing: 0.48px;text-transform: capitalize; margin: 7px 0;}
+                    .description{ display:grid; grid-template-rows:0fr; opacity:0; transition: grid-template-rows 0.8s cubic-bezier(.22,.7,.2,1), opacity .5s ease .05s; transition-delay: 300ms;
+                        .descriptionInner{ min-height: 0; overflow: hidden;
+                            p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%; transition: padding-top 0.5s cubic-bezier(.22,.7,.2,1); overflow: hidden; margin: 0; padding-top: 0;
+                                & + p {margin-top: 8px;}
+                            }
+                        }
+                    }        
+                }
+                &::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(182deg, #210214 -5.17%, #1E1D2C 26%, #233B4A 57.18%, #4A8997 93.88%, #E1E1E1 115.3%); z-index: 1; transform: translateY(100%); transition: transform 1s cubic-bezier(.22, .7, .2, 1); transition-delay: 260ms; }
+
+                &:hover{width: 80%; 
+                    .imgBox{opacity: 1;}
+                    .bottomContent{
+                        .description{grid-template-rows:1fr; opacity:1;}
+                    }
+                    &::before{ transform: translateY(0);}
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1600px){
+        .secWrapper{
+            .secHeading{margin-bottom: 40px;}
+            .cardContainer{
+                .solutionCard{padding: 20px; min-height: 580px;}
+            }
+        }
+    }
+    @media all and (max-width: 1440px){
+        .secWrapper{
+            .cardContainer{
+                .solutionCard{min-height: 550px;
+                    .imgBox{margin-bottom: 20px;}
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1280px){
+        .secWrapper{
+            .secHeading{margin-bottom: 30px;}
+            .cardContainer{
+                .solutionCard{ min-height: 500px;
+                    .imgBox{margin-bottom: 16px;}
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1080px){
+        .secWrapper{
+            .cardContainer{
+                .solutionCard{ min-height: 450px;}
+            }
+        }
+    }
+    @media all and (max-width: 820px){
+        .secWrapper{
+            .secHeading{width: 100%;}
+            .cardContainer{flex-flow:column;
+                .solutionCard{width: 100%; min-height: auto; padding: 12px;
+                    .imgBox{max-height: 0; transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, margin-bottom 0.4s ease-in-out; transition-delay: 50ms;}
+                    &:hover{width: 100%; 
+                        .imgBox{opacity: 0;}
+                        .bottomContent{
+                            .description{grid-template-rows: 0fr; opacity:0;}
+                        }
+                        &::before{ transform: translateY(100%);}
+                    }
+                    &.solutionActiveCard{width: 100%; 
+                        .imgBox{opacity: 1; margin-bottom: 10px;}
+                        .bottomContent{
+                            .description{grid-template-rows:1fr; opacity:1;}
+                        }
+                        &::before{ transform: translateY(0%);}
+                    }
+                    
+                }
+            }
+        }
+    }
+    @media all and (max-width: 720px){
+        .secWrapper{
+            .secHeading{width: 100%; margin-bottom: 32px; text-align: left;}
+            .cardContainer{
+                .solutionCard{padding: 16px;
+                    .imgBox{max-height: 0; transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, margin-bottom 0.4s ease-in-out;}
+                    .bottomContent{
+                        .num{font-size: 12px;}
+                    }
+
+                    &.solutionActiveCard{width: 100%; 
+                        .imgBox{opacity: 1; margin-bottom: 10px;}
+                        .bottomContent{
+                            .description{grid-template-rows:1fr; opacity:1;}
+                        }
+                        &::before{ transform: translateY(0%);}
+                    }
+                }
+            }
+        }
+    }
+}
+
+.talkToPartnerSec{position: relative;
+    .secWrapper{
+        .imgBox{
+            .desktopBg{}
+            .mblBg{display: none;}
+        }
+        .secHeading{@include wrapper; padding-bottom: 100px; position: absolute; width: 70%; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex;flex-flow: column; justify-content: flex-end; align-items: center;
+            h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; text-align: center; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+            p{margin: 32px 0 45px; color: #dadada; text-align: center; @include font20; line-height: 170%;}
+        }
+    }
+}
+
 .platformResultSec{
     .secWrapper{
         .secHeading{
@@ -9,10 +139,10 @@
                 }
             }
         }
-        .resultsCardLayout{padding-left: 0;
+        .resultsCardLayout{padding-left: 0; z-index: 2;
             .resultCardSlider.platformResultSlider{width: 100%;
                 a{display: block;
-                    .box{height: 320px !important; background: gray;
+                    .box{height: 320px !important; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain;
                         .tag{border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
                         .bottomContent{padding: 32px 32px 58px;
                             h3{color: #fff; @include font24; }
@@ -35,7 +165,7 @@
         }
     }
 
-    &::after{content:""; position: absolute; background: url(../images/platform-result-bg-img.svg) no-repeat; background-size: contain; bottom: 0; right: 0; width: 100%; height: 100%; z-index: 1;}
+    &::after{content:""; position: absolute; background: url(../images/platform-result-bg-img.png) no-repeat; background-size: contain; bottom: -340px; right: 0; width: 45%; height: 430px; z-index: 1 ;}
 
     @media all and (max-width: 1800px){
         .secWrapper{
@@ -106,3 +236,4 @@
         }
     }
 }
+

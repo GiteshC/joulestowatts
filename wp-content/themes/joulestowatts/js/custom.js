@@ -634,3 +634,123 @@ $(document).ready(function () {
 		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
 	});
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+document
+.querySelectorAll(".secWrapper .cardContainer")
+.forEach((container) => {
+const cards = [...container.querySelectorAll(".solutionCard")];
+
+        if (!cards.length) return;
+
+        const mobileQuery = window.matchMedia("(max-width: 820px)");
+
+        function setImageHeight(card, isOpen) {
+            const imgBox = card.querySelector(".imgBox");
+
+            if (!imgBox) return;
+
+            if (!isOpen || !mobileQuery.matches) {
+                imgBox.style.maxHeight = "0px";
+                return;
+            }
+
+            const updateHeight = () => {
+                if (
+                    !mobileQuery.matches ||
+                    !card.classList.contains("solutionActiveCard")
+                ) {
+                    return;
+                }
+
+                imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+            };
+
+            const img = imgBox.querySelector("img");
+
+            if (img && !img.complete) {
+                img.addEventListener("load", updateHeight, { once: true });
+                img.addEventListener("error", updateHeight, { once: true });
+                return;
+            }
+
+            requestAnimationFrame(updateHeight);
+        }
+
+        function openCard(card) {
+            cards.forEach((item) => {
+                const isCurrent = item === card;
+
+                item.classList.toggle(
+                    "solutionActiveCard",
+                    isCurrent
+                );
+
+                setImageHeight(item, isCurrent);
+            });
+        }
+
+        function closeAllCards() {
+            cards.forEach((card) => {
+                card.classList.remove("solutionActiveCard");
+                setImageHeight(card, false);
+            });
+        }
+
+        function initializeAccordion() {
+            if (mobileQuery.matches) {
+                const activeCard = cards.find((card) =>
+                    card.classList.contains("solutionActiveCard")
+                );
+
+                // Preserve the current selection; default to first card.
+                openCard(activeCard || cards[0]);
+            } else {
+                closeAllCards();
+            }
+        }
+
+        // Initial state
+        initializeAccordion();
+
+        cards.forEach((card) => {
+            card.addEventListener("click", (event) => {
+                if (!mobileQuery.matches) return;
+
+                if (event.target.closest("a, button")) return;
+
+                const isActive = card.classList.contains(
+                    "solutionActiveCard"
+                );
+
+                if (isActive) {
+                    closeAllCards();
+                } else {
+                    openCard(card);
+                }
+            });
+        });
+
+        // Only update when crossing the mobile/desktop breakpoint.
+        // Do not reset the accordion on every resize event.
+        if (mobileQuery.addEventListener) {
+            mobileQuery.addEventListener("change", initializeAccordion);
+        } else {
+            mobileQuery.addListener(initializeAccordion);
+        }
+
+        // Recalculate the open image height when its size changes.
+        window.addEventListener("resize", () => {
+            if (!mobileQuery.matches) return;
+
+            const activeCard = cards.find((card) =>
+                card.classList.contains("solutionActiveCard")
+            );
+
+            if (activeCard) {
+                setImageHeight(activeCard, true);
+            }
+        });
+    });
+
+});
