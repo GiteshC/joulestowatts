@@ -30,9 +30,6 @@
 <header>
 	<div class="logoBox">
 		<?php the_custom_logo();?>
-		<a href="#">
-			<img src="<?php bloginfo('template_directory');?>/images/logo.png" alt="">
-		</a>
 	</div>
 	<div class="menuBox">
 		<a href="<?php the_field('header_cta_link','option'); ?>" class="primaryCTA"><?php the_field('header_cta_text','option'); ?>

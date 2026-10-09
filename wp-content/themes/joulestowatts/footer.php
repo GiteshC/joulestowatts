@@ -87,10 +87,9 @@
 					<a href="mailto: <?php the_field('email_id','option'); ?>"><?php the_field('email_id','option'); ?></a>
 				</div>
 				<div class="logoBox">
-					<?php $footerlogo = get_sub_field('footer_logo'); if( !empty( $footerlogo ) ): ?>
+					<?php $footerlogo = get_field('footer_logo', 'option'); if( !empty( $footerlogo ) ): ?>
 						<img src="<?php echo esc_url($footerlogo['url']); ?>" loading="lazy" alt="<?php echo esc_attr($footerlogo['alt']); ?>" />
 					<?php endif; ?>
-					<img src="<?php bloginfo('template_directory'); ?>/images/footer-logo.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -103,8 +102,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slick.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/custom.js"></script>
+
+<script>
+$('button').click(function(){
+  new Vivus('Layer_1', {duration: 150 });
+});
+</script>
 
 <?php wp_footer(); ?>
 
