@@ -635,206 +635,326 @@ $(document).ready(function () {
 	});
 });
 
-//  platform page — Banner heading and image fade in from below, staggered.
-( function () {
-	'use strict';
+//Solution Section JS
+document.addEventListener("DOMContentLoaded", () => {
+	document
+		.querySelectorAll(".secWrapper .cardContainer")
+		.forEach((container) => {
+			const cards = [...container.querySelectorAll(".solutionCard")];
 
-	function initPlatformBanner() {
-		var section = document.querySelector( '.bannerInnerSection' );
-		if ( ! section || typeof gsap === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+			if (!cards.length) return;
 
-		var heading = section.querySelector( '.bannerContent .bannerHeading' );
-		var image   = section.querySelector( '.bannerContent > img' );
+			const mobileQuery = window.matchMedia("(max-width: 820px)");
 
-		var items = [ heading, image ].filter( Boolean );
-		if ( ! items.length ) { return; }
+			function setImageHeight(card, isOpen) {
+				const imgBox = card.querySelector(".imgBox");
 
-		var DISTANCE = 80;
-		var DURATION = 1.8;
-		var EASE = 'power2.out';
-		var START_DELAY = 0.3;   // before the heading starts
-		var IMAGE_DELAY = 1.2;   // extra wait after the heading starts, before the image
+				if (!imgBox) return;
 
-		if ( heading ) {
-			gsap.fromTo( heading,
-				{ y: DISTANCE, autoAlpha: 0 },
-				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY }
-			);
-		}
-		if ( image ) {
-			gsap.fromTo( image,
-				{ y: DISTANCE, autoAlpha: 0 },
-				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY + IMAGE_DELAY }
-			);
-		}
-	}
+				if (!isOpen || !mobileQuery.matches) {
+					imgBox.style.maxHeight = "0px";
+					return;
+				}
 
-	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', initPlatformBanner );
-	} else {
-		initPlatformBanner();
-	}
-} )();
+				const updateHeight = () => {
+					if (
+						!mobileQuery.matches ||
+						!card.classList.contains("solutionActiveCard")
+					) {
+						return;
+					}
+
+					imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+				};
+
+				const img = imgBox.querySelector("img");
+
+				if (img && !img.complete) {
+					img.addEventListener("load", updateHeight, { once: true });
+					img.addEventListener("error", updateHeight, { once: true });
+					return;
+				}
+
+				requestAnimationFrame(updateHeight);
+			}
+
+			function openCard(card) {
+				cards.forEach((item) => {
+					const isCurrent = item === card;
+
+					item.classList.toggle("solutionActiveCard", isCurrent);
+
+					setImageHeight(item, isCurrent);
+				});
+			}
+
+			function closeAllCards() {
+				cards.forEach((card) => {
+					card.classList.remove("solutionActiveCard");
+					setImageHeight(card, false);
+				});
+			}
+
+			function initializeAccordion() {
+				if (mobileQuery.matches) {
+					const activeCard = cards.find((card) =>
+						card.classList.contains("solutionActiveCard"),
+					);
+
+					// Preserve the current selection; default to first card.
+					openCard(activeCard || cards[0]);
+				} else {
+					closeAllCards();
+				}
+			}
+
+			// Initial state
+			initializeAccordion();
+
+			cards.forEach((card) => {
+				card.addEventListener("click", (event) => {
+					if (!mobileQuery.matches) return;
+
+					if (event.target.closest("a, button")) return;
+
+					const isActive =
+						card.classList.contains("solutionActiveCard");
+
+					if (isActive) {
+						closeAllCards();
+					} else {
+						openCard(card);
+					}
+				});
+			});
+
+			// Only update when crossing the mobile/desktop breakpoint.
+			// Do not reset the accordion on every resize event.
+			if (mobileQuery.addEventListener) {
+				mobileQuery.addEventListener("change", initializeAccordion);
+			} else {
+				mobileQuery.addListener(initializeAccordion);
+			}
+
+			// Recalculate the open image height when its size changes.
+			window.addEventListener("resize", () => {
+				if (!mobileQuery.matches) return;
+
+				const activeCard = cards.find((card) =>
+					card.classList.contains("solutionActiveCard"),
+				);
+
+				if (activeCard) {
+					setImageHeight(activeCard, true);
+				}
+			});
+		});
+});
 
 // Platform page — Diagnosis section intro:
 // heading rises from the section centre to its place, then the image zooms in
 // at the centre, then the left box slides in from the left and the right box
 // from the right.
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	// 1 = base timing below. Higher = slower (1.5 = 50% slower, 2 = twice as slow).
 	var SPEED = 1.2;
 
 	var D = {
-		heading: 1.2,   // heading drops into place
-		image:   1.4,   // image zoom-in
-		label:   1.6,   // "AI CHARTER" fade
-		side:    1.6,   // leftBox / rightBox slide-in
+		heading: 1.2, // heading drops into place
+		image: 1.4, // image zoom-in
+		label: 1.6, // "AI CHARTER" fade
+		side: 1.6, // leftBox / rightBox slide-in
 	};
-	var GAP = 0.2;      // pause between steps (seconds, before SPEED is applied)
+	var GAP = 0.2; // pause between steps (seconds, before SPEED is applied)
 	var SIDE_OFFSET = 200;
 
 	function initDiagnosis() {
-		var section = document.querySelector( '.diagnosisSection' );
-		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+		var section = document.querySelector(".diagnosisSection");
+		if (
+			!section ||
+			typeof gsap === "undefined" ||
+			typeof ScrollTrigger === "undefined"
+		) {
+			return;
+		}
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
 
-		var heading  = section.querySelector( '.secHeading' );
-		var content  = section.querySelector( '.diagnosisContent' );
-		var leftBox  = section.querySelector( '.leftBox' );
-		var rightBox = section.querySelector( '.rightBox' );
-		var image    = section.querySelector( '.middleBox img' );
-		var label    = section.querySelector( '.middleBox p' );
-		if ( ! heading || ! content || ! leftBox || ! rightBox || ! image ) { return; }
+		var heading = section.querySelector(".secHeading");
+		var content = section.querySelector(".diagnosisContent");
+		var leftBox = section.querySelector(".leftBox");
+		var rightBox = section.querySelector(".rightBox");
+		var image = section.querySelector(".middleBox img");
+		var label = section.querySelector(".middleBox p");
+		if (!heading || !content || !leftBox || !rightBox || !image) {
+			return;
+		}
 
-		gsap.registerPlugin( ScrollTrigger );
+		gsap.registerPlugin(ScrollTrigger);
 
 		// Distance from the heading's natural spot to the centre of the content area.
 		function headingStartY() {
 			var h = heading.getBoundingClientRect();
 			var c = content.getBoundingClientRect();
-			var current = gsap.getProperty( heading, 'y' ) || 0;
-			return ( c.top + c.height / 2 ) - ( h.top + h.height / 2 ) + current;
+			var current = gsap.getProperty(heading, "y") || 0;
+			return c.top + c.height / 2 - (h.top + h.height / 2) + current;
 		}
 
-		var tl = gsap.timeline( {
-			defaults: { ease: 'power3.out' },
+		var tl = gsap.timeline({
+			defaults: { ease: "power3.out" },
 			scrollTrigger: {
 				trigger: section,
-				start: 'center 80%',
-				toggleActions: 'restart none restart none',
+				start: "center 80%",
+				toggleActions: "restart none restart none",
 				invalidateOnRefresh: true,
 			},
-		} );
+		});
 
 		// 1. Heading
-		tl.fromTo( heading,
+		tl.fromTo(
+			heading,
 			{ y: headingStartY, autoAlpha: 0 },
-			{ y: 0, autoAlpha: 1, duration: D.heading, ease: 'power2.out' }
+			{ y: 0, autoAlpha: 1, duration: D.heading, ease: "power2.out" },
 		);
 
 		// 2. Image zoom (starts while heading is settling)
-		tl.fromTo( image,
-			{ scale: 0.4, autoAlpha: 0, transformOrigin: '50% 50%' },
-			{ scale: 1, autoAlpha: 1, duration: D.image, ease: 'power2.inOut' },
-			'>-0.3'
+		tl.fromTo(
+			image,
+			{ scale: 0.4, autoAlpha: 0, transformOrigin: "50% 50%" },
+			{ scale: 1, autoAlpha: 1, duration: D.image, ease: "power2.inOut" },
+			">-0.3",
 		);
 
-		if ( label ) {
-			tl.fromTo( label, { autoAlpha: 0 }, { autoAlpha: 1, duration: D.label, ease: 'power1.out' }, '<0.9' );
+		if (label) {
+			tl.fromTo(
+				label,
+				{ autoAlpha: 0 },
+				{ autoAlpha: 1, duration: D.label, ease: "power1.out" },
+				"<0.9",
+			);
 		}
 
 		// 3. Side boxes
-		tl.fromTo( leftBox,
+		tl.fromTo(
+			leftBox,
 			{ x: -SIDE_OFFSET, autoAlpha: 0 },
-			{ x: 0, autoAlpha: 1, duration: D.side, ease: 'power2.out' },
-			'>' + ( GAP - 0.3 )
+			{ x: 0, autoAlpha: 1, duration: D.side, ease: "power2.out" },
+			">" + (GAP - 0.3),
 		);
-		tl.fromTo( rightBox,
+		tl.fromTo(
+			rightBox,
 			{ x: SIDE_OFFSET, autoAlpha: 0 },
-			{ x: 0, autoAlpha: 1, duration: D.side, ease: 'power2.out' },
-			'<'
+			{ x: 0, autoAlpha: 1, duration: D.side, ease: "power2.out" },
+			"<",
 		);
 
 		// Slow everything uniformly.
-		tl.timeScale( 1 / SPEED );
+		tl.timeScale(1 / SPEED);
 
-		if ( document.fonts && document.fonts.ready ) {
-			document.fonts.ready.then( function () { ScrollTrigger.refresh(); } );
+		if (document.fonts && document.fonts.ready) {
+			document.fonts.ready.then(function () {
+				ScrollTrigger.refresh();
+			});
 		}
 	}
 
-	if ( document.readyState === 'complete' ) {
+	if (document.readyState === "complete") {
 		initDiagnosis();
 	} else {
-		window.addEventListener( 'load', initDiagnosis );
+		window.addEventListener("load", initDiagnosis);
 	}
-} )();
+})();
 
 // Platform page — Video fullscreen effect: when a video box is clicked, it expands to fill the screen, and shrinks back when closed.
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	function initVideoFullscreen() {
-		var boxes = document.querySelectorAll( '.videofullSection .videoBox' );
-		if ( ! boxes.length || typeof gsap === 'undefined' ) { return; }
+		var boxes = document.querySelectorAll(".videofullSection .videoBox");
+		if (!boxes.length || typeof gsap === "undefined") {
+			return;
+		}
 
-		var CLOSE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
+		var CLOSE_ICON =
+			'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
 		var DUR = 0.8;
-		var EASE = 'power3.inOut';
+		var EASE = "power3.inOut";
 
-		var backdrop = document.createElement( 'div' );
-		backdrop.className = 'videoBackdrop';
-		document.body.appendChild( backdrop );
+		var backdrop = document.createElement("div");
+		backdrop.className = "videoBackdrop";
+		document.body.appendChild(backdrop);
 
 		var active = null; // { box, video, placeholder, closeBtn }
 		var busy = false;
 
-		function open( box ) {
-			if ( active || busy ) { return; }
+		function open(box) {
+			if (active || busy) {
+				return;
+			}
 			busy = true;
 
-			var video = box.querySelector( 'video' );
+			var video = box.querySelector("video");
 			var r = box.getBoundingClientRect();
 
 			// Placeholder holds the layout space while the box is fixed.
-			var placeholder = document.createElement( 'div' );
-			placeholder.className = 'videoPlaceholder';
-			placeholder.style.width = r.width + 'px';
-			placeholder.style.height = r.height + 'px';
-			box.parentNode.insertBefore( placeholder, box );
+			var placeholder = document.createElement("div");
+			placeholder.className = "videoPlaceholder";
+			placeholder.style.width = r.width + "px";
+			placeholder.style.height = r.height + "px";
+			box.parentNode.insertBefore(placeholder, box);
 
-			var closeBtn = document.createElement( 'button' );
-			closeBtn.type = 'button';
-			closeBtn.className = 'closeBtn';
-			closeBtn.setAttribute( 'aria-label', 'Close video' );
+			var closeBtn = document.createElement("button");
+			closeBtn.type = "button";
+			closeBtn.className = "closeBtn";
+			closeBtn.setAttribute("aria-label", "Close video");
 			closeBtn.innerHTML = CLOSE_ICON;
-			box.appendChild( closeBtn );
+			box.appendChild(closeBtn);
 
-			active = { box: box, video: video, placeholder: placeholder, closeBtn: closeBtn };
+			active = {
+				box: box,
+				video: video,
+				placeholder: placeholder,
+				closeBtn: closeBtn,
+			};
 
 			// Pin the box exactly where it is, then grow it.
-			box.classList.add( 'is-open' );
-			gsap.set( box, { top: r.top, left: r.left, width: r.width, height: r.height } );
-			document.documentElement.style.overflow = 'hidden';
+			box.classList.add("is-open");
+			gsap.set(box, {
+				top: r.top,
+				left: r.left,
+				width: r.width,
+				height: r.height,
+			});
+			document.documentElement.style.overflow = "hidden";
 
-			gsap.to( backdrop, { opacity: 1, duration: DUR, ease: 'power2.out' } );
-			backdrop.style.pointerEvents = 'auto';
-			gsap.to( box, {
-				top: 0, left: 0, width: window.innerWidth, height: window.innerHeight,
-				duration: DUR, ease: EASE,
+			gsap.to(backdrop, {
+				opacity: 1,
+				duration: DUR,
+				ease: "power2.out",
+			});
+			backdrop.style.pointerEvents = "auto";
+			gsap.to(box, {
+				top: 0,
+				left: 0,
+				width: window.innerWidth,
+				height: window.innerHeight,
+				duration: DUR,
+				ease: EASE,
 				onComplete: function () {
 					busy = false;
 					video.controls = true;
-					video.play().catch( function () {} );
+					video.play().catch(function () {});
 				},
-			} );
+			});
 		}
 
 		function close() {
-			if ( ! active || busy ) { return; }
+			if (!active || busy) {
+				return;
+			}
 			busy = true;
 
 			var a = active;
@@ -844,125 +964,181 @@ $(document).ready(function () {
 			// Where the placeholder is NOW (page may have moved/resized).
 			var r = a.placeholder.getBoundingClientRect();
 
-			gsap.to( backdrop, { opacity: 0, duration: DUR, ease: 'power2.out' } );
-			gsap.to( a.box, {
-				top: r.top, left: r.left, width: r.width, height: r.height,
-				duration: DUR, ease: EASE,
+			gsap.to(backdrop, {
+				opacity: 0,
+				duration: DUR,
+				ease: "power2.out",
+			});
+			gsap.to(a.box, {
+				top: r.top,
+				left: r.left,
+				width: r.width,
+				height: r.height,
+				duration: DUR,
+				ease: EASE,
 				onComplete: function () {
-					a.box.classList.remove( 'is-open' );
-					gsap.set( a.box, { clearProps: 'top,left,width,height' } );
-					a.placeholder.parentNode.removeChild( a.placeholder );
-					a.closeBtn.parentNode.removeChild( a.closeBtn );
-					backdrop.style.pointerEvents = 'none';
-					document.documentElement.style.overflow = '';
+					a.box.classList.remove("is-open");
+					gsap.set(a.box, { clearProps: "top,left,width,height" });
+					a.placeholder.parentNode.removeChild(a.placeholder);
+					a.closeBtn.parentNode.removeChild(a.closeBtn);
+					backdrop.style.pointerEvents = "none";
+					document.documentElement.style.overflow = "";
 					active = null;
 					busy = false;
 				},
-			} );
+			});
 		}
 
-		boxes.forEach( function ( box ) {
-			box.addEventListener( 'click', function ( e ) {
-				if ( e.target.closest( '.closeBtn' ) ) { close(); return; }
-				if ( ! box.classList.contains( 'is-open' ) ) { open( box ); }
-			} );
-		} );
+		boxes.forEach(function (box) {
+			box.addEventListener("click", function (e) {
+				if (e.target.closest(".closeBtn")) {
+					close();
+					return;
+				}
+				if (!box.classList.contains("is-open")) {
+					open(box);
+				}
+			});
+		});
 
-		backdrop.addEventListener( 'click', close );
-		document.addEventListener( 'keydown', function ( e ) {
-			if ( e.key === 'Escape' ) { close(); }
-		} );
+		backdrop.addEventListener("click", close);
+		document.addEventListener("keydown", function (e) {
+			if (e.key === "Escape") {
+				close();
+			}
+		});
 
 		// Keep it full-screen if the window is resized while open.
-		window.addEventListener( 'resize', function () {
-			if ( active && ! busy ) {
-				gsap.set( active.box, { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight } );
+		window.addEventListener("resize", function () {
+			if (active && !busy) {
+				gsap.set(active.box, {
+					top: 0,
+					left: 0,
+					width: window.innerWidth,
+					height: window.innerHeight,
+				});
 			}
-		} );
+		});
 	}
 
-	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', initVideoFullscreen );
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initVideoFullscreen);
 	} else {
 		initVideoFullscreen();
 	}
-} )();
+})();
 
 // Diagnosis Center section effect
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	function initDiagnosisCenter() {
-		var section = document.querySelector( '.diagnosiscenterSection' );
-		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+		var section = document.querySelector(".diagnosiscenterSection");
+		if (
+			!section ||
+			typeof gsap === "undefined" ||
+			typeof ScrollTrigger === "undefined"
+		) {
+			return;
+		}
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
 
-		gsap.registerPlugin( ScrollTrigger );
+		gsap.registerPlugin(ScrollTrigger);
 
 		/* ---------- 1. Image: scale in / out loop ---------- */
-		var img = section.querySelector( '.diagnosiscenterImg img' );
-		if ( img ) {
-			var pulse = gsap.fromTo( img,
+		var img = section.querySelector(".diagnosiscenterImg img");
+		if (img) {
+			var pulse = gsap.fromTo(
+				img,
 				{ scale: 0.92 },
-				{ scale: 1.06, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1, paused: true, transformOrigin: '50% 50%' }
+				{
+					scale: 1.06,
+					duration: 2,
+					ease: "sine.inOut",
+					yoyo: true,
+					repeat: -1,
+					paused: true,
+					transformOrigin: "50% 50%",
+				},
 			);
 			// Only run the loop while the image is on screen.
-			ScrollTrigger.create( {
+			ScrollTrigger.create({
 				trigger: img,
-				start: 'top bottom',
-				end: 'bottom top',
-				onToggle: function ( self ) { self.isActive ? pulse.play() : pulse.pause(); },
-			} );
+				start: "top bottom",
+				end: "bottom top",
+				onToggle: function (self) {
+					self.isActive ? pulse.play() : pulse.pause();
+				},
+			});
 		}
 
 		/* ---------- 2. Heading line draws, then circle travels ---------- */
-		var svg = section.querySelector( '.secHeading > svg' );
-		if ( ! svg ) { return; }
+		var svg = section.querySelector(".secHeading > svg");
+		if (!svg) {
+			return;
+		}
 
-		var line = svg.querySelector( ':scope > g' );     // the dashed line
-		var dot  = svg.querySelector( ':scope > path' );  // the circle
-		if ( ! line || ! dot ) { return; }
+		var line = svg.querySelector(":scope > g"); // the dashed line
+		var dot = svg.querySelector(":scope > path"); // the circle
+		if (!line || !dot) {
+			return;
+		}
 
-		svg.style.overflow = 'visible'; // so the circle isn't clipped at the start
+		svg.style.overflow = "visible"; // so the circle isn't clipped at the start
 
 		// A mask whose width grows = the line "draws" left to right
 		// (the line is dashed, so stroke-dashoffset can't be used).
-		var NS = 'http://www.w3.org/2000/svg';
-		var defs = svg.querySelector( 'defs' ) || svg.insertBefore( document.createElementNS( NS, 'defs' ), svg.firstChild );
-		var mask = document.createElementNS( NS, 'mask' );
-		mask.setAttribute( 'id', 'diagLineMask' );
-		mask.setAttribute( 'maskUnits', 'userSpaceOnUse' );
-		mask.setAttribute( 'x', '0' ); mask.setAttribute( 'y', '0' );
-		mask.setAttribute( 'width', '669' ); mask.setAttribute( 'height', '25' );
-		var rect = document.createElementNS( NS, 'rect' );
-		rect.setAttribute( 'x', '0' ); rect.setAttribute( 'y', '0' );
-		rect.setAttribute( 'width', '0' ); rect.setAttribute( 'height', '25' );
-		rect.setAttribute( 'fill', '#fff' );
-		mask.appendChild( rect );
-		defs.appendChild( mask );
-		line.setAttribute( 'mask', 'url(#diagLineMask)' );
+		var NS = "http://www.w3.org/2000/svg";
+		var defs =
+			svg.querySelector("defs") ||
+			svg.insertBefore(
+				document.createElementNS(NS, "defs"),
+				svg.firstChild,
+			);
+		var mask = document.createElementNS(NS, "mask");
+		mask.setAttribute("id", "diagLineMask");
+		mask.setAttribute("maskUnits", "userSpaceOnUse");
+		mask.setAttribute("x", "0");
+		mask.setAttribute("y", "0");
+		mask.setAttribute("width", "669");
+		mask.setAttribute("height", "25");
+		var rect = document.createElementNS(NS, "rect");
+		rect.setAttribute("x", "0");
+		rect.setAttribute("y", "0");
+		rect.setAttribute("width", "0");
+		rect.setAttribute("height", "25");
+		rect.setAttribute("fill", "#fff");
+		mask.appendChild(rect);
+		defs.appendChild(mask);
+		line.setAttribute("mask", "url(#diagLineMask)");
 
 		// Circle's resting centre is ~x137; start it at the line's left end.
 		var CIRCLE_REST_X = 137;
 
-		gsap.set( dot, { x: -CIRCLE_REST_X, autoAlpha: 0 } );
+		gsap.set(dot, { x: -CIRCLE_REST_X, autoAlpha: 0 });
 
-		var tl = gsap.timeline( {
+		var tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: svg,
-				start: 'top 85%',
-				toggleActions: 'restart none restart none',
+				start: "top 85%",
+				toggleActions: "restart none restart none",
 			},
-		} );
+		});
 
-		tl.to( rect, { attr: { width: 669 }, duration: 2, ease: 'power2.inOut' } );
-		tl.to( dot, { autoAlpha: 1, duration: 0.3, ease: 'none' } );
-		tl.to( dot, { x: 0, duration: 1.4, ease: 'power3.out' }, '<' );
+		tl.to(rect, {
+			attr: { width: 669 },
+			duration: 2,
+			ease: "power2.inOut",
+		});
+		tl.to(dot, { autoAlpha: 1, duration: 0.3, ease: "none" });
+		tl.to(dot, { x: 0, duration: 1.4, ease: "power3.out" }, "<");
 	}
 
-	if ( document.readyState === 'complete' ) {
+	if (document.readyState === "complete") {
 		initDiagnosisCenter();
 	} else {
-		window.addEventListener( 'load', initDiagnosisCenter );
+		window.addEventListener("load", initDiagnosisCenter);
 	}
-} )();
+})();
