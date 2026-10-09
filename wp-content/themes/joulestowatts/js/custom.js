@@ -608,7 +608,7 @@ $(document).ready(function () {
 
 	function getSlides() {
 		const w = window.innerWidth;
-		if (w <= 720) return 1.4;
+		if (w <= 720) return 1.05;
 		if (w <= 1024) return 2.3;
 		if (w <= 1280) return 2.8;
 		return 3.5;
