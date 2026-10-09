@@ -651,7 +651,7 @@ $(document).ready(function () {
 		label:   1.6,   // "AI CHARTER" fade
 		side:    1.6,   // leftBox / rightBox slide-in
 	};
-	var GAP = 0.3;      // pause between steps (seconds, before SPEED is applied)
+	var GAP = 0.2;      // pause between steps (seconds, before SPEED is applied)
 	var SIDE_OFFSET = 200;
 
 	function initDiagnosis() {
@@ -728,5 +728,120 @@ $(document).ready(function () {
 		initDiagnosis();
 	} else {
 		window.addEventListener( 'load', initDiagnosis );
+	}
+} )();
+
+// Platform page — Video fullscreen effect: when a video box is clicked, it expands to fill the screen, and shrinks back when closed.
+( function () {
+	'use strict';
+
+	function initVideoFullscreen() {
+		var boxes = document.querySelectorAll( '.videofullSection .videoBox' );
+		if ( ! boxes.length || typeof gsap === 'undefined' ) { return; }
+
+		var CLOSE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
+		var DUR = 0.8;
+		var EASE = 'power3.inOut';
+
+		var backdrop = document.createElement( 'div' );
+		backdrop.className = 'videoBackdrop';
+		document.body.appendChild( backdrop );
+
+		var active = null; // { box, video, placeholder, closeBtn }
+		var busy = false;
+
+		function open( box ) {
+			if ( active || busy ) { return; }
+			busy = true;
+
+			var video = box.querySelector( 'video' );
+			var r = box.getBoundingClientRect();
+
+			// Placeholder holds the layout space while the box is fixed.
+			var placeholder = document.createElement( 'div' );
+			placeholder.className = 'videoPlaceholder';
+			placeholder.style.width = r.width + 'px';
+			placeholder.style.height = r.height + 'px';
+			box.parentNode.insertBefore( placeholder, box );
+
+			var closeBtn = document.createElement( 'button' );
+			closeBtn.type = 'button';
+			closeBtn.className = 'closeBtn';
+			closeBtn.setAttribute( 'aria-label', 'Close video' );
+			closeBtn.innerHTML = CLOSE_ICON;
+			box.appendChild( closeBtn );
+
+			active = { box: box, video: video, placeholder: placeholder, closeBtn: closeBtn };
+
+			// Pin the box exactly where it is, then grow it.
+			box.classList.add( 'is-open' );
+			gsap.set( box, { top: r.top, left: r.left, width: r.width, height: r.height } );
+			document.documentElement.style.overflow = 'hidden';
+
+			gsap.to( backdrop, { opacity: 1, duration: DUR, ease: 'power2.out' } );
+			backdrop.style.pointerEvents = 'auto';
+			gsap.to( box, {
+				top: 0, left: 0, width: window.innerWidth, height: window.innerHeight,
+				duration: DUR, ease: EASE,
+				onComplete: function () {
+					busy = false;
+					video.controls = true;
+					video.play().catch( function () {} );
+				},
+			} );
+		}
+
+		function close() {
+			if ( ! active || busy ) { return; }
+			busy = true;
+
+			var a = active;
+			a.video.pause();
+			a.video.controls = false;
+
+			// Where the placeholder is NOW (page may have moved/resized).
+			var r = a.placeholder.getBoundingClientRect();
+
+			gsap.to( backdrop, { opacity: 0, duration: DUR, ease: 'power2.out' } );
+			gsap.to( a.box, {
+				top: r.top, left: r.left, width: r.width, height: r.height,
+				duration: DUR, ease: EASE,
+				onComplete: function () {
+					a.box.classList.remove( 'is-open' );
+					gsap.set( a.box, { clearProps: 'top,left,width,height' } );
+					a.placeholder.parentNode.removeChild( a.placeholder );
+					a.closeBtn.parentNode.removeChild( a.closeBtn );
+					backdrop.style.pointerEvents = 'none';
+					document.documentElement.style.overflow = '';
+					active = null;
+					busy = false;
+				},
+			} );
+		}
+
+		boxes.forEach( function ( box ) {
+			box.addEventListener( 'click', function ( e ) {
+				if ( e.target.closest( '.closeBtn' ) ) { close(); return; }
+				if ( ! box.classList.contains( 'is-open' ) ) { open( box ); }
+			} );
+		} );
+
+		backdrop.addEventListener( 'click', close );
+		document.addEventListener( 'keydown', function ( e ) {
+			if ( e.key === 'Escape' ) { close(); }
+		} );
+
+		// Keep it full-screen if the window is resized while open.
+		window.addEventListener( 'resize', function () {
+			if ( active && ! busy ) {
+				gsap.set( active.box, { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight } );
+			}
+		} );
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initVideoFullscreen );
+	} else {
+		initVideoFullscreen();
 	}
 } )();
