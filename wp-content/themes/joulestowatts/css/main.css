@@ -4507,30 +4507,30 @@ footer .footerWrapper .footerlogo .mailBox a {
   width: 75%;
   text-align: center;
 }
-.bannerInnerSection .wrapper .bannerContent .pageTitle {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .bannerInnerSection .wrapper .bannerContent .pageTitle {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .bannerInnerSection .wrapper .bannerContent .pageTitle {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .bannerInnerSection .wrapper .bannerContent .pageTitle {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 720px) {
-  .bannerInnerSection .wrapper .bannerContent .pageTitle {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
     font-size: 12px;
   }
 }
-.bannerInnerSection .wrapper .bannerContent .pageTitle {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
   font-weight: 600;
   margin-bottom: 12px;
   color: #00ACB4;
@@ -4538,45 +4538,45 @@ footer .footerWrapper .footerlogo .mailBox a {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.bannerInnerSection .wrapper .bannerContent h1 {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
   font-size: 72px;
 }
 @media screen and (max-width: 1800px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 58px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 52px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 46px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 40px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 820px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 720px) {
-  .bannerInnerSection .wrapper .bannerContent h1 {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     font-size: 30px;
   }
 }
-.bannerInnerSection .wrapper .bannerContent h1 {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
   font-weight: 600;
   margin-bottom: 32px;
   line-height: 120%;
@@ -4586,31 +4586,31 @@ footer .footerWrapper .footerlogo .mailBox a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.bannerInnerSection .wrapper .bannerContent p {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   color: #fff;
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .bannerInnerSection .wrapper .bannerContent p {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .bannerInnerSection .wrapper .bannerContent p {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .bannerInnerSection .wrapper .bannerContent p {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 720px) {
-  .bannerInnerSection .wrapper .bannerContent p {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     font-size: 12px;
   }
 }
-.bannerInnerSection .wrapper .bannerContent p {
+.bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   line-height: 170%;
   width: 65%;
   margin: 0 auto;

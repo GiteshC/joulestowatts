@@ -3,9 +3,11 @@
 <section class="bannerInnerSection">
     <div class="wrapper">
         <div class="bannerContent">
-            <p class="manrope pageTitle">Platform</p>
-            <h1 class="manrope">J2W Platform unlocks your Enterprise Truth</h1>
-            <p>Every enterprise has context no document can capture. We uncover it, align people and systems around it, and amplify it.</p>
+            <div class="bannerHeading">
+                <h4 class="manrope pageTitle">Platform</h4>
+                <h1 class="manrope">J2W Platform unlocks your Enterprise Truth</h1>
+                <p>Every enterprise has context no document can capture. We uncover it, align people and systems around it, and amplify it.</p>
+            </div>
             <img src="<?php bloginfo('template_directory'); ?>/images/platform-banner.png" alt="">
         </div>
     </div>
@@ -100,7 +102,7 @@
                 </div>
                 <div class="videoBox">
                     <video playsinline preload="metadata">
-                        <source src="path/to/your/video.mp4" type="video/mp4">
+                        <source src="<?php bloginfo('template_directory'); ?>/images/aiatlas.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <button type="button" class="playBtn" aria-label="Play video">
@@ -124,7 +126,7 @@
                 </div>
                 <div class="videoBox">
                     <video playsinline preload="metadata">
-                        <source src="path/to/your/video.mp4" type="video/mp4">
+                        <source src="<?php bloginfo('template_directory'); ?>/images/gccaccelerator.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <button type="button" class="playBtn" aria-label="Play video">

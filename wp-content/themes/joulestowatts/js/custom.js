@@ -845,3 +845,82 @@ $(document).ready(function () {
 		initVideoFullscreen();
 	}
 } )();
+
+// Diagnosis Center section effect
+( function () {
+	'use strict';
+
+	function initDiagnosisCenter() {
+		var section = document.querySelector( '.diagnosiscenterSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+
+		gsap.registerPlugin( ScrollTrigger );
+
+		/* ---------- 1. Image: scale in / out loop ---------- */
+		var img = section.querySelector( '.diagnosiscenterImg img' );
+		if ( img ) {
+			var pulse = gsap.fromTo( img,
+				{ scale: 0.92 },
+				{ scale: 1.06, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1, paused: true, transformOrigin: '50% 50%' }
+			);
+			// Only run the loop while the image is on screen.
+			ScrollTrigger.create( {
+				trigger: img,
+				start: 'top bottom',
+				end: 'bottom top',
+				onToggle: function ( self ) { self.isActive ? pulse.play() : pulse.pause(); },
+			} );
+		}
+
+		/* ---------- 2. Heading line draws, then circle travels ---------- */
+		var svg = section.querySelector( '.secHeading > svg' );
+		if ( ! svg ) { return; }
+
+		var line = svg.querySelector( ':scope > g' );     // the dashed line
+		var dot  = svg.querySelector( ':scope > path' );  // the circle
+		if ( ! line || ! dot ) { return; }
+
+		svg.style.overflow = 'visible'; // so the circle isn't clipped at the start
+
+		// A mask whose width grows = the line "draws" left to right
+		// (the line is dashed, so stroke-dashoffset can't be used).
+		var NS = 'http://www.w3.org/2000/svg';
+		var defs = svg.querySelector( 'defs' ) || svg.insertBefore( document.createElementNS( NS, 'defs' ), svg.firstChild );
+		var mask = document.createElementNS( NS, 'mask' );
+		mask.setAttribute( 'id', 'diagLineMask' );
+		mask.setAttribute( 'maskUnits', 'userSpaceOnUse' );
+		mask.setAttribute( 'x', '0' ); mask.setAttribute( 'y', '0' );
+		mask.setAttribute( 'width', '669' ); mask.setAttribute( 'height', '25' );
+		var rect = document.createElementNS( NS, 'rect' );
+		rect.setAttribute( 'x', '0' ); rect.setAttribute( 'y', '0' );
+		rect.setAttribute( 'width', '0' ); rect.setAttribute( 'height', '25' );
+		rect.setAttribute( 'fill', '#fff' );
+		mask.appendChild( rect );
+		defs.appendChild( mask );
+		line.setAttribute( 'mask', 'url(#diagLineMask)' );
+
+		// Circle's resting centre is ~x137; start it at the line's left end.
+		var CIRCLE_REST_X = 137;
+
+		gsap.set( dot, { x: -CIRCLE_REST_X, autoAlpha: 0 } );
+
+		var tl = gsap.timeline( {
+			scrollTrigger: {
+				trigger: svg,
+				start: 'top 85%',
+				toggleActions: 'restart none restart none',
+			},
+		} );
+
+		tl.to( rect, { attr: { width: 669 }, duration: 2, ease: 'power2.inOut' } );
+		tl.to( dot, { autoAlpha: 1, duration: 0.3, ease: 'none' } );
+		tl.to( dot, { x: 0, duration: 1.4, ease: 'power3.out' }, '<' );
+	}
+
+	if ( document.readyState === 'complete' ) {
+		initDiagnosisCenter();
+	} else {
+		window.addEventListener( 'load', initDiagnosisCenter );
+	}
+} )();
