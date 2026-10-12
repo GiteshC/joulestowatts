@@ -5735,8 +5735,6 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding: 24px;
   border: 1px solid rgba(131, 29, 29, 0.1);
   position: relative;
-  transition: width 750ms ease-in-out;
-  transition-delay: 250ms;
   min-height: 600px;
   height: auto;
   width: 25%;
@@ -5745,7 +5743,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   justify-content: space-between;
   background: linear-gradient(172deg, #291122 11.35%, #292232 39.11%, #2B2536 66.86%, #413C4A 118.61%);
   overflow: hidden;
-  transition: width 750ms ease-in-out;
+  transition: width 0.7s ease-in-out;
   transition-delay: 250ms;
 }
 .solutionSection .secWrapper .cardContainer .solutionCard .imgBox {
@@ -6168,6 +6166,935 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 
+.ourAiSection {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .ourAiSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection {
+    margin-bottom: 80px;
+  }
+}
+.ourAiSection {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.ourAiSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.ourAiSection .wrapper {
+  height: 100%;
+}
+.ourAiSection .wrapper .mainContainer {
+  display: flex;
+  gap: 100px;
+  height: 100%;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart {
+  padding-top: 180px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading {
+  margin-bottom: 160px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+  color: #00ACB4;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+    font-size: 12px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h3 {
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(96deg, rgba(1, 211, 199, 0.98) 10.04%, rgba(255, 255, 255, 0.98) 19.8%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 12px 0;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+  color: #C0C6C6;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+    font-size: 12px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p {
+  line-height: 154%;
+  margin-bottom: 12px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .secHeading .descriptionGrop p:last-child {
+  margin-bottom: 0;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup {
+  position: relative;
+  height: 400px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h5 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h5 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h5 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h5 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h5 {
+    font-size: 11px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+    font-size: 16px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading h4 {
+  color: #fff;
+  margin: 12px 0;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+  color: #D4D2D2;
+  font-weight: 300;
+  line-height: 162%;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading p {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+  margin-top: 14px;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .tagLine {
+  font-weight: 300;
+  line-height: 162%;
+  background: linear-gradient(91deg, rgba(1, 211, 199, 0.98) 49.36%, rgba(255, 255, 255, 0.98) 79.89%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p {
+  color: #D4D2D2;
+  line-height: 162%;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .desGroup p:last-child {
+  margin-bottom: 0;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+  margin-top: 32px;
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(212, 210, 210, 0.2);
+  color: #FFF;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    font-size: 11px;
+  }
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 12px 20px;
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 784.314px;
+  border: 1.569px solid rgba(212, 210, 210, 0.2);
+}
+.ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading:first-child {
+  opacity: 1;
+  visibility: visible;
+}
+.ourAiSection .wrapper .mainContainer .righttextPart {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.ourAiSection .wrapper .mainContainer .righttextPart .track {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox {
+  border: 1px solid #2B2B2B;
+  padding: 70px 70px 0;
+  background: #000;
+  background: url(../images/ai-sec-img-bg.webp) no-repeat center top;
+}
+.ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ourAiSection .wrapper .mblMainContainer {
+  display: none;
+  position: relative;
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+  color: #00ACB4;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+    font-size: 12px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl h3 {
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+    font-size: 24px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(96deg, rgba(1, 211, 199, 0.98) 10.04%, rgba(255, 255, 255, 0.98) 19.8%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 12px 0;
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+  color: #C0C6C6;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+    font-size: 12px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p {
+  line-height: 154%;
+  margin-bottom: 12px;
+}
+.ourAiSection .wrapper .mblMainContainer .secHeadingMbl .descriptionGrop p:last-child {
+  margin-bottom: 0;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading {
+  text-align: center;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h5 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h5 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h5 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h5 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h5 {
+    font-size: 11px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+    font-size: 16px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading h4 {
+  color: #fff;
+  margin: 12px 0;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+  color: #D4D2D2;
+  font-weight: 300;
+  line-height: 162%;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading p {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+  margin-top: 14px;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .tagLine {
+  font-weight: 300;
+  line-height: 162%;
+  background: linear-gradient(91deg, rgba(1, 211, 199, 0.98) 49.36%, rgba(255, 255, 255, 0.98) 79.89%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+    font-size: 14px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p {
+  color: #D4D2D2;
+  line-height: 162%;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .desGroup p:last-child {
+  margin-bottom: 0;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+  margin-top: 32px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(212, 210, 210, 0.2);
+  color: #FFF;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+    font-size: 11px;
+  }
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 12px 20px;
+}
+.ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 784.314px;
+  border: 1.569px solid rgba(212, 210, 210, 0.2);
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .aiImgSlider {
+  width: 70%;
+  margin: 0 auto;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .aiImgSlider .aiImgBox {
+  border: 1px solid #2B2B2B;
+  padding: 30px 30px 0;
+  background: #000;
+  background: url(../images/ai-sec-img-bg.webp) no-repeat center top;
+  background-size: contain;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .aiImgSlider .aiImgBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow svg, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow svg {
+  width: 20px;
+  height: 20px;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow.slick-disabled, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow.slick-disabled svg path, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow.slick-disabled:hover, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow:hover, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow:hover {
+  background: #00ACB4;
+}
+@media all and (max-width: 1600px) {
+  .ourAiSection .wrapper .mainContainer .leftTextPart {
+    padding-top: 120px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading {
+    margin-bottom: 140px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox {
+    padding: 50px 50px 0;
+  }
+}
+@media all and (max-width: 1440px) {
+  .ourAiSection .wrapper .mainContainer {
+    gap: 80px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart {
+    padding-top: 80px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading {
+    margin-bottom: 120px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    padding: 10px 18px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track {
+    gap: 40px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox {
+    padding: 40px 40px 0;
+  }
+}
+@media all and (max-width: 1280px) {
+  .ourAiSection .wrapper .mainContainer {
+    gap: 60px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart {
+    padding-top: 60px;
+    width: 60%;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading {
+    margin-bottom: 120px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    padding: 8px 16px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart {
+    width: 40%;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track {
+    gap: 30px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox {
+    padding: 30px 30px 0;
+  }
+}
+@media all and (max-width: 1080px) {
+  .ourAiSection {
+    height: 80vh;
+  }
+  .ourAiSection .wrapper .mainContainer {
+    gap: 60px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart {
+    padding-top: 80px;
+    width: 60%;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .secHeading {
+    margin-bottom: 120px;
+  }
+  .ourAiSection .wrapper .mainContainer .leftTextPart .cardHeadingGroup .cardHeading .exploreBtn {
+    padding: 8px 16px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart {
+    width: 40%;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track {
+    gap: 30px;
+  }
+  .ourAiSection .wrapper .mainContainer .righttextPart .track .aiImgBox {
+    padding: 30px 30px 0;
+  }
+}
+@media all and (max-width: 820px) {
+  .ourAiSection {
+    height: auto;
+  }
+  .ourAiSection .wrapper .mainContainer {
+    display: none;
+  }
+  .ourAiSection .wrapper .mblMainContainer {
+    display: block;
+  }
+}
+@media all and (max-width: 720px) {
+  .ourAiSection {
+    transform: translateY(-50px);
+    margin-bottom: 40px;
+  }
+  .ourAiSection .wrapper .mainContainer {
+    display: none;
+  }
+  .ourAiSection .wrapper .mblMainContainer {
+    display: block;
+  }
+  .ourAiSection .wrapper .mblMainContainer .secHeading {
+    margin-bottom: 32px;
+  }
+  .ourAiSection .wrapper .mblMainContainer .righttextPart .aiImgSlider {
+    width: 80%;
+  }
+  .ourAiSection .wrapper .mblMainContainer .righttextPart .aiImgSlider .aiImgBox {
+    padding: 26px 26px 0;
+  }
+  .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox {
+    padding: 0;
+  }
+  .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow {
+    width: 32px;
+    height: 32px;
+  }
+  .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecPrevArrow svg, .ourAiSection .wrapper .mblMainContainer .righttextPart .arrowBox .aiSecNextArrow svg {
+    width: 12px;
+    height: 12px;
+  }
+  .ourAiSection .wrapper .mblMainContainer .leftTextPart .aiTextSlider .cardHeading .exploreBtn {
+    display: flex;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
 .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
   font-weight: 500;
   margin-bottom: 30px;
@@ -6362,6 +7289,11 @@ footer .footerWrapper .footerlogo .mailBox a {
     height: 18px;
   }
 }
+@media all and (max-width: 820px) {
+  .platformResultSec::after {
+    width: 60%;
+  }
+}
 @media all and (max-width: 720px) {
   .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
     margin-bottom: 12px;
@@ -6391,5 +7323,9 @@ footer .footerWrapper .footerlogo .mailBox a {
   .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow svg, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow svg {
     width: 12px;
     height: 12px;
+  }
+  .platformResultSec::after {
+    width: 100%;
+    bottom: -360px;
   }
 }/*# sourceMappingURL=main.css.map */
