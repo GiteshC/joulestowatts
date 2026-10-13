@@ -4628,6 +4628,10 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: flex;
   align-items: flex-end;
 }
+.bannerInnerSection .bannerBG svg {
+  width: 100%;
+  height: auto;
+}
 @media screen and (max-width: 1800px) {
   .bannerInnerSection {
     padding-top: 140px;
@@ -4635,18 +4639,37 @@ footer .footerWrapper .footerlogo .mailBox a {
   .bannerInnerSection .wrapper .bannerContent {
     width: 60%;
   }
-}
-@media screen and (max-width: 1440px) {
-  .bannerInnerSection {
-    padding-top: 120px;
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
+    margin-bottom: 28px;
   }
-  .bannerInnerSection .wrapper .bannerContent {
-    width: 50%;
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
+    width: 75%;
   }
 }
 @media screen and (max-width: 1280px) {
   .bannerInnerSection {
-    padding-top: 100px;
+    padding-top: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .bannerInnerSection .wrapper .bannerContent {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .bannerInnerSection .wrapper .bannerContent {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
+    margin-bottom: 28px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
+    width: 90%;
   }
 }
 
@@ -4937,6 +4960,81 @@ footer .footerWrapper .footerlogo .mailBox a {
   text-transform: uppercase;
   margin-top: 48px;
 }
+@media screen and (max-width: 1800px) {
+  .diagnosisSection {
+    padding-top: 80px;
+  }
+  .diagnosisSection .wrapper .secHeading {
+    margin: 0 auto 80px;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox, .diagnosisSection .wrapper .diagnosisContent .rightBox {
+    width: 22%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox h3, .diagnosisSection .wrapper .diagnosisContent .rightBox h3 {
+    margin-bottom: 15px;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox {
+    width: 48%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox p {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .diagnosisSection {
+    padding-top: 60px;
+  }
+  .diagnosisSection .wrapper .secHeading {
+    margin: 0 auto 60px;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox, .diagnosisSection .wrapper .diagnosisContent .rightBox {
+    width: 22%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox {
+    width: 48%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox p {
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .diagnosisSection .wrapper .secHeading {
+    margin: 0 auto 40px;
+    width: 80%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox, .diagnosisSection .wrapper .diagnosisContent .rightBox {
+    width: 24%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox {
+    width: 46%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox p {
+    margin-top: 25px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .diagnosisSection .wrapper .secHeading {
+    width: 100%;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox, .diagnosisSection .wrapper .diagnosisContent .rightBox {
+    width: 100%;
+    text-align: center;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox {
+    width: 100%;
+    order: 1;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .middleBox p {
+    margin-top: 25px;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .leftBox {
+    order: 2;
+    margin: 32px 0px;
+  }
+  .diagnosisSection .wrapper .diagnosisContent .rightBox {
+    order: 3;
+  }
+}
 
 .videofullSection .wrapper {
   padding-left: 100px;
@@ -5158,6 +5256,102 @@ footer .footerWrapper .footerlogo .mailBox a {
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
+}
+@media screen and (max-width: 1800px) {
+  .videofullSection .wrapper .videofullContent .videofullBox {
+    padding: 52px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading h3 {
+    margin-bottom: 16px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading p {
+    margin: 20px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox video {
+    height: 280px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox .playBtn {
+    width: 62px;
+    height: 62px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox .closeBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .videofullSection .wrapper .videofullContent .videofullBox {
+    padding: 46px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading h3 {
+    margin-bottom: 14px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading p {
+    margin: 18px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox video {
+    height: 260px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox .playBtn {
+    width: 52px;
+    height: 52px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox .closeBtn {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .videofullSection .wrapper .videofullContent .videofullBox {
+    padding: 40px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading {
+    width: 60%;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading h3 {
+    margin-bottom: 12px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading p {
+    margin: 16px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox {
+    width: 36%;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox video {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading {
+    width: 50%;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox {
+    width: 44%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .videofullSection .wrapper .videofullContent .videofullBox {
+    padding: 24px 0px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox:nth-child(even) {
+    flex-flow: wrap;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading {
+    width: 100%;
+    order: 2;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoHeading h3 {
+    margin-bottom: 8px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox {
+    width: 100%;
+    order: 1;
+    border-radius: 0px;
+    margin-bottom: 16px;
+  }
+  .videofullSection .wrapper .videofullContent .videofullBox .videoBox video {
+    height: 186px;
+  }
 }
 
 .diagnosiscenterSection {
@@ -5401,6 +5595,108 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a:hover span svg {
   transform: rotate(-45deg);
+}
+.diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading svg.lineanim {
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 1800px) {
+  .diagnosiscenterSection .wrapper {
+    padding-top: 220px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent {
+    padding: 40px 0px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .diagnosiscenterImg {
+    width: 44%;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading {
+    width: 44%;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h2 {
+    margin: 18px 0px 22px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading p {
+    margin-bottom: 56px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a {
+    margin-top: 56px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span {
+    width: 36px;
+    height: 36px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .diagnosiscenterSection .wrapper {
+    padding-top: 180px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h2 {
+    margin: 16px 0px 20px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading p {
+    margin-bottom: 48px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a {
+    margin-top: 48px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span {
+    width: 32px;
+    height: 32px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .diagnosiscenterSection .wrapper {
+    padding-top: 120px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a {
+    margin-top: 40px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span {
+    width: 30px;
+    height: 30px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .diagnosiscenterSection .wrapper {
+    padding-top: 100px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .diagnosiscenterImg {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading {
+    width: 100%;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h4 {
+    margin-bottom: 12px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h2 {
+    margin: 16px 0px 20px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a {
+    margin-top: 40px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span {
+    width: 32px;
+    height: 32px;
+  }
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a span svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .talkToPartnerSec {
@@ -6119,9 +6415,82 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .pointitSection .wrapper .pointitLinks a span svg {
   transition: transform 0.4s ease;
+  transform: rotate(-45deg);
 }
 .pointitSection .wrapper .pointitLinks a:hover span svg {
-  transform: rotate(-45deg);
+  transform: rotate(0deg);
+}
+@media all and (max-width: 1800px) {
+  .pointitSection .wrapper .pointitContent .secHeading h2 {
+    margin-bottom: 44px;
+  }
+  .pointitSection .wrapper .pointitLinks {
+    padding-bottom: 42px;
+  }
+  .pointitSection .wrapper .pointitLinks a {
+    padding-bottom: 10px;
+  }
+}
+@media all and (max-width: 1800px) {
+  .pointitSection .wrapper .pointitContent .secHeading h2 {
+    margin-bottom: 38px;
+  }
+  .pointitSection .wrapper .pointitLinks {
+    padding-bottom: 36px;
+  }
+}
+@media all and (max-width: 820px) {
+  .pointitSection .wrapper .pointitContent .secHeading h2 {
+    margin-bottom: 32px;
+  }
+  .pointitSection .wrapper .pointitLinks {
+    padding-bottom: 20px;
+    padding-top: 24px;
+  }
+}
+@media all and (max-width: 768px) {
+  .pointitSection .wrapper .pointitContent .secHeading {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+  .pointitSection .wrapper .pointitContent .secHeading h2 {
+    margin-bottom: 32px;
+  }
+  .pointitSection .wrapper .pointitContent .pointitAnim {
+    width: 100%;
+  }
+  .pointitSection .wrapper .pointitLinks {
+    padding-bottom: 20px;
+    padding-top: 24px;
+  }
+}
+@media all and (max-width: 720px) {
+  .pointitSection .wrapper .pointitContent .secHeading {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+  .pointitSection .wrapper .pointitContent .secHeading h2 {
+    margin-bottom: 32px;
+  }
+  .pointitSection .wrapper .pointitContent .pointitAnim {
+    width: 100%;
+  }
+  .pointitSection .wrapper .pointitLinks {
+    padding-bottom: 20px;
+    padding-top: 24px;
+    gap: 18px;
+  }
+  .pointitSection .wrapper .pointitLinks a {
+    width: 100%;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+  }
+  .pointitSection .wrapper .pointitLinks a span svg {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
