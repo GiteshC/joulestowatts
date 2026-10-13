@@ -163,7 +163,10 @@ if ($(".ourAiSection").length) {
 				defaults: { ease: "none" },
 				scrollTrigger: {
 					trigger: section,
-					start: "top top",
+					start: () =>
+						section.offsetHeight < window.innerHeight
+							? "center center"
+							: "top top",
 					end: () => "+=" + (n - 1) * window.innerHeight * 0.8,
 					pin: true,
 					pinSpacing: true,
@@ -238,7 +241,16 @@ if ($(".ourAiSection").length) {
 
 		// breakpoint badle to naye CSS variables ke saath dobara build hoga
 		const mm = gsap.matchMedia();
-		mm.add("(min-width: 821px)", build);
+		mm.add(
+			{
+				desktop: "(min-width: 821px) and (orientation: landscape)",
+				tablet: "(min-width: 821px) and (orientation: portrait)",
+			},
+			(ctx) => {
+				const { tablet } = ctx.conditions;
+				return build(tablet); // pass a flag and use e.g. 0.6 instead of 0.8 for scroll distance
+			},
+		);
 
 		// images late load hon to ek baar refresh
 		let t;

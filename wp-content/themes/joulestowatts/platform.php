@@ -558,6 +558,7 @@
     </div>
 </section>
 
+<div class ="ourAibgImgBox"></div>
 
 <section class="resultSection platformResultSec">
     <div class="secWrapper">

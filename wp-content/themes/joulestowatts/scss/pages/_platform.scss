@@ -1,7 +1,5 @@
 @use '../base/_global.scss' as *;
 
-
-
 .bannerInnerSection{padding-top: 200px; width: 100%; height: 100vh; position: relative; overflow: hidden;
     .wrapper{@include wrapper; display: flex; align-items: flex-start; justify-content: center; flex-flow: wrap; height: 100%; position: relative; z-index: 2;
         .bannerContent{width: 75%; text-align: center;
@@ -158,13 +156,20 @@
                 }
                 &::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(182deg, #210214 -5.17%, #1E1D2C 26%, #233B4A 57.18%, #4A8997 93.88%, #E1E1E1 115.3%); z-index: 1; transform: translateY(100%); transition: transform 1s cubic-bezier(.22, .7, .2, 1); transition-delay: 260ms; }
 
-                &:hover{width: 80%; 
+                &:hover, &:first-child{width: 80%; 
                     .imgBox{opacity: 1;}
                     .bottomContent{
                         .description{grid-template-rows:1fr; opacity:1;}
                     }
                     &::before{ transform: translateY(0);}
                 }
+            }
+            &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){width: calc(100% / 4);
+                .imgBox{opacity: 0;}
+                .bottomContent{
+                    .description{grid-template-rows:0fr; opacity:0;}
+                }
+                &::before{transform: translateY(100%);}
             }
         }
     }
@@ -297,7 +302,7 @@
     }
 }
 
-.ourAiSection{@include sectionSpacing; height: 100vh ; position: relative; overflow: hidden; box-sizing: border-box; 
+.ourAiSection{height: clamp(600px, 100svh, 900px); position: relative; overflow: hidden; box-sizing: border-box; z-index: 9;
     .wrapper{@include wrapper; height: 100%;
         .mainContainer{display: flex; gap: 100px; height: 100%;
             .leftTextPart{padding-top: 180px;
@@ -332,7 +337,7 @@
             }
             .righttextPart{position: relative; height: 100%; overflow: hidden;
                 .track{display: flex; flex-direction: column; gap: 50px;
-                    .aiImgBox{border: 1px solid #2B2B2B; padding: 70px 70px 0; background: #000; background:  url(../images/ai-sec-img-bg.webp) no-repeat center top;;
+                    .aiImgBox{border: 1px solid #2B2B2B; padding: 70px 70px 0; background: #000; background:  url(../images/ai-sec-img-bg.webp) no-repeat center top; background-size: cover;
                         img{display: block; width: 100%; height: 100%; object-fit: cover;}
                     }
                 }
@@ -369,7 +374,7 @@
             }
             .righttextPart{position: relative; height: 100%; overflow: hidden; margin-bottom: 32px;
                 .aiImgSlider{width: 70%; margin: 0 auto;
-                    .aiImgBox{border: 1px solid #2B2B2B; padding: 30px 30px 0; background: #000; background:  url(../images/ai-sec-img-bg.webp) no-repeat center top; background-size: contain;
+                    .aiImgBox{border: 1px solid #2B2B2B; padding: 30px 30px 0; background: #000; background:  url(../images/ai-sec-img-bg.webp) no-repeat center top; background-size: cover;
                         img{display: block; width: 100%; height: 100%; object-fit: cover;}
                     }
                 }
@@ -440,7 +445,7 @@
             }  
         }  
     }
-    @media all and (max-width: 1080px){  height:80vh;
+    @media all and (max-width: 1080px) and (orientation: portrait){height: min(100svh, 820px); 
         .wrapper{
             .mainContainer {gap: 60px;
                 .leftTextPart{padding-top: 80px; width: 60%;
@@ -459,13 +464,13 @@
             }  
         }  
     }
-    @media all and (max-width: 820px){ height: auto;
+    @media all and (max-width: 820px){ height: auto; @include sectionSpacing;
         .wrapper{
             .mainContainer{display: none;}
             .mblMainContainer{display: block;}
         }
     }
-    @media all and (max-width: 720px){transform: translateY(-50px); margin-bottom: 40px;
+    @media all and (max-width: 720px){transform: translateY(-50px); margin-bottom: 0px;
         .wrapper{
             .mainContainer{display: none;}
             .mblMainContainer{display: block;
@@ -490,6 +495,24 @@
             }
         }
     }
+}
+
+.ourAibgImgBox{position: relative; height: 300px; z-index: 1; pointer-events: none;
+    &::after{content:""; position: absolute; background: url(../images/ai-section-vector-img.png) no-repeat; background-size: contain; bottom: 0; left: 0; width: 35%; height: 300px; z-index: 2;}
+
+    @media all and (max-width: 1800px){height: 180px;
+        &::after{height: 240px;}
+    }
+    @media all and (max-width: 1600px){height: 160px;
+        &::after{height: 200px;}
+    }
+    @media all and (max-width: 1440px){height: 140px;
+        &::after{height: 200px;}
+    }
+    @media all and (max-width: 1280px){height: 120px;
+        &::after{height: 180px;}
+    }
+    @media all and (max-width: 820px){display: none;}
 }
 
 .platformResultSec{
