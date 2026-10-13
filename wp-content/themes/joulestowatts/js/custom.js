@@ -68,6 +68,203 @@ ScrollTrigger.create({
 	});
 })();
 
+//Ai Section
+if ($(".ourAiSection").length) {
+	window.addEventListener("load", () => {
+		const DEBUG = false;
+		const SNAP = false; // snap chahiye to true
+
+		if (
+			typeof gsap === "undefined" ||
+			typeof ScrollTrigger === "undefined"
+		) {
+			console.error("GSAP ya ScrollTrigger load nahi hua");
+			return;
+		}
+		gsap.registerPlugin(ScrollTrigger);
+
+		const section = document.querySelector("#ips");
+		if (!section) return;
+
+		const right = section.querySelector(".righttextPart");
+		const track = section.querySelector(".track");
+		const cards = gsap.utils.toArray(".aiImgBox", track);
+		const panels = gsap.utils.toArray(
+			".cardHeadingGroup .cardHeading",
+			section,
+		);
+		const n = cards.length;
+
+		if (!right || !track || n < 2 || panels.length !== n) {
+			console.error("Setup galat:", { cards: n, panels: panels.length });
+			return;
+		}
+
+		const cssVar = (name) =>
+			parseFloat(getComputedStyle(section).getPropertyValue(name));
+
+		// card i ko container ke bilkul beech me laane ke liye track ka y
+		const yFor = (i) =>
+			right.clientHeight / 2 -
+			(cards[i].offsetTop + cards[i].offsetHeight / 2);
+
+		function build() {
+			const inactiveScale = cssVar("--inactive-scale") || 0.9;
+			const inactiveOpacity = cssVar("--inactive-opacity") || 0.4;
+
+			// ---- left panels ----
+			let current = 0;
+			function swap(i) {
+				if (i === current) return;
+				const dir = i > current ? 1 : -1;
+				const inn = panels[i];
+				current = i;
+
+				gsap.killTweensOf(panels);
+				panels.forEach((p) => gsap.killTweensOf(p.children));
+
+				panels.forEach((p) => {
+					if (p !== inn) {
+						gsap.to(p, {
+							autoAlpha: 0,
+							y: -16 * dir,
+							duration: 0.2,
+							ease: "power2.in",
+						});
+					}
+				});
+				gsap.fromTo(
+					inn,
+					{ autoAlpha: 0, y: 24 * dir },
+					{
+						autoAlpha: 1,
+						y: 0,
+						duration: 0.45,
+						delay: 0.15,
+						ease: "power3.out",
+					},
+				);
+				gsap.fromTo(
+					inn.children,
+					{ opacity: 0, y: 14 * dir },
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.45,
+						delay: 0.18,
+						stagger: 0.06,
+						ease: "power3.out",
+					},
+				);
+			}
+
+			// ---- ek timeline: har segment = 1 unit = ek card ka move ----
+			const tl = gsap.timeline({
+				defaults: { ease: "none" },
+				scrollTrigger: {
+					trigger: section,
+					start: () =>
+						section.offsetHeight < window.innerHeight
+							? "center center"
+							: "top top",
+					end: () => "+=" + (n - 1) * window.innerHeight * 0.8,
+					pin: true,
+					pinSpacing: true,
+					anticipatePin: 1,
+					scrub: true,
+					markers: DEBUG,
+					snap: SNAP
+						? {
+								snapTo: 1 / (n - 1),
+								duration: { min: 0.2, max: 0.5 },
+								ease: "power1.inOut",
+								delay: 0.05,
+							}
+						: false,
+					invalidateOnRefresh: true,
+					onUpdate: (self) =>
+						swap(Math.round(self.progress * (n - 1))),
+				},
+			});
+
+			// track: card i se card i+1 tak
+			for (let i = 0; i < n - 1; i++) {
+				tl.fromTo(
+					track,
+					{ y: () => yFor(i) },
+					{
+						y: () => yFor(i + 1),
+						duration: 1,
+						immediateRender: i === 0,
+					},
+					i,
+				);
+			}
+
+			// cards: aate waqt active, jaate waqt inactive
+			cards.forEach((c, i) => {
+				if (i > 0) {
+					tl.fromTo(
+						c,
+						{ opacity: inactiveOpacity, scale: inactiveScale },
+						{ opacity: 1, scale: 1, duration: 1 },
+						i - 1,
+					);
+				}
+				if (i < n - 1) {
+					tl.fromTo(
+						c,
+						{ opacity: 1, scale: 1 },
+						{
+							opacity: inactiveOpacity,
+							scale: inactiveScale,
+							duration: 1,
+							immediateRender: false,
+						},
+						i,
+					);
+				}
+			});
+
+			// cleanup: breakpoint badalne par sab CSS ke initial state par wapas
+			return () => {
+				gsap.killTweensOf(panels);
+				panels.forEach((p) => gsap.killTweensOf(p.children));
+				gsap.set(panels, { clearProps: "all" });
+				panels.forEach((p) =>
+					gsap.set(p.children, { clearProps: "all" }),
+				);
+				gsap.set(cards, { clearProps: "all" });
+				gsap.set(track, { clearProps: "all" });
+			};
+		}
+
+		// breakpoint badle to naye CSS variables ke saath dobara build hoga
+		const mm = gsap.matchMedia();
+		mm.add(
+			{
+				desktop: "(min-width: 821px) and (orientation: landscape)",
+				tablet: "(min-width: 821px) and (orientation: portrait)",
+			},
+			(ctx) => {
+				const { tablet } = ctx.conditions;
+				return build(tablet); // pass a flag and use e.g. 0.6 instead of 0.8 for scroll distance
+			},
+		);
+
+		// images late load hon to ek baar refresh
+		let t;
+		track.querySelectorAll("img").forEach((img) => {
+			if (!img.complete) {
+				img.addEventListener("load", () => {
+					clearTimeout(t);
+					t = setTimeout(() => ScrollTrigger.refresh(), 150);
+				});
+			}
+		});
+	});
+}
+
 // Banner heading — letter-by-letter typing effect on the plain text only.
 // Anything wrapped in a child element (e.g. <span>Amplified</span>) is left alone.
 (function () {
@@ -608,7 +805,7 @@ $(document).ready(function () {
 
 	function getSlides() {
 		const w = window.innerWidth;
-		if (w <= 720) return 1.4;
+		if (w <= 720) return 1.05;
 		if (w <= 1024) return 2.3;
 		if (w <= 1280) return 2.8;
 		return 3.5;
@@ -1184,3 +1381,29 @@ document.addEventListener("DOMContentLoaded", () => {
 		window.addEventListener("load", initDiagnosisCenter);
 	}
 })();
+
+if ($(".ourAiSection").length) {
+	if (window.innerWidth <= 820) {
+		$(".aiImgSlider").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			infinite: false,
+			asNavFor: ".aiTextSlider",
+		});
+		$(".aiTextSlider").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			prevArrow: $(".aiSecPrevArrow"),
+			nextArrow: $(".aiSecNextArrow"),
+			asNavFor: ".aiImgSlider",
+			dots: false,
+			fade: true,
+			infinite: false,
+			centerMode: false,
+			focusOnSelect: false,
+		});
+	}
+}
