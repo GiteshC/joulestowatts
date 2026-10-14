@@ -5918,10 +5918,9 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .pointitSection .wrapper .pointitLinks a span svg {
   transition: transform 0.4s ease;
-  transform: rotate(-45deg);
 }
 .pointitSection .wrapper .pointitLinks a:hover span svg {
-  transform: rotate(0deg);
+  transform: rotate(-45deg);
 }
 @media all and (max-width: 1800px) {
   .pointitSection .wrapper .pointitContent .secHeading h2 {
