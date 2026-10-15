@@ -4653,6 +4653,9 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 @media screen and (max-width: 820px) {
+  .bannerInnerSection .wrapper {
+    align-items: center;
+  }
   .bannerInnerSection .wrapper .bannerContent {
     width: 80%;
   }
@@ -5550,6 +5553,36 @@ footer .footerWrapper .footerlogo .mailBox a {
   line-height: 180%;
   margin-bottom: 66px;
 }
+.diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+}
+@media screen and (max-width: 1800px) {
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+    font-size: 11px;
+  }
+}
+.diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading h5 {
+  font-weight: 500;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
 .diagnosiscenterSection .wrapper .diagnosiscenterContent .secHeading a {
   color: rgba(255, 255, 255, 0.7);
   font-family: "Manrope", sans-serif;
@@ -6391,6 +6424,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 
 .talkToPartnerSec {
   position: relative;
+  height: 100vh;
 }
 .talkToPartnerSec .secWrapper .imgBox .mblBg {
   display: none;
@@ -6433,7 +6467,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   transform: translate(-50%, -50%);
   display: flex;
   flex-flow: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 .talkToPartnerSec .secWrapper .secHeading h2 {
@@ -7765,5 +7799,389 @@ footer .footerWrapper .footerlogo .mailBox a {
   .platformResultSec::after {
     width: 100%;
     bottom: -360px;
+  }
+}
+
+.greenfieldcenter .wrapper {
+  padding-top: 50px;
+}
+@media screen and (max-width: 720px) {
+  .greenfieldcenter .wrapper .diagnosiscenterContent {
+    flex-flow: column-reverse;
+  }
+}
+
+.whatgetSection {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .whatgetSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatgetSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatgetSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatgetSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .whatgetSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatgetSection {
+    margin-bottom: 80px;
+  }
+}
+.whatgetSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .whatgetSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatgetSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatgetSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatgetSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.whatgetSection .wrapper {
+  display: flex;
+  flex-flow: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.whatgetSection .wrapper .secHeading {
+  width: 25%;
+}
+.whatgetSection .wrapper .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .whatgetSection .wrapper .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatgetSection .wrapper .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatgetSection .wrapper .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatgetSection .wrapper .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatgetSection .wrapper .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.whatgetSection .wrapper .secHeading h2 {
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.whatgetSection .wrapper .whatgetContent {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.whatgetSection .wrapper .whatgetContent .whatgetBox {
+  padding: 32px 40px;
+  position: relative;
+}
+.whatgetSection .wrapper .whatgetContent .whatgetBox .whatgetbg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+    font-size: 14px;
+  }
+}
+.whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.howrunSection {
+  position: relative;
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .howrunSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .howrunSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .howrunSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection {
+    margin-bottom: 80px;
+  }
+}
+.howrunSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .howrunSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.howrunSection .wrapper {
+  position: relative;
+}
+.howrunSection .wrapper .howrunContent {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.howrunSection .wrapper .howrunContent .howrunImg {
+  width: 45%;
+  text-align: center;
+}
+.howrunSection .wrapper .howrunContent .howrunImg img {
+  display: block;
+  margin: 0 auto;
+}
+.howrunSection .wrapper .howrunContent .secHeading {
+  width: 45%;
+  padding-right: 100px;
+}
+.howrunSection .wrapper .howrunContent .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.howrunSection .wrapper .howrunContent .secHeading h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 32px;
+}
+.howrunSection .wrapper .howrunContent .secHeading p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    font-size: 12px;
+  }
+}
+.howrunSection .wrapper .howrunContent .secHeading p {
+  line-height: 180%;
+  margin-top: 32px;
+}
+.howrunSection .wrapper .howrunContent .secHeading svg.lineanim {
+  width: 100%;
+  height: auto;
+}
+.howrunSection .howrunbg {
+  position: absolute;
+  bottom: -200px;
+  right: 0;
+}
+@media screen and (max-width: 1800px) {
+  .howrunSection .wrapper .howrunContent .secHeading {
+    padding-right: 80px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    margin-bottom: 28px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    margin-top: 28px;
+  }
+  .howrunSection .howrunbg {
+    bottom: -180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .howrunSection .howrunbg {
+    bottom: -160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection .wrapper .howrunContent .secHeading {
+    padding-right: 60px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    margin-bottom: 24px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    margin-top: 24px;
+  }
+  .howrunSection .howrunbg {
+    bottom: -140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection .howrunbg {
+    bottom: -120px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection .wrapper .howrunContent .howrunImg {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading {
+    width: 100%;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading h2 {
+    margin-bottom: 16px;
+  }
+  .howrunSection .wrapper .howrunContent .secHeading p {
+    margin-top: 16px;
+  }
+  .howrunSection .howrunbg {
+    bottom: -80px;
   }
 }/*# sourceMappingURL=main.css.map */
