@@ -1,6 +1,6 @@
 <?php /* Template Name: Homepage */ get_header(); ?>
 
-<section class="bannerSection textAnimation">
+<section class="bannerSection">
     <?php if( have_rows('banner_section') ): ?>
         <?php while( have_rows('banner_section') ): the_row(); ?>
             <div class="wrapper">

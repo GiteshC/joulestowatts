@@ -1,20 +1,19 @@
 <?php /* Template Name: Ai-Atlas */ get_header(); ?>
 
-<section class="bannerSection atlasBannerSec">
+
+<section class="bannerInnerSection atlasBannerSec">
     <div class="wrapper">
         <div class="bannerContent">
-            <div class="secHeading">
-                <h2 class="manrope">LISTEN</h2>
+            <div class="bannerHeading">
+                <h4 class="manrope">LISTEN</h4>
                 <h1 class="manrope">AI Atlas</h1>
                 <p>Let your AI fit your ROI.</p>
                 <p>AI Atlas writes the AI Charter before anyone writes code. It reads the business as it actually runs, then builds and watches what comes next.</p>
             </div>
-            <div class="atlasAnim">
             <img src="<?php bloginfo('template_directory'); ?>/images/ai-atlas-banner-anim.gif" alt="Ai Atlas Animation">
         </div>
-        </div>
         <div class="casestudyCTA">
-            <a href="#" class="teritaryCTA">Watch the AI Atlas Film
+            <a href="#" class="teritaryCTA">Watch the AI Atlas  Film
                 <span>
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/>
@@ -24,7 +23,7 @@
         </div>
     </div>
     <div class="bannerBG">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2168 658" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" viewBox="0 0 2168 658" fill="none">
             <g filter="url(#filter0_f_952_6788)">
                 <path d="M1891.15 658C1891.15 517.314 1806.12 382.39 1654.74 282.91C1503.37 183.43 1298.07 127.542 1084 127.542C869.929 127.542 664.626 183.43 513.255 282.91C361.885 382.39 276.845 517.314 276.845 658L1891.15 658Z" fill="url(#paint0_linear_952_6788)" fill-opacity="0.984314"/>
             </g>

@@ -271,7 +271,7 @@ if ($(".ourAiSection").length) {
 	"use strict";
 
 	function initBannerTyping() {
-		var heading = document.querySelector(".textAnimation h1");
+		var heading = document.querySelector(".bannerSection h1");
 
 		if (!heading || typeof gsap === "undefined") {
 			return;
