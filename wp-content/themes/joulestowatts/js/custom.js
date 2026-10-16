@@ -1548,6 +1548,7 @@ if ($(".ourAiSection").length) {
 	}
 }
 
+//Ai -Atlas Js
 if ($(".agentSection").length) {
 	$(".imgBoxes").slick({
 		slidesToShow: 1,
@@ -1572,3 +1573,160 @@ if ($(".agentSection").length) {
 		focusOnSelect: false,
 	});
 }
+// What Get Section
+( function () {
+	'use strict';
+
+	function initWhatGetSequence() {
+		var section = document.querySelector( '.whatgetSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+
+		gsap.registerPlugin( ScrollTrigger );
+
+		var INCLUDE_BG = true;  // .whatgetbg changes together with the image
+		var FADE = 1.2;         // how slowly the next image appears (higher = slower)
+		var HOLD = 1;           // how long each image stays fully visible
+		var OUT  = 0.10;        // quick drop-out of the old image, after the new one is fully in
+
+		var mm = gsap.matchMedia();
+
+		// Runs only when the viewport is 720px or wider.
+		mm.add( '(min-width: 720px)', function () {
+			var boxes = section.querySelectorAll( '.whatgetBox' );
+			if ( boxes.length < 2 ) { return; }
+
+			var groups = [];
+			boxes.forEach( function ( box ) {
+				var g = [ box.querySelector( 'img:not(.whatgetbg)' ) ];
+				if ( INCLUDE_BG ) { g.push( box.querySelector( '.whatgetbg' ) ); }
+				g = g.filter( Boolean );
+				if ( g.length ) { groups.push( g ); }
+			} );
+			var n = groups.length;
+			if ( n < 2 ) { return; }
+
+			var all = [].concat.apply( [], groups );
+			gsap.set( all, { opacity: 0 } );
+
+			var STEP = HOLD + FADE;
+
+			// Handover k: the next image fades in while the current one stays at full opacity,
+			// then the current one drops out quickly. Nothing is ever dimmed in between.
+			var tl = gsap.timeline( { repeat: -1, paused: true } );
+			for ( var k = 1; k <= n; k++ ) {
+				var from = groups[ k - 1 ];
+				var to   = groups[ k % n ];
+				var at   = k * STEP - FADE;
+				tl.to( to,   { opacity: 1, duration: FADE, ease: 'sine.inOut' }, at );
+				tl.to( from, { opacity: 0, duration: OUT,  ease: 'none' },       at + FADE );
+			}
+
+			var started = false;
+			ScrollTrigger.create( {
+				trigger: section,
+				start: 'top 80%',
+				end: 'bottom top',
+				onToggle: function ( self ) {
+					if ( ! self.isActive ) { tl.pause(); return; }
+					if ( ! started ) {
+						started = true;
+						// First image fades in slowly, then the loop takes over.
+						gsap.to( groups[ 0 ], {
+							opacity: 1, duration: FADE, ease: 'sine.inOut',
+							onComplete: function () { tl.play( 0 ); },
+						} );
+					} else {
+						tl.play();
+					}
+				},
+			} );
+		} );
+	}
+
+	if ( document.readyState === 'complete' ) {
+		initWhatGetSequence();
+	} else {
+		window.addEventListener( 'load', initWhatGetSequence );
+	}
+} )();
+
+
+// How Run Animation
+( function () {
+	'use strict';
+
+	function initHowRun() {
+		var section = document.querySelector( '.howrunSection' );
+		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+
+		gsap.registerPlugin( ScrollTrigger );
+
+		var img  = section.querySelector( '.howrunImg img' );
+		var svg  = section.querySelector( '.secHeading .lineanim' );
+		var line = svg ? svg.querySelector( ':scope > g' ) : null;
+		var heading = section.querySelector( '.howrunContent .secHeading' );
+
+		var IMG_DISTANCE = 250;  // px it rises from the bottom
+		var IMG_TIME     = 2;    // image speed (higher = slower)
+		var LINE_TIME    = 2;    // line draw speed
+		var LINE_DELAY   = 0.4;  // line starts this long after the image starts
+
+		/* Line draw: a mask that grows left to right (the line is dashed, so
+		   stroke-dashoffset can't be used). */
+		var rect = null;
+		if ( svg && line ) {
+			var NS = 'http://www.w3.org/2000/svg';
+			var defs = svg.querySelector( 'defs' ) || svg.insertBefore( document.createElementNS( NS, 'defs' ), svg.firstChild );
+			var mask = document.createElementNS( NS, 'mask' );
+			mask.setAttribute( 'id', 'howrunLineMask' );
+			mask.setAttribute( 'maskUnits', 'userSpaceOnUse' );
+			mask.setAttribute( 'x', '0' ); mask.setAttribute( 'y', '0' );
+			mask.setAttribute( 'width', '669' ); mask.setAttribute( 'height', '25' );
+			rect = document.createElementNS( NS, 'rect' );
+			rect.setAttribute( 'x', '0' ); rect.setAttribute( 'y', '0' );
+			rect.setAttribute( 'width', '0' ); rect.setAttribute( 'height', '25' );
+			rect.setAttribute( 'fill', '#fff' );
+			mask.appendChild( rect );
+			defs.appendChild( mask );
+			line.setAttribute( 'mask', 'url(#howrunLineMask)' );
+		}
+
+		var tl = gsap.timeline( {
+			scrollTrigger: {
+				trigger: section,
+				start: 'top 70%',
+				toggleActions: 'restart none restart none',
+			},
+		} );
+
+		if ( img ) {
+			tl.fromTo( img,
+				{ y: IMG_DISTANCE, autoAlpha: 0 },
+				{ y: 0, autoAlpha: 1, duration: IMG_TIME, ease: 'power2.out' },
+				0
+			);
+		}
+		if ( heading ) {
+			tl.fromTo( heading,
+				{ x: IMG_DISTANCE, autoAlpha: 0 },
+				{ x: 0, autoAlpha: 1, duration: IMG_TIME, ease: 'power2.out' },
+				0
+			);
+		}
+		if ( rect ) {
+			tl.fromTo( rect,
+				{ attr: { width: 0 } },
+				{ attr: { width: 669 }, duration: LINE_TIME, ease: 'power2.inOut' },
+				LINE_DELAY
+			);
+		}
+	}
+
+	if ( document.readyState === 'complete' ) {
+		initHowRun();
+	} else {
+		window.addEventListener( 'load', initHowRun );
+	}
+} )();

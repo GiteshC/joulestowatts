@@ -45,12 +45,16 @@
 			<div class="line"></div>
 		</div>
 		<div class="mainMenu">
+			<div class="curvedBG">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/navigation-bg.webp">
+			</div>
 			<nav>
 				<ul>
 					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">Platform</a></li>
+					<li><a href="#">Results</a></li>
+					<li><a href="#">Our Story</a></li>
+					<li><a href="#">About us</a></li>
 				</ul>
 			</nav>
 		</div>

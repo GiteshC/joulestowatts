@@ -9,8 +9,8 @@ header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: spa
         .hamburger{width: 28px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; position: relative; z-index: 3;
             .line{width: 100%; height: 2px; border-radius: 2px; background: #ffffff; transform-origin: center; transition: transform 0.4s ease, opacity 0.25s ease;}
         }
-        .mainMenu{position: absolute; top: 0; right: 0; width: 100vw; height: 100vh; z-index: 2; box-sizing: border-box; padding: 140px 60px 60px; background: #19060F; border-left: 1px solid #2B2B2B;
-            transform: translateX(100%); visibility: hidden; transition: transform 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), visibility 0s linear 0.6s;
+        .mainMenu{position: absolute; top: 0; right: 0; width: 100vw; height: 100vh; z-index: 2; box-sizing: border-box; padding: 140px 60px 60px; background: #19060F; border-left: 1px solid #2B2B2B; background-image: radial-gradient(ellipse 45% 45% at 50% 100%, #5D6772 0%, #5A6571 2%, #455865 11%, #314655 22%, #253646 33%, #1F283A 44%, #1E1F31 56%, #1E1727 67%, rgba(32, 16, 34, 0.5) 78%, rgba(34, 11, 29, 0.25) 89%, rgba(33, 2, 20, 0) 100%); background-repeat: no-repeat;transform: translateX(100%); visibility: hidden; transition: transform 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), visibility 0s linear 0.6s;
+            .curvedBG{position: absolute; left: 0px; bottom: 0px;}
             nav ul{list-style: none; margin: 0; padding: 0; display: flex; flex-flow: column; gap: 28px; text-align: right;
                 a{display: inline-block; color: #ffffff; font-size: 36px; line-height: 120%; transition: color 0.3s ease;
                     &:hover{color: #00ACB4;}
