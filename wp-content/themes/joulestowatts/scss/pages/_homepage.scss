@@ -830,13 +830,11 @@
                     p{text-align: center;}
                 }
                 .sliderBox{ grid-area: image; border: none; border-bottom: 1px solid #6F6363;
-                    
-                        .arrowBoxMbl{display: flex; position: absolute; top: 45%; left: 0; width: 100%; justify-content: space-between; padding: 0 40px; 
-                            .prevArrow, .nextArrow{width: 50px; height: 50px;
-                                svg{ width: 20px; height: 20px;}
-                            }
+                    .arrowBoxMbl{display: flex; position: absolute; top: 45%; left: 0; width: 100%; justify-content: space-between; padding: 0 40px; 
+                        .prevArrow, .nextArrow{width: 50px; height: 50px;
+                            svg{ width: 20px; height: 20px;}
                         }
-                    
+                    }
                 }
                 .box-r1-c4{display: none;}
                 .box-r2-c1{width: 100%; height: 100%;  grid-area: left; border: none; border-bottom: 1px solid #6F6363;
@@ -948,8 +946,8 @@
     }
 }
 
-.resultSection{@include sectionSpacing; padding-top: 185px; position: relative;background: url(../images/result-sec-shadow.png) no-repeat center top; background-size: contain; 
-    .secWrapper{
+.resultSection{@include sectionSpacing; padding-top: 185px; position: relative; 
+    .secWrapper{position: relative; z-index: 2;
         .secHeading{display: flex; align-items: end; justify-content: space-between; margin-bottom: 60px; @include wrapper;
             .headingGroup{width: 50%;
                 h2{@include font48; line-height: 120%; text-transform: capitalize; font-weight: 500; margin-bottom: 32px; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text;-webkit-background-clip: text; -webkit-text-fill-color: transparent;}
@@ -997,6 +995,7 @@
             }
         }
     }
+    .resultSectionBG{position: absolute; top: 0; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; transform: rotate(180deg); z-index: 1; justify-self: center; z-index: 1; pointer-events: none;}
     @media all and (max-width: 1800px){
         .secWrapper{
             .resultsCardLayout{padding-left: 80px;}
@@ -1040,7 +1039,11 @@
                                 }
                             }
                         }
+                        &.slick-slide {
+                            margin: 0 16px; box-sizing: border-box;
+                        }
                     }
+                    .slick-list {margin: 0 -16px;}
                 }
                 .arrowBox{margin-top: 40px;
                     .resultPrevArrow, .resultNextArrow{width: 50px; height: 50px;
@@ -1065,11 +1068,11 @@
                             .bottomContent{padding: 25px;}
                         }
                             &.slick-slide {
-                            margin: 0 15px;
+                            margin: 0 14px;
                         }
                     }
                     .slick-list {
-                        margin: 0 -15px;
+                        margin: 0 -14px;
                     }
                 }
                 .arrowBox{

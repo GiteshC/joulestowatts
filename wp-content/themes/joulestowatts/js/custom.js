@@ -243,8 +243,8 @@ if ($(".ourAiSection").length) {
 		const mm = gsap.matchMedia();
 		mm.add(
 			{
-				desktop: "(min-width: 821px) and (orientation: landscape)",
-				tablet: "(min-width: 821px) and (orientation: portrait)",
+				desktop: "(min-width: 1081px)",
+				mobile: "(min-width: 1081px)",
 			},
 			(ctx) => {
 				const { tablet } = ctx.conditions;
@@ -271,7 +271,7 @@ if ($(".ourAiSection").length) {
 	"use strict";
 
 	function initBannerTyping() {
-		var heading = document.querySelector(".bannerSection h1");
+		var heading = document.querySelector(".textAnimation h1");
 
 		if (!heading || typeof gsap === "undefined") {
 			return;
@@ -712,7 +712,7 @@ $(document).ready(function () {
 
 	function getSlides() {
 		const w = window.innerWidth;
-		if (w <= 720) return 1.4;
+		if (w <= 720) return 1.1;
 		if (w <= 1024) return 2.3;
 		if (w <= 1280) return 2.8;
 		return 3.5;
@@ -805,7 +805,7 @@ $(document).ready(function () {
 
 	function getSlides() {
 		const w = window.innerWidth;
-		if (w <= 720) return 1.05;
+		if (w <= 720) return 1.1;
 		if (w <= 1024) return 2.3;
 		if (w <= 1280) return 2.8;
 		return 3.5;
@@ -814,7 +814,7 @@ $(document).ready(function () {
 	$slider.slick({
 		slidesToShow: getSlides(),
 		slidesToScroll: 1,
-		infinite: true,
+		infinite: false,
 
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -833,119 +833,259 @@ $(document).ready(function () {
 });
 
 //Solution Section JS
+// document.addEventListener("DOMContentLoaded", () => {
+// 	document
+// 		.querySelectorAll(".secWrapper .cardContainer")
+// 		.forEach((container) => {
+// 			const cards = [...container.querySelectorAll(".solutionCard")];
+
+// 			if (!cards.length) return;
+
+// 			const mobileQuery = window.matchMedia("(max-width: 820px)");
+
+// 			function setImageHeight(card, isOpen) {
+// 				const imgBox = card.querySelector(".imgBox");
+
+// 				if (!imgBox) return;
+
+// 				if (!isOpen || !mobileQuery.matches) {
+// 					imgBox.style.maxHeight = "0px";
+// 					return;
+// 				}
+
+// 				const updateHeight = () => {
+// 					if (
+// 						!mobileQuery.matches ||
+// 						!card.classList.contains("solutionActiveCard")
+// 					) {
+// 						return;
+// 					}
+
+// 					imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+// 				};
+
+// 				const img = imgBox.querySelector("img");
+
+// 				if (img && !img.complete) {
+// 					img.addEventListener("load", updateHeight, { once: true });
+// 					img.addEventListener("error", updateHeight, { once: true });
+// 					return;
+// 				}
+
+// 				requestAnimationFrame(updateHeight);
+// 			}
+
+// 			function openCard(card) {
+// 				cards.forEach((item) => {
+// 					const isCurrent = item === card;
+
+// 					item.classList.toggle("solutionActiveCard", isCurrent);
+
+// 					setImageHeight(item, isCurrent);
+// 				});
+// 			}
+
+// 			function closeAllCards() {
+// 				cards.forEach((card) => {
+// 					card.classList.remove("solutionActiveCard");
+// 					setImageHeight(card, false);
+// 				});
+// 			}
+
+// 			function initializeAccordion() {
+// 				if (mobileQuery.matches) {
+// 					const activeCard = cards.find((card) =>
+// 						card.classList.contains("solutionActiveCard"),
+// 					);
+
+// 					// Preserve the current selection; default to first card.
+// 					openCard(activeCard || cards[0]);
+// 				} else {
+// 					closeAllCards();
+// 				}
+// 			}
+
+// 			// Initial state
+// 			initializeAccordion();
+
+// 			cards.forEach((card) => {
+// 				card.addEventListener("click", (event) => {
+// 					if (!mobileQuery.matches) return;
+
+// 					if (event.target.closest("a, button")) return;
+
+// 					const isActive =
+// 						card.classList.contains("solutionActiveCard");
+
+// 					if (isActive) {
+// 						closeAllCards();
+// 					} else {
+// 						openCard(card);
+// 					}
+// 				});
+// 			});
+
+// 			// Only update when crossing the mobile/desktop breakpoint.
+// 			// Do not reset the accordion on every resize event.
+// 			if (mobileQuery.addEventListener) {
+// 				mobileQuery.addEventListener("change", initializeAccordion);
+// 			} else {
+// 				mobileQuery.addListener(initializeAccordion);
+// 			}
+
+// 			// Recalculate the open image height when its size changes.
+// 			window.addEventListener("resize", () => {
+// 				if (!mobileQuery.matches) return;
+
+// 				const activeCard = cards.find((card) =>
+// 					card.classList.contains("solutionActiveCard"),
+// 				);
+
+// 				if (activeCard) {
+// 					setImageHeight(activeCard, true);
+// 				}
+// 			});
+// 		});
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
-	document
-		.querySelectorAll(".secWrapper .cardContainer")
-		.forEach((container) => {
-			const cards = [...container.querySelectorAll(".solutionCard")];
+	const containers = document.querySelectorAll(".secWrapper .cardContainer");
 
-			if (!cards.length) return;
+	const mobileQuery = window.matchMedia("(max-width: 820px)");
 
-			const mobileQuery = window.matchMedia("(max-width: 820px)");
+	containers.forEach((container) => {
+		const cards = [...container.querySelectorAll(".solutionCard")];
 
-			function setImageHeight(card, isOpen) {
-				const imgBox = card.querySelector(".imgBox");
+		if (!cards.length) return;
 
-				if (!imgBox) return;
+		function setImageHeight(card, isOpen) {
+			const imgBox = card.querySelector(".imgBox");
 
-				if (!isOpen || !mobileQuery.matches) {
-					imgBox.style.maxHeight = "0px";
+			if (!imgBox) return;
+
+			if (!mobileQuery.matches || !isOpen) {
+				imgBox.style.maxHeight = "";
+				return;
+			}
+
+			const updateHeight = () => {
+				if (
+					!mobileQuery.matches ||
+					!card.classList.contains("solutionActiveCard")
+				) {
 					return;
 				}
 
-				const updateHeight = () => {
-					if (
-						!mobileQuery.matches ||
-						!card.classList.contains("solutionActiveCard")
-					) {
-						return;
-					}
+				imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+			};
 
-					imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
-				};
+			const img = imgBox.querySelector("img");
 
-				const img = imgBox.querySelector("img");
-
-				if (img && !img.complete) {
-					img.addEventListener("load", updateHeight, { once: true });
-					img.addEventListener("error", updateHeight, { once: true });
-					return;
-				}
-
+			if (img && !img.complete) {
+				img.addEventListener("load", updateHeight, { once: true });
+				img.addEventListener("error", updateHeight, { once: true });
+			} else {
 				requestAnimationFrame(updateHeight);
 			}
+		}
 
-			function openCard(card) {
-				cards.forEach((item) => {
-					const isCurrent = item === card;
-
-					item.classList.toggle("solutionActiveCard", isCurrent);
-
-					setImageHeight(item, isCurrent);
-				});
-			}
-
-			function closeAllCards() {
-				cards.forEach((card) => {
-					card.classList.remove("solutionActiveCard");
-					setImageHeight(card, false);
-				});
-			}
-
-			function initializeAccordion() {
-				if (mobileQuery.matches) {
-					const activeCard = cards.find((card) =>
-						card.classList.contains("solutionActiveCard"),
-					);
-
-					// Preserve the current selection; default to first card.
-					openCard(activeCard || cards[0]);
-				} else {
-					closeAllCards();
-				}
-			}
-
-			// Initial state
-			initializeAccordion();
+		function openCard(activeCard) {
+			if (!mobileQuery.matches) return;
 
 			cards.forEach((card) => {
-				card.addEventListener("click", (event) => {
-					if (!mobileQuery.matches) return;
+				const isActive = card === activeCard;
 
-					if (event.target.closest("a, button")) return;
-
-					const isActive =
-						card.classList.contains("solutionActiveCard");
-
-					if (isActive) {
-						closeAllCards();
-					} else {
-						openCard(card);
-					}
-				});
+				card.classList.toggle("solutionActiveCard", isActive);
+				setImageHeight(card, isActive);
 			});
+		}
 
-			// Only update when crossing the mobile/desktop breakpoint.
-			// Do not reset the accordion on every resize event.
-			if (mobileQuery.addEventListener) {
-				mobileQuery.addEventListener("change", initializeAccordion);
-			} else {
-				mobileQuery.addListener(initializeAccordion);
-			}
+		function closeAllCards() {
+			cards.forEach((card) => {
+				card.classList.remove("solutionActiveCard");
+				setImageHeight(card, false);
+			});
+		}
 
-			// Recalculate the open image height when its size changes.
-			window.addEventListener("resize", () => {
-				if (!mobileQuery.matches) return;
-
+		function initializeAccordion() {
+			if (mobileQuery.matches) {
+				// First card ko sirf tab open karo jab initial setup ho.
 				const activeCard = cards.find((card) =>
 					card.classList.contains("solutionActiveCard"),
 				);
 
 				if (activeCard) {
-					setImageHeight(activeCard, true);
+					openCard(activeCard);
+				} else if (!container.dataset.accordionInitialized) {
+					openCard(cards[0]);
+				}
+
+				container.dataset.accordionInitialized = "true";
+			} else {
+				closeAllCards();
+
+				cards.forEach((card) => {
+					const imgBox = card.querySelector(".imgBox");
+
+					if (imgBox) {
+						imgBox.style.maxHeight = "";
+					}
+				});
+
+				container.dataset.accordionInitialized = "";
+			}
+		}
+
+		initializeAccordion();
+
+		cards.forEach((card) => {
+			card.addEventListener("click", (event) => {
+				if (!mobileQuery.matches) return;
+
+				// Links aur buttons ko ignore karo
+				if (event.target.closest("a, button")) return;
+
+				// Sirf clicked card ki state change hogi
+				if (card.classList.contains("solutionActiveCard")) {
+					closeAllCards();
+				} else {
+					openCard(card);
 				}
 			});
 		});
+
+		// Outside click par accordion state change nahi hogi
+		document.addEventListener("click", (event) => {
+			if (!mobileQuery.matches) return;
+
+			const clickedInside = event.target.closest(
+				".secWrapper .cardContainer .solutionCard",
+			);
+
+			if (!clickedInside) {
+				// Intentionally do nothing
+				return;
+			}
+		});
+
+		if (mobileQuery.addEventListener) {
+			mobileQuery.addEventListener("change", initializeAccordion);
+		} else {
+			mobileQuery.addEventListener(initializeAccordion);
+		}
+
+		window.addEventListener("resize", () => {
+			if (!mobileQuery.matches) return;
+
+			const activeCard = cards.find((card) =>
+				card.classList.contains("solutionActiveCard"),
+			);
+
+			if (activeCard) {
+				setImageHeight(activeCard, true);
+			}
+		});
+	});
 });
 
 // Platform page — Diagnosis section intro:
@@ -1341,14 +1481,14 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 if ($(".ourAiSection").length) {
-	if (window.innerWidth <= 820) {
+	if (window.innerWidth <= 1080) {
 		$(".aiImgSlider").slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
 			fade: true,
 			infinite: false,
-			asNavFor: ".aiTextSlider",
+			asNavFor: ".texBoxtSlider",
 		});
 		$(".aiTextSlider").slick({
 			slidesToShow: 1,
@@ -1364,4 +1504,29 @@ if ($(".ourAiSection").length) {
 			focusOnSelect: false,
 		});
 	}
+}
+
+if ($(".agentSection").length) {
+	$(".imgBoxes").slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: false,
+		speed: 500,
+		infinite: false,
+		asNavFor: ".texBoxtSlider",
+	});
+	$(".texBoxtSlider").slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: true,
+		prevArrow: $(".studioPrevArrow"),
+		nextArrow: $(".studioNextArrow"),
+		asNavFor: ".imgBoxes",
+		dots: false,
+		fade: true,
+		infinite: false,
+		centerMode: false,
+		focusOnSelect: false,
+	});
 }

@@ -1,0 +1,178 @@
+@use '../base/_global.scss' as *;
+
+.atlasBannerSec{position: relative;
+    .wrapper{
+        .bannerContent{
+            .secHeading{margin-bottom: 42px;
+                h2{@include font20; color: #00ACB4; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;}
+                h1{@include font72; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(284deg, rgba(1, 211, 199, 0.98) 7.73%, rgba(255, 255, 255, 0.98) 62.75%);background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                p{@include font20; line-height: 170%; color: #fff;}
+            }
+            .atlasAnim{
+                img{margin: 0 auto;}
+            }
+        }
+    }
+    .bannerBG{justify-content: center; pointer-events: none;}
+}
+
+.fourArtifactsSec{position: relative; @include sectionSpacing;
+    .secWrapper{padding-top: 200px; z-index: 2; position: relative; padding-bottom: 100px;}
+    .fourArtifactsBG{position: absolute; top: 0; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; transform: rotate(180deg); z-index: 1; justify-self: center;}
+    &::after{content:""; position: absolute; background: url(../images/four-artifacts-sec-bg-icon.webp) no-repeat; background-size: contain; bottom: -200px; left: 0; width: 100%; height: 420px;  z-index: 1; pointer-events: none; }
+
+    @media all and (max-width: 1800px){
+        .secWrapper{padding-top: 160px;}
+        &::after{height: 300px; bottom: -100px}
+    }
+    
+    @media all and (max-width: 1600px){
+        .secWrapper{padding-top: 140px;}
+        &::after{height: 270px; bottom: -100px}
+    }
+
+    @media all and (max-width: 1440px){
+        .secWrapper{padding-top: 120px;}
+        &::after{height: 250px; bottom: -110px}
+    }
+
+    @media all and (max-width: 1080px){
+        .secWrapper{padding-top: 100px; }
+        &::after{height: 250px; bottom: -110px}
+    }
+
+    @media all and (max-width: 820px){
+        .secWrapper{padding-top: 80px; }
+        &::after{height: 200px; bottom: -80px}
+    }
+    @media all and (max-width: 720px){
+        .secWrapper{padding-top: 60px; padding-bottom: 80px}
+        &::after{height: 180px; bottom: -60px}
+    }
+}
+
+.agentSection{@include sectionSpacing; position: relative; z-index: 2; 
+    .wrapper{@include wrapper;
+        .mainContainer{display: flex; align-items: center; gap: 225px; 
+            .imgBoxes{width: 50%;
+                .imgBox{
+                    img{width: 100%; height: 100%; object-fit: cover;}
+                }
+            }
+            .textBoxes{width:calc(50% - 225px);
+                h3{@include font20; color: #00ACB4; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; }
+                .texBoxtSlider{margin: 20px 0 70px;
+                    .box{
+                        h2{@include font32; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px; }
+                        p{color: rgba(255, 255, 255, 0.80); line-height: 180%; @include font18;}
+                    }
+                }
+                .arrowBox{align-items: center;justify-content: flex-start;display: flex; gap: 15px;
+                .studioPrevArrow, .studioNextArrow{background: transparent; border: 1px solid #CC2033; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
+                    svg{width: 14px; height: 14px;}
+                    &.slick-disabled{background: transparent; cursor: default; pointer-events: none;
+                        svg{opacity: 0.5;
+                            path{opacity: 1;}
+                        }
+                        &:hover{background: #525454;}
+                    }
+                    &:hover{background: #00ACB4;}
+                }
+            }
+            }
+        }
+    }
+    .agentSecBg{position: absolute; bottom: -200px; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; z-index: 1; justify-self: center; pointer-events: none;}
+    @media all and (max-width: 1800px){
+        .wrapper{
+            .mainContainer{gap: 200px;
+                .textBoxes{width: calc(50% - 200px);}
+            }
+        }
+        .agentSecBg{bottom: -180px;}
+    }
+    @media all and (max-width: 1600px){
+        .wrapper{
+            .mainContainer{gap: 180px;
+                .textBoxes{width: calc(50% - 180px);}
+            }
+        }
+        .agentSecBg{bottom: -160px;}
+    }
+    @media all and (max-width: 1440px){
+        .wrapper{
+            .mainContainer{gap: 160px;
+                .textBoxes{width: calc(50% - 160px);}
+            }
+        }
+        .agentSecBg{bottom: -140px;}
+    }
+    @media all and (max-width: 1280px){
+        .wrapper{
+            .mainContainer{gap: 100px;
+                .textBoxes{width: calc(50% - 100px);
+                    .texBoxtSlider {margin: 20px 0 60px; }
+                }
+            }
+        }
+        .agentSecBg{bottom: -120px;}
+    }
+    @media all and (max-width: 1080px){
+        .wrapper{
+            .mainContainer{gap: 70px;
+                .textBoxes{width: calc(50% - 70px);
+                    .texBoxtSlider {margin: 16px 0 50px; }
+                }
+            }
+        }
+        
+    }
+    @media all and (max-width: 820px){
+        .wrapper{
+            .mainContainer{gap: 50px;
+                .textBoxes{width: calc(50% - 50px);
+                    .texBoxtSlider {margin: 16px 0 50px; 
+                        .arrowBox{
+                            .studioPrevArrow, .studioNextArrow{width: 32px; height: 32px;
+                                svg{width: 12px; height: 12px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .agentSecBg{bottom: -100px;}
+    }
+    @media all and (max-width: 720px){
+        .wrapper{
+            .mainContainer{gap: 20px; flex-flow: column;
+                .imgBoxes{width: 100%;}
+                .textBoxes{width: 100%; text-align: center;
+                    .texBoxtSlider {margin: 12px 0 35px; 
+                        .box{
+                            h2{margin-bottom: 16px;}
+                        }
+                    }
+                    .arrowBox{gap: 12px; justify-content: center;
+                        .studioPrevArrow, .studioNextArrow{width: 32px; height: 32px;
+                            svg{width: 12px; height: 12px;}
+                        }
+                    }
+                }
+            }
+        }
+        .agentSecBg{bottom: -80px; }
+    }
+}
+
+.impactStoriesSec{padding-top: 250px;
+    &::after{display: none;}
+}
+
+.oneInstrumentSec{
+    .secWrapper{
+        .secHeading{ text-align: center; justify-content: center; padding-bottom: 0;
+            h3{@include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; color: #00ACB4; margin-bottom: 24px;}
+        }
+    }    
+}
