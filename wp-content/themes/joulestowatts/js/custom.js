@@ -832,6 +832,48 @@ $(document).ready(function () {
 	});
 });
 
+//  platform page — Banner heading and image fade in from below, staggered.
+( function () {
+	'use strict';
+
+	function initPlatformBanner() {
+		var section = document.querySelector( '.bannerInnerSection' );
+		if ( ! section || typeof gsap === 'undefined' ) { return; }
+		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+
+		var heading = section.querySelector( '.bannerContent .bannerHeading' );
+		var image   = section.querySelector( '.bannerContent > img' );
+
+		var items = [ heading, image ].filter( Boolean );
+		if ( ! items.length ) { return; }
+
+		var DISTANCE = 80;
+		var DURATION = 1.8;
+		var EASE = 'power2.out';
+		var START_DELAY = 0.3;   // before the heading starts
+		var IMAGE_DELAY = 1.2;   // extra wait after the heading starts, before the image
+
+		if ( heading ) {
+			gsap.fromTo( heading,
+				{ y: DISTANCE, autoAlpha: 0 },
+				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY }
+			);
+		}
+		if ( image ) {
+			gsap.fromTo( image,
+				{ y: DISTANCE, autoAlpha: 0 },
+				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY + IMAGE_DELAY }
+			);
+		}
+	}
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initPlatformBanner );
+	} else {
+		initPlatformBanner();
+	}
+} )();
+
 //Solution Section JS
 // document.addEventListener("DOMContentLoaded", () => {
 // 	document

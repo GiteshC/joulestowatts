@@ -11,18 +11,35 @@
             img{margin: 0 auto; display: block;}
         }
     }
-    .bannerBG{position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: flex-end;}
+    .bannerBG{position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: flex-end;
+        svg{width: 100%; height: auto;}
+    }
     @media screen and (max-width:1800px) {padding-top: 140px;
         .wrapper{
-            .bannerContent{width: 60%;}
+            .bannerContent{width: 60%;
+                .bannerHeading{
+                    h1{margin-bottom: 28px;}
+                    p{width: 75%;}
+                }
+            }
         }
     }
-    @media screen and (max-width:1440px) {padding-top: 120px;
+    @media screen and (max-width:1280px) {padding-top: 120px;}
+    @media screen and (max-width:820px) {
+        .wrapper{align-items: center;
+            .bannerContent{width: 80%;}
+        }
+    }
+    @media screen and (max-width:720px) {
         .wrapper{
-            .bannerContent{width: 50%;}
+            .bannerContent{width: 100%; display: flex; flex-flow: column; align-items: center; justify-content: center; height: 100%;
+                .bannerHeading{
+                    h1{margin-bottom: 28px;}
+                    p{width: 90%;}
+                }
+            }
         }
     }
-    @media screen and (max-width:1280px) {padding-top: 100px;}
 }
 
 .diagnosisSection{padding-top: 110px; @include sectionSpacing; position: relative;
@@ -43,6 +60,56 @@
             .middleBox{width: 48%; text-align: center;
                 img{display: block; margin: 0 auto;}
                 p{color: #C0C6C6; @include font20; font-weight: 500; line-height: 170%; letter-spacing: 2px; text-transform: uppercase; margin-top: 48px;}
+            }
+        }
+    }
+    @media screen and (max-width:1800px) {padding-top: 80px;
+        .wrapper{
+            .secHeading{margin: 0 auto 80px;}
+            .diagnosisContent{
+                .leftBox, .rightBox{width: 22%;
+                    h3{margin-bottom: 15px;}
+                }
+                .middleBox{width: 48%;
+                    p{margin-top: 40px;}
+                }
+            }
+        }
+    }
+    @media screen and (max-width:1440px) {padding-top: 60px;
+        .wrapper{
+            .secHeading{margin: 0 auto 60px;}
+            .diagnosisContent{
+                .leftBox, .rightBox{width: 22%;
+                }
+                .middleBox{width: 48%;
+                    p{margin-top: 30px;}
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 820px) {
+        .wrapper{
+            .secHeading{margin: 0 auto 40px; width: 80%;}
+            .diagnosisContent{
+                .leftBox, .rightBox{width: 24%;
+                }
+                .middleBox{width: 46%;
+                    p{margin-top: 25px;}
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 720px) {
+        .wrapper{
+            .secHeading{width: 100%;}
+            .diagnosisContent{
+                .leftBox, .rightBox{width: 100%; text-align: center;}
+                .middleBox{width: 100%; order: 1;
+                    p{margin-top: 25px;}
+                }
+                .leftBox{order: 2; margin: 32px 0px;}
+                .rightBox{order: 3;}
             }
         }
     }
@@ -76,6 +143,80 @@
             }
         }
     }
+    @media screen and (max-width: 1800px) {
+        .wrapper{
+            .videofullContent{
+                .videofullBox{padding: 52px 0px;
+                    .videoHeading{
+                        h3{margin-bottom: 16px;}
+                        p{margin: 20px 0px;}
+                    }
+                    .videoBox{
+                        video{height: 280px;}
+                        .playBtn{width: 62px; height: 62px;}
+                        .closeBtn{width: 44px; height: 44px;}
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1800px) {
+        .wrapper{
+            .videofullContent{
+                .videofullBox{padding: 46px 0px;
+                    .videoHeading{
+                        h3{margin-bottom: 14px;}
+                        p{margin: 18px 0px;}
+                    }
+                    .videoBox{
+                        video{height: 260px;}
+                        .playBtn{width: 52px; height: 52px;}
+                        .closeBtn{width: 40px; height: 40px;}
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1800px) {
+        .wrapper{
+            .videofullContent{
+                .videofullBox{padding: 40px 0px;
+                    .videoHeading{width: 60%;
+                        h3{margin-bottom: 12px;}
+                        p{margin: 16px 0px;}
+                    }
+                    .videoBox{width: 36%;
+                        video{height: 220px;}
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .wrapper{
+            .videofullContent{
+                .videofullBox{
+                    .videoHeading{width: 50%;}
+                    .videoBox{width: 44%;}
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 720px) {
+        .wrapper{
+            .videofullContent{
+                .videofullBox{padding: 24px 0px;
+                    &:nth-child(even){flex-flow: wrap;}
+                    .videoHeading{width: 100%; order: 2;
+                        h3{margin-bottom: 8px;}
+                    }
+                    .videoBox{width: 100%; order: 1; border-radius: 0px; margin-bottom: 16px;
+                        video{height: 186px;}
+                    }
+                }
+            }
+        }
+    }
 }
 
 .diagnosiscenterSection{position: relative; @include sectionSpacing;
@@ -91,12 +232,74 @@
                 h4{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase;}
                 h2{@include font32; font-weight: 500; line-height: 120%; text-transform: capitalize;background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0px 24px;}
                 p{color: rgba(255, 255, 255, 0.80); @include font18; line-height: 180%; margin-bottom: 66px;}
+                h5{color: rgba(255, 255, 255, 0.70); @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-top: 20px;}
                 a{color: rgba(255, 255, 255, 0.70); font-family: $manrope; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase;margin-top: 66px; display: inline-block;
                     span{width: 40px; height: 40px; border-radius: 50px; border: 1px solid #CC2033; display: inline-flex; align-items: center; justify-content: center;}
                     svg{transition: transform 0.4s ease;}
                     &:hover{
                         span{
                             svg{transform: rotate(-45deg);}
+                        }
+                    }
+                }
+                svg.lineanim{width: 100%; height: auto;}
+            }
+        }
+    }
+    @media screen and (max-width: 1800px) {
+        .wrapper{padding-top: 220px;
+            .diagnosiscenterContent{padding: 40px 0px;
+                .diagnosiscenterImg{width: 44%;}
+                .secHeading{width: 44%;
+                    h2{margin: 18px 0px 22px;}
+                    p{margin-bottom: 56px;}
+                    a{margin-top: 56px;
+                        span{width: 36px; height: 36px;
+                            svg{width: 14px; height: 14px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1440px) {
+        .wrapper{padding-top: 180px;
+            .diagnosiscenterContent{
+                .secHeading{
+                    h2{margin: 16px 0px 20px;}
+                    p{margin-bottom: 48px;}
+                    a{margin-top: 48px;
+                        span{width: 32px; height: 32px;
+                            svg{width: 12px; height: 12px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .wrapper{padding-top: 120px;
+            .diagnosiscenterContent{
+                .secHeading{
+                    a{margin-top: 40px;
+                        span{width: 30px; height: 30px;
+                            svg{width: 10px; height: 10px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 720px) {
+        .wrapper{padding-top: 100px;
+            .diagnosiscenterContent{
+                .diagnosiscenterImg{width: 100%; margin-bottom: 40px;}
+                .secHeading{width: 100%;
+                    h4{margin-bottom: 12px;}
+                    h2{margin: 16px 0px 20px;}
+                    a{margin-top: 40px;
+                        span{width: 32px; height: 32px;
+                            svg{width: 12px; height: 12px;}
                         }
                     }
                 }
@@ -125,6 +328,66 @@
                 &:hover{
                     span{
                         svg{transform: rotate(-45deg);}
+                    }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1800px){
+        .wrapper{
+            .pointitContent{
+                .secHeading{
+                    h2{margin-bottom: 44px;}
+                }
+            }
+            .pointitLinks{padding-bottom: 42px;
+                a{padding-bottom: 10px;}
+            }
+        }
+    }
+    @media all and (max-width: 1800px){
+        .wrapper{
+            .pointitContent{
+                .secHeading{
+                    h2{margin-bottom: 38px;}
+                }
+            }
+            .pointitLinks{padding-bottom: 36px;}
+        }
+    }
+    @media all and (max-width: 820px){
+        .wrapper{
+            .pointitContent{
+                .secHeading{
+                    h2{margin-bottom: 32px;}
+                }
+            }
+            .pointitLinks{padding-bottom: 20px; padding-top: 24px;}
+        }
+    }
+    @media all and (max-width: 768px){
+        .wrapper{
+            .pointitContent{
+                .secHeading{width: 100%; margin-bottom: 36px;
+                    h2{margin-bottom: 32px;}
+                }
+                .pointitAnim{width: 100%;}
+            }
+            .pointitLinks{padding-bottom: 20px; padding-top: 24px;}
+        }
+    }
+    @media all and (max-width: 720px){
+        .wrapper{
+            .pointitContent{
+                .secHeading{width: 100%; margin-bottom: 36px;
+                    h2{margin-bottom: 32px;}
+                }
+                .pointitAnim{width: 100%;}
+            }
+            .pointitLinks{padding-bottom: 20px; padding-top: 24px; gap: 18px;
+                a{width: 100%; padding-bottom: 12px; display: flex; justify-content: space-between; flex-flow: wrap;
+                    span{
+                        svg{width: 10px; height: 10px;}
                     }
                 }
             }
@@ -268,7 +531,7 @@
         .imgBox{
             .mblBg{display: none;}
         }
-        .secHeading{@include wrapper; padding-bottom: 100px; position: absolute; width: 70%; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex;flex-flow: column; justify-content: flex-end; align-items: center;
+        .secHeading{@include wrapper; padding-bottom: 100px; position: absolute; width: 70%; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex;flex-flow: column; justify-content: center; align-items: center;
             h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; text-align: center; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text;-webkit-text-fill-color: transparent;}
             p{margin: 32px 0 45px; color: #dadada; text-align: center; @include font20; line-height: 170%;}
         }
@@ -669,4 +932,3 @@
         &::after{width: 100%; bottom: -360px;}
     }
 }
-
