@@ -112,17 +112,17 @@
         <div class="whatgetContent">
             <div class="whatgetBox">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget1.webp" loading="lazy" alt="Greenfield Consulting" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget1.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
                 <h3 class="manrope">City and cost modelling against peer GCCs</h3>
             </div>
             <div class="whatgetBox">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget2.webp" loading="lazy" alt="Greenfield Consulting" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget2.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
                 <h3 class="manrope">A board-ready business case in one sitting</h3>
             </div>
             <div class="whatgetBox">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget3.webp" loading="lazy" alt="Greenfield Consulting" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget3.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
                 <h3 class="manrope">Set up, staffing and governance through to steady state</h3>
             </div>
         </div>
