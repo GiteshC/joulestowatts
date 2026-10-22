@@ -126,28 +126,28 @@
 </section>
 
 <section class="whatgetSection">
-    <?php if( have_rows('what_you_get_section') ): ?>
-        <?php while( have_rows('what_you_get_section') ): the_row(); ?>
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
-                </div>
-                <div class="whatgetContent">
-                    <?php if( have_rows('what_you_get_content') ): ?>
-                        <?php while( have_rows('what_you_get_content') ): the_row(); ?>
-                            <div class="whatgetBox">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
-                                <?php $whatgetimg = get_sub_field('card_image'); if( !empty( $whatgetimg ) ): ?>
-                                    <img src="<?php echo esc_url($whatgetimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whatgetimg['alt']); ?>" />
-                                <?php endif; ?>
-                                <h3 class="manrope"><?php echo get_sub_field('card_heading'); ?></h3>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                </div>
+    <div class="wrapper">
+        <div class="secHeading">
+            <h2 class="manrope">What you get.</h2>
+        </div>
+        <div class="whatgetContent">
+            <div class="whatgetBox">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget1.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
+                <h3 class="manrope">City and cost modelling against peer GCCs</h3>
             </div>
-        <?php endwhile; ?>
-    <?php endif; ?>
+            <div class="whatgetBox">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget2.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
+                <h3 class="manrope">A board-ready business case in one sitting</h3>
+            </div>
+            <div class="whatgetBox">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/whatgetbg.webp" class="whatgetbg">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/greenfield-whatget3.webp" loading="lazy" alt="Greenfield Consulting"  class="iconImg"/>
+                <h3 class="manrope">Set up, staffing and governance through to steady state</h3>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="howrunSection">

@@ -833,46 +833,66 @@ $(document).ready(function () {
 });
 
 //  platform page — Banner heading and image fade in from below, staggered.
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	function initPlatformBanner() {
-		var section = document.querySelector( '.bannerInnerSection' );
-		if ( ! section || typeof gsap === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+		var section = document.querySelector(".bannerInnerSection");
+		if (!section || typeof gsap === "undefined") {
+			return;
+		}
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
 
-		var heading = section.querySelector( '.bannerContent .bannerHeading' );
-		var image   = section.querySelector( '.bannerContent > img' );
+		var heading = section.querySelector(".bannerContent .bannerHeading");
+		var image = section.querySelector(".bannerContent > img");
 
-		var items = [ heading, image ].filter( Boolean );
-		if ( ! items.length ) { return; }
+		var items = [heading, image].filter(Boolean);
+		if (!items.length) {
+			return;
+		}
 
 		var DISTANCE = 80;
 		var DURATION = 1.8;
-		var EASE = 'power2.out';
-		var START_DELAY = 0.3;   // before the heading starts
-		var IMAGE_DELAY = 1.2;   // extra wait after the heading starts, before the image
+		var EASE = "power2.out";
+		var START_DELAY = 0.3; // before the heading starts
+		var IMAGE_DELAY = 1.2; // extra wait after the heading starts, before the image
 
-		if ( heading ) {
-			gsap.fromTo( heading,
+		if (heading) {
+			gsap.fromTo(
+				heading,
 				{ y: DISTANCE, autoAlpha: 0 },
-				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY }
+				{
+					y: 0,
+					autoAlpha: 1,
+					duration: DURATION,
+					ease: EASE,
+					delay: START_DELAY,
+				},
 			);
 		}
-		if ( image ) {
-			gsap.fromTo( image,
+		if (image) {
+			gsap.fromTo(
+				image,
 				{ y: DISTANCE, autoAlpha: 0 },
-				{ y: 0, autoAlpha: 1, duration: DURATION, ease: EASE, delay: START_DELAY + IMAGE_DELAY }
+				{
+					y: 0,
+					autoAlpha: 1,
+					duration: DURATION,
+					ease: EASE,
+					delay: START_DELAY + IMAGE_DELAY,
+				},
 			);
 		}
 	}
 
-	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', initPlatformBanner );
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initPlatformBanner);
 	} else {
 		initPlatformBanner();
 	}
-} )();
+})();
 
 //Solution Section JS
 // document.addEventListener("DOMContentLoaded", () => {
@@ -1573,160 +1593,407 @@ if ($(".agentSection").length) {
 		focusOnSelect: false,
 	});
 }
+
 // What Get Section
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	function initWhatGetSequence() {
-		var section = document.querySelector( '.whatgetSection' );
-		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+		var section = document.querySelector(".whatgetSection");
+		if (
+			!section ||
+			typeof gsap === "undefined" ||
+			typeof ScrollTrigger === "undefined"
+		) {
+			return;
+		}
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
 
-		gsap.registerPlugin( ScrollTrigger );
+		gsap.registerPlugin(ScrollTrigger);
 
-		var INCLUDE_BG = true;  // .whatgetbg changes together with the image
-		var FADE = 1.2;         // how slowly the next image appears (higher = slower)
-		var HOLD = 1;           // how long each image stays fully visible
-		var OUT  = 0.10;        // quick drop-out of the old image, after the new one is fully in
+		var INCLUDE_BG = true; // .whatgetbg changes together with the image
+		var FADE = 1.2; // how slowly the next image appears (higher = slower)
+		var HOLD = 1; // how long each image stays fully visible
+		var OUT = 0.1; // quick drop-out of the old image, after the new one is fully in
 
 		var mm = gsap.matchMedia();
 
 		// Runs only when the viewport is 720px or wider.
-		mm.add( '(min-width: 720px)', function () {
-			var boxes = section.querySelectorAll( '.whatgetBox' );
-			if ( boxes.length < 2 ) { return; }
+		mm.add("(min-width: 720px)", function () {
+			var boxes = section.querySelectorAll(".whatgetBox");
+			if (boxes.length < 2) {
+				return;
+			}
 
 			var groups = [];
-			boxes.forEach( function ( box ) {
-				var g = [ box.querySelector( 'img:not(.whatgetbg)' ) ];
-				if ( INCLUDE_BG ) { g.push( box.querySelector( '.whatgetbg' ) ); }
-				g = g.filter( Boolean );
-				if ( g.length ) { groups.push( g ); }
-			} );
+			boxes.forEach(function (box) {
+				var g = [box.querySelector("img:not(.whatgetbg)")];
+				if (INCLUDE_BG) {
+					g.push(box.querySelector(".whatgetbg"));
+				}
+				g = g.filter(Boolean);
+				if (g.length) {
+					groups.push(g);
+				}
+			});
 			var n = groups.length;
-			if ( n < 2 ) { return; }
+			if (n < 2) {
+				return;
+			}
 
-			var all = [].concat.apply( [], groups );
-			gsap.set( all, { opacity: 0 } );
+			var all = [].concat.apply([], groups);
+			gsap.set(all, { opacity: 0 });
 
 			var STEP = HOLD + FADE;
 
 			// Handover k: the next image fades in while the current one stays at full opacity,
 			// then the current one drops out quickly. Nothing is ever dimmed in between.
-			var tl = gsap.timeline( { repeat: -1, paused: true } );
-			for ( var k = 1; k <= n; k++ ) {
-				var from = groups[ k - 1 ];
-				var to   = groups[ k % n ];
-				var at   = k * STEP - FADE;
-				tl.to( to,   { opacity: 1, duration: FADE, ease: 'sine.inOut' }, at );
-				tl.to( from, { opacity: 0, duration: OUT,  ease: 'none' },       at + FADE );
+			var tl = gsap.timeline({ repeat: -1, paused: true });
+			for (var k = 1; k <= n; k++) {
+				var from = groups[k - 1];
+				var to = groups[k % n];
+				var at = k * STEP - FADE;
+				tl.to(
+					to,
+					{ opacity: 1, duration: FADE, ease: "sine.inOut" },
+					at,
+				);
+				tl.to(
+					from,
+					{ opacity: 0, duration: OUT, ease: "none" },
+					at + FADE,
+				);
 			}
 
 			var started = false;
-			ScrollTrigger.create( {
+			ScrollTrigger.create({
 				trigger: section,
-				start: 'top 80%',
-				end: 'bottom top',
-				onToggle: function ( self ) {
-					if ( ! self.isActive ) { tl.pause(); return; }
-					if ( ! started ) {
+				start: "top 80%",
+				end: "bottom top",
+				onToggle: function (self) {
+					if (!self.isActive) {
+						tl.pause();
+						return;
+					}
+					if (!started) {
 						started = true;
 						// First image fades in slowly, then the loop takes over.
-						gsap.to( groups[ 0 ], {
-							opacity: 1, duration: FADE, ease: 'sine.inOut',
-							onComplete: function () { tl.play( 0 ); },
-						} );
+						gsap.to(groups[0], {
+							opacity: 1,
+							duration: FADE,
+							ease: "sine.inOut",
+							onComplete: function () {
+								tl.play(0);
+							},
+						});
 					} else {
 						tl.play();
 					}
 				},
-			} );
-		} );
+			});
+		});
 	}
 
-	if ( document.readyState === 'complete' ) {
+	if (document.readyState === "complete") {
 		initWhatGetSequence();
 	} else {
-		window.addEventListener( 'load', initWhatGetSequence );
+		window.addEventListener("load", initWhatGetSequence);
 	}
-} )();
+})();
 
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const containers = document.querySelectorAll(".wrapper .whatgetContent");
+
+// 	const mobileQuery = window.matchMedia("(max-width: 720px)");
+
+// 	containers.forEach((container) => {
+// 		const cards = [...container.querySelectorAll(".whatgetBox")];
+
+// 		if (!cards.length) return;
+
+// 		function setImageHeight(card, isOpen) {
+// 			const imgBox = card.querySelector(".imgBox");
+
+// 			if (!imgBox) return;
+
+// 			if (!mobileQuery.matches || !isOpen) {
+// 				imgBox.style.maxHeight = "";
+// 				return;
+// 			}
+
+// 			const updateHeight = () => {
+// 				if (
+// 					!mobileQuery.matches ||
+// 					!card.classList.contains("solutionActiveCard")
+// 				) {
+// 					return;
+// 				}
+
+// 				imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+// 			};
+
+// 			const img = imgBox.querySelector("img");
+
+// 			if (img && !img.complete) {
+// 				img.addEventListener("load", updateHeight, { once: true });
+// 				img.addEventListener("error", updateHeight, { once: true });
+// 			} else {
+// 				requestAnimationFrame(updateHeight);
+// 			}
+// 		}
+
+// 		function openCard(activeCard) {
+// 			if (!mobileQuery.matches) return;
+
+// 			cards.forEach((card) => {
+// 				const isActive = card === activeCard;
+
+// 				card.classList.toggle("solutionActiveCard", isActive);
+// 				setImageHeight(card, isActive);
+// 			});
+// 		}
+
+// 		function closeAllCards() {
+// 			cards.forEach((card) => {
+// 				card.classList.remove("solutionActiveCard");
+// 				setImageHeight(card, false);
+// 			});
+// 		}
+
+// 		function initializeAccordion() {
+// 			if (mobileQuery.matches) {
+// 				// First card ko sirf tab open karo jab initial setup ho.
+// 				const activeCard = cards.find((card) =>
+// 					card.classList.contains("solutionActiveCard"),
+// 				);
+
+// 				if (activeCard) {
+// 					openCard(activeCard);
+// 				} else if (!container.dataset.accordionInitialized) {
+// 					openCard(cards[0]);
+// 				}
+
+// 				container.dataset.accordionInitialized = "true";
+// 			} else {
+// 				closeAllCards();
+
+// 				cards.forEach((card) => {
+// 					const imgBox = card.querySelector(".imgBox");
+
+// 					if (imgBox) {
+// 						imgBox.style.maxHeight = "";
+// 					}
+// 				});
+
+// 				container.dataset.accordionInitialized = "";
+// 			}
+// 		}
+
+// 		initializeAccordion();
+
+// 		cards.forEach((card) => {
+// 			card.addEventListener("click", (event) => {
+// 				if (!mobileQuery.matches) return;
+
+// 				// Links aur buttons ko ignore karo
+// 				if (event.target.closest("a, button")) return;
+
+// 				// Sirf clicked card ki state change hogi
+// 				if (card.classList.contains("solutionActiveCard")) {
+// 					closeAllCards();
+// 				} else {
+// 					openCard(card);
+// 				}
+// 			});
+// 		});
+
+// 		// Outside click par accordion state change nahi hogi
+// 		document.addEventListener("click", (event) => {
+// 			if (!mobileQuery.matches) return;
+
+// 			const clickedInside = event.target.closest(
+// 				".secWrapper .cardContainer .solutionCard",
+// 			);
+
+// 			if (!clickedInside) {
+// 				// Intentionally do nothing
+// 				return;
+// 			}
+// 		});
+
+// 		if (mobileQuery.addEventListener) {
+// 			mobileQuery.addEventListener("change", initializeAccordion);
+// 		} else {
+// 			mobileQuery.addEventListener(initializeAccordion);
+// 		}
+
+// 		window.addEventListener("resize", () => {
+// 			if (!mobileQuery.matches) return;
+
+// 			const activeCard = cards.find((card) =>
+// 				card.classList.contains("solutionActiveCard"),
+// 			);
+
+// 			if (activeCard) {
+// 				setImageHeight(activeCard, true);
+// 			}
+// 		});
+// 	});
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+	const containers = document.querySelectorAll(
+		".whatgetSection .whatgetContent",
+	);
+	const mobileQuery = window.matchMedia("(max-width: 720px)"); // apne SCSS ke media query se match rakhna
+
+	containers.forEach((container) => {
+		const cards = [...container.querySelectorAll(".whatgetBox")];
+		if (!cards.length) return;
+
+		function openCard(activeCard) {
+			cards.forEach((card) => {
+				card.classList.toggle("activeCard", card === activeCard);
+			});
+		}
+
+		function initializeAccordion() {
+			if (mobileQuery.matches) {
+				// Agar koi card pehle se active nahi hai to pehla open karo
+				const activeCard = cards.find((card) =>
+					card.classList.contains("activeCard"),
+				);
+				openCard(activeCard || cards[0]);
+			} else {
+				// Desktop par sab reset
+				cards.forEach((card) => card.classList.remove("activeCard"));
+			}
+		}
+
+		initializeAccordion();
+
+		cards.forEach((card) => {
+			card.addEventListener("click", (event) => {
+				if (!mobileQuery.matches) return;
+				if (event.target.closest("a, button")) return;
+
+				if (card.classList.contains("activeCard")) {
+					card.classList.remove("activeCard");
+				} else {
+					openCard(card);
+				}
+			});
+		});
+
+		if (mobileQuery.addEventListener) {
+			mobileQuery.addEventListener("change", initializeAccordion);
+		} else {
+			mobileQuery.addListener(initializeAccordion); // old Safari
+		}
+	});
+});
 
 // How Run Animation
-( function () {
-	'use strict';
+(function () {
+	"use strict";
 
 	function initHowRun() {
-		var section = document.querySelector( '.howrunSection' );
-		if ( ! section || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' ) { return; }
-		if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) { return; }
+		var section = document.querySelector(".howrunSection");
+		if (
+			!section ||
+			typeof gsap === "undefined" ||
+			typeof ScrollTrigger === "undefined"
+		) {
+			return;
+		}
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
 
-		gsap.registerPlugin( ScrollTrigger );
+		gsap.registerPlugin(ScrollTrigger);
 
-		var img  = section.querySelector( '.howrunImg img' );
-		var svg  = section.querySelector( '.secHeading .lineanim' );
-		var line = svg ? svg.querySelector( ':scope > g' ) : null;
-		var heading = section.querySelector( '.howrunContent .secHeading' );
+		var img = section.querySelector(".howrunImg img");
+		var svg = section.querySelector(".secHeading .lineanim");
+		var line = svg ? svg.querySelector(":scope > g") : null;
+		var heading = section.querySelector(".howrunContent .secHeading");
 
-		var IMG_DISTANCE = 250;  // px it rises from the bottom
-		var IMG_TIME     = 2;    // image speed (higher = slower)
-		var LINE_TIME    = 2;    // line draw speed
-		var LINE_DELAY   = 0.4;  // line starts this long after the image starts
+		var IMG_DISTANCE = 250; // px it rises from the bottom
+		var IMG_TIME = 2; // image speed (higher = slower)
+		var LINE_TIME = 2; // line draw speed
+		var LINE_DELAY = 0.4; // line starts this long after the image starts
 
 		/* Line draw: a mask that grows left to right (the line is dashed, so
 		   stroke-dashoffset can't be used). */
 		var rect = null;
-		if ( svg && line ) {
-			var NS = 'http://www.w3.org/2000/svg';
-			var defs = svg.querySelector( 'defs' ) || svg.insertBefore( document.createElementNS( NS, 'defs' ), svg.firstChild );
-			var mask = document.createElementNS( NS, 'mask' );
-			mask.setAttribute( 'id', 'howrunLineMask' );
-			mask.setAttribute( 'maskUnits', 'userSpaceOnUse' );
-			mask.setAttribute( 'x', '0' ); mask.setAttribute( 'y', '0' );
-			mask.setAttribute( 'width', '669' ); mask.setAttribute( 'height', '25' );
-			rect = document.createElementNS( NS, 'rect' );
-			rect.setAttribute( 'x', '0' ); rect.setAttribute( 'y', '0' );
-			rect.setAttribute( 'width', '0' ); rect.setAttribute( 'height', '25' );
-			rect.setAttribute( 'fill', '#fff' );
-			mask.appendChild( rect );
-			defs.appendChild( mask );
-			line.setAttribute( 'mask', 'url(#howrunLineMask)' );
+		if (svg && line) {
+			var NS = "http://www.w3.org/2000/svg";
+			var defs =
+				svg.querySelector("defs") ||
+				svg.insertBefore(
+					document.createElementNS(NS, "defs"),
+					svg.firstChild,
+				);
+			var mask = document.createElementNS(NS, "mask");
+			mask.setAttribute("id", "howrunLineMask");
+			mask.setAttribute("maskUnits", "userSpaceOnUse");
+			mask.setAttribute("x", "0");
+			mask.setAttribute("y", "0");
+			mask.setAttribute("width", "669");
+			mask.setAttribute("height", "25");
+			rect = document.createElementNS(NS, "rect");
+			rect.setAttribute("x", "0");
+			rect.setAttribute("y", "0");
+			rect.setAttribute("width", "0");
+			rect.setAttribute("height", "25");
+			rect.setAttribute("fill", "#fff");
+			mask.appendChild(rect);
+			defs.appendChild(mask);
+			line.setAttribute("mask", "url(#howrunLineMask)");
 		}
 
-		var tl = gsap.timeline( {
+		var tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: section,
-				start: 'top 70%',
-				toggleActions: 'restart none restart none',
+				start: "top 70%",
+				toggleActions: "restart none restart none",
 			},
-		} );
+		});
 
-		if ( img ) {
-			tl.fromTo( img,
+		if (img) {
+			tl.fromTo(
+				img,
 				{ y: IMG_DISTANCE, autoAlpha: 0 },
-				{ y: 0, autoAlpha: 1, duration: IMG_TIME, ease: 'power2.out' },
-				0
+				{ y: 0, autoAlpha: 1, duration: IMG_TIME, ease: "power2.out" },
+				0,
 			);
 		}
-		if ( heading ) {
-			tl.fromTo( heading,
+		if (heading) {
+			tl.fromTo(
+				heading,
 				{ x: IMG_DISTANCE, autoAlpha: 0 },
-				{ x: 0, autoAlpha: 1, duration: IMG_TIME, ease: 'power2.out' },
-				0
+				{ x: 0, autoAlpha: 1, duration: IMG_TIME, ease: "power2.out" },
+				0,
 			);
 		}
-		if ( rect ) {
-			tl.fromTo( rect,
+		if (rect) {
+			tl.fromTo(
+				rect,
 				{ attr: { width: 0 } },
-				{ attr: { width: 669 }, duration: LINE_TIME, ease: 'power2.inOut' },
-				LINE_DELAY
+				{
+					attr: { width: 669 },
+					duration: LINE_TIME,
+					ease: "power2.inOut",
+				},
+				LINE_DELAY,
 			);
 		}
 	}
 
-	if ( document.readyState === 'complete' ) {
+	if (document.readyState === "complete") {
 		initHowRun();
 	} else {
-		window.addEventListener( 'load', initHowRun );
+		window.addEventListener("load", initHowRun);
 	}
-} )();
+})();

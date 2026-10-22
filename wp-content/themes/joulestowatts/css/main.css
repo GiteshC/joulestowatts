@@ -719,14 +719,43 @@ header .menuBox .mainMenu nav ul {
   padding: 0;
   display: flex;
   flex-flow: column;
-  gap: 28px;
+  gap: 70px;
   text-align: right;
 }
 header .menuBox .mainMenu nav ul a {
   display: inline-block;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  header .menuBox .mainMenu nav ul a {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  header .menuBox .mainMenu nav ul a {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  header .menuBox .mainMenu nav ul a {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  header .menuBox .mainMenu nav ul a {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  header .menuBox .mainMenu nav ul a {
+    font-size: 24px;
+  }
+}
+header .menuBox .mainMenu nav ul a {
   line-height: 120%;
+  font-weight: 600;
+  text-transform: capitalize;
   transition: color 0.3s ease;
 }
 header .menuBox .mainMenu nav ul a:hover {
@@ -754,6 +783,9 @@ header.menu-open .menuBox .mainMenu {
   header .logoBox img {
     width: 280px;
   }
+  header .menuBox .mainMenu nav ul {
+    gap: 60px;
+  }
 }
 @media screen and (max-width: 1440px) {
   header {
@@ -761,6 +793,9 @@ header.menu-open .menuBox .mainMenu {
   }
   header .logoBox img {
     width: 260px;
+  }
+  header .menuBox .mainMenu nav ul {
+    gap: 50px;
   }
 }
 @media screen and (max-width: 1280px) {
@@ -770,6 +805,12 @@ header.menu-open .menuBox .mainMenu {
   header .logoBox img {
     width: 240px;
   }
+  header .menuBox .mainMenu {
+    padding: 120px 40px 40px;
+  }
+  header .menuBox .mainMenu nav ul {
+    gap: 40px;
+  }
 }
 @media screen and (max-width: 720px) {
   header {
@@ -777,6 +818,12 @@ header.menu-open .menuBox .mainMenu {
   }
   header .logoBox img {
     width: 200px;
+  }
+  header .menuBox .mainMenu {
+    padding: 100px 20px 40px;
+  }
+  header .menuBox .mainMenu nav ul {
+    gap: 30px;
   }
   header .primaryCTA {
     display: none;
@@ -4685,6 +4732,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   margin: 0 auto;
   display: block;
 }
+.bannerInnerSection .wrapper .casestudyCTA {
+  position: absolute;
+  bottom: 35px;
+  right: 100px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
 .bannerInnerSection .bannerBG {
   position: absolute;
   bottom: 0;
@@ -4693,6 +4748,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   height: 100%;
   display: flex;
   align-items: flex-end;
+  pointer-events: none;
 }
 .bannerInnerSection .bannerBG svg {
   width: 100%;
@@ -4712,9 +4768,22 @@ footer .footerWrapper .footerlogo .mailBox a {
     width: 75%;
   }
 }
+@media screen and (max-width: 1600px) {
+  .bannerInnerSection .wrapper .casestudyCTA {
+    right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .bannerInnerSection .wrapper .casestudyCTA {
+    right: 60px;
+  }
+}
 @media screen and (max-width: 1280px) {
   .bannerInnerSection {
     padding-top: 120px;
+  }
+  .bannerInnerSection .wrapper .casestudyCTA {
+    right: 40px;
   }
 }
 @media screen and (max-width: 820px) {
@@ -4739,6 +4808,9 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     width: 90%;
+  }
+  .bannerInnerSection .wrapper .casestudyCTA {
+    right: 15px;
   }
 }
 
@@ -7890,150 +7962,6 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 
-.atlasBannerSec {
-  position: relative;
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading {
-  margin-bottom: 42px;
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-  font-size: 20px;
-}
-@media screen and (max-width: 1600px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-    font-size: 12px;
-  }
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading h2 {
-  color: #00ACB4;
-  font-weight: 600;
-  line-height: 160%;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-  font-size: 72px;
-}
-@media screen and (max-width: 1800px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 58px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 52px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 46px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 36px;
-  }
-}
-@media screen and (max-width: 820px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-    font-size: 30px;
-  }
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading h1 {
-  font-weight: 500;
-  line-height: 120%;
-  text-transform: capitalize;
-  background: linear-gradient(284deg, rgba(1, 211, 199, 0.98) 7.73%, rgba(255, 255, 255, 0.98) 62.75%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading p {
-  font-size: 20px;
-}
-@media screen and (max-width: 1600px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading p {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading p {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .atlasBannerSec .wrapper .bannerContent .secHeading p {
-    font-size: 12px;
-  }
-}
-.atlasBannerSec .wrapper .bannerContent .secHeading p {
-  line-height: 170%;
-  color: #fff;
-}
-.atlasBannerSec .wrapper .casestudyCTA {
-  position: absolute;
-  bottom: 35px;
-  right: 100px;
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-}
-.atlasBannerSec .bannerBG {
-  justify-content: center;
-  pointer-events: none;
-}
-@media all and (max-width: 1600px) {
-  .atlasBannerSec .wrapper .casestudyCTA {
-    right: 80px;
-  }
-}
-@media all and (max-width: 1440px) {
-  .atlasBannerSec .wrapper .casestudyCTA {
-    right: 60px;
-  }
-}
-@media all and (max-width: 1280px) {
-  .atlasBannerSec .wrapper .casestudyCTA {
-    right: 40px;
-  }
-}
-@media all and (max-width: 720px) {
-  .atlasBannerSec .wrapper .casestudyCTA {
-    right: 15px;
-  }
-}
-
 .fourArtifactsSec {
   position: relative;
   margin-bottom: 200px;
@@ -8369,6 +8297,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .agentSection .wrapper .mainContainer .textBoxes .arrowBox .studioPrevArrow:hover, .agentSection .wrapper .mainContainer .textBoxes .arrowBox .studioNextArrow:hover {
   background: #00ACB4;
+  border: 1px solid #fff;
 }
 .agentSection .agentSecBg {
   position: absolute;
@@ -8775,18 +8704,15 @@ footer .footerWrapper .footerlogo .mailBox a {
     grid-template-columns: repeat(1, 1fr);
   }
   .whatgetSection .wrapper .whatgetContent .whatgetBox {
-    padding: 16px 20px;
+    padding: 24px 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.12);
   }
   .whatgetSection .wrapper .whatgetContent .whatgetBox h3 {
     font-size: 18px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 33px;
-    padding: 0 24px;
-    z-index: 2;
+    position: relative;
+    inset: 0;
+    padding: 0;
   }
   .whatgetSection .wrapper .whatgetContent .whatgetBox .whatgetbg {
     width: 100%;
@@ -8799,21 +8725,21 @@ footer .footerWrapper .footerlogo .mailBox a {
     position: relative;
     z-index: 1;
     display: block;
-    height: 270px;
+    max-height: 0;
     width: auto;
     max-width: 100%;
-    margin: 24px auto 0;
+    margin: 0;
     object-fit: contain;
     opacity: 0;
+    transition: max-height 0.5s ease-in-out;
   }
-  .whatgetSection .wrapper .whatgetContent .whatgetBox:first-child {
-    height: 360px;
-  }
-  .whatgetSection .wrapper .whatgetContent .whatgetBox:first-child .whatgetbg {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox.activeCard .whatgetbg {
     opacity: 1;
   }
-  .whatgetSection .wrapper .whatgetContent .whatgetBox:first-child img:not(.whatgetbg) {
+  .whatgetSection .wrapper .whatgetContent .whatgetBox.activeCard img:not(.whatgetbg) {
+    max-height: 360px;
     opacity: 1;
+    width: 100%;
   }
 }
 

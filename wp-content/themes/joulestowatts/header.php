@@ -50,11 +50,11 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Platform</a></li>
-					<li><a href="#">Results</a></li>
-					<li><a href="#">Our Story</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="#" class="manrope">Home</a></li>
+					<li><a href="#" class="manrope">Platform</a></li>
+					<li><a href="#" class="manrope">Results</a></li>
+					<li><a href="#" class="manrope">Our Story</a></li>
+					<li><a href="#" class="manrope">About us</a></li>
 				</ul>
 			</nav>
 		</div>

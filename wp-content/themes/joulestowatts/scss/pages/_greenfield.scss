@@ -53,13 +53,13 @@
         .wrapper{
             .secHeading{width: 100%; margin-bottom: 32px;}
             .whatgetContent{width: 100%; grid-template-columns: repeat(1, 1fr);
-                .whatgetBox{padding: 16px 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12);
-                    h3{font-size: 18px; position: absolute; left: 0; right: 0; bottom: 33px; padding: 0 24px; z-index: 2;}
+                .whatgetBox{padding: 24px 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12);
+                    h3{font-size: 18px; position: relative; inset: 0; padding: 0;}
                     .whatgetbg{width: 100%; height: 100%; object-fit: cover; object-position: bottom; opacity: 0.45;}
-                    img:not(.whatgetbg){position: relative; z-index: 1; display: block; height: 270px; width: auto; max-width: 100%; margin: 24px auto 0; object-fit: contain; opacity: 0;}
-                    &:first-child{height: 360px;
+                    img:not(.whatgetbg){position: relative; z-index: 1; display: block; max-height: 0; width: auto; max-width: 100%; margin: 0; object-fit: contain; opacity: 0; transition: max-height 0.5s ease-in-out;}
+                    &.activeCard{
                         .whatgetbg{opacity: 1;}
-                        img:not(.whatgetbg){opacity: 1;}
+                        img:not(.whatgetbg){ max-height: 360px; opacity: 1; width: 100%;}
                     }
                 }
             }
