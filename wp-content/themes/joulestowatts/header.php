@@ -50,8 +50,8 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#" class="manrope">Home</a></li>
-					<li><a href="#" class="manrope">Platform</a></li>
+					<li><a href="<?php echo get_site_url(); ?>" class="manrope">Home</a></li>
+					<li><a href="<?php echo get_site_url(); ?>/platform/" class="manrope">Platform</a></li>
 					<li><a href="#" class="manrope">Results</a></li>
 					<li><a href="#" class="manrope">Our Story</a></li>
 					<li><a href="#" class="manrope">About us</a></li>
