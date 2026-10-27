@@ -948,3 +948,267 @@
         &::after{width: 100%; bottom: -360px;}
     }
 }
+// Platform page updates. Scoped to this template so the
+// shared sections above keep their look on the other pages.
+body.page-template-platform{
+    .bannerInnerSection{
+        @media screen and (min-width: 1801px){padding-top: 250px;}
+        .wrapper{
+            .bannerContent{
+                .bannerHeading{
+                    h1{max-width: 1141px; margin-left: auto; margin-right: auto;}
+                    p{width: auto; max-width: 978px;}
+                }
+            }
+        }
+    }
+
+    .diagnosisSection{
+        .wrapper{
+            .diagnosisContent{
+                .leftBox, .rightBox{
+                    h3{max-width: 272px;
+                        &::before{content: ""; display: block; width: 70px; height: 4px; border-radius: 100px; background: linear-gradient(90deg, #01D3C7 0%, #FFFFFF 100%); margin-bottom: 12px;}
+                    }
+                }
+                .rightBox{
+                    h3::before{width: 34px;}
+                }
+            }
+        }
+    }
+
+    // Two routes into the Diagnosis, and the placement track under them.
+    .platformRouteSec{position: relative; padding-bottom: 274px;
+        .wrapper{@include wrapper; position: relative; z-index: 2;}
+        .routeCards{display: flex;
+            .routeCard{flex: 1 1 0; min-width: 0; min-height: 656px; display: flex; align-items: center; padding: 32px 73px; border: 1px solid rgba(118, 118, 118, 0.40); background: #210214; position: relative; overflow: hidden;
+                &::before{content: ""; position: absolute; inset: 0; background: url(../images/platform-horizon-glow.webp) no-repeat center top / 100% 200%; filter: saturate(0.55); pointer-events: none;}
+                & + .routeCard{border-left: 0;}
+                .routeContent{max-width: 714px; position: relative; z-index: 1;}
+                h3{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;}
+                h2{@include font32; font-weight: 500; line-height: 120%; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                p{color: rgba(255, 255, 255, 0.80); @include font18; line-height: 180%; margin: 24px 0;}
+                .secondaryCTA{padding: 16px 20px; font-weight: 400;}
+            }
+        }
+        .routeTrack{margin-top: 70px; padding-left: 73px;
+            .trackLine{position: relative; height: 2px; background: radial-gradient(circle, #1A9BA4 0.9px, transparent 1.1px) repeat-x left center / 5px 2px;}
+            .trackDot{position: absolute; top: 50%; left: 36.2%; width: 24px; height: 24px; border-radius: 50%; background: #1DECF7; box-shadow: 0 0 14px rgba(29, 236, 247, 0.55); transform: translate(-50%, -50%); transition: left 1.6s cubic-bezier(.22, .7, .2, 1) 0.2s;}
+            &:not(.is-visible) .trackDot{left: 0;}
+            p{margin-top: 48px; color: #00ACB4; font-family: $manrope; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 1px;}
+        }
+        .routeGlow{position: absolute; left: 0; right: 0; bottom: 0; height: 24.1vw; overflow: hidden; pointer-events: none; z-index: 1; -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 22%, #000 78%, transparent 94%); mask-image: linear-gradient(90deg, transparent 6%, #000 22%, #000 78%, transparent 94%);
+            img{position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 87.1%; height: 34.1vw; max-width: none; display: block; mix-blend-mode: lighten; filter: saturate(0.5); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%); mask-image: linear-gradient(180deg, transparent 0%, #000 30%);}
+        }
+        @media screen and (max-width: 1800px){padding-bottom: 240px;
+            .routeCards .routeCard{min-height: 600px; padding: 32px 60px;}
+            .routeTrack{padding-left: 60px;}
+        }
+        @media screen and (max-width: 1440px){padding-bottom: 200px;
+            .routeCards .routeCard{min-height: 540px; padding: 32px 48px;}
+            .routeTrack{margin-top: 56px; padding-left: 48px;
+                p{margin-top: 36px;}
+            }
+        }
+        @media screen and (max-width: 1024px){padding-bottom: 160px;
+            .routeCards .routeCard{min-height: 480px; padding: 32px;}
+            .routeTrack{padding-left: 32px;}
+        }
+        @media screen and (max-width: 820px){
+            .routeCards{flex-flow: column;
+                .routeCard{flex: none; min-height: 0; padding: 56px 32px;
+                    & + .routeCard{border-left: 1px solid rgba(118, 118, 118, 0.40); border-top: 0;}
+                }
+            }
+        }
+        @media screen and (max-width: 720px){padding-bottom: 120px;
+            .routeCards .routeCard{padding: 40px 20px;
+                h3{margin-bottom: 12px;}
+                p{margin: 16px 0;}
+            }
+            .routeTrack{margin-top: 40px; padding-left: 0;
+                .trackDot{width: 16px; height: 16px;}
+                p{margin-top: 24px;}
+            }
+            .routeGlow{height: 40vw;
+                img{width: 140%; height: 56vw;}
+            }
+        }
+    }
+
+    // Point: talent and technology as two ends of one line.
+    .platformPointSec{padding-top: 96px;
+        .wrapper{
+            .pointitContent{align-items: flex-start;
+                .secHeading{width: 44%; padding-top: 49px;
+                    h2{text-transform: none;}
+                    p{color: rgba(221, 225, 225, 0.80); font-weight: 300; max-width: 682px;}
+                }
+                .pointitAnim.pointLine{width: 54%; position: relative; aspect-ratio: 962 / 679;
+                    .pointLineArt{position: absolute; left: 3.22%; top: 33.73%; width: 93.56%; height: auto; clip-path: inset(0 100% 0 0); transition: clip-path 2.6s cubic-bezier(.45, .05, .25, 1) 0.4s;}
+                    .pointPin{position: absolute; width: 26.7%; text-align: center; opacity: 0; transform: translateY(12px); transition: opacity 0.8s ease, transform 0.8s ease;
+                        h3{font-size: 24px; font-weight: 400; line-height: 1.5; display: inline-block; background: linear-gradient(90deg, #01D3C7 0%, #FFFFFF 45%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                        p{margin-top: 4px; font-size: 16px; font-weight: 300; line-height: 1.5; color: #fff;}
+                    }
+                    .pointPin1{left: 0; top: 0; transition-delay: 0.2s;}
+                    .pointPin2{left: 73.3%; top: 3.39%; transition-delay: 0.5s;}
+                    .pointPin3{left: 39.6%; top: 36.8%; transition-delay: 2s;}
+                    .pinMark{position: absolute; width: 1px; background: repeating-linear-gradient(to bottom, rgba(26, 155, 164, 0.95) 0 2px, transparent 2px 5px); transform-origin: top; transform: scaleY(0); transition: transform 1.2s ease 0.6s;
+                        &::before{content: ""; position: absolute; top: 0; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: #1DECF7; box-shadow: 0 0 10px rgba(29, 236, 247, 0.6); transform: translate(-50%, -50%);}
+                    }
+                    .pinMark1{left: 13.2%; top: 11.6%; height: 39.5%;}
+                    .pinMark2{left: 87.2%; top: 16.6%; height: 54.2%;
+                        &::before{width: 18px; height: 18px;}
+                    }
+                    &.is-visible{
+                        .pointLineArt{clip-path: inset(0 0 0 0);}
+                        .pointPin{opacity: 1; transform: none;}
+                        .pinMark{transform: scaleY(1);}
+                    }
+                    @media (prefers-reduced-motion: reduce){
+                        .pointLineArt, .pointPin, .pinMark{transition: none;}
+                    }
+                }
+            }
+            .pointitLinks{padding-top: 0;
+                a span svg{transform: rotate(-45deg);}
+                a:hover span svg{transform: rotate(0deg);}
+            }
+        }
+        @media screen and (max-width: 1800px){padding-top: 80px;}
+        @media screen and (max-width: 1440px){padding-top: 64px;
+            .wrapper .pointitContent .pointitAnim.pointLine{
+                .pointPin{
+                    h3{font-size: 20px;}
+                    p{font-size: 14px;}
+                }
+            }
+        }
+        @media screen and (max-width: 1280px){
+            .wrapper .pointitContent .pointitAnim.pointLine{
+                .pointPin{
+                    h3{font-size: 18px;}
+                    p{font-size: 12px;}
+                }
+            }
+        }
+        @media screen and (max-width: 768px){
+            .wrapper .pointitContent{
+                .secHeading{width: 100%; padding-top: 0;}
+                .pointitAnim.pointLine{width: 100%; margin-bottom: 24px;}
+            }
+        }
+        @media screen and (max-width: 720px){padding-top: 48px;
+            .wrapper .pointitContent .pointitAnim.pointLine{
+                .pointPin{width: 32%;
+                    h3{font-size: 15px;}
+                    p{font-size: 10px; line-height: 1.4; margin-top: 2px;}
+                }
+                .pointPin2{left: 68%;}
+                .pointPin3{left: 34%; top: 40%;}
+                .pinMark1{top: 24%; height: 27%;}
+                .pinMark2{top: 28%; height: 42%;}
+                .pinMark::before{width: 9px; height: 9px;}
+                .pinMark2::before{width: 11px; height: 11px;}
+            }
+        }
+    }
+
+    // Our Offerings: the cards open on click (one at a time), not on hover.
+    .solutionSection{
+        .secWrapper{
+            .cardContainer{
+                .solutionCard{cursor: pointer;
+                    &:hover, &:first-child, &.solutionActiveCard{flex-grow: 1;
+                        .imgBox{opacity: 0;}
+                        .bottomContent{
+                            .description{grid-template-rows: 0fr; opacity: 0;}
+                        }
+                        &::before{transform: translateY(100%);}
+                    }
+                    &:focus-visible{outline: 1px solid #00ACB4; outline-offset: -1px;}
+                    h3{color: #D9D9D9;}
+                    .bottomContent .description .descriptionInner p{color: #C0C6C6;}
+                    &.is-open.is-open.is-open{flex-grow: 3;
+                        .imgBox{opacity: 1;}
+                        .bottomContent{
+                            .description{grid-template-rows: 1fr; opacity: 1;}
+                        }
+                        &::before{transform: translateY(0);}
+                    }
+                }
+            }
+        }
+        @media all and (max-width: 820px){
+            .secWrapper{
+                .cardContainer{
+                    .solutionCard{
+                        .imgBox{max-height: 0 !important;}
+                        &.is-open.is-open.is-open{
+                            .imgBox{max-height: 600px !important; margin-bottom: 10px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ourAiSection{
+        .wrapper{
+            .mainContainer{
+                .leftTextPart{position: relative; z-index: 2;
+                    .secHeading{
+                        h2{
+                            @media screen and (min-width: 1601px){white-space: nowrap;}
+                        }
+                    }
+                    .cardHeadingGroup{
+                        .cardHeading{
+                            h4{font-weight: 400;
+                                @media screen and (min-width: 1801px){font-size: 36px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Customer impact stories: description shows on hover, or on click/tap.
+    .platformResultSec{
+        .secWrapper{
+            .secHeading{
+                .headingGroup{
+                    p{color: rgba(221, 225, 225, 0.80); font-weight: 300;
+                        &:first-of-type{color: #DDE1E1; font-weight: 500;}
+                    }
+                }
+            }
+            .resultsCardLayout{
+                .resultCardSlider.platformResultSlider{
+                    a{cursor: pointer;
+                        .box{
+                            &:focus-visible{outline: 1px solid #00ACB4; outline-offset: -1px;}
+                            .tag{text-transform: none;}
+                            .bottomContent{transition: padding-bottom 0.5s cubic-bezier(.22, .7, .2, 1);
+                                .moreContent{
+                                    p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 155%;}
+                                }
+                            }
+                            &:hover .bottomContent{padding-bottom: 32px;}
+                        }
+                        &.is-open .box .bottomContent{padding-bottom: 32px;
+                            .moreContent{grid-template-rows: 1fr; opacity: 1;
+                                p{padding-top: 24px;}
+                            }
+                        }
+                    }
+                }
+                .arrowBox{
+                    @media screen and (min-width: 1025px){display: none;}
+                }
+            }
+        }
+    }
+}

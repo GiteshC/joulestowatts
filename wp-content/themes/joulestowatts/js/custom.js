@@ -33,8 +33,11 @@ ScrollTrigger.create({
 		burger.setAttribute("aria-label", "Open menu");
 		burger.setAttribute("aria-expanded", "false");
 
+		var backdrop = document.querySelector(".menuBackdrop");
+
 		function setOpen(open) {
 			header.classList.toggle("menu-open", open);
+			document.body.classList.toggle("menu-is-open", open);
 			burger.setAttribute("aria-expanded", open ? "true" : "false");
 			burger.setAttribute(
 				"aria-label",
@@ -52,6 +55,13 @@ ScrollTrigger.create({
 				burger.click();
 			}
 		});
+
+		// Close by clicking the dimmed page behind the menu.
+		if (backdrop) {
+			backdrop.addEventListener("click", function () {
+				setOpen(false);
+			});
+		}
 
 		// Close after picking a link, or with Escape.
 		menu.querySelectorAll("a").forEach(function (link) {
@@ -580,8 +590,15 @@ if ($(".ourAiSection").length) {
 			);
 		}
 
+		// Position of card i relative to the active card, wrapping around so the
+		// last card waits on the left of the first one (as in the design).
+		function offset(i, state) {
+			var pos = (((i - state) % total) + total) % total;
+			return pos > total / 2 ? pos - total : pos;
+		}
+
 		function slot(i, state) {
-			var pos = i - state;
+			var pos = offset(i, state);
 			var dir = pos < 0 ? -1 : 1;
 
 			if (pos === 0) {
@@ -610,7 +627,7 @@ if ($(".ourAiSection").length) {
 		function setActive(state) {
 			slides.forEach(function (slide, i) {
 				slide.classList.toggle("is-active", i === state);
-				slide.style.zIndex = total - Math.abs(i - state);
+				slide.style.zIndex = total - Math.abs(offset(i, state));
 			});
 		}
 
@@ -1996,4 +2013,534 @@ document.addEventListener("DOMContentLoaded", () => {
 	} else {
 		window.addEventListener("load", initHowRun);
 	}
+})();
+
+// Shared section behaviour.
+// Markup opts in with data attributes; nothing runs where they are absent.
+//
+//   data-accordion            group of panels; one is open (class is-open). Opens on click.
+//     data-autoplay="5000"    optional: step through panels until the visitor clicks one.
+//     data-accordion-item     a panel (role=button, tabindex=0 recommended)
+//     data-accordion-detail   optional detail block shown for the open panel, same order
+//   data-toggle-group         rows or cards that open on click, one at a time
+//     data-toggle-item / data-toggle (the button inside the item)
+//   data-tabs                 data-tab buttons switch data-tab-panel blocks, same order
+//   data-reveal               fades in when scrolled into view (class is-visible)
+//   data-count="350"          number counts up when visible; keeps any prefix/suffix text
+//   data-marquee              children scroll continuously; content is duplicated for a seamless loop
+(function () {
+	'use strict';
+
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	function onVisible(el, callback, threshold) {
+		if (!('IntersectionObserver' in window)) {
+			callback(true);
+			return;
+		}
+		new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				callback(entry.isIntersecting);
+			});
+		}, { threshold: threshold || 0.3 }).observe(el);
+	}
+
+	function accordions() {
+		document.querySelectorAll('[data-accordion]').forEach(function (root) {
+			var items = Array.prototype.slice.call(root.querySelectorAll('[data-accordion-item]'));
+			var details = Array.prototype.slice.call(root.querySelectorAll('[data-accordion-detail]'));
+			if (!items.length) return;
+
+			var index = Math.max(0, items.findIndex(function (el) { return el.classList.contains('is-open'); }));
+			var timer = null;
+			var chosen = false;
+
+			function show(next) {
+				index = next;
+				items.forEach(function (el, i) {
+					el.classList.toggle('is-open', i === index);
+					el.setAttribute('aria-expanded', String(i === index));
+				});
+				details.forEach(function (el, i) { el.classList.toggle('is-open', i === index); });
+			}
+
+			function choose(i) {
+				chosen = true;
+				clearInterval(timer);
+				timer = null;
+				show(i);
+			}
+
+			items.forEach(function (el, i) {
+				el.addEventListener('click', function () { choose(i); });
+				el.addEventListener('keydown', function (e) {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						choose(i);
+					}
+				});
+			});
+			show(index);
+
+			var delay = parseInt(root.getAttribute('data-autoplay') || '0', 10);
+			if (!delay || reduceMotion) return;
+			onVisible(root, function (visible) {
+				if (visible && !chosen && !timer) {
+					timer = setInterval(function () { show((index + 1) % items.length); }, delay);
+				} else if (!visible) {
+					clearInterval(timer);
+					timer = null;
+				}
+			});
+		});
+	}
+
+	function toggleGroups() {
+		document.querySelectorAll('[data-toggle-group]').forEach(function (group) {
+			var items = Array.prototype.slice.call(group.querySelectorAll('[data-toggle-item]'));
+			items.forEach(function (item) {
+				var trigger = item.querySelector('[data-toggle]');
+				if (!trigger) return;
+				trigger.addEventListener('click', function () {
+					var open = !item.classList.contains('is-open');
+					items.forEach(function (other) {
+						var isOpen = other === item && open;
+						other.classList.toggle('is-open', isOpen);
+						var t = other.querySelector('[data-toggle]');
+						if (t) t.setAttribute('aria-expanded', String(isOpen));
+					});
+				});
+			});
+		});
+	}
+
+	function tabs() {
+		document.querySelectorAll('[data-tabs]').forEach(function (root) {
+			var buttons = Array.prototype.slice.call(root.querySelectorAll('[data-tab]'));
+			var panels = Array.prototype.slice.call(root.querySelectorAll('[data-tab-panel]'));
+			function show(i) {
+				buttons.forEach(function (b, k) {
+					b.classList.toggle('is-active', k === i);
+					b.setAttribute('aria-selected', String(k === i));
+				});
+				panels.forEach(function (p, k) {
+					p.classList.toggle('is-active', k === i);
+					p.hidden = k !== i;
+				});
+			}
+			buttons.forEach(function (b, i) { b.addEventListener('click', function () { show(i); }); });
+			if (buttons.length) show(Math.max(0, buttons.findIndex(function (b) { return b.classList.contains('is-active'); })));
+		});
+	}
+
+	function reveal() {
+		var items = document.querySelectorAll('[data-reveal]');
+		if (reduceMotion || !('IntersectionObserver' in window)) {
+			items.forEach(function (el) { el.classList.add('is-visible'); });
+			return;
+		}
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					io.unobserve(entry.target);
+				}
+			});
+		}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+		items.forEach(function (el) { io.observe(el); });
+	}
+
+	function counters() {
+		document.querySelectorAll('[data-count]').forEach(function (el) {
+			var target = parseFloat(el.getAttribute('data-count'));
+			var template = el.textContent;
+			var digits = template.match(/[\d,.]+/);
+			if (!digits || isNaN(target) || reduceMotion) return;
+			var done = false;
+			onVisible(el, function (visible) {
+				if (!visible || done) return;
+				done = true;
+				var start = performance.now();
+				(function step(now) {
+					var t = Math.min(1, (now - start) / 1400);
+					var value = Math.round(target * (1 - Math.pow(1 - t, 3)));
+					el.textContent = template.replace(digits[0], value.toLocaleString('en-US'));
+					if (t < 1) requestAnimationFrame(step);
+				})(start);
+			}, 0.5);
+		});
+	}
+
+	function marquees() {
+		document.querySelectorAll('[data-marquee]').forEach(function (track) {
+			if (track.dataset.marqueeReady) return;
+			track.dataset.marqueeReady = '1';
+			Array.prototype.slice.call(track.children).forEach(function (child) {
+				var copy = child.cloneNode(true);
+				copy.setAttribute('aria-hidden', 'true');
+				track.appendChild(copy);
+			});
+		});
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		accordions();
+		toggleGroups();
+		tabs();
+		reveal();
+		counters();
+		marquees();
+	});
+})();
+
+// Home page: typewriter on the AI Atlas chip, and impact story cards that
+// open their description on click when they have no link.
+(function () {
+	'use strict';
+
+	if (!document.body.classList.contains('page-template-hompage')) {
+		return;
+	}
+
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	// AI Atlas chip: type the word, hold, erase, repeat while it is on screen.
+	function typewriter(el) {
+		var text = el.getAttribute('data-typewriter') || '';
+		var typed = el.querySelector('.atlasChipTyped');
+		if (!typed || !text || reduceMotion) {
+			return;
+		}
+		var count = 0;
+		var deleting = false;
+		var timer = null;
+		var running = false;
+
+		function step() {
+			typed.textContent = text.slice(0, count);
+			var delay = deleting ? 70 : 140;
+			if (!deleting && count === text.length) {
+				deleting = true;
+				delay = 2200;
+			} else if (deleting && count === 0) {
+				deleting = false;
+				delay = 600;
+			} else {
+				count += deleting ? -1 : 1;
+			}
+			timer = setTimeout(step, delay);
+		}
+
+		function start() {
+			if (running) return;
+			running = true;
+			count = 0;
+			deleting = false;
+			step();
+		}
+
+		function stop() {
+			running = false;
+			clearTimeout(timer);
+			typed.textContent = text;
+		}
+
+		if ('IntersectionObserver' in window) {
+			new IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						start();
+					} else {
+						stop();
+					}
+				});
+			}, { threshold: 0.4 }).observe(el);
+		} else {
+			start();
+		}
+	}
+
+	// Impact story cards without a link: click or Enter/Space shows the description.
+	function impactCards() {
+		document.querySelectorAll('.homeImpactSec .homeImpactCard:not([href])').forEach(function (card) {
+			function toggle() {
+				var open = !card.classList.contains('is-open');
+				card.classList.toggle('is-open', open);
+				card.setAttribute('aria-expanded', open ? 'true' : 'false');
+			}
+			card.addEventListener('click', function (event) {
+				event.preventDefault();
+				toggle();
+			});
+			card.addEventListener('keydown', function (event) {
+				if (event.key === 'Enter' || event.key === ' ') {
+					event.preventDefault();
+					toggle();
+				}
+			});
+		});
+	}
+
+	function init() {
+		document.querySelectorAll('.atlasChipText[data-typewriter]').forEach(typewriter);
+		impactCards();
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+
+// Platform: the Customer Impact Story cards open their description on click
+// (data-toggle-group, above). This adds the keyboard: Enter or Space on a focused card does the same.
+(function () {
+	'use strict';
+
+	if (!document.body.classList.contains('page-template-platform')) return;
+
+	document.querySelectorAll('.platformResultSec [data-toggle]').forEach(function (box) {
+		box.addEventListener('keydown', function (event) {
+			if (event.key !== 'Enter' && event.key !== ' ') return;
+			event.preventDefault();
+			box.click();
+		});
+	});
+})();
+
+// AI Atlas page.
+//
+// Four Artifacts: a panel opens on click (or Enter / Space), never on hover, and the
+// detail block under the panels follows the open panel. On wide screens the accordion above
+// leaves the panels alone (its accordion only runs at 820px and below), so the open
+// state is set here; at 820px and below that accordion opens and closes the panels and
+// this script only keeps the detail block in step.
+//
+// Customer Impact Stories: a card shows its description on hover, or on click/tap.
+(function () {
+	'use strict';
+
+	if (!document.body.classList.contains('page-template-ai-atlas')) {
+		return;
+	}
+
+	function artifacts() {
+		var section = document.querySelector('.fourArtifactsSec');
+		if (!section) return;
+
+		var cards = Array.prototype.slice.call(section.querySelectorAll('.cardContainer .solutionCard'));
+		var details = Array.prototype.slice.call(section.querySelectorAll('.artifactDetailBox .artifactDetail'));
+		if (!cards.length) return;
+
+		var mobile = window.matchMedia('(max-width: 820px)');
+		// The template marks the panel open on load; the accordion above may already have removed
+		// the class from the panel, but not from its detail block.
+		var current = Math.max(0, details.findIndex(function (detail) {
+			return detail.classList.contains('active');
+		}));
+
+		function showDetail(index) {
+			details.forEach(function (detail, i) {
+				var active = i === index;
+				detail.classList.toggle('active', active);
+				detail.hidden = !active;
+			});
+		}
+
+		function syncAria() {
+			cards.forEach(function (card) {
+				card.setAttribute('aria-expanded', String(card.classList.contains('solutionActiveCard')));
+			});
+		}
+
+		function open(index) {
+			current = index;
+			cards.forEach(function (card, i) {
+				card.classList.toggle('solutionActiveCard', i === index);
+			});
+			syncAria();
+			showDetail(index);
+		}
+
+		cards.forEach(function (card, i) {
+			card.addEventListener('click', function () {
+				if (mobile.matches) {
+					// The accordion above has already opened or closed the panel.
+					var openIndex = cards.findIndex(function (c) {
+						return c.classList.contains('solutionActiveCard');
+					});
+					if (openIndex > -1) {
+						current = openIndex;
+						showDetail(openIndex);
+					}
+					syncAria();
+					return;
+				}
+				open(i);
+			});
+			card.addEventListener('keydown', function (e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					card.click();
+				}
+			});
+		});
+
+		// The accordion above closes every panel on wide screens when it starts and when the
+		// viewport crosses 820px; reopen the current one.
+		if (!mobile.matches) {
+			open(current);
+		}
+		mobile.addEventListener('change', function () {
+			if (!mobile.matches) {
+				open(current);
+			} else {
+				syncAria();
+			}
+		});
+	}
+
+	function impactCards() {
+		var cards = document.querySelectorAll('.impactStoriesSec .resultCardSlider a');
+		var canHover = window.matchMedia('(hover: hover)');
+
+		Array.prototype.forEach.call(cards, function (card) {
+			card.addEventListener('click', function (e) {
+				var hasLink = card.hasAttribute('href');
+				var isOpen = card.classList.contains('isOpen');
+				// A linked card follows its link once its description is showing.
+				if (hasLink && (isOpen || canHover.matches)) return;
+				e.preventDefault();
+				Array.prototype.forEach.call(cards, function (other) {
+					if (other !== card) other.classList.remove('isOpen');
+				});
+				card.classList.toggle('isOpen', !isOpen);
+			});
+			card.addEventListener('keydown', function (e) {
+				if (!card.hasAttribute('href') && (e.key === 'Enter' || e.key === ' ')) {
+					e.preventDefault();
+					card.click();
+				}
+			});
+		});
+	}
+
+	function init() {
+		artifacts();
+		impactCards();
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+
+// Greenfield consulting: a click on a Customer Impact Story card opens its description
+// (hover still shows it on desktop). Cards without a link of their own do not reload the page.
+(function () {
+	'use strict';
+
+	if (!document.body.classList.contains('page-template-greenfield-consulting')) return;
+
+	var slider = document.querySelector('.gfImpactSec .platformResultSlider');
+	if (!slider) return;
+
+	var canHover = window.matchMedia('(hover: hover)');
+
+	slider.addEventListener('click', function (event) {
+		var card = event.target.closest('a');
+		if (!card || !slider.contains(card)) return;
+
+		var href = card.getAttribute('href');
+		var box = card.querySelector('.box');
+		if (!box || !box.querySelector('.moreContent')) return;
+
+		var hasLink = href && href !== '#';
+		// With a link: a mouse (which already shows the description on hover) follows it straight away;
+		// on touch the first tap opens the description and the second follows the link.
+		if (hasLink && (canHover.matches || box.classList.contains('is-open'))) return;
+
+		event.preventDefault();
+		var open = !box.classList.contains('is-open');
+		slider.querySelectorAll('.box.is-open').forEach(function (el) { el.classList.remove('is-open'); });
+		box.classList.toggle('is-open', open);
+	});
+})();
+
+// Managed AI First Pods.
+//
+// - What you get: the first column is open from the start. The sequence earlier in this file
+//   hides every image until the section scrolls into view; here the first column is shown again
+//   right away, and the sequence then carries on from it as before.
+// - Customer impact stories: the three cards fill the row on wide screens (the shared slider shows
+//   2.8 to 3.5), and a click or tap on a card opens its description (hover still shows it on desktop).
+(function () {
+	'use strict';
+
+	if (!document.body.classList.contains('page-template-managed-ai-pods')) {
+		return;
+	}
+
+	function openFirstColumn() {
+		var first = document.querySelector('.whatgetSection .whatgetBox');
+		if (!first || window.innerWidth < 720) {
+			return;
+		}
+		var parts = first.querySelectorAll('.iconImg, .whatgetbg');
+		if (typeof gsap !== 'undefined') {
+			gsap.set(parts, { opacity: 1 });
+		} else {
+			parts.forEach(function (el) { el.style.opacity = '1'; });
+		}
+	}
+
+	// The theme's sequence starts on window load; run after it.
+	if (document.readyState === 'complete') {
+		openFirstColumn();
+	} else {
+		window.addEventListener('load', function () { setTimeout(openFirstColumn, 0); });
+	}
+
+	function cardsToShow() {
+		return window.innerWidth > 1024 ? 3 : null;
+	}
+
+	if (typeof jQuery !== 'undefined') {
+		jQuery(function ($) {
+			var $slider = $('.mpodsImpactSec .platformResultSlider');
+			if (!$slider.length || !$slider.hasClass('slick-initialized')) {
+				return;
+			}
+			function fit() {
+				var n = cardsToShow();
+				if (n) {
+					$slider.slick('slickSetOption', 'slidesToShow', n, true);
+				}
+			}
+			fit();
+			// Registered after the theme's own resize handler, so this wins on wide screens.
+			$(window).on('resize', fit);
+		});
+	}
+
+	document.querySelectorAll('.mpodsImpactSec .resultCardSlider a:not([href])').forEach(function (card) {
+		function toggle() {
+			var box = card.querySelector('.box');
+			if (box) {
+				box.classList.toggle('is-open');
+				card.setAttribute('aria-expanded', String(box.classList.contains('is-open')));
+			}
+		}
+		card.setAttribute('aria-expanded', 'false');
+		card.addEventListener('click', toggle);
+		card.addEventListener('keydown', function (event) {
+			if (event.key === 'Enter' || event.key === ' ') {
+				event.preventDefault();
+				toggle();
+			}
+		});
+	});
 })();

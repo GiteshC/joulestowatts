@@ -207,3 +207,52 @@ function joulestowatts_footer_menu_item_title( $title, $item, $args, $depth ) {
 	return $title;
 }
 add_filter( 'nav_menu_item_title', 'joulestowatts_footer_menu_item_title', 10, 4 );
+
+/**
+ * Header slide-in menu: headings with their links underneath.
+ * If a menu is assigned to the "Primary" location, its top-level items become
+ * the headings and their children the links. Otherwise the default below is used.
+ */
+function joulestowatts_main_menu_groups() {
+	$locations = get_nav_menu_locations();
+	$items     = ! empty( $locations['menu-1'] ) ? wp_get_nav_menu_items( $locations['menu-1'] ) : array();
+
+	if ( $items ) {
+		$groups = array();
+		foreach ( $items as $item ) {
+			if ( ! $item->menu_item_parent ) {
+				$groups[ $item->ID ] = array( 'label' => $item->title, 'url' => $item->url, 'links' => array() );
+			}
+		}
+		foreach ( $items as $item ) {
+			if ( $item->menu_item_parent && isset( $groups[ $item->menu_item_parent ] ) ) {
+				$groups[ $item->menu_item_parent ]['links'][] = array( 'label' => $item->title, 'url' => $item->url );
+			}
+		}
+		return array_values( $groups );
+	}
+
+	return array(
+		array( 'label' => 'Home', 'url' => home_url( '/' ), 'links' => array() ),
+		array(
+			'label' => 'The Platform',
+			'url'   => home_url( '/platform/' ),
+			'links' => array(
+				array( 'label' => 'AI Atlas', 'url' => home_url( '/ai-atlas/' ) ),
+				array( 'label' => 'ECA', 'url' => home_url( '/enterprise-context-architects/' ) ),
+				array( 'label' => 'Talos', 'url' => home_url( '/talos/' ) ),
+				array( 'label' => 'GCC Accelerator', 'url' => home_url( '/gcc-accelerator/' ) ),
+			),
+		),
+		array(
+			'label' => 'Our Offerings',
+			'url'   => home_url( '/platform/#offerings' ),
+			'links' => array(
+				array( 'label' => 'Managed Pods', 'url' => home_url( '/managed-ai-pods/' ) ),
+				array( 'label' => 'Talent Solutions', 'url' => home_url( '/workforce-solutions/' ) ),
+				array( 'label' => 'AI Accelerators and Agents', 'url' => home_url( '/ai-accelerators-and-agents/' ) ),
+				array( 'label' => 'GCC Accelerator', 'url' => home_url( '/greenfield-consulting/' ) ),
+			),
+		),
+	);
+}

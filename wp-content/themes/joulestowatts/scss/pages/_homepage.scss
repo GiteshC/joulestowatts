@@ -1128,3 +1128,288 @@
 
     }
 }
+
+// Home page updates. Kept under the template's body class so
+// the section styles above stay as they are wherever else they are reused.
+body.page-template-hompage{
+    .bannerSection{height: auto; min-height: 100vh; padding-bottom: 23px;
+        .bannerStars{position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.3;
+            span{position: absolute; border-radius: 50%; background: rgba(0, 240, 255, 0.5); box-shadow: 0 0 14px rgba(0, 240, 255, 0.9);}
+        }
+        .wrapper{height: auto; flex-flow: column; align-items: center;
+            .bannerContent{width: 75%;
+                h1{margin-bottom: 36px; max-width: 10.5em; margin-left: auto; margin-right: auto;}
+                p{color: #ffffff; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+                    .bannerIcon{display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 24px; flex-shrink: 0;}
+                }
+            }
+            .bannerVisual{margin-top: 48px; display: flex; flex-flow: column; align-items: center;
+                img{display: block; width: 571px; height: auto; animation: homeFingerprintIn 1.4s ease 0.6s both;}
+                .bannerCaption{margin-top: 14px; color: #ffffff; @include font18; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;}
+            }
+            .casestudyCTA{bottom: 13px;}
+        }
+        .bannerBG{z-index: 0; justify-content: center; pointer-events: none;
+            img{display: block; width: 87.08%; height: auto;}
+        }
+        @keyframes homeFingerprintIn {
+            from {opacity: 0; transform: scale(0.94);}
+            to {opacity: 1; transform: scale(1);}
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .wrapper .bannerVisual img{animation: none;}
+        }
+        @media screen and (max-width:1800px) {
+            .wrapper{
+                .bannerContent h1{margin-bottom: 30px;}
+                .bannerVisual{margin-top: 40px;
+                    img{width: 500px;}
+                }
+            }
+        }
+        @media screen and (max-width:1600px) {
+            .wrapper{
+                .bannerContent h1{margin-bottom: 24px;}
+                .bannerVisual{margin-top: 32px;
+                    img{width: 440px;}
+                }
+            }
+        }
+        @media screen and (max-width:1440px) {
+            .wrapper .bannerVisual img{width: 390px;}
+        }
+        @media screen and (max-width:1280px) {
+            .wrapper .bannerVisual img{width: 350px;}
+        }
+        @media screen and (max-width:820px) {min-height: 0; padding-bottom: 40px;
+            .wrapper{
+                .bannerContent{width: 100%;}
+                .bannerVisual img{width: 320px;}
+                .casestudyCTA{position: static; margin-top: 32px;}
+            }
+            .bannerBG img{width: 140%; max-width: none;}
+        }
+        @media screen and (max-width:720px) {
+            .wrapper{
+                .bannerContent p{align-items: flex-start; text-align: left;}
+                .bannerVisual{margin-top: 24px;
+                    img{width: 260px;}
+                }
+            }
+        }
+    }
+
+    .enterpriseSection{padding-top: 262px; margin-bottom: 280px;
+        .enterpriseBG{transform: none; align-items: flex-start; justify-content: center; height: auto; pointer-events: none;
+            img{display: block; width: 87.08%; height: auto; transform: scaleY(-1);}
+        }
+        .wrapper{align-items: flex-end; justify-content: space-between;
+            .enterpriseContent{width: 45.64%;
+                h2{width: 100%;}
+                p{margin-bottom: 60px;}
+            }
+            .enterpriseAnim{width: 50%; position: relative; aspect-ratio: 860 / 711;
+                .atlasSparkle{position: absolute; height: auto;}
+                .atlasChip{position: absolute; left: 23.95%; top: 37.55%; display: flex; align-items: center; font-size: 33.77px; padding: 0.65em 1em 0.65em 1.1em; border: 1.4px solid transparent; border-radius: 0.83em; background: linear-gradient(#292940, #292940) padding-box, linear-gradient(180deg, #7898D1 0%, #565977 100%) border-box;
+                    img{display: block; width: 1.98em; height: 1.69em; object-fit: cover; object-position: center bottom; flex-shrink: 0;}
+                    .atlasChipText{display: inline-flex; align-items: center; min-width: 4.83em; color: #ffffff; font-family: "Roboto Mono", ui-monospace, Menlo, monospace; font-weight: 400; line-height: 0.94; white-space: pre;}
+                    .atlasChipCursor{display: inline-block; width: 3px; height: 0.95em; margin-left: 2px; background: #ffffff; animation: homeCursorBlink 1s steps(1) infinite;}
+                }
+            }
+        }
+        @keyframes homeCursorBlink {
+            50% {opacity: 0;}
+        }
+        @media screen and (max-width:1800px) {padding-top: 220px; margin-bottom: 240px;
+            .wrapper .enterpriseAnim .atlasChip{font-size: 30px;}
+        }
+        @media screen and (max-width:1600px) {padding-top: 190px; margin-bottom: 210px;
+            .wrapper .enterpriseAnim .atlasChip{font-size: 27px;}
+        }
+        @media screen and (max-width:1440px) {padding-top: 160px; margin-bottom: 180px;
+            .wrapper .enterpriseAnim .atlasChip{font-size: 24px;}
+        }
+        @media screen and (max-width:1280px) {padding-top: 140px; margin-bottom: 150px;
+            .wrapper .enterpriseAnim .atlasChip{font-size: 22px;}
+        }
+        @media screen and (max-width:820px) {padding-top: 100px; margin-bottom: 100px;
+            .wrapper{
+                .enterpriseContent{width: 100%;}
+                .enterpriseAnim{width: 100%; margin-top: 40px;}
+            }
+        }
+        @media screen and (max-width:720px) {margin-bottom: 80px;
+            .wrapper .enterpriseAnim .atlasChip{font-size: 20px;}
+        }
+    }
+
+    .counterSection{
+        .wrapper{
+            .counterContent{grid-template-columns: 519fr 441fr 441fr 519fr; align-items: stretch;
+                .counterBox{
+                    .counter{height: 474px;
+                        .counterValue{position: relative; z-index: 1; display: inline-block; margin-bottom: 16px; background: linear-gradient(120deg, rgba(1, 211, 199, 0.98) -8.27%, rgba(255, 255, 255, 0.98) 68.11%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                            h4{position: static; margin-bottom: 0; background: none; -webkit-text-fill-color: transparent;}
+                            .counterUnit{display: inline-block; margin-left: 0.25em; font-style: normal; font-family: $manrope; @include font72; font-weight: 400; letter-spacing: -0.673px; line-height: 1;}
+                            span{position: static; margin-left: 2px; -webkit-text-fill-color: #FF3535;}
+                        }
+                        p{text-transform: uppercase;}
+                    }
+                    &:nth-child(odd){
+                        .counter{padding-bottom: 82px;}
+                    }
+                    &:first-child{
+                        .counter{padding-left: 121px;}
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:1800px) {
+            .wrapper .counterContent .counterBox{
+                .counter{height: 430px;}
+                &:nth-child(odd) .counter{padding-bottom: 70px;}
+                &:first-child .counter{padding-left: 80px;}
+            }
+        }
+        @media screen and (max-width:1600px) {
+            .wrapper .counterContent .counterBox{
+                .counter{height: 370px;}
+                &:nth-child(odd) .counter{padding-bottom: 60px;}
+            }
+        }
+        @media screen and (max-width:1440px) {
+            .wrapper .counterContent .counterBox{
+                .counter{height: 320px;}
+                &:nth-child(odd) .counter{padding-bottom: 50px;}
+                &:first-child .counter{padding-left: 60px;}
+            }
+        }
+        @media screen and (max-width:1280px) {
+            .wrapper .counterContent .counterBox{
+                .counter{height: 280px;}
+                &:nth-child(odd) .counter{padding-bottom: 40px;}
+                &:first-child .counter{padding-left: 40px;}
+            }
+        }
+        @media screen and (max-width:820px) {
+            .wrapper .counterContent{grid-template-columns: repeat(4, 1fr);
+                .counterBox{
+                    .counter{height: 200px;}
+                    &:nth-child(odd) .counter{padding-bottom: 20px;}
+                    &:first-child .counter{padding-left: 20px;}
+                }
+            }
+        }
+        @media screen and (max-width:768px) {
+            .wrapper .counterContent .counterBox .counter{height: 150px;}
+        }
+        @media screen and (max-width:720px) {
+            .wrapper .counterContent{grid-template-columns: repeat(2, 1fr);
+                .counterBox{
+                    .counter{height: 120px; padding: 16px;
+                        .counterValue span{margin-left: 4px;}
+                    }
+                    &:nth-child(odd) .counter, &:first-child .counter{padding: 16px;}
+                }
+            }
+        }
+    }
+
+    .compoundsSection{
+        .wrapper{
+            .compoundsContent{
+                .headingBox{width: 41%;
+                    h4{text-transform: uppercase;}
+                    h2{background: none; color: #ffffff; -webkit-text-fill-color: #ffffff;
+                        span{background: linear-gradient(90deg, #01D3C7 0%, #8FE9E3 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                    }
+                    p{color: rgba(221, 225, 225, 0.80); font-weight: 300; line-height: 150%; margin-bottom: 65px;}
+                }
+                .compoundsAnim{width: 47%; max-width: 778px;
+                    .svgNum{font-family: $manrope; font-size: 20px; font-weight: 300; fill: rgba(255, 255, 255, 0.60);}
+                    .svgLabel{font-family: $manrope; font-size: 24px; font-weight: 400; fill: #ffffff;}
+                }
+            }
+        }
+        @media screen and (min-width:1801px) {
+            .wrapper{padding-left: 143px; padding-right: 142px;}
+        }
+        @media screen and (max-width:1800px) {
+            .wrapper .compoundsContent .headingBox p{margin-bottom: 50px;}
+        }
+        @media screen and (max-width:1280px) {
+            .wrapper .compoundsContent .headingBox p{margin-bottom: 44px;}
+        }
+        @media screen and (max-width:768px) {
+            .wrapper .compoundsContent{
+                .headingBox{width: 100%;
+                    p{margin-bottom: 32px;}
+                }
+                .compoundsAnim{width: 100%;}
+            }
+        }
+    }
+
+    .buildingSection{
+        .secWrapper .cardContainer .slide{
+            .card-link{transition: background 0.4s ease;
+                .body{padding: 31px 37px 33px;
+                    h3{font-family: $manrope; transition: color 0.4s ease;}
+                    p{color: #525454; line-height: 142%; transition: color 0.4s ease;}
+                    .arrow{transition: opacity 0.4s ease;}
+                }
+            }
+        }
+        // Stacked cards (below the carousel breakpoint): the heading sits on the dark page, above its card.
+        &:not(.is-carousel) .secWrapper .cardContainer .slide{background: transparent; border: none;
+            > h2{margin-bottom: 20px;}
+        }
+        &.is-carousel .secWrapper .cardContainer .slide{width: min(67.45vw, calc((100vh - 260px) * 1.6)); transition: background 0.4s ease, border-color 0.4s ease;
+            &:not(.is-active){background: transparent; border-color: transparent;
+                .card-link{background: transparent;
+                    .body{
+                        h3{color: #ffffff;}
+                        p{color: #D4D2D2;}
+                        .arrow{opacity: 0;}
+                    }
+                }
+            }
+        }
+    }
+
+    .homeImpactSec{padding-top: 222px;
+        .homeImpactGlow{position: absolute; left: 0; top: calc(33px - 39.17vw); width: 100%; z-index: 0; pointer-events: none;
+            img{display: block; width: 100%; height: auto; filter: blur(3px);
+                &:last-child{transform: scaleY(-1); margin-top: -2px;}
+            }
+        }
+        .secWrapper{
+            .secHeading .headingGroup{
+                p{max-width: 530px;
+                    &:first-of-type{font-weight: 400; margin-bottom: 0;}
+                }
+            }
+            .resultsCardLayout .resultCardSlider.platformResultSlider{
+                a{cursor: pointer;
+                    .box .tag{text-transform: none;}
+                    .box .bottomContent .moreContent p{color: rgba(255, 255, 255, 0.80); @include font22; line-height: 155%;}
+                    &.is-open .box .bottomContent .moreContent{grid-template-rows: 1fr; opacity: 1;
+                        p{padding-top: 24px;}
+                    }
+                }
+            }
+        }
+        &::after{display: none;}
+        @media all and (max-width: 1600px){ padding-top: 160px;}
+        @media all and (max-width: 1440px){ padding-top: 130px;}
+        @media all and (max-width: 1280px){ padding-top: 100px;}
+        @media all and (max-width: 720px){ padding-top: 60px;
+            .homeImpactGlow{top: calc(10px - 39.17vw);}
+        }
+    }
+}
+
+// Customer impact sliders: no arrows on desktop. The slider still autoplays and can be dragged; arrows return below 1025px.
+@media screen and (min-width: 1025px) {
+    .resultSection .arrowBox { display: none !important; }
+}

@@ -44,20 +44,25 @@
 			<div class="line"></div>
 			<div class="line"></div>
 		</div>
-		<div class="mainMenu">
-			<div class="curvedBG">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/navigation-bg.webp">
-			</div>
+		<div class="mainMenu" aria-label="Main menu">
 			<nav>
-				<ul>
-					<li><a href="<?php echo get_site_url(); ?>" class="manrope">Home</a></li>
-					<li><a href="<?php echo get_site_url(); ?>/platform/" class="manrope">Platform</a></li>
-					<li><a href="#" class="manrope">Results</a></li>
-					<li><a href="#" class="manrope">Our Story</a></li>
-					<li><a href="#" class="manrope">About us</a></li>
+				<ul class="menuGroups">
+					<?php foreach ( joulestowatts_main_menu_groups() as $group ) : ?>
+						<li class="menuGroup">
+							<a href="<?php echo esc_url( $group['url'] ); ?>" class="menuHeading manrope"><?php echo esc_html( $group['label'] ); ?></a>
+							<?php if ( $group['links'] ) : ?>
+								<ul class="menuLinks">
+									<?php foreach ( $group['links'] as $link ) : ?>
+										<li><a href="<?php echo esc_url( $link['url'] ); ?>" class="manrope"><?php echo esc_html( $link['label'] ); ?></a></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
 				</ul>
 			</nav>
 		</div>
 	</div>
 </header>
+<div class="menuBackdrop" aria-hidden="true"></div>
 
