@@ -2544,3 +2544,474 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 })();
+
+// Talos page: the Operations and governance cards.
+// The row slides sideways (it is wider than the screen); a card opens on click or Enter/Space
+// through the shared data-toggle-group behaviour above.
+(function ($) {
+	'use strict';
+
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('.talosOpsSec [data-toggle]').forEach(function (trigger) {
+			trigger.addEventListener('keydown', function (e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					trigger.click();
+				}
+			});
+		});
+
+		if (!$ || !$.fn || !$.fn.slick) return;
+		$('.talosOpsSlider').slick({
+			slidesToShow: 4.2,
+			slidesToScroll: 1,
+			arrows: false,
+			dots: false,
+			infinite: false,
+			swipeToSlide: true,
+			responsive: [
+				{ breakpoint: 1281, settings: { slidesToShow: 3.2 } },
+				{ breakpoint: 1025, settings: { slidesToShow: 2.6 } },
+				{ breakpoint: 720, settings: { slidesToShow: 1.4 } }
+			]
+		});
+	});
+})(window.jQuery);
+
+// AI Accelerators and Agents: the hero line drawing draws itself in, stroke by stroke.
+// Uses Vivus (loaded in the footer); falls back to a CSS stroke-dashoffset transition.
+(function () {
+	'use strict';
+
+	function start() {
+		var box = document.querySelector('.aiaHeroDraw');
+		var svg = box && box.querySelector('svg');
+		if (!svg) return;
+
+		function done() {
+			box.classList.remove('is-pending');
+		}
+
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			done();
+			return;
+		}
+
+		if (typeof window.Vivus === 'function') {
+			new window.Vivus(svg, {
+				type: 'oneByOne',
+				duration: 240,
+				start: 'autostart',
+				animTimingFunction: window.Vivus.EASE_OUT
+			}, function () {
+				// Leave the finished drawing as plain strokes.
+				svg.querySelectorAll('path').forEach(function (p) {
+					p.style.strokeDasharray = '';
+					p.style.strokeDashoffset = '';
+				});
+			});
+			done();
+			return;
+		}
+
+		var paths = svg.querySelectorAll('path');
+		paths.forEach(function (p, i) {
+			var len = p.getTotalLength();
+			p.style.strokeDasharray = len + ' ' + len;
+			p.style.strokeDashoffset = len;
+			p.style.transition = 'stroke-dashoffset 1.2s ease-out ' + (i / paths.length * 2.8).toFixed(3) + 's';
+		});
+		done();
+		requestAnimationFrame(function () {
+			requestAnimationFrame(function () {
+				paths.forEach(function (p) { p.style.strokeDashoffset = '0'; });
+			});
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', start);
+	} else {
+		start();
+	}
+})();
+
+// Enterprise Truth Diagnosis and Enterprise Context Architects.
+//
+//   data-etd-timeline        hour-by-hour track. Steps through its items (data-etd-timeline-item)
+//     data-autoplay="3500"   until the visitor clicks, focuses or swipes; the active item is kept in view.
+//   .etdKeepCard             numbered cards opened by data-toggle-group (above). This file
+//                            measures how far each panel must slide up to show its text, and lets
+//                            the panel open from the keyboard.
+(function () {
+	'use strict';
+
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	function timelines() {
+		document.querySelectorAll('[data-etd-timeline]').forEach(function (root) {
+			var track = root.querySelector('.etdTimelineTrack');
+			var items = Array.prototype.slice.call(root.querySelectorAll('[data-etd-timeline-item]'));
+			if (!track || !items.length) return;
+
+			var index = Math.max(0, items.findIndex(function (el) { return el.classList.contains('is-active'); }));
+			var timer = null;
+			var chosen = false;
+			var visible = false;
+
+			function place() {
+				var item = items[index];
+				var last = items[items.length - 1];
+				var max = Math.max(0, last.offsetLeft + last.offsetWidth - root.clientWidth);
+				var target = item.offsetLeft + item.offsetWidth / 2 - root.clientWidth / 2;
+				var shift = Math.min(max, Math.max(0, target));
+				track.style.transform = 'translateX(' + -shift + 'px)';
+			}
+
+			function show(next) {
+				index = next;
+				items.forEach(function (el, i) {
+					el.classList.toggle('is-active', i === index);
+					el.setAttribute('aria-pressed', String(i === index));
+				});
+				place();
+			}
+
+			function stop() {
+				clearInterval(timer);
+				timer = null;
+			}
+
+			function start() {
+				var delay = parseInt(root.getAttribute('data-autoplay') || '0', 10);
+				if (!delay || reduceMotion || chosen || timer || !visible || items.length < 2) return;
+				timer = setInterval(function () { show((index + 1) % items.length); }, delay);
+			}
+
+			function choose(i) {
+				chosen = true;
+				stop();
+				show(i);
+			}
+
+			items.forEach(function (el, i) {
+				el.addEventListener('click', function () { choose(i); });
+				// Keyboard users tabbing to an item that is off to the side bring it into view.
+				el.addEventListener('focus', function () { if (i !== index) choose(i); });
+			});
+
+			// Swipe left or right on touch screens to move one step.
+			var startX = null;
+			root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+			root.addEventListener('touchend', function (e) {
+				if (startX === null) return;
+				var dx = e.changedTouches[0].clientX - startX;
+				startX = null;
+				if (Math.abs(dx) < 40) return;
+				choose(Math.min(items.length - 1, Math.max(0, index + (dx < 0 ? 1 : -1))));
+			});
+
+			if ('IntersectionObserver' in window) {
+				new IntersectionObserver(function (entries) {
+					entries.forEach(function (entry) {
+						visible = entry.isIntersecting;
+						if (visible) start(); else stop();
+					});
+				}, { threshold: 0.4 }).observe(root);
+			}
+
+			window.addEventListener('resize', place);
+			show(index);
+		});
+	}
+
+	function keepCards() {
+		var cards = Array.prototype.slice.call(document.querySelectorAll('.etdKeepCard'));
+		if (!cards.length) return;
+
+		function measure() {
+			cards.forEach(function (card) {
+				var panel = card.querySelector('.etdKeepPanel');
+				var body = card.querySelector('.panelBody');
+				var text = body ? body.querySelector('p') : null;
+				if (!panel || !body || !text) return;
+				// Slide up until the description sits inside the card with the panel's bottom padding below it.
+				var bottomPad = parseFloat(getComputedStyle(body).paddingBottom) || 24;
+				var textBottom = panel.offsetTop + text.offsetTop + text.offsetHeight + bottomPad;
+				var shift = Math.max(0, textBottom - card.clientHeight);
+				card.style.setProperty('--etd-shift', shift + 'px');
+			});
+		}
+
+		cards.forEach(function (card) {
+			var trigger = card.querySelector('[data-toggle][role="button"]');
+			if (!trigger) return;
+			trigger.addEventListener('keydown', function (e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					trigger.click();
+				}
+			});
+		});
+
+		measure();
+		window.addEventListener('resize', measure);
+		window.addEventListener('load', measure);
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		timelines();
+		keepCards();
+	});
+})();
+
+// About us: milestone strip in "Our story".
+// The strip steps through the milestones on its own while in view, and stops for good once
+// the visitor uses it. Clicking a milestone scrolls to that year's story below.
+// Arrow keys move between milestones; a horizontal swipe moves one step.
+(function () {
+	'use strict';
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var root = document.querySelector('[data-about-timeline]');
+		if (!root) return;
+
+		var track = root.querySelector('.aboutTimelineTrack');
+		var items = Array.prototype.slice.call(root.querySelectorAll('[data-timeline-item]'));
+		if (!track || !items.length) return;
+
+		var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var index = 0;
+		var timer = null;
+		var stopped = reduceMotion;
+		var hovering = false;
+		var visible = false;
+
+		function show(next) {
+			index = (next + items.length) % items.length;
+			items.forEach(function (el, i) {
+				el.classList.toggle('is-active', i === index);
+				el.classList.toggle('is-past', i < index);
+				if (i === index) {
+					el.setAttribute('aria-current', 'step');
+				} else {
+					el.removeAttribute('aria-current');
+				}
+			});
+			track.style.transform = 'translateX(' + (items[0].offsetLeft - items[index].offsetLeft) + 'px)';
+		}
+
+		function sync() {
+			var run = !stopped && visible && !hovering;
+			if (run && !timer) {
+				timer = setInterval(function () { show(index + 1); }, 3000);
+			} else if (!run && timer) {
+				clearInterval(timer);
+				timer = null;
+			}
+		}
+
+		function stop() {
+			stopped = true;
+			sync();
+		}
+
+		items.forEach(function (el, i) {
+			el.addEventListener('click', function (e) {
+				var target = document.querySelector(el.getAttribute('href'));
+				stop();
+				show(i);
+				if (target) {
+					e.preventDefault();
+					target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+				}
+			});
+			el.addEventListener('keydown', function (e) {
+				var step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+				if (!step) return;
+				e.preventDefault();
+				stop();
+				show(Math.min(items.length - 1, Math.max(0, i + step)));
+				items[index].focus({ preventScroll: true });
+			});
+			el.addEventListener('focus', function () {
+				if (i !== index) show(i);
+			});
+		});
+
+		root.addEventListener('mouseenter', function () { hovering = true; sync(); });
+		root.addEventListener('mouseleave', function () { hovering = false; sync(); });
+
+		// Swipe: one step per horizontal drag.
+		var startX = null;
+		var startY = null;
+		var swiped = false;
+		root.addEventListener('pointerdown', function (e) { startX = e.clientX; startY = e.clientY; swiped = false; });
+		root.addEventListener('pointerup', function (e) {
+			if (startX === null) return;
+			var dx = e.clientX - startX;
+			var dy = e.clientY - startY;
+			startX = null;
+			if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+				swiped = true;
+				stop();
+				show(Math.min(items.length - 1, Math.max(0, index + (dx < 0 ? 1 : -1))));
+			}
+		});
+		// A swipe that ends on a milestone should not also follow its link.
+		root.addEventListener('click', function (e) {
+			if (swiped) {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				swiped = false;
+			}
+		}, true);
+
+		if ('IntersectionObserver' in window) {
+			new IntersectionObserver(function (entries) {
+				visible = entries[0].isIntersecting;
+				sync();
+			}, { threshold: 0.4 }).observe(root);
+		}
+
+		window.addEventListener('resize', function () { show(index); });
+		show(0);
+	});
+})();
+
+// Case Studies listing: filter chips (one choice per row, rows combine) and
+// "Show more" paging. Runs only where [data-case-studies] is present.
+(function () {
+	'use strict';
+
+	function init(root) {
+		var perPage = parseInt(root.getAttribute('data-per-page') || '9', 10);
+		var cards = Array.prototype.slice.call(root.querySelectorAll('[data-case-card]'));
+		var rows = Array.prototype.slice.call(root.querySelectorAll('[data-filter-group]'));
+		var countEl = root.querySelector('[data-count-text]');
+		var more = root.querySelector('.csMore');
+		var moreButton = root.querySelector('[data-show-more]');
+		var empty = root.querySelector('.csEmpty');
+		var active = {};
+		var limit = perPage;
+
+		function values(card, group) {
+			try {
+				return JSON.parse(card.getAttribute('data-' + group.replace(/_/g, '-')) || '[]');
+			} catch (e) {
+				return [];
+			}
+		}
+
+		function matches(card) {
+			return Object.keys(active).every(function (group) {
+				return !active[group] || values(card, group).indexOf(active[group]) !== -1;
+			});
+		}
+
+		function render() {
+			var matching = cards.filter(matches);
+			cards.forEach(function (card) { card.classList.add('is-hidden'); });
+			matching.slice(0, limit).forEach(function (card) { card.classList.remove('is-hidden'); });
+			var shown = Math.min(limit, matching.length);
+			if (countEl) {
+				countEl.textContent = countEl.getAttribute('data-count-text')
+					.replace('%1$s', shown)
+					.replace('%2$s', matching.length);
+			}
+			if (more) more.hidden = matching.length <= limit;
+			if (empty) empty.hidden = matching.length > 0;
+		}
+
+		rows.forEach(function (row) {
+			var group = row.getAttribute('data-filter-group');
+			var chips = Array.prototype.slice.call(row.querySelectorAll('[data-filter-value]'));
+			active[group] = '';
+			chips.forEach(function (chip) {
+				chip.addEventListener('click', function () {
+					active[group] = chip.getAttribute('data-filter-value');
+					chips.forEach(function (other) {
+						var on = other === chip;
+						other.classList.toggle('is-active', on);
+						other.setAttribute('aria-pressed', String(on));
+					});
+					limit = perPage;
+					render();
+				});
+			});
+		});
+
+		if (moreButton) {
+			moreButton.addEventListener('click', function () {
+				limit += perPage;
+				render();
+			});
+		}
+
+		render();
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('[data-case-studies]').forEach(init);
+	});
+})();
+
+// Case study detail: the "On this page" list highlights the section in view
+// and scrolls smoothly to a section when clicked. Runs only where
+// [data-case-toc] is present.
+(function () {
+	'use strict';
+
+	function init(nav) {
+		var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+		var targets = links.map(function (link) {
+			return document.getElementById(link.getAttribute('href').slice(1));
+		});
+		var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var ticking = false;
+
+		function setActive(index) {
+			links.forEach(function (link, i) {
+				link.classList.toggle('is-active', i === index);
+				if (i === index) {
+					link.setAttribute('aria-current', 'true');
+				} else {
+					link.removeAttribute('aria-current');
+				}
+			});
+		}
+
+		function update() {
+			ticking = false;
+			var line = window.innerHeight * 0.35;
+			var index = 0;
+			targets.forEach(function (target, i) {
+				if (target && target.getBoundingClientRect().top <= line) index = i;
+			});
+			setActive(index);
+		}
+
+		links.forEach(function (link, i) {
+			link.addEventListener('click', function (e) {
+				var target = targets[i];
+				if (!target) return;
+				e.preventDefault();
+				target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+				if (history.replaceState) history.replaceState(null, '', '#' + target.id);
+				setActive(i);
+			});
+		});
+
+		window.addEventListener('scroll', function () {
+			if (!ticking) {
+				ticking = true;
+				window.requestAnimationFrame(update);
+			}
+		}, { passive: true });
+		update();
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('[data-case-toc]').forEach(init);
+	});
+})();

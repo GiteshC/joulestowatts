@@ -1,0 +1,288 @@
+@use '../base/_global.scss' as *;
+
+// About us. Spacing follows the 1920 design and shrinks with --aboutS at the common breakpoints.
+$aboutTeal: #01D3C7;
+$aboutCard: #2D1021;
+$aboutText: rgba(255, 255, 255, 0.80);
+
+@mixin aboutFont($px, $min) {font-size: max(#{$min}px, calc(#{$px}px * var(--aboutS)));}
+@mixin aboutGradient($angle, $teal, $white) {background: linear-gradient($angle, $aboutTeal $teal, #FFFFFF $white); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+@mixin aboutEyebrow {@include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; color: #00ACB4;}
+
+// Light band: the hero glow and its mirror image (1913 x 1499 at 1920), centred on $center.
+@mixin aboutLens($center) {content: ""; position: absolute; left: 0.36vw; width: 99.64vw; height: 78.06vw; top: calc(#{$center} - 39.03vw); background: url(../images/about-lens-glow.webp) no-repeat center / 100% 100%; pointer-events: none;}
+
+body.page-template-about-us {--aboutS: 1;
+	@media screen and (max-width: 1800px) {--aboutS: 0.9;}
+	@media screen and (max-width: 1600px) {--aboutS: 0.82;}
+	@media screen and (max-width: 1440px) {--aboutS: 0.74;}
+	@media screen and (max-width: 1280px) {--aboutS: 0.66;}
+	@media screen and (max-width: 1024px) {--aboutS: 0.58;}
+	@media screen and (max-width: 820px) {--aboutS: 0.5;}
+	@media screen and (max-width: 720px) {--aboutS: 0.4;}
+
+	// The design sets all copy on this page with no extra letter spacing.
+	.aboutBannerSec, .aboutStorySec, .aboutYearsSec, .aboutLeadersSec, .aboutInvestorsSec, .aboutCertsSec, .aboutTalkSec{letter-spacing: 0;}
+
+	// Hero: the inner banner with this page's glow and illustration.
+	.aboutBannerSec{height: auto; min-height: 100vh; padding-top: 196px; padding-bottom: 0;
+		.wrapper{
+			.bannerContent{width: 79%;
+				.bannerHeading{
+					h4{margin-bottom: 12px;}
+					h1{max-width: 1231px; margin: 0 auto 24px; text-transform: none; background: linear-gradient(326deg, $aboutTeal 11.1%, #FFFFFF 61.9%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+					p{width: 100%;}
+				}
+				img{width: 82.4%; height: auto; margin-top: 24px;}
+			}
+		}
+		.bannerBG{z-index: 1;
+			img{display: block; width: 101.6%; max-width: none; height: auto; margin-left: -0.8%;}
+		}
+		@media screen and (max-width: 1800px) {padding-top: 140px;
+			.wrapper .bannerContent{width: 79%;}
+		}
+		@media screen and (max-width: 1280px) {padding-top: 120px;}
+		@media screen and (max-width: 820px) {min-height: 0;
+			.wrapper .bannerContent{width: 100%;}
+		}
+		@media screen and (max-width: 720px) {
+			.wrapper .bannerContent{
+				.bannerHeading p{width: 100%;}
+				img{width: 100%;}
+			}
+		}
+	}
+}
+
+// Our story: heading and the milestone strip.
+.aboutStorySec{position: relative; margin-top: calc(148px * var(--aboutS)); overflow-x: clip;
+	.wrapper{@include wrapper;
+		.secHeading{
+			h3{@include aboutEyebrow; margin-bottom: 20px;}
+			h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; width: 17.5em; max-width: 100%; @include aboutGradient(277deg, 31.5%, 74%);}
+		}
+	}
+	.aboutTimeline{position: relative; margin-top: calc(128px * var(--aboutS)); padding: 38px 0 32px;
+		// dotted line from 26% of the width to the edge
+		&::before{content: ""; position: absolute; left: 26.35%; right: 0; top: 278px; height: 3px; background: radial-gradient(circle, rgba(0, 240, 255, 0.75) 0 1px, transparent 1.6px) repeat-x 0 50% / 9px 3px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%); mask-image: linear-gradient(90deg, transparent, #000 12%); pointer-events: none;}
+		.aboutTimelineTrack{display: flex; gap: 268px; padding-left: 50.63%; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; touch-action: pan-y;}
+		.aboutTimelineItem{position: relative; flex: 0 0 249px; min-width: 0; -webkit-user-drag: none; user-select: none; display: flex; flex-flow: column; align-items: center; text-align: center; cursor: pointer; transition: opacity 0.5s ease;
+			.imgBox{height: 215px; width: 100%; display: flex; justify-content: center;
+				img{height: 100%; width: auto; max-width: none; display: block; pointer-events: none; transition: transform 0.5s ease;}
+			}
+			.dot{position: relative; z-index: 1; width: 24px; height: 24px; margin: 13px 0 59px; border-radius: 50%; background: #1EE3F0; box-shadow: 0 0 14px rgba(0, 240, 255, 0.55); transform: scale(0); transition: transform 0.45s ease;}
+			.year{font-size: 32px; font-weight: 500; line-height: 120%; margin-bottom: 16px; background: linear-gradient(308deg, $aboutTeal 50.6%, #FFFFFF 138.5%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+			.caption{color: $aboutText; font-size: 18px; line-height: 140%;}
+			&.is-active .dot{transform: scale(1);}
+			&.is-past{opacity: 0.35;}
+			&:hover .imgBox img, &:focus-visible .imgBox img{transform: translateY(-6px);}
+			&:focus-visible{outline: 1px solid rgba(1, 211, 199, 0.6); outline-offset: 6px;}
+		}
+	}
+	@media screen and (max-width: 1440px) {
+		.aboutTimeline{
+			&::before{top: 230px;}
+			.aboutTimelineTrack{gap: 200px;}
+			.aboutTimelineItem{flex-basis: 220px;
+				.imgBox{height: 172px;}
+				.dot{width: 20px; height: 20px; margin: 10px 0 46px;}
+				.year{font-size: 28px;}
+				.caption{font-size: 16px;}
+			}
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		.aboutTimeline{
+			&::before{top: 191px;}
+			.aboutTimelineTrack{gap: 120px;}
+			.aboutTimelineItem{flex-basis: 200px;
+				.imgBox{height: 140px;}
+				.dot{width: 18px; height: 18px; margin: 4px 0 36px;}
+				.year{font-size: 24px; margin-bottom: 10px;}
+				.caption{font-size: 14px;}
+			}
+		}
+	}
+	@media screen and (max-width: 720px) {
+		.aboutTimeline{padding-top: 24px;
+			&::before{left: 0; top: 157px;}
+			.aboutTimelineTrack{gap: 40px; padding-left: calc(50% - 90px);}
+			.aboutTimelineItem{flex-basis: 180px;
+				.imgBox{height: 120px;}
+				.year{font-size: 22px;}
+				.caption{font-size: 13px;}
+			}
+		}
+	}
+}
+
+// Year by year rows.
+.aboutYearsSec{position: relative; margin-top: calc(222px * var(--aboutS)); overflow-x: clip;
+	.aboutYearRow{position: relative; padding-bottom: calc(350px * var(--aboutS)); scroll-margin-top: 180px;
+		&:last-child{padding-bottom: 0;}
+		.wrapper{@include wrapper; position: relative; z-index: 1; display: flex; align-items: flex-start;
+			.yearLabel{flex: 0 0 calc(374px * var(--aboutS)); @include aboutFont(56, 30); font-weight: 500; line-height: 120%; white-space: nowrap; text-transform: capitalize; background: linear-gradient(308deg, $aboutTeal 50.6%, #FFFFFF 138.5%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+			.yearContent{flex: 1; min-width: 0;
+				h2{@include font48; font-weight: 500; line-height: 120%; margin-bottom: 24px; @include aboutGradient(275deg, 31.8%, 74.1%);}
+				> p{max-width: 1302px; color: $aboutText; @include font22; line-height: 180%;}
+			}
+		}
+		// light band below the row
+		&.hasGlow::after{@include aboutLens(calc(100% - 185px * var(--aboutS))); z-index: 0;}
+		// line art beside some rows, as in the design
+		&::before{content: none; position: absolute; z-index: 0; background-repeat: no-repeat; background-size: 100% 100%; pointer-events: none;}
+		&:nth-child(1)::before{content: ""; left: 0; top: 12.34vw; width: 10.17vw; height: 30.89vw; background-image: url(../images/about-contour-side.webp);}
+		&:nth-child(3)::before{content: ""; left: 59.66vw; top: 0.36vw; width: 58.44vw; height: 29.22vw; background-image: url(../images/about-waves.webp);}
+		&:nth-child(4)::before{content: ""; left: -24.27vw; top: -4.79vw; width: 58.44vw; height: 29.22vw; background-image: url(../images/about-waves.webp); transform: rotate(180deg);}
+		&:nth-child(8)::before{content: ""; left: -19.51vw; top: -12.71vw; width: 55.69vw; height: 18.33vw; background-image: url(../images/about-contour-wide.webp);}
+	}
+	.aboutCards{display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(49px * var(--aboutS)); margin-top: calc(67px * var(--aboutS));}
+	.aboutCard{position: relative; min-height: calc(234px * var(--aboutS)); padding: calc(30px * var(--aboutS)) calc(16px * var(--aboutS)) calc(30px * var(--aboutS)) calc(30px * var(--aboutS)); display: flex; flex-flow: column; justify-content: center; border-radius: 12px; overflow: hidden; background: $aboutCard url(../images/about-card-texture-1.webp) no-repeat center / 100% 100%; transition: transform 0.4s ease, box-shadow 0.4s ease;
+		&:nth-child(3n+2){background-image: url(../images/about-card-texture-2.webp);}
+		&:nth-child(3n){background-image: url(../images/about-card-texture-3.webp);}
+		h3{@include font24; font-weight: 400; line-height: 160%; margin-bottom: 6px; @include aboutGradient(105deg, -26%, 60%);}
+		p{color: $aboutText; @include font20; line-height: 180%;}
+		&.isLarge p{@include font24;}
+		&:hover{transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);}
+	}
+	@media screen and (max-width: 1800px) {
+		.aboutCard{min-height: 0;}
+	}
+	@media screen and (max-width: 1024px) {
+		.aboutCards{grid-template-columns: repeat(2, 1fr);}
+	}
+	@media screen and (max-width: 820px) {
+		.aboutYearRow .wrapper{flex-flow: column;
+			.yearLabel{flex: none; margin-bottom: 16px;}
+		}
+	}
+	@media screen and (max-width: 720px) {
+		.aboutYearRow{scroll-margin-top: 130px;
+			.wrapper .yearContent h2{margin-bottom: 16px;}
+		}
+		.aboutCards{grid-template-columns: 1fr; gap: 16px; margin-top: 28px;}
+		.aboutCard{padding: 20px;}
+	}
+}
+
+// Shared person line: round photo, name, role.
+.aboutPerson{display: flex; align-items: center; gap: 20px;
+	img{width: 81px; height: 81px; border-radius: 50%; object-fit: cover; flex: none;}
+	.aboutPersonText{display: flex; flex-flow: column;
+		h3, .name{color: $aboutText; @include font24; font-weight: 400; line-height: 180%;}
+		span{color: $aboutText; @include font20; line-height: 180%;}
+	}
+	@media screen and (max-width: 1440px) {gap: 16px;
+		img{width: 64px; height: 64px;}
+	}
+	@media screen and (max-width: 720px) {gap: 12px;
+		img{width: 52px; height: 52px;}
+		.aboutPersonText{
+			h3, .name{font-size: 16px;}
+			span{font-size: 13px;}
+		}
+	}
+}
+
+// Leaders.
+.aboutLeadersSec{position: relative; padding-top: calc(1181px * var(--aboutS)); overflow-x: clip;
+	&::before{@include aboutLens(calc(1059px * var(--aboutS)));}
+	.wrapper{@include wrapper; position: relative; z-index: 1;
+		.secHeading{text-align: center; margin-bottom: calc(56px * var(--aboutS));
+			h2{@include font48; font-weight: 500; line-height: 120%; @include aboutGradient(96deg, -21.9%, 50.2%);}
+		}
+		.aboutLeaders{display: grid; grid-template-columns: repeat(2, 1fr); gap: calc(65px * var(--aboutS));}
+		.aboutLeaderCard{position: relative; min-height: calc(578px * var(--aboutS)); padding: calc(46px * var(--aboutS)) calc(49px * var(--aboutS)) calc(40px * var(--aboutS)) calc(31px * var(--aboutS)); background: $aboutCard url(../images/about-leader-texture.webp) no-repeat center / 100% 100%;
+			&:nth-child(2n){background-image: none;
+				&::before{content: ""; position: absolute; inset: 0; background: url(../images/about-leader-texture.webp) no-repeat center / 100% 100%; transform: scaleX(-1); pointer-events: none;}
+			}
+			.aboutPerson{position: relative; margin-left: calc(-8px * var(--aboutS));}
+			p{position: relative; margin-top: calc(54px * var(--aboutS)); color: $aboutText; @include font22; line-height: 180%;}
+		}
+	}
+	@media screen and (max-width: 720px) {padding-top: 320px;
+		&::before{@include aboutLens(260px);}
+	}
+	@media screen and (max-width: 820px) {
+		.wrapper .aboutLeaders{grid-template-columns: 1fr; gap: 24px;}
+		.wrapper .aboutLeaderCard{min-height: 0; padding: 32px 24px;}
+	}
+	@media screen and (max-width: 720px) {
+		.wrapper .aboutLeaderCard{padding: 24px 16px;
+			.aboutPerson{margin-left: 0;}
+			p{margin-top: 24px; font-size: 13px;}
+		}
+	}
+}
+
+// What our investors say.
+.aboutInvestorsSec{position: relative; padding-top: calc(369px * var(--aboutS));
+	.wrapper{@include wrapper; display: flex; align-items: flex-start;
+		.secHeading{flex: 0 0 calc(463px * var(--aboutS)); padding-right: 24px;
+			h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; width: 7.1em; max-width: 100%; @include aboutGradient(314deg, 16.6%, 71%);}
+		}
+		.aboutQuotes{position: relative; flex: 0 1 1225px; display: grid; grid-template-columns: repeat(2, 1fr); gap: calc(67px * var(--aboutS)); padding-top: calc(141px * var(--aboutS));
+			.aboutQuotesGlow{position: absolute; left: -2.3%; top: calc(-102px * var(--aboutS)); width: 105.4%; height: auto; aspect-ratio: 1291 / 659; max-width: none; pointer-events: none;}
+		}
+		.aboutQuote{position: relative; margin: 0; display: flex; flex-flow: column; justify-content: space-between;
+			blockquote{margin: 0 0 calc(81px * var(--aboutS)); color: $aboutText; @include aboutFont(28, 16); font-weight: 500; line-height: 160%; text-transform: capitalize;}
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		.wrapper{flex-flow: column;
+			.secHeading{flex: none; margin-bottom: 24px;}
+			.aboutQuotes{flex: none; width: 100%; padding-top: 48px;
+				.aboutQuotesGlow{display: none;}
+			}
+		}
+	}
+	@media screen and (max-width: 720px) {
+		.wrapper .aboutQuotes{grid-template-columns: 1fr; gap: 40px; padding-top: 24px;}
+		.wrapper .aboutQuote blockquote{margin-bottom: 20px;}
+	}
+}
+
+// Certified and trusted.
+.aboutCertsSec{position: relative; padding-top: calc(310px * var(--aboutS)); margin-bottom: calc(319px * var(--aboutS));
+	.wrapper{@include wrapper;
+		.secHeading{text-align: center; margin-bottom: calc(32px * var(--aboutS));
+			h2{@include font48; font-weight: 500; line-height: 120%; @include aboutGradient(274deg, 31.8%, 74.1%);}
+		}
+		.aboutCerts{display: flex; flex-flow: wrap; justify-content: space-between; gap: 16px; list-style: none; margin: 0; padding: 0;
+			li{position: relative; padding: calc(19px * var(--aboutS)) calc(27px * var(--aboutS)); border-radius: 100px; color: $aboutText; @include font22; line-height: 180%; white-space: nowrap; list-style: none;
+				// 1px gradient outline
+				&::before{content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, rgba(1, 211, 199, 0.4), rgba(255, 255, 255, 0.4)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none;}
+			}
+		}
+	}
+	@media screen and (max-width: 1280px) {
+		.wrapper .aboutCerts{justify-content: center;}
+	}
+	@media screen and (max-width: 720px) {
+		.wrapper .aboutCerts{gap: 10px;
+			li{padding: 10px 16px; font-size: 13px; white-space: normal; text-align: center;}
+		}
+	}
+}
+
+// Closing call to action: the talk-to-partner block with this page's light band.
+body.page-template-about-us .aboutTalkSec{
+	.secWrapper{
+		&::after{@include aboutLens(73px); z-index: 1;}
+		.secHeading{z-index: 2;
+			p{max-width: 957px;}
+			.primaryCTA{text-transform: capitalize;}
+		}
+	}
+}
+
+// Fade-up on scroll for the story rows, leader cards and quotes (class added by js/pages.js).
+.aboutYearsSec, .aboutLeadersSec, .aboutInvestorsSec{
+	[data-reveal]{opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease;
+		&.is-visible{opacity: 1; transform: none;}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		[data-reveal]{opacity: 1; transform: none; transition: none;}
+	}
+}

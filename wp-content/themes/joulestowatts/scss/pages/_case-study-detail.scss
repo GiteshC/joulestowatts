@@ -1,0 +1,220 @@
+@use '../base/_global.scss' as *;
+
+// Case study detail (single-case_study.php): hero with the facts card, the
+// story body with its "on this page" list, then the impact
+// stories slider and talk to partner sections.
+
+@mixin csdGradientText {background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+@mixin csdLabel {display: block; @include font16; font-weight: 500; line-height: 160%; letter-spacing: 1.5px; text-transform: uppercase; color: #81716A;}
+@mixin csdBody {@include font20; font-weight: 300; line-height: 140%; color: rgba(221, 225, 225, 0.80);}
+@mixin csdDot {content: ""; flex-shrink: 0; width: 12px; height: 12px; border-radius: 50%; background: #CC2033;}
+
+// ---------------------------------------------------------------- hero
+.csDetailHero{position: relative; padding-top: 257px; padding-bottom: 99px; overflow: hidden;
+    .wrapper{@include wrapper; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; gap: 60px;}
+    .csHeroText{flex: 0 1 700px;
+        h4{@include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; color: #00ACB4; margin-bottom: 24px;}
+        h1{@include font72; font-weight: 500; line-height: 120%; text-transform: capitalize; margin-bottom: 32px; width: fit-content; @include csdGradientText;}
+        p{max-width: 622px; @include font20; font-weight: 300; line-height: 160%; color: rgba(221, 225, 225, 0.80);}
+    }
+    .csFacts{position: relative; flex: 0 0 855px; max-width: 52%; margin-top: 15px; display: grid; grid-template-columns: 52.9% 1fr; row-gap: 78px; padding: 47px 24px 32px; border: 1px solid rgba(111, 99, 99, 0.5); border-radius: 12px; background: rgba(33, 2, 19, 0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+        &::before{content: ""; position: absolute; inset: -1px; border-radius: 12px; padding: 1.2px; background: linear-gradient(138deg, #01D3C7 4%, rgba(255, 255, 255, 0) 52%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;}
+        .csFact{min-width: 0; padding-right: 24px;
+            .label{@include csdLabel; margin-bottom: 8px;}
+            p{max-width: 290px; @include font20; font-weight: 400; line-height: 140%; color: #D9D9D9; text-transform: capitalize;}
+        }
+    }
+    .csRating{display: flex; gap: 6px; margin-top: 12px;
+        span{width: 12px; height: 12px; border-radius: 50%; background: #320F23;
+            &.is-full{background: #CC2033;}
+            &.is-half{background: linear-gradient(90deg, #CC2033 50%, #320F23 50%);}
+        }
+    }
+    .csBand{position: relative; display: block; width: 378px; max-width: 100%; height: 14px; margin-top: 16px;
+        &::before{content: ""; position: absolute; top: 6px; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #1A9BA4 0 3px, transparent 3px 5.5px); -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.35), #000 43%, rgba(0, 0, 0, 0.35)); mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.35), #000 43%, rgba(0, 0, 0, 0.35));}
+        .dot{position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: #1DECF7; box-shadow: 0 0 10px rgba(29, 236, 247, 0.6); transform: translate(-50%, -50%);}
+    }
+    .csHeroLines{position: absolute; top: 33.2vw; left: -2.6%; width: 31.6%; pointer-events: none; z-index: 1;
+        img{display: block; width: 100%; height: auto;}
+    }
+    .csHeroGlow{position: absolute; bottom: 0; left: 2%; width: 96.8%; pointer-events: none; z-index: 1;
+        img{display: block; width: 100%; height: auto;}
+    }
+}
+
+// ---------------------------------------------------------------- story body
+.csDetailBody{position: relative; padding-top: 85px; margin-bottom: 114px;
+    .wrapper{@include wrapper; position: relative; z-index: 2; display: grid; grid-template-columns: 372px minmax(0, 1fr); column-gap: 63px; align-items: start;}
+    .csToc{position: sticky; top: 140px;
+        ul{margin: 0; padding: 0; list-style: none;}
+        li + li{margin-top: 24px;}
+        a{display: inline-flex; align-items: center; @include font20; font-weight: 300; line-height: 140%; color: rgba(221, 225, 225, 0.60); transition: color 0.3s ease;
+            &::before{content: ""; flex-shrink: 0; width: 0; height: 12px; margin-right: 0; border-radius: 50%; background: #01D3C7; transition: width 0.3s ease, margin-right 0.3s ease;}
+            &:hover{color: rgba(221, 225, 225, 0.9);}
+            &.is-active{@include csdGradientText;
+                &::before{width: 12px; margin-right: 12px;}
+            }
+        }
+    }
+    .csContent{display: flex; flex-flow: column; gap: 80px; min-width: 0;}
+    .csBlock{scroll-margin-top: 140px;
+        > p{@include csdBody;}
+    }
+    .csBlockTitle{@include font22; font-weight: 400; line-height: 150%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; width: fit-content; @include csdGradientText;}
+
+    .csImpactCards{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 32px;}
+    .csImpactCard{min-height: 200px; padding: 32px 16px; border: 1px solid rgba(111, 99, 99, 0.4); border-radius: 12px; background: url(../images/case-study-impact-card-bg.webp) no-repeat 50% 0 / 122.4% 100%;
+        .label{@include csdLabel;}
+        h3{margin-top: 8px; @include font32; font-weight: 600; line-height: 120%; color: #D9D9D9; text-transform: capitalize;}
+        p{margin-top: 24px; @include font16; font-weight: 400; line-height: 140%; color: #D9D9D9; text-transform: capitalize;}
+    }
+
+    .csTags{display: flex; flex-wrap: wrap; gap: 24px; margin: 0 0 20px; padding: 0; list-style: none;
+        li{padding: 10px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.10); color: #1B98A0; @include font20; font-weight: 400; line-height: 135%; text-transform: capitalize;}
+    }
+
+    .csDotTitle{display: flex; align-items: center; gap: 11px; @include font24; font-weight: 600; line-height: 120%; color: #D9D9D9; text-transform: capitalize;
+        &::before{@include csdDot;}
+    }
+    #cs-involved .csBlockTitle, #cs-lessons .csBlockTitle{margin-bottom: 32px;}
+    .csPeople{display: grid; grid-template-columns: 53.4% 1fr; gap: 32px 0;
+        p{margin-top: 8px; padding-left: 24px; @include font18; font-weight: 600; line-height: 160%; letter-spacing: 1px; color: #81716A;}
+    }
+    .csLessons{display: flex; flex-flow: column; gap: 32px;
+        p{margin-top: 12px; padding: 0 24px; @include csdBody;}
+    }
+
+    .csContourLines{position: absolute; left: 0; bottom: -16.35vw; width: 13.85vw; pointer-events: none; z-index: 1;
+        img{display: block; width: 100%; height: auto;}
+    }
+}
+
+// ---------------------------------------------------------------- reused sections
+body.single-case_study {
+    .csStartSec{margin-top: -70px;
+        .primaryCTA{text-transform: capitalize;}
+        @media screen and (max-width: 1280px){margin-top: -40px;}
+        @media screen and (max-width: 720px){margin-top: 0;}
+    }
+    .csExploreSec{margin-bottom: 0; z-index: 2;
+        .secWrapper{
+            .secHeading{margin-bottom: 40px;
+                .headingGroup{width: auto;
+                    h2{margin-bottom: 0;}
+                }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------- responsive
+@media screen and (max-width: 1800px){
+    .csDetailHero{padding-top: 200px;
+        .csFacts{flex-basis: 760px;}
+    }
+    .csDetailBody{
+        .wrapper{grid-template-columns: 320px minmax(0, 1fr); column-gap: 60px;}
+    }
+}
+@media screen and (max-width: 1600px){
+    .csDetailHero{padding-top: 180px;
+        .csFacts{flex-basis: 700px; row-gap: 60px; padding: 40px 24px 28px;}
+    }
+    .csDetailBody{
+        .wrapper{grid-template-columns: 280px minmax(0, 1fr); column-gap: 48px;}
+        .csContent{gap: 70px;}
+        .csImpactCard{min-height: 180px; padding: 28px 16px;
+            p{margin-top: 20px;}
+        }
+        .csTags{gap: 16px;}
+    }
+}
+@media screen and (max-width: 1440px){
+    .csDetailHero{padding-top: 160px;
+        .csFacts{flex-basis: 620px; row-gap: 48px;}
+    }
+    .csDetailBody{
+        .wrapper{grid-template-columns: 240px minmax(0, 1fr); column-gap: 40px;}
+        .csContent{gap: 60px;}
+        .csTags li{padding: 8px 14px;}
+    }
+}
+@media screen and (max-width: 1280px){
+    .csDetailHero{padding-top: 140px; padding-bottom: 80px;
+        .wrapper{gap: 40px;}
+        .csFacts{flex-basis: 540px; row-gap: 40px; padding: 32px 20px 24px;
+            .csFact{padding-right: 16px;}
+        }
+        .csRating{margin-top: 10px;
+            span{width: 10px; height: 10px;}
+        }
+    }
+    .csDetailBody{padding-top: 70px; margin-bottom: 80px;
+        .wrapper{grid-template-columns: 210px minmax(0, 1fr); column-gap: 32px;}
+        .csToc{top: 110px;
+            li + li{margin-top: 18px;}
+        }
+        .csContent{gap: 56px;}
+        .csImpactCards{gap: 14px; margin-top: 24px;}
+        .csImpactCard{min-height: 160px; padding: 24px 14px;
+            p{margin-top: 16px;}
+        }
+        .csTags{gap: 12px;}
+        #cs-involved .csBlockTitle, #cs-lessons .csBlockTitle{margin-bottom: 24px;}
+        .csPeople{gap: 24px 0;}
+        .csLessons{gap: 24px;}
+    }
+}
+@media screen and (max-width: 1024px){
+    .csDetailHero{
+        .wrapper{flex-flow: column; gap: 48px;}
+        .csHeroText{flex-basis: auto; max-width: 720px;}
+        .csFacts{flex-basis: auto; width: 100%; max-width: 760px; margin-top: 0;}
+        .csHeroLines{top: 60%;}
+    }
+    .csDetailBody{
+        .wrapper{grid-template-columns: minmax(0, 1fr);}
+        .csToc{display: none;}
+        .csImpactCards{grid-template-columns: repeat(2, minmax(0, 1fr));}
+    }
+}
+@media screen and (max-width: 720px){
+    .csDetailHero{padding-top: 110px; padding-bottom: 60px;
+        .csHeroText{
+            h4{letter-spacing: 1px; margin-bottom: 14px;}
+            h1{margin-bottom: 18px;}
+            p{font-size: 14px;}
+        }
+        .csFacts{grid-template-columns: minmax(0, 1fr); row-gap: 24px; padding: 24px 16px;
+            .csFact:empty{display: none;}
+            .csFact .label{margin-bottom: 4px;}
+            .csFact p{font-size: 15px;}
+        }
+        .csHeroLines{display: none;}
+        .csHeroGlow{left: -40%; width: 180%;}
+    }
+    .csDetailBody{padding-top: 40px; margin-bottom: 60px;
+        .csContent{gap: 44px;}
+        .csBlockTitle{letter-spacing: 1px; margin-bottom: 14px;}
+        .csBlock > p{font-size: 14px;}
+        .csImpactCards{grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 20px;}
+        .csImpactCard{min-height: 0; padding: 20px 16px;
+            h3{font-size: 22px;}
+            p{margin-top: 12px; font-size: 13px;}
+        }
+        .csTags{gap: 8px; margin-bottom: 14px;
+            li{padding: 6px 12px; font-size: 13px;}
+        }
+        .csDotTitle{gap: 9px; font-size: 16px;
+            &::before{width: 10px; height: 10px;}
+        }
+        #cs-involved .csBlockTitle, #cs-lessons .csBlockTitle{margin-bottom: 18px;}
+        .csPeople{grid-template-columns: minmax(0, 1fr); gap: 18px;
+            p{padding-left: 19px; font-size: 13px; letter-spacing: 0.5px;}
+        }
+        .csLessons{gap: 20px;
+            p{padding: 0 0 0 19px; margin-top: 8px; font-size: 14px;}
+        }
+        .csContourLines{width: 30vw; bottom: -30vw;}
+    }
+}

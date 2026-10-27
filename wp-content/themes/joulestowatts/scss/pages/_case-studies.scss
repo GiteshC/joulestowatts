@@ -1,0 +1,143 @@
+@use '../base/_global.scss' as *;
+
+// Case Studies listing: heading, filter chips, story cards and "Show more".
+
+@mixin csGradientText {background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+
+.csListSec{position: relative; padding-top: 195px; padding-bottom: 200px; overflow: hidden;
+    .wrapper{@include wrapper; position: relative; z-index: 2;}
+
+    .csListHeading{
+        h4{@include font20; font-weight: 400; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; color: #00ACB4; margin-bottom: 14px;}
+        h1{@include font72; font-weight: 500; line-height: 120%; text-transform: capitalize; margin-bottom: 24px; width: fit-content; @include csGradientText;}
+        .description{max-width: 1000px;
+            p{@include font20; font-weight: 300; line-height: 150%; color: rgba(221, 225, 225, 0.80);
+                &:first-child{color: #fff; font-weight: 400;}
+                + p{margin-top: 30px;}
+            }
+        }
+    }
+
+    .csFilters{margin-top: 68px;}
+    .csFilterRow{display: flex; align-items: flex-start; gap: 40px; padding: 40px 0; border-bottom: 1px solid #6F6363;
+        &:first-child{padding-top: 0;}
+        &:last-child{padding-bottom: 0; border-bottom: 0;}
+        .csFilterLabel{flex-shrink: 0; @include font22; font-weight: 400; line-height: 50px; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; @include csGradientText;}
+        .csFilterChips{display: flex; flex-wrap: wrap; gap: 24px;
+            // the chip rows run past the wrapper edge (1766px wide)
+            @media screen and (min-width: 1801px){margin-right: -46px;}
+        }
+    }
+    .csChip{display: inline-flex; align-items: center; min-height: 50px; padding: 10px 16px; border: 0; border-radius: 24px; background: rgba(255, 255, 255, 0.10); color: #1B98A0; font-family: "Poppins", sans-serif; @include font20; font-weight: 300; line-height: 150%; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;
+        &:hover{background: rgba(27, 152, 160, 0.22); color: #01D3C7;}
+        &:focus-visible{outline: 2px solid #01D3C7; outline-offset: 2px;}
+        &.is-active{background: #1B98A0; color: #210214;}
+    }
+
+    .csResults{margin-top: 80px;}
+    .csCount{@include font20; font-weight: 300; line-height: 150%; color: rgba(221, 225, 225, 0.80); margin-bottom: 24px;}
+    .csGrid{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 20px;}
+    .csCard{position: relative; display: flex; flex-flow: column; justify-content: space-between; height: 462px; padding: 24px 24px 37px; border: 1.5px solid rgba(255, 255, 255, 0.05); border-radius: 12px; background: #210214 url(../images/case-study-card-bg.webp) no-repeat 35% 0 / 137.14% 100%; overflow: hidden; transition: border-color 0.35s ease, transform 0.35s ease;
+        &.is-hidden{display: none;}
+        &:hover{border-color: rgba(1, 211, 199, 0.35); transform: translateY(-4px);}
+        .csMetric{display: flex; align-items: center; gap: 8px; line-height: 1.36;
+            .value{@include font72; font-weight: 400; @include csGradientText;}
+            .suffix{font-size: 60px; font-weight: 600; color: #FF3535; line-height: 1;
+                @media screen and (max-width: 1800px){font-size: 48px;}
+                @media screen and (max-width: 1600px){font-size: 44px;}
+                @media screen and (max-width: 1440px){font-size: 38px;}
+                @media screen and (max-width: 1280px){font-size: 34px;}
+                @media screen and (max-width: 1024px){font-size: 30px;}
+                @media screen and (max-width: 720px){font-size: 26px;}
+            }
+        }
+        p{max-width: 328px; margin-top: 16px; @include font16; font-weight: 400; line-height: 140%; color: #D9D9D9; text-transform: capitalize;}
+        .csCardTags{display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none;
+            li{@include font18; font-weight: 500; line-height: 140%; color: #1B98A0;}
+        }
+    }
+    .csEmpty{@include font20; color: rgba(221, 225, 225, 0.80); padding: 40px 0;
+        &[hidden]{display: none;}
+    }
+    .csMore{display: flex; justify-content: center; margin-top: 80px;
+        &[hidden]{display: none;}
+        .secondaryCTA{font-family: "Poppins", sans-serif; font-weight: 400; color: #12161F; cursor: pointer;
+            &:hover{
+                .arrowBox{transform: translateY(3px);}
+            }
+        }
+    }
+
+    .csListLines{position: absolute; left: 0; right: 0; bottom: 99px; height: 20.5vw; pointer-events: none; z-index: 1;
+        img{position: absolute; bottom: 0; width: 41.1%; height: auto;}
+        .linesLeft{left: 0.1%;}
+        .linesRight{right: -0.1%;}
+    }
+
+    @media screen and (max-width: 1800px){padding-top: 160px; padding-bottom: 180px;
+        .csCard{height: 430px;}
+    }
+    @media screen and (max-width: 1600px){padding-top: 150px; padding-bottom: 160px;
+        .csFilters{margin-top: 56px;}
+        .csFilterRow{gap: 32px; padding: 32px 0;
+            .csFilterLabel{line-height: 45px;}
+            .csFilterChips{gap: 18px;}
+        }
+        .csChip{min-height: 45px;}
+        .csResults{margin-top: 64px;}
+        .csCard{height: 400px;}
+        .csMore{margin-top: 64px;}
+    }
+    @media screen and (max-width: 1440px){padding-bottom: 140px;
+        .csFilterRow{
+            .csFilterLabel{line-height: 42px;}
+            .csFilterChips{gap: 14px;}
+        }
+        .csChip{min-height: 42px; padding: 8px 14px;}
+        .csCard{height: 370px;}
+    }
+    @media screen and (max-width: 1280px){padding-top: 130px; padding-bottom: 120px;
+        .csFilterRow{gap: 24px; padding: 28px 0;
+            .csFilterLabel{line-height: 38px;}
+            .csFilterChips{gap: 12px;}
+        }
+        .csChip{min-height: 38px; padding: 7px 14px;}
+        .csResults{margin-top: 56px;}
+        .csGrid{gap: 20px 16px;}
+        .csCard{height: 340px; padding: 20px 20px 28px;}
+        .csMore{margin-top: 56px;}
+    }
+    @media screen and (max-width: 1024px){
+        .csGrid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+        .csCard{height: 320px;}
+    }
+    @media screen and (max-width: 820px){padding-bottom: 100px;
+        .csFilterRow{flex-flow: column; gap: 12px;
+            .csFilterLabel{line-height: 150%;}
+        }
+    }
+    @media screen and (max-width: 720px){padding-top: 110px; padding-bottom: 80px;
+        .csListHeading{
+            h4{letter-spacing: 1px; margin-bottom: 10px;}
+            h1{margin-bottom: 16px;}
+            .description p + p{margin-top: 16px;}
+        }
+        .csFilters{margin-top: 40px;}
+        .csFilterRow{padding: 20px 0;
+            .csFilterChips{gap: 8px;}
+        }
+        .csChip{min-height: 34px; padding: 6px 12px; font-size: 13px;}
+        .csResults{margin-top: 40px;}
+        .csCount{margin-bottom: 16px;}
+        .csGrid{grid-template-columns: minmax(0, 1fr); gap: 16px;}
+        .csCard{height: auto; min-height: 280px; padding: 20px 16px 24px; gap: 40px;
+            .csCardTags li{font-size: 13px;}
+        }
+        .csMore{margin-top: 40px;}
+        .csListLines{bottom: 40px; height: 40vw;
+            img{width: 70%;}
+            .linesLeft{left: -30%;}
+            .linesRight{right: -30%;}
+        }
+    }
+}

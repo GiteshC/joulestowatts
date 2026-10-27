@@ -256,3 +256,117 @@ function joulestowatts_main_menu_groups() {
 		),
 	);
 }
+
+/**
+ * Case studies post type. Stories live at /case-study/<name>/ so they never
+ * clash with the listing page at /case-studies/.
+ */
+function joulestowatts_register_case_study() {
+	register_post_type(
+		'case_study',
+		array(
+			'labels'          => array(
+				'name'               => 'Case Studies',
+				'singular_name'      => 'Case Study',
+				'add_new_item'       => 'Add New Case Study',
+				'edit_item'          => 'Edit Case Study',
+				'new_item'           => 'New Case Study',
+				'view_item'          => 'View Case Study',
+				'search_items'       => 'Search Case Studies',
+				'not_found'          => 'No case studies found',
+				'not_found_in_trash' => 'No case studies found in Trash',
+				'all_items'          => 'All Case Studies',
+				'menu_name'          => 'Case Studies',
+			),
+			'public'          => true,
+			'has_archive'     => false,
+			'show_in_rest'    => true,
+			'menu_position'   => 21,
+			'menu_icon'       => 'dashicons-chart-line',
+			'supports'        => array( 'title', 'page-attributes', 'revisions' ),
+			'rewrite'         => array(
+				'slug'       => 'case-study',
+				'with_front' => false,
+			),
+			'capability_type' => 'post',
+		)
+	);
+}
+add_action( 'init', 'joulestowatts_register_case_study' );
+
+/**
+ * Case studies listing filters, in order: the case_study field name (inside the
+ * "filters" group), the label field on the listing page, and the default label.
+ */
+function joulestowatts_case_study_filter_groups() {
+	return array(
+		'sector'             => array( 'sector_label', 'Sector' ),
+		'intervention'       => array( 'intervention_label', 'Intervention' ),
+		'impact_on'          => array( 'impact_label', 'Impact on' ),
+		'nature_of_solution' => array( 'nature_label', 'Nature of solution' ),
+	);
+}
+
+/**
+ * Choices of one filter field on the case study fields (editable in ACF).
+ */
+function joulestowatts_case_study_filter_choices( $name ) {
+	if ( ! function_exists( 'acf_get_fields' ) ) {
+		return array();
+	}
+	foreach ( acf_get_fields( 'group_6ae05c1a58180' ) as $field ) {
+		if ( 'filters' !== $field['name'] ) {
+			continue;
+		}
+		foreach ( $field['sub_fields'] as $sub_field ) {
+			if ( $name === $sub_field['name'] ) {
+				return (array) $sub_field['choices'];
+			}
+		}
+	}
+	return array();
+}
+
+/**
+ * Published case studies in menu order, optionally leaving one out.
+ */
+function joulestowatts_case_study_posts( $exclude = 0 ) {
+	return get_posts(
+		array(
+			'post_type'        => 'case_study',
+			'post_status'      => 'publish',
+			'numberposts'      => -1,
+			'orderby'          => array(
+				'menu_order' => 'ASC',
+				'date'       => 'DESC',
+			),
+			'exclude'          => $exclude ? array( $exclude ) : array(),
+			'suppress_filters' => false,
+		)
+	);
+}
+
+/**
+ * Contact form: the "week" dropdown always offers the coming weeks,
+ * starting with the week after this one ("Week of 2 November").
+ */
+function joulestowatts_contact_week_options( $count = 8 ) {
+	$monday  = new DateTimeImmutable( 'monday next week', wp_timezone() );
+	$options = array();
+	for ( $i = 0; $i < $count; $i++ ) {
+		$options[] = 'Week of ' . wp_date( 'j F', $monday->modify( "+{$i} week" )->getTimestamp() );
+	}
+	return $options;
+}
+
+function joulestowatts_contact_week_tag( $tag ) {
+	if ( 'select' !== $tag['basetype'] || 'week' !== $tag['name'] ) {
+		return $tag;
+	}
+	$weeks             = joulestowatts_contact_week_options();
+	$tag['values']     = $weeks;
+	$tag['raw_values'] = $weeks;
+	$tag['labels']     = $weeks;
+	return $tag;
+}
+add_filter( 'wpcf7_form_tag', 'joulestowatts_contact_week_tag' );

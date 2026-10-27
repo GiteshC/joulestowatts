@@ -1,0 +1,171 @@
+@use '../base/_global.scss' as *;
+
+// Accelerator Family page. Rules for the shared sections are scoped to this template.
+$accfamGradient: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+
+// Soft horizontal light band between sections (the blurred horizon glow in the design), screen-blended so lines behind it stay visible.
+@mixin accfamBand {position: absolute; left: 0; width: 100%; pointer-events: none; z-index: 1; mix-blend-mode: screen;
+    background: linear-gradient(180deg, #000000 0%, #000C0D 5%, #00191A 10%, #002021 15%, #002729 20%, #003133 25%, #023D40 30%, #0E4E4F 35%, #1D5C5E 40%, #356E70 45%, #547F7F 50%, #356E70 55%, #1D5C5E 60%, #0E4E4F 65%, #023D40 70%, #003133 75%, #002729 80%, #002021 85%, #00191A 90%, #000C0D 95%, #000000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 12%, #000 38%, #000 62%, transparent 88%); mask-image: linear-gradient(90deg, transparent 12%, #000 38%, #000 62%, transparent 88%);
+}
+
+@mixin accfamGradientText {
+    background: $accfamGradient; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+body.page-template-accelerator-family {
+    .accFamBanner {padding-top: 279px;
+        @media screen and (max-width: 1800px) {padding-top: 200px;}
+        @media screen and (max-width: 1280px) {padding-top: 120px;}
+        .wrapper {
+            .bannerContent {
+                .bannerHeading {
+                    h1 {margin-bottom: 24px;}
+                    p {width: 100%; max-width: 900px;}
+                }
+                img {margin-top: clamp(40px, 8.5vw, 164px); width: 1170px; max-width: 100%; height: auto;}
+            }
+        }
+    }
+
+    .accFamIntro {padding: 230px 0 195px;
+        .wrapper {flex-flow: column; position: relative; z-index: 2;
+            .introContent {width: 50%;}
+        }
+        .accFamBand {@include accfamBand; top: -20.8vw; height: 41.7vw; opacity: 0.85;}
+        @media screen and (max-width: 1600px) {padding: 180px 0 160px;}
+        @media screen and (max-width: 1280px) {padding: 140px 0 130px;
+            .wrapper .introContent {width: 64%;}
+        }
+        @media screen and (max-width: 820px) {padding: 100px 0 100px;
+            .wrapper .introContent {width: 90%;}
+        }
+        @media screen and (max-width: 720px) {padding: 70px 0 80px;
+            .wrapper .introContent {width: 100%;
+                h2 {margin-bottom: 20px;}
+            }
+        }
+    }
+
+    .talkToPartnerSec.accFamPartner {padding-top: 28.6vw; padding-bottom: 3.4vw;
+        // Background image below the light band, text above it.
+        .secWrapper {z-index: auto;
+            .imgBox {position: relative; z-index: 0;}
+            .secHeading {z-index: 2;
+                h2 {max-width: 700px;}
+                p {margin-bottom: 44px;}
+            }
+        }
+        @media screen and (max-width: 1280px) {
+            .secWrapper .secHeading p {margin-bottom: 30px;}
+        }
+        @media screen and (max-width: 720px) {padding-top: 40px; padding-bottom: 60px;
+            .secWrapper .secHeading p {margin-bottom: 24px;}
+        }
+    }
+}
+
+// Three headline numbers under the intro.
+.accFamStats {display: flex; justify-content: center; align-items: center; width: 100%; max-width: 1571px; margin: 112px auto 0;
+    .accFamStat {flex: 1 1 0; text-align: center; padding: 0 38px; position: relative; display: flex; flex-flow: column; gap: 30px;
+        & + .accFamStat::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 129px; background: rgba(255, 255, 255, 0.20);}
+        h3 {@include font40; font-weight: 500; line-height: 120%; text-transform: capitalize; @include accfamGradientText;}
+        p {color: #fff; @include font20; line-height: 170%; max-width: 440px; margin: 0 auto;}
+    }
+    @media screen and (max-width: 1600px) {margin-top: 90px;
+        .accFamStat {gap: 24px;}
+    }
+    @media screen and (max-width: 1280px) {margin-top: 70px;
+        .accFamStat {gap: 16px; padding: 0 24px;
+            & + .accFamStat::before {height: 100px;}
+        }
+    }
+    @media screen and (max-width: 720px) {flex-flow: column; margin-top: 48px; gap: 28px;
+        .accFamStat {padding: 0; gap: 10px;
+            & + .accFamStat {padding-top: 28px;}
+            & + .accFamStat::before {left: 50%; top: 0; transform: translateX(-50%); width: 120px; height: 1px;}
+        }
+    }
+}
+
+// "The family": grid of accelerator cards.
+.accFamFamilySec {position: relative; z-index: 2;
+    .wrapper {@include wrapper;
+        .secHeading {text-align: center; max-width: 913px; margin: 0 auto 125px;
+            h2 {@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; @include accfamGradientText; margin-bottom: 12px;}
+            p {color: #C0C6C6; @include font20; line-height: 170%;}
+        }
+    }
+    .accFamGrid {display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 75px; row-gap: 78px;}
+    .accFamCard {position: relative; min-height: 528px; padding: 24px; border-radius: 12px; border: 1px solid rgba(221, 221, 221, 0.10); overflow: hidden;
+        display: flex; flex-flow: column; justify-content: space-between; align-items: flex-start; gap: 40px;
+        background: linear-gradient(180deg, #2B0C1E 0%, #29142A 30%, #262236 55%, #29384A 78%, #4C5F6B 94%, #64757E 100%);
+        transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+        &::after {content: ""; position: absolute; inset: 0; background: radial-gradient(120% 60% at 50% 110%, rgba(1, 211, 199, 0.22) 0%, rgba(1, 211, 199, 0) 70%); opacity: 0; transition: opacity 0.35s ease; pointer-events: none;}
+        .tag {position: relative; z-index: 1; display: inline-block; padding: 5px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16; font-weight: 600; line-height: 140%;}
+        // The link stretches over the whole card (its ::before), so the card is one click target.
+        .bottomContent {display: flex; flex-flow: column; gap: 7px;
+            > * {position: relative; z-index: 1;}
+            h3 {color: #fff; @include font24; font-weight: 600; line-height: 1.36;}
+            p {color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+            .cardLink {color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%; text-decoration: underline; text-underline-offset: 3px; width: fit-content; transition: color 0.35s ease;
+                position: static;
+                &:hover {color: #01D3C7;}
+                &::before {content: ""; position: absolute; inset: 0; z-index: 2;}
+            }
+        }
+        &:hover {border-color: rgba(1, 211, 199, 0.45); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+            &::after {opacity: 1;}
+            .cardLink {color: #01D3C7;}
+        }
+        &:focus-within {border-color: rgba(1, 211, 199, 0.6);}
+    }
+
+    @media screen and (max-width: 1800px) {
+        .accFamGrid {column-gap: 60px; row-gap: 64px;}
+        .accFamCard {min-height: 480px;}
+    }
+    @media screen and (max-width: 1600px) {
+        .wrapper .secHeading {margin-bottom: 100px;}
+        .accFamGrid {column-gap: 48px; row-gap: 52px;}
+        .accFamCard {min-height: 440px;}
+    }
+    @media screen and (max-width: 1440px) {
+        .wrapper .secHeading {margin-bottom: 80px;}
+        .accFamGrid {column-gap: 36px; row-gap: 40px;}
+        .accFamCard {min-height: 400px;}
+    }
+    @media screen and (max-width: 1280px) {
+        .accFamCard {min-height: 360px; padding: 20px;}
+    }
+    @media screen and (max-width: 1024px) {
+        .accFamGrid {grid-template-columns: repeat(2, 1fr); column-gap: 28px; row-gap: 32px;}
+    }
+    @media screen and (max-width: 720px) {
+        .wrapper .secHeading {margin-bottom: 40px;}
+        .accFamGrid {grid-template-columns: 1fr; row-gap: 20px;}
+        .accFamCard {min-height: 300px; padding: 16px;
+            .tag {font-size: 12px; padding: 5px 12px;}
+            .bottomContent {
+                h3 {font-size: 18px;}
+                p, .cardLink {font-size: 14px;}
+            }
+        }
+    }
+}
+
+// Closing call to action: light band above it, capitalised button, and the text link under the button.
+.accFamPartner {
+    .accFamBand {@include accfamBand; top: 1.2vw; height: 41.7vw;}
+    .primaryCTA span {text-transform: capitalize;}
+    .accFamTextLink {margin-top: 49px; color: #D4D2D2; @include font16; font-weight: 500; line-height: 141%; transition: color 0.35s ease;
+        &:hover {color: #01D3C7;}
+        @media screen and (max-width: 1440px) {margin-top: 32px;}
+        @media screen and (max-width: 720px) {margin-top: 20px;}
+    }
+}
+
+// Reveal on scroll (js/pages.js adds is-visible).
+body.page-template-accelerator-family [data-reveal] {opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease;
+    &.is-visible {opacity: 1; transform: none;}
+}
