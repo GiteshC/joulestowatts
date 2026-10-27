@@ -267,7 +267,7 @@ body {
   background: #210214;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -9044,6 +9044,9 @@ footer .footerWrapper .footerlogo .mailBox a {
     margin-bottom: 80px;
   }
 }
+.howItRunsSec {
+  position: relative;
+}
 .howItRunsSec .wrapper {
   padding-left: 100px;
   padding-right: 100px;
@@ -9112,15 +9115,27 @@ footer .footerWrapper .footerlogo .mailBox a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.howItRunsSec .wrapper .cardContainer {
+  display: block;
+  position: relative;
+}
 .howItRunsSec .wrapper .cardContainer .card {
   border: 1px solid rgba(221, 221, 221, 0.1);
+  position: sticky;
+  top: 140px;
+  width: 90%;
+  margin: 0 auto 50px;
+}
+.howItRunsSec .wrapper .cardContainer .card .cardSticky {
+  position: relative;
   background: rgba(255, 255, 255, 0.05);
   padding: 24px;
-  height: auto;
-  position: sticky;
-  overflow-y: auto;
 }
-.howItRunsSec .wrapper .cardContainer .card .imgBox .howItRunsbg {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
+  width: 70%;
+  margin: 0 auto 10px;
+}
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox .howItRunsbg {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -9128,119 +9143,219 @@ footer .footerWrapper .footerlogo .mailBox a {
   width: 100%;
   z-index: 1;
 }
-.howItRunsSec .wrapper .cardContainer .card .imgBox img:not(.howItRunsbg) {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox img:not(.howItRunsbg) {
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox {
   text-align: center;
   position: relative;
   z-index: 2;
+  width: 70%;
+  margin: 0 auto;
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
   color: #D9D9D9;
   font-size: 18px;
 }
 @media screen and (max-width: 1800px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 720px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
     font-size: 11px;
   }
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox h4 {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
   font-weight: 500;
   letter-spacing: 3.6px;
   text-transform: uppercase;
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
   color: #FFF;
   font-size: 24px;
 }
 @media screen and (max-width: 1800px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 720px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
     font-size: 14px;
   }
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox h3 {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
   font-weight: 600;
   letter-spacing: 0.48px;
   text-transform: capitalize;
   margin: 7px 0;
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox p {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
   font-size: 20px;
 }
 @media screen and (max-width: 1600px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox p {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox p {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox p {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 720px) {
-  .howItRunsSec .wrapper .cardContainer .card .contentBox p {
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
     font-size: 12px;
   }
 }
-.howItRunsSec .wrapper .cardContainer .card .contentBox p {
+.howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox p {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 20px;
   line-height: 170%;
 }
-.howItRunsSec .wrapper .cardContainer .card:nth-child(1) {
-  top: 100px;
+.howItRunsSec .wrapper .arrowBox {
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 12px;
 }
-.howItRunsSec .wrapper .cardContainer .card:nth-child(2) {
-  top: 120px;
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
-.howItRunsSec .wrapper .cardContainer .card:nth-child(3) {
-  top: 140px;
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow svg, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow svg {
+  width: 14px;
+  height: 14px;
 }
-.howItRunsSec .wrapper .cardContainer .card:nth-child(4) {
-  top: 160px;
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow.slick-disabled, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
+}
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow.slick-disabled svg path, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow.slick-disabled:hover, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow:hover, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow:hover {
+  background: #00ACB4;
+}
+@media all and (max-height: 1600px) {
+  .howItRunsSec .wrapper .secHeading {
+    margin-bottom: 34px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card {
+    top: 120px;
+  }
+}
+@media all and (max-height: 1366px) {
+  .howItRunsSec .wrapper .secHeading {
+    margin-bottom: 30px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card {
+    top: 110px;
+    margin-bottom: 40px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky {
+    padding: 20px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
+    width: 50%;
+  }
+}
+@media all and (max-width: 1080px) {
+  .howItRunsSec .wrapper .secHeading {
+    margin-bottom: 24px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card {
+    margin-bottom: 30px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky {
+    padding: 16px;
+  }
+}
+@media all and (max-width: 820px) {
+  .howItRunsSec .wrapper .secHeading {
+    margin-bottom: 24px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card {
+    width: 100%;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
+    width: 65%;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox {
+    width: 100%;
+  }
+}
+@media all and (max-width: 720px) {
+  .howItRunsSec .wrapper .secHeading {
+    margin-bottom: 24px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card {
+    width: 100%;
+    margin: 0 auto 0;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
+    width: 100%;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox {
+    width: 100%;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h4 {
+    font-size: 12px;
+  }
+  .howItRunsSec .wrapper .cardContainer .card .cardSticky .contentBox h3 {
+    margin: 8px auto 12px;
+    font-size: 16px;
+  }
+  .howItRunsSec .wrapper .arrowBox {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .workforceSec::after {

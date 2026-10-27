@@ -1891,3 +1891,18 @@ $(document).ready(function () {
 		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
 	});
 });
+
+if ($(".howItRunsSec").length) {
+	if (window.innerWidth <= 720) {
+		$(".cardSlider").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			prevArrow: $(".howItRunsPrevArrow"),
+			nextArrow: $(".howItRunsNextArrow"),
+			infinite: false,
+			centerMode: false,
+			focusOnSelect: false,
+		});
+	}
+}
