@@ -8894,6 +8894,39 @@ footer .footerWrapper .footerlogo .mailBox a {
   line-height: 180%;
   margin-top: 32px;
 }
+.howrunSection .wrapper .howrunContent .secHeading ul {
+  margin-top: 30px;
+  padding-left: 20px;
+}
+.howrunSection .wrapper .howrunContent .secHeading ul li {
+  list-style: disc;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .howrunSection .wrapper .howrunContent .secHeading ul li {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .howrunSection .wrapper .howrunContent .secHeading ul li {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .howrunSection .wrapper .howrunContent .secHeading ul li {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .howrunSection .wrapper .howrunContent .secHeading ul li {
+    font-size: 12px;
+  }
+}
+.howrunSection .wrapper .howrunContent .secHeading ul li {
+  line-height: 180%;
+  margin-bottom: 24px;
+}
 .howrunSection .wrapper .howrunContent .secHeading svg.lineanim {
   width: 100%;
   height: auto;
@@ -8958,4 +8991,130 @@ footer .footerWrapper .footerlogo .mailBox a {
   .howrunSection .howrunbg {
     bottom: -80px;
   }
+}
+
+.introSection {
+  padding: 230px 0px 300px;
+  position: relative;
+}
+.introSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .introSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .introSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .introSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .introSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.introSection .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.introSection .wrapper .introContent {
+  width: 52%;
+  text-align: center;
+}
+.introSection .wrapper .introContent h2 {
+  font-size: 40px;
+}
+@media screen and (max-width: 1800px) {
+  .introSection .wrapper .introContent h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .introSection .wrapper .introContent h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .introSection .wrapper .introContent h2 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .introSection .wrapper .introContent h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .introSection .wrapper .introContent h2 {
+    font-size: 22px;
+  }
+}
+.introSection .wrapper .introContent h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.introSection .wrapper .introContent p {
+  color: #FFF;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .introSection .wrapper .introContent p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .introSection .wrapper .introContent p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .introSection .wrapper .introContent p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .introSection .wrapper .introContent p {
+    font-size: 12px;
+  }
+}
+.introSection .wrapper .introContent p {
+  line-height: 170%;
+}
+.introSection .introPatch {
+  position: absolute;
+  left: 0;
+  bottom: -22vh;
+}
+.introSection .diagnosiscenterBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  transform: rotate(180deg);
+}
+.introSection .diagnosiscenterBG svg {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=main.css.map */
