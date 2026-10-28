@@ -9128,7 +9128,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 }
 .howItRunsSec .wrapper .cardContainer .card .cardSticky {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
+  background: #210214;
   padding: 24px;
 }
 .howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
@@ -9246,6 +9246,19 @@ footer .footerWrapper .footerlogo .mailBox a {
   color: rgba(255, 255, 255, 0.8);
   line-height: 170%;
 }
+.howItRunsSec .wrapper .cardContainer .card:first-child::after {
+  content: "";
+  position: absolute;
+  background: url(../images/workforce-vector.webp) no-repeat;
+  background-size: contain;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -190px;
+  width: 190px;
+  height: 468px;
+  z-index: 1;
+  pointer-events: none;
+}
 .howItRunsSec .wrapper .arrowBox {
   display: none;
   align-items: center;
@@ -9283,7 +9296,7 @@ footer .footerWrapper .footerlogo .mailBox a {
 .howItRunsSec .wrapper .arrowBox .howItRunsPrevArrow:hover, .howItRunsSec .wrapper .arrowBox .howItRunsNextArrow:hover {
   background: #00ACB4;
 }
-@media all and (max-height: 1600px) {
+@media all and (max-width: 1600px) {
   .howItRunsSec .wrapper .secHeading {
     margin-bottom: 34px;
   }
@@ -9291,7 +9304,7 @@ footer .footerWrapper .footerlogo .mailBox a {
     top: 120px;
   }
 }
-@media all and (max-height: 1366px) {
+@media all and (max-width: 1366px) {
   .howItRunsSec .wrapper .secHeading {
     margin-bottom: 30px;
   }
@@ -9304,6 +9317,15 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .howItRunsSec .wrapper .cardContainer .card .cardSticky .imgBox {
     width: 50%;
+  }
+  .howItRunsSec .wrapper .cardContainer .card:first-child::after {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -120px;
+    width: 135px;
+    height: 374px;
+    z-index: 1;
+    pointer-events: none;
   }
 }
 @media all and (max-width: 1080px) {

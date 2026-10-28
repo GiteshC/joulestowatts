@@ -7,7 +7,7 @@
         }
         .cardContainer{display: block; position: relative;
             .card{border: 1px solid rgba(221, 221, 221, 0.10);  position: sticky; top: 140px; width: 90%; margin: 0 auto 50px;
-                .cardSticky{position: relative; background: rgba(255, 255, 255, 0.05); padding: 24px;
+                .cardSticky{position: relative; background: #210214; padding: 24px;
                     .imgBox{width: 70%; margin: 0 auto 10px;
                         .howItRunsbg{position: absolute; bottom: 0; left: 0; height: 100%; width: 100%; z-index: 1;}
                         img:not(.howItRunsbg){margin: 0 auto; position: relative; z-index: 2;}
@@ -17,6 +17,9 @@
                         h3{color: #FFF; @include font24; font-weight: 600; letter-spacing: 0.48px; text-transform: capitalize; margin: 7px 0}
                         p{@include font20; color: rgba(255, 255, 255, 0.80); line-height: 170%;}
                     }
+                }
+                &:first-child{
+                    &::after{content:""; position: absolute; background: url(../images/workforce-vector.webp) no-repeat; background-size: contain; top: 50%; transform: translateY(-50%); left: -190px; width:  190px; height:468px; z-index: 1; pointer-events: none;  }
                 }
             }
         }
@@ -32,8 +35,10 @@
                 &:hover{background: #00ACB4;}
             }
         }
-    }
-    @media all and (max-height: 1600px){
+    };
+    
+
+    @media all and (max-width: 1600px){
         .wrapper{
             .secHeading{margin-bottom: 34px;}
             .cardContainer{
@@ -41,13 +46,16 @@
             }
         }
     }
-    @media all and (max-height: 1366px){
+    @media all and (max-width: 1366px){
         .wrapper{
             .secHeading{margin-bottom: 30px;}
             .cardContainer{
                 .card{ top: 110px; margin-bottom: 40px;
                     .cardSticky{padding: 20px;
                         .imgBox{width: 50%;}
+                    }
+                    &:first-child{
+                        &::after{top: 50%; transform: translateY(-50%); left: -120px; width: 135px; height: 374px; z-index: 1; pointer-events: none;  }
                     }
                 }
             }
