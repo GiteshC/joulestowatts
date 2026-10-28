@@ -280,10 +280,6 @@
 
 <section class="talkToPartnerSec">
     <div class="secWrapper">
-        <div class="imgBox">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div>
         <div class="secHeading">
             <h2 class="manrope">Point it where your centre actually sits.</h2>
             <p>Tell us the roles you need. We will come back with the right mix and a plan to fill it.</p>
