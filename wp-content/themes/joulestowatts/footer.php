@@ -108,7 +108,9 @@
 
 <script>
 $('button').click(function(){
-  new Vivus('Layer_1', {duration: 150 });
+  if (document.getElementById('Layer_1')) {
+    new Vivus('Layer_1', {duration: 150 });
+  }
 });
 </script>
 

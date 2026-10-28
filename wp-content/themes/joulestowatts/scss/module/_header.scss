@@ -9,11 +9,27 @@ header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: spa
         .hamburger{width: 28px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; position: relative; z-index: 3;
             .line{width: 100%; height: 2px; border-radius: 2px; background: #ffffff; transform-origin: center; transition: transform 0.4s ease, opacity 0.25s ease;}
         }
-        .mainMenu{position: absolute; top: 0; right: 0; width: 100vw; height: 100vh; z-index: 2; box-sizing: border-box; padding: 140px 60px 60px; background: #19060F; border-left: 1px solid #2B2B2B; background-image: radial-gradient(ellipse 45% 45% at 50% 100%, #5D6772 0%, #5A6571 2%, #455865 11%, #314655 22%, #253646 33%, #1F283A 44%, #1E1F31 56%, #1E1727 67%, rgba(32, 16, 34, 0.5) 78%, rgba(34, 11, 29, 0.25) 89%, rgba(33, 2, 20, 0) 100%); background-repeat: no-repeat;transform: translateX(100%); visibility: hidden; transition: transform 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), visibility 0s linear 0.6s;
-            .curvedBG{position: absolute; left: 0px; bottom: 0px;}
-            nav ul{list-style: none; margin: 0; padding: 0; display: flex; flex-flow: column; gap: 70px; text-align: right;
-                a{display: inline-block; color: #ffffff; @include font48; line-height: 120%; font-weight: 600; text-transform: capitalize; transition: color 0.3s ease;
+        // Slide-in panel (603px wide at 1920):
+        // headings with their links underneath, left aligned, on a plum-to-slate gradient.
+        .mainMenu{position: absolute; top: 0; right: 0; width: clamp(380px, 31.4vw, 603px); height: 100vh; z-index: 2; box-sizing: border-box; overflow-y: auto;
+            padding: clamp(110px, 8.3vw, 160px) clamp(32px, 2.76vw, 53px) 60px;
+            background: linear-gradient(180deg, #210A1C 0%, #1A0C1C 45%, #243448 100%); border-left: 1px solid rgba(255, 255, 255, 0.06); box-shadow: -30px 0 80px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%); visibility: hidden; transition: transform 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), visibility 0s linear 0.6s;
+            // Type follows the pages' own scale: headings at the 32px step, links at the 20px body step,
+            // with floors below 1280 so the menu stays easy to read and tap.
+            nav .menuGroups{list-style: none; margin: 0; padding: 0; display: flex; flex-flow: column; gap: clamp(32px, 2.9vw, 56px);
+                .menuGroup{opacity: 0; transform: translateX(24px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.7, 0.2, 1);}
+                .menuHeading{display: inline-block; color: #ffffff; @include font32; line-height: 130%; font-weight: 500; transition: color 0.3s ease;
                     &:hover{color: #00ACB4;}
+                    @media screen and (max-width:1280px) {font-size: 22px;}
+                    @media screen and (max-width:720px) {font-size: 24px;}
+                }
+                .menuLinks{list-style: none; margin: clamp(10px, 0.85vw, 16px) 0 0; padding: 0; display: flex; flex-flow: column; gap: clamp(10px, 0.95vw, 18px);
+                    a{display: inline-block; color: rgba(255, 255, 255, 0.80); @include font20; line-height: 150%; font-weight: 400; transition: color 0.3s ease, transform 0.3s ease;
+                        &:hover{color: #00ACB4; transform: translateX(4px);}
+                        @media screen and (max-width:1280px) {font-size: 16px;}
+                        @media screen and (max-width:720px) {font-size: 17px;}
+                    }
                 }
             }
         }
@@ -27,48 +43,46 @@ header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: spa
                 &:nth-child(2){opacity: 0; transform: scaleX(0);}
                 &:nth-child(3){transform: translateY(-8px) rotate(-45deg);}
             }
-            .mainMenu{transform: translateX(0); visibility: visible; transition-delay: 0s;}
+            .hamburger{transition: transform 0.35s ease;
+                &:hover{transform: rotate(90deg);}
+                &:hover .line{background: #00ACB4;}
+            }
+            .mainMenu{transform: translateX(0); visibility: visible; transition-delay: 0s;
+                nav .menuGroups .menuGroup{opacity: 1; transform: none;
+                    @for $i from 1 through 6 { &:nth-child(#{$i}){transition-delay: #{0.12 + $i * 0.08}s;} }
+                }
+            }
         }
     }
     @media screen and (max-width:1800px) {padding: 16px 80px;
         .logoBox{
             img{width: 280px;}
         }
-        .menuBox{
-            .mainMenu{
-                nav ul{gap: 60px;}
-            }
-        }  
     }
     @media screen and (max-width:1440px) {padding: 16px 60px;
         .logoBox{
             img{width: 260px;}
         }
-        .menuBox{
-            .mainMenu{
-                nav ul{gap: 50px;}
-            }
-        }  
     }
     @media screen and (max-width:1280px) {padding: 16px 40px;
         .logoBox{
             img{width: 240px;}
         }
-        .menuBox{
-            .mainMenu{padding: 120px 40px 40px;
-                nav ul{gap: 40px;}
-            }
-        }  
     }
     @media screen and (max-width: 720px) {padding: 15px 15px;
         .logoBox{
             img{width: 200px;}
         }
         .menuBox{
-            .mainMenu{padding: 100px 20px 40px;
-                nav ul{gap: 30px;}
-            }
-        }  
+            .mainMenu{width: 100vw; padding: 100px 24px 40px;}
+        }
         .primaryCTA{display: none;}
     }
 }
+
+// Dimmed page behind the open menu. It sits right after <header> (not inside it,
+// because the scrolled header's backdrop-filter would confine a fixed child) and
+// just below it, so the panel stays on top. Clicking it closes the menu (js/custom.js).
+.menuBackdrop{position: fixed; inset: 0; z-index: 99; background: rgba(10, 2, 8, 0.72); opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0s linear 0.6s;}
+header.menu-open + .menuBackdrop{opacity: 1; visibility: visible; transition-delay: 0s;}
+body.menu-is-open{overflow: hidden;}

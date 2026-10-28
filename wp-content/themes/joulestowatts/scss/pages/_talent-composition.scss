@@ -1,0 +1,123 @@
+@use '../base/_global.scss' as *;
+
+// Talent Composition page. Reuses the banner, the steps accordion (solutionSection fourArtifactsSec)
+// and the talk to a partner block; the rules below only adjust them for this page.
+
+body.page-template-talent-composition {
+
+    // Banner: heading, two-line intro and the hero illustration.
+    .bannerInnerSection{
+        .wrapper{
+            .bannerContent{
+                .bannerHeading{padding-top: 56px;
+                    h1{margin-bottom: 24px;}
+                    p{width: auto; max-width: 866px;}
+                }
+                img{width: 874px; margin-top: 16px;}
+            }
+        }
+        @media screen and (max-width:1800px) {
+            .wrapper .bannerContent{
+                .bannerHeading{padding-top: 30px;}
+                img{width: 760px;}
+            }
+        }
+        @media screen and (max-width:1600px) {
+            .wrapper .bannerContent img{width: 680px;}
+        }
+        @media screen and (max-width:1440px) {
+            .wrapper .bannerContent{
+                .bannerHeading{padding-top: 0;}
+                img{width: 600px;}
+            }
+        }
+        @media screen and (max-width:1280px) {
+            .wrapper .bannerContent img{width: 540px;}
+        }
+        @media screen and (max-width:1024px) {
+            .wrapper .bannerContent img{width: 480px;}
+        }
+        @media screen and (max-width:720px) {
+            .wrapper .bannerContent{
+                .bannerHeading p{max-width: 100%; width: 100%;}
+                img{width: 100%;}
+            }
+        }
+    }
+
+    // Five steps: open on click only (the shared rule opens on hover), one panel open at a time.
+    // The repeated .is-open outranks the shared :has(:hover) rule that would collapse the open panel.
+    .fourArtifactsSec{margin-bottom: 0;
+        .secWrapper{padding-top: 156px; padding-bottom: 0;
+            .secHeading{margin-bottom: 48px;}
+        }
+        &::after{bottom: -260px;}
+        @media all and (max-width: 1800px){
+            .secWrapper{padding-top: 140px;}
+        }
+        @media all and (max-width: 1440px){
+            .secWrapper{padding-top: 110px;
+                .secHeading{margin-bottom: 40px;}
+            }
+        }
+        @media all and (max-width: 1080px){
+            .secWrapper{padding-top: 90px;}
+        }
+        @media all and (max-width: 720px){
+            .secWrapper{padding-top: 60px;
+                .secHeading{margin-bottom: 32px;}
+            }
+            &::after{bottom: -120px;}
+        }
+    }
+    @media all and (min-width: 821px){
+        .solutionSection .secWrapper .cardContainer{
+            .solutionCard{cursor: pointer; transition: flex-grow 0.7s ease-in-out, border-color 0.35s ease;
+                &:not(.is-open){flex-grow: 1;
+                    .imgBox{opacity: 0;}
+                    .bottomContent .description{grid-template-rows: 0fr; opacity: 0;}
+                    &::before{transform: translateY(100%);}
+                    &:hover{border-color: rgba(1, 211, 199, 0.35);
+                        .bottomContent h3{color: #fff;}
+                    }
+                }
+                &.is-open.is-open.is-open{flex-grow: 4.5; cursor: default;
+                    .imgBox{opacity: 1;}
+                    .bottomContent .description{grid-template-rows: 1fr; opacity: 1;}
+                    &::before{transform: translateY(0);}
+                }
+                &:not(.is-open) .bottomContent h3{color: #D9D9D9;}
+                &:focus-visible{outline: 2px solid #01D3C7; outline-offset: -2px;}
+                .imgBox{width: 83%;}
+            }
+        }
+    }
+
+    // "See the case studies behind it" link under the steps.
+    .talentStepsCTA{display: flex; justify-content: center; margin-top: 48px; position: relative; z-index: 2;
+        .teritaryCTA{border: 0; background: transparent; padding: 4px; gap: 24px; text-transform: uppercase; letter-spacing: 3.6px; transition: color 0.35s;
+            span{border-width: 1.5px;
+                svg{width: 19px; height: 19px;}
+            }
+            &:hover{color: #01D3C7;}
+        }
+        @media screen and (max-width: 1440px){margin-top: 40px;
+            .teritaryCTA{gap: 18px; letter-spacing: 3px;}
+        }
+        @media screen and (max-width: 720px){margin-top: 32px;
+            .teritaryCTA{gap: 12px; letter-spacing: 2px; font-size: 12px; border: 0;
+                span{border-width: 1px;}
+            }
+        }
+    }
+
+    // Closing call to action: soft glow behind the top edge, title-case button label.
+    .talkToPartnerSec{margin-bottom: 86px;
+        &::before{content: ""; position: absolute; top: -300px; left: 50%; transform: translateX(-50%); width: 90%; height: 560px; z-index: 2; mix-blend-mode: screen; background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(74, 137, 151, 0.5) 0%, rgba(74, 137, 151, 0.18) 45%, rgba(33, 2, 20, 0) 100%); pointer-events: none;}
+        .primaryCTA span{text-transform: capitalize;}
+        @media all and (max-width: 1440px){margin-bottom: 60px;}
+        @media all and (max-width: 720px){margin-bottom: 40px;
+            &::before{width: 100%; height: 320px; top: -180px;}
+        }
+    }
+}

@@ -1,0 +1,196 @@
+@use '../base/_global.scss' as *;
+
+// AI Accelerators and Agents page. Rules for the shared sections are scoped to this template.
+$aiaGradient: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%);
+
+// Soft horizontal light band between sections (the blurred horizon glow in the design), screen-blended so lines behind it stay visible.
+@mixin aiaBand {position: absolute; left: 0; width: 100%; pointer-events: none; z-index: 1; mix-blend-mode: screen;
+    background: linear-gradient(180deg, #000000 0%, #000C0D 5%, #00191A 10%, #002021 15%, #002729 20%, #003133 25%, #023D40 30%, #0E4E4F 35%, #1D5C5E 40%, #356E70 45%, #547F7F 50%, #356E70 55%, #1D5C5E 60%, #0E4E4F 65%, #023D40 70%, #003133 75%, #002729 80%, #002021 85%, #00191A 90%, #000C0D 95%, #000000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 12%, #000 38%, #000 62%, transparent 88%); mask-image: linear-gradient(90deg, transparent 12%, #000 38%, #000 62%, transparent 88%);
+}
+
+// Mostly teal, lightening to the right: used where the design shows short teal labels.
+@mixin aiaTealText {
+    background: linear-gradient(90deg, #01D3C7 0%, #2FD6CC 45%, #9FEDE8 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+@mixin aiaGradientText {
+    background: $aiaGradient; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+body.page-template-ai-accelerators-and-agents {
+    .aiaBanner {padding-top: 262px;
+        @media screen and (max-width: 1800px) {padding-top: 200px;}
+        @media screen and (max-width: 1280px) {padding-top: 120px;}
+        .wrapper {
+            .bannerContent {width: 72%;
+                .bannerHeading {
+                    h1 {margin-bottom: 24px;}
+                    p {width: 100%;}
+                }
+            }
+        }
+        @media screen and (max-width: 1800px) {
+            .wrapper .bannerContent {width: 72%;}
+        }
+        @media screen and (max-width: 820px) {
+            .wrapper .bannerContent {width: 90%;}
+        }
+        @media screen and (max-width: 720px) {height: auto; padding-bottom: 70px;
+            .wrapper {height: auto;
+                .bannerContent {width: 100%; height: auto;}
+                .casestudyCTA {position: relative; bottom: auto; right: auto; margin: 32px auto 0;}
+            }
+        }
+    }
+
+    // Impact stories: the shared slider, with sentence-case tags.
+    .aiaStoriesSec {padding-top: 185px;
+        .secWrapper {
+            .secHeading .headingGroup h2 {margin-bottom: 0;}
+            .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {text-transform: none; font-weight: 400; padding: 5px 16px; letter-spacing: 0;}
+        }
+        @media screen and (max-width: 1600px) {padding-top: 150px;}
+        @media screen and (max-width: 1440px) {padding-top: 120px;}
+        @media screen and (max-width: 1280px) {padding-top: 100px;}
+        @media screen and (max-width: 720px) {padding-top: 60px;}
+    }
+
+    .talkToPartnerSec.aiaPartner {padding-top: 8.5vw; padding-bottom: 1vw;
+        // Background image below the light band, text above it.
+        .secWrapper {z-index: auto;
+            .imgBox {position: relative; z-index: 0;}
+            .secHeading {z-index: 2;
+                h2 {max-width: 700px;}
+                p {max-width: 664px; margin-bottom: 44px;}
+            }
+        }
+        @media screen and (max-width: 1280px) {
+            .secWrapper .secHeading p {margin-bottom: 30px;}
+        }
+        @media screen and (max-width: 720px) {padding-top: 20px; padding-bottom: 40px;
+            .secWrapper .secHeading p {margin-bottom: 24px;}
+        }
+    }
+}
+
+// Hero line drawing; js/pages/ai-accelerators-and-agents.js draws the strokes on.
+.aiaHeroDraw {width: 986px; max-width: 100%; margin: clamp(30px, 6.1vw, 117px) auto 0;
+    svg {display: block; width: 100%; height: auto; overflow: visible;}
+    // Hidden only until the draw-on script takes over; shown anyway after 3s if it never runs.
+    &.is-pending svg {visibility: hidden; animation: aiaShowDrawing 0s linear 3s forwards;}
+    @media screen and (max-height: 900px) and (min-width: 721px) {width: 820px;}
+}
+
+// Lead line, What you get / How it runs table, outcomes strip.
+.aiaOverviewSec {padding-top: 189px; position: relative; z-index: 2;
+    .wrapper {@include wrapper;}
+    .aiaLead {max-width: 1045px; color: rgba(255, 255, 255, 0.80); @include font24; line-height: 180%; margin-bottom: 37px;}
+    .aiaTable {position: relative; display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; overflow: hidden;
+        background: radial-gradient(60% 95% at 18% 115%, rgba(64, 160, 170, 0.42) 0%, rgba(40, 90, 105, 0.18) 45%, rgba(33, 2, 20, 0) 75%), linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.04));
+        &::before {content: ""; position: absolute; inset: 0; border-radius: 12px; padding: 1px; pointer-events: none;
+            background: linear-gradient(150deg, rgba(1, 211, 199, 0.9) 0%, rgba(1, 211, 199, 0.35) 30%, rgba(111, 99, 99, 0.35) 60%, rgba(111, 99, 99, 0.2) 100%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;}
+        .aiaTableCol {
+            & + .aiaTableCol {border-left: 1px solid rgba(111, 99, 99, 0.50);}
+            h2 {@include font32; font-weight: 600; line-height: 1.36; text-transform: capitalize; padding: 34px 32px 25px; border-bottom: 1px solid rgba(111, 99, 99, 0.50);
+                span {@include aiaTealText;}
+            }
+            ul {list-style: none;}
+            li {color: #D9D9D9; @include font20; line-height: 140%; text-transform: capitalize; padding: 32px 32px 32px; min-height: 120px;
+                & + li {border-top: 1px solid rgba(111, 99, 99, 0.50);}
+            }
+            &:first-child li {padding-right: calc(100% - 372px);}
+            &:last-child li {padding-right: calc(100% - 437px);}
+        }
+    }
+    .aiaOutcomes {margin-top: 24px; border-radius: 12px; background: #2D1021; padding: 24px 28px;
+        p {@include font18; line-height: 180%; text-transform: capitalize; @include aiaTealText; width: fit-content;}
+    }
+    @media screen and (max-width: 1600px) {padding-top: 150px;
+        .aiaTable .aiaTableCol {
+            h2 {padding: 28px 28px 22px;}
+            li {padding: 26px 28px; min-height: 104px;}
+            &:first-child li {padding-right: calc(100% - 340px);}
+            &:last-child li {padding-right: calc(100% - 400px);}
+        }
+    }
+    @media screen and (max-width: 1280px) {padding-top: 110px;
+        .aiaTable .aiaTableCol {
+            h2 {padding: 24px 24px 18px;}
+            li {padding: 22px 24px; min-height: 88px;}
+            &:first-child li, &:last-child li {padding-right: max(24px, calc(100% - 420px));}
+        }
+        .aiaOutcomes {padding: 20px 24px;}
+    }
+    @media screen and (max-width: 720px) {padding-top: 70px;
+        .aiaLead {margin-bottom: 28px;}
+        .aiaTable {grid-template-columns: 1fr;
+            .aiaTableCol {
+                & + .aiaTableCol {border-left: 0; border-top: 1px solid rgba(111, 99, 99, 0.50);}
+                h2 {font-size: 22px; padding: 20px 16px 14px;}
+                li {padding: 16px; min-height: 0; font-size: 14px;}
+                &:first-child li, &:last-child li {padding-right: 16px;}
+            }
+        }
+        .aiaOutcomes {margin-top: 16px; padding: 14px 16px;}
+    }
+}
+
+// Named accelerators: two rows of pills that scroll continuously (duplicated by data-marquee).
+.aiaNamedSec {position: relative; padding-top: 249px; padding-bottom: 42px;
+    .aiaNamedBg {position: absolute; inset: 0; pointer-events: none;
+        .aiaBand--lower {@include aiaBand; top: 37px; height: 20.8vw; opacity: 0.85; background: linear-gradient(180deg, #547F7F 0%, #356E70 10%, #1D5C5E 20%, #0E4E4F 30%, #023D40 40%, #003133 50%, #002729 60%, #002021 70%, #00191A 80%, #000C0D 90%, #000000 100%);}
+        .lines {position: absolute; left: -25px; top: -20px; width: 593px; height: 195px; object-fit: fill; opacity: 0.3; max-width: none;}
+    }
+    .wrapper {@include wrapper; position: relative; z-index: 2;
+        h2 {@include font48; font-weight: 500; line-height: 120%; text-align: center; text-transform: capitalize; @include aiaGradientText; width: fit-content; margin: 0 auto 46px;}
+    }
+    .aiaPillRows {position: relative; z-index: 2; display: flex; flex-flow: column; gap: 24px; overflow: hidden;}
+    .aiaPillRow {overflow: hidden;
+        &:hover .aiaPillTrack {animation-play-state: paused;}
+        &.reverse .aiaPillTrack {animation-direction: reverse; margin-left: -2px;}
+    }
+    .aiaPillTrack {display: flex; width: max-content; list-style: none; animation: aiaPillScroll 55s linear infinite;}
+    .aiaPill {flex: none; margin-right: 24px; padding: 19px 27px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.20); color: rgba(255, 255, 255, 0.80); @include font22; line-height: 180%; white-space: nowrap; transition: border-color 0.35s ease, color 0.35s ease;
+        &:hover {border-color: rgba(1, 211, 199, 0.7); color: #fff;}
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .aiaPillTrack {animation: none;}
+    }
+    @media screen and (max-width: 1600px) {padding-top: 200px;
+        .aiaPill {padding: 16px 24px;}
+    }
+    @media screen and (max-width: 1280px) {padding-top: 150px;
+        .wrapper h2 {margin-bottom: 36px;}
+        .aiaPillRows {gap: 16px;}
+        .aiaPill {padding: 12px 20px; margin-right: 16px;}
+        .aiaNamedBg .lines {width: 420px; height: 140px;}
+    }
+    @media screen and (max-width: 720px) {padding-top: 90px; padding-bottom: 20px;
+        .wrapper h2 {margin-bottom: 28px;}
+        .aiaPillRows {gap: 12px;}
+        .aiaPill {padding: 8px 16px; margin-right: 12px; font-size: 14px;}
+        .aiaNamedBg .lines {width: 300px; height: 100px;}
+    }
+}
+
+@keyframes aiaShowDrawing {
+    to {visibility: visible;}
+}
+
+@keyframes aiaPillScroll {
+    from {transform: translateX(0);}
+    to {transform: translateX(-50%);}
+}
+
+// Light band above the closing call to action; capitalised buttons as in the design.
+.aiaPartner {
+    .aiaBand {@include aiaBand; top: -13.1vw; height: 41.7vw;}
+}
+body.page-template-ai-accelerators-and-agents .primaryCTA span {text-transform: capitalize;}
+
+// Reveal on scroll (js/pages.js adds is-visible).
+body.page-template-ai-accelerators-and-agents [data-reveal] {opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease;
+    &.is-visible {opacity: 1; transform: none;}
+}

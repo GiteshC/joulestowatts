@@ -36,121 +36,30 @@
 }
 
 .agentSection{@include sectionSpacing; position: relative; z-index: 2; 
-    .wrapper{@include wrapper;
-        .mainContainer{display: flex; align-items: center; gap: 225px; 
-            .imgBoxes{width: 50%;
-                .imgBox{
-                    img{width: 100%; height: 100%; object-fit: cover;}
-                }
-            }
-            .textBoxes{width:calc(50% - 225px);
-                h3{@include font20; color: #00ACB4; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; }
-                .texBoxtSlider{margin: 20px 0 70px;
-                    .box{
-                        h2{@include font32; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px; }
-                        p{color: rgba(255, 255, 255, 0.80); line-height: 180%; @include font18;}
-                    }
-                }
-                .arrowBox{align-items: center;justify-content: flex-start;display: flex; gap: 15px;
-                .studioPrevArrow, .studioNextArrow{background: transparent; border: 1px solid #CC2033; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
-                    svg{width: 14px; height: 14px;}
-                    &.slick-disabled{background: transparent; cursor: default; pointer-events: none;
-                        svg{opacity: 0.5;
-                            path{opacity: 1;}
-                        }
-                        &:hover{background: #525454;}
-                    }
-                    &:hover{background: #00ACB4; border: 1px solid #fff;}
-                }
-            }
-            }
-        }
-    }
+    .wrapper{@include wrapper; position: relative; z-index: 2;}
     .agentSecBg{position: absolute; bottom: -200px; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; z-index: 1; justify-self: center; pointer-events: none;}
         &::after{content:""; position: absolute; background: url(../images/ai-section-vector-img.png) no-repeat; background-size: contain; bottom: -200px; left: 0; width: 100%; height: 260px; z-index: 1; transform: scaleX(-1); pointer-events: none; }
     @media all and (max-width: 1800px){
-        .wrapper{
-            .mainContainer{gap: 200px;
-                .textBoxes{width: calc(50% - 200px);}
-            }
-        }
         .agentSecBg{bottom: -180px;}
         &::after{bottom: -180px;}
     }
     @media all and (max-width: 1600px){
-        .wrapper{
-            .mainContainer{gap: 180px;
-                .textBoxes{width: calc(50% - 180px);}
-            }
-        }
         .agentSecBg{bottom: -160px;}
         &::after{bottom: -160px;}
     }
     @media all and (max-width: 1440px){
-        .wrapper{
-            .mainContainer{gap: 160px;
-                .textBoxes{width: calc(50% - 160px);}
-            }
-        }
         .agentSecBg{bottom: -140px;}
         &::after{bottom: -140px; height: 200px;}
     }
     @media all and (max-width: 1280px){
-        .wrapper{
-            .mainContainer{gap: 100px;
-                .textBoxes{width: calc(50% - 100px);
-                    .texBoxtSlider {margin: 20px 0 60px; }
-                }
-            }
-        }
         .agentSecBg{bottom: -120px;}
         &::after{bottom: -120px; height: 180px;}
     }
-    @media all and (max-width: 1080px){
-        .wrapper{
-            .mainContainer{gap: 70px;
-                .textBoxes{width: calc(50% - 70px);
-                    .texBoxtSlider {margin: 16px 0 50px; }
-                }
-            }
-        }
-        
-    }
     @media all and (max-width: 820px){
-        .wrapper{
-            .mainContainer{gap: 50px;
-                .textBoxes{width: calc(50% - 50px);
-                    .texBoxtSlider {margin: 16px 0 50px; 
-                        .arrowBox{
-                            .studioPrevArrow, .studioNextArrow{width: 32px; height: 32px;
-                                svg{width: 12px; height: 12px;}
-                            }
-                        }
-                    }
-                }
-            }
-        }
         .agentSecBg{bottom: -100px;}
         &::after{bottom: -100px; height: 120px;}
     }
     @media all and (max-width: 720px){
-        .wrapper{
-            .mainContainer{gap: 20px; flex-flow: column;
-                .imgBoxes{width: 100%;}
-                .textBoxes{width: 100%; text-align: center;
-                    .texBoxtSlider {margin: 12px 0 35px; 
-                        .box{
-                            h2{margin-bottom: 16px;}
-                        }
-                    }
-                    .arrowBox{gap: 12px; justify-content: center;
-                        .studioPrevArrow, .studioNextArrow{width: 32px; height: 32px;
-                            svg{width: 12px; height: 12px;}
-                        }
-                    }
-                }
-            }
-        }
         .agentSecBg{bottom: -80px;}
         &::after{bottom: -80px; height: 100px;}
     }
@@ -166,4 +75,223 @@
             h3{@include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; color: #00ACB4; margin-bottom: 24px;}
         }
     }    
+}
+// AI Atlas page. Scoped to this template so the
+// shared section classes (fourArtifactsSec, impactStoriesSec, ...) stay unchanged elsewhere.
+body.page-template-ai-atlas{
+
+    // Hero: no eyebrow, lighter title, wider intro text, illustration 64px below it.
+    .atlasBannerSec{padding-top: 260px;
+        .wrapper{
+            .bannerContent{
+                .bannerHeading{
+                    h1{font-weight: 500; margin-bottom: 24px;}
+                    p{width: 100%; max-width: 1140px;}
+                }
+                img{margin-top: 68px; width: 877px; max-width: 100%; height: auto;}
+            }
+        }
+        @media screen and (max-width:1800px) {padding-top: 200px;
+            .wrapper .bannerContent{width: 75%;
+                .bannerHeading{
+                    p{width: 100%;}
+                }
+                img{margin-top: 48px; width: 760px;}
+            }
+        }
+        @media screen and (max-width:1440px) {padding-top: 170px;
+            .wrapper .bannerContent img{margin-top: 40px; width: 640px;}
+        }
+        @media screen and (max-width:1280px) {padding-top: 140px;
+            .wrapper .bannerContent img{width: 560px;}
+        }
+        @media screen and (max-width:820px) {
+            .wrapper .bannerContent{width: 90%;}
+        }
+        @media screen and (max-width:720px) {padding-top: 120px;
+            .wrapper .bannerContent{width: 100%;
+                img{margin-top: 32px; width: 100%;}
+            }
+        }
+    }
+
+    // Four Artifacts: panels open on click only (class solutionActiveCard); hover and
+    // first-child no longer open a panel. The open panel's detail shows underneath.
+    .fourArtifactsSec{
+        .secWrapper{padding-top: 210px; padding-bottom: 56px;
+            .cardContainer{
+                .solutionCard{cursor: pointer; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(221, 221, 221, 0.10);
+                    &, &:hover, &:first-child{flex-grow: 1;
+                        .imgBox{opacity: 0;}
+                        .bottomContent{
+                            h3{color: #D9D9D9;}
+                            .description{grid-template-rows:0fr; opacity:0;}
+                        }
+                        &::before{transform: translateY(100%);}
+                    }
+                    &:focus-visible{outline: 1px solid #01D3C7; outline-offset: -1px;}
+                    .imgBox{width: 72%; margin-top: 70px;}
+                    &.solutionActiveCard.solutionActiveCard{flex-grow: 3; cursor: default;
+                        .imgBox{opacity: 1;}
+                        .bottomContent{
+                            h3{color: #fff;}
+                            .description{grid-template-rows:1fr; opacity:1;}
+                        }
+                        &::before{transform: translateY(0);}
+                    }
+                }
+                &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){flex-grow: 1;}
+                &:has(.solutionCard:hover) .solutionCard.solutionActiveCard.solutionActiveCard{flex-grow: 3;
+                    .imgBox{opacity: 1;}
+                    .bottomContent{
+                        .description{grid-template-rows:1fr; opacity:1;}
+                    }
+                    &::before{transform: translateY(0);}
+                }
+            }
+            .artifactDetailBox{position: relative; background: linear-gradient(180deg, #1F0A1B 0%, #200F21 60%, #1F1526 100%); padding: 72px 61px 48px 34px;
+                .artifactDetail{animation: atlasDetailIn 0.6s ease both;
+                    &[hidden]{display: none;}
+                    .detailText{border-bottom: 1px solid #1B98A0; padding-bottom: 32px; margin-bottom: 36px;
+                        .step{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 12px;}
+                        h3{@include font24; color: #fff; font-weight: 600; letter-spacing: 0.48px; text-transform: capitalize; margin-bottom: 16px;}
+                        p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+                    }
+                    .detailFacts{display: flex; justify-content: space-between; gap: 40px; padding-right: 40px;
+                        .fact{width: 291px;
+                            span{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 16px;}
+                            p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+                        }
+                    }
+                }
+            }
+        }
+        @media all and (max-width: 1800px){
+            .secWrapper{padding-top: 160px; padding-bottom: 60px;}
+        }
+        @media all and (max-width: 1600px){
+            .secWrapper{padding-top: 140px;}
+        }
+        @media all and (max-width: 1440px){
+            .secWrapper{padding-top: 120px;}
+            .secWrapper .artifactDetailBox{padding: 56px 40px 40px;
+                .artifactDetail .detailFacts{padding-right: 0;}
+            }
+        }
+        @media all and (max-width: 1080px){
+            .secWrapper{padding-top: 100px;}
+            .secWrapper .artifactDetailBox{padding: 40px 32px 32px;
+                .artifactDetail .detailText{padding-bottom: 24px; margin-bottom: 28px;}
+            }
+        }
+        @media all and (max-width: 820px){
+            .secWrapper{padding-top: 80px;
+                .cardContainer .solutionCard{
+                    .imgBox{width: 80%; margin-top: 0;}
+                }
+                .artifactDetailBox{padding: 32px 20px 24px;
+                    .artifactDetail .detailFacts{flex-flow: column; gap: 20px;
+                        .fact{width: 100%;
+                            span{margin-bottom: 8px;}
+                        }
+                    }
+                }
+            }
+        }
+        @media all and (max-width: 720px){
+            .secWrapper{padding-top: 60px; padding-bottom: 60px;}
+            .secWrapper .artifactDetailBox{padding: 24px 16px;
+                .artifactDetail .detailText{padding-bottom: 20px; margin-bottom: 20px;
+                    .step{font-size: 12px; letter-spacing: 2.4px;}
+                }
+                .artifactDetail .detailFacts .fact span{font-size: 12px; letter-spacing: 2.4px;}
+            }
+        }
+    }
+
+    // Three Studios: one illustration with the four studios in a row underneath.
+    .atlasStudiosSec{
+        .studioContainer{text-align: center;
+            h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 auto 56px;}
+            .studioImg{width: 765px; max-width: 100%; margin: 0 auto 92px;
+                img{width: 100%; height: auto; display: block;}
+            }
+            .studioList{display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px;
+                .box{
+                    h3{@include font32; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 auto 24px;}
+                    p{color: rgba(255, 255, 255, 0.80); line-height: 180%; @include font18;}
+                }
+            }
+        }
+        @media all and (max-width: 1600px){
+            .studioContainer{
+                h2{margin-bottom: 48px;}
+                .studioImg{width: 680px; margin-bottom: 72px;}
+            }
+        }
+        @media all and (max-width: 1280px){
+            .studioContainer{
+                .studioImg{width: 600px; margin-bottom: 60px;}
+                .studioList .box h3{margin-bottom: 16px;}
+            }
+        }
+        @media all and (max-width: 1080px){
+            .studioContainer .studioList{grid-template-columns: repeat(2, 1fr); gap: 40px 20px;}
+        }
+        @media all and (max-width: 720px){
+            .studioContainer{
+                h2{margin-bottom: 32px;}
+                .studioImg{margin-bottom: 40px;}
+                .studioList{grid-template-columns: 1fr; gap: 28px;
+                    .box h3{margin-bottom: 10px;}
+                }
+            }
+        }
+    }
+
+    // Customer Impact Stories: heading spacing, sentence-case tags, and the
+    // description revealed on hover or click.
+    .impactStoriesSec{padding-bottom: 60px;
+        @media all and (max-width: 1280px){padding-bottom: 30px;}
+        @media all and (max-width: 720px){padding-bottom: 0;}
+        .secWrapper{
+            .secHeading{margin-bottom: 40px;
+                .headingGroup{width: auto;
+                    h2{margin-bottom: 0;}
+                }
+            }
+            .resultsCardLayout{
+                .resultCardSlider.platformResultSlider{
+                    a{cursor: pointer; outline: none;
+                        .box{
+                            .tag{text-transform: none; padding: 5px 16px; top: 32px; left: 32px;}
+                            .bottomContent{
+                                .moreContent{
+                                    p{color: rgba(255, 255, 255, 0.80); @include font22; line-height: 155%;
+                                        @media all and (max-width: 720px){font-size: 14px;}
+                                    }
+                                }
+                            }
+                        }
+                        &.isOpen .box, &:focus-visible .box{
+                            .bottomContent .moreContent{grid-template-rows:1fr; opacity:1;
+                                p{padding-top: 24px;
+                                    @media all and (max-width: 1280px){padding-top: 12px;}
+                                }
+                            }
+                        }
+                        @media all and (max-width: 1280px){
+                            .box:hover .bottomContent .moreContent p{padding-top: 12px;}
+                        }
+                        &:focus-visible .box{border-color: #01D3C7;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes atlasDetailIn{
+    from{opacity: 0; transform: translateY(12px);}
+    to{opacity: 1; transform: translateY(0);}
 }
