@@ -818,7 +818,7 @@ if (window.innerWidth <= 820) {
 //Platform page
 
 $(document).ready(function () {
-	const $slider = $(".platformResultSlider");
+	const $slider = $(".platformResultSlider").not(".WorkforceResultSlider");
 
 	function getSlides() {
 		const w = window.innerWidth;
@@ -1719,146 +1719,6 @@ if ($(".agentSection").length) {
 		window.addEventListener("load", initWhatGetSequence);
 	}
 })();
-
-// document.addEventListener("DOMContentLoaded", () => {
-// 	const containers = document.querySelectorAll(".wrapper .whatgetContent");
-
-// 	const mobileQuery = window.matchMedia("(max-width: 720px)");
-
-// 	containers.forEach((container) => {
-// 		const cards = [...container.querySelectorAll(".whatgetBox")];
-
-// 		if (!cards.length) return;
-
-// 		function setImageHeight(card, isOpen) {
-// 			const imgBox = card.querySelector(".imgBox");
-
-// 			if (!imgBox) return;
-
-// 			if (!mobileQuery.matches || !isOpen) {
-// 				imgBox.style.maxHeight = "";
-// 				return;
-// 			}
-
-// 			const updateHeight = () => {
-// 				if (
-// 					!mobileQuery.matches ||
-// 					!card.classList.contains("solutionActiveCard")
-// 				) {
-// 					return;
-// 				}
-
-// 				imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
-// 			};
-
-// 			const img = imgBox.querySelector("img");
-
-// 			if (img && !img.complete) {
-// 				img.addEventListener("load", updateHeight, { once: true });
-// 				img.addEventListener("error", updateHeight, { once: true });
-// 			} else {
-// 				requestAnimationFrame(updateHeight);
-// 			}
-// 		}
-
-// 		function openCard(activeCard) {
-// 			if (!mobileQuery.matches) return;
-
-// 			cards.forEach((card) => {
-// 				const isActive = card === activeCard;
-
-// 				card.classList.toggle("solutionActiveCard", isActive);
-// 				setImageHeight(card, isActive);
-// 			});
-// 		}
-
-// 		function closeAllCards() {
-// 			cards.forEach((card) => {
-// 				card.classList.remove("solutionActiveCard");
-// 				setImageHeight(card, false);
-// 			});
-// 		}
-
-// 		function initializeAccordion() {
-// 			if (mobileQuery.matches) {
-// 				// First card ko sirf tab open karo jab initial setup ho.
-// 				const activeCard = cards.find((card) =>
-// 					card.classList.contains("solutionActiveCard"),
-// 				);
-
-// 				if (activeCard) {
-// 					openCard(activeCard);
-// 				} else if (!container.dataset.accordionInitialized) {
-// 					openCard(cards[0]);
-// 				}
-
-// 				container.dataset.accordionInitialized = "true";
-// 			} else {
-// 				closeAllCards();
-
-// 				cards.forEach((card) => {
-// 					const imgBox = card.querySelector(".imgBox");
-
-// 					if (imgBox) {
-// 						imgBox.style.maxHeight = "";
-// 					}
-// 				});
-
-// 				container.dataset.accordionInitialized = "";
-// 			}
-// 		}
-
-// 		initializeAccordion();
-
-// 		cards.forEach((card) => {
-// 			card.addEventListener("click", (event) => {
-// 				if (!mobileQuery.matches) return;
-
-// 				// Links aur buttons ko ignore karo
-// 				if (event.target.closest("a, button")) return;
-
-// 				// Sirf clicked card ki state change hogi
-// 				if (card.classList.contains("solutionActiveCard")) {
-// 					closeAllCards();
-// 				} else {
-// 					openCard(card);
-// 				}
-// 			});
-// 		});
-
-// 		// Outside click par accordion state change nahi hogi
-// 		document.addEventListener("click", (event) => {
-// 			if (!mobileQuery.matches) return;
-
-// 			const clickedInside = event.target.closest(
-// 				".secWrapper .cardContainer .solutionCard",
-// 			);
-
-// 			if (!clickedInside) {
-// 				// Intentionally do nothing
-// 				return;
-// 			}
-// 		});
-
-// 		if (mobileQuery.addEventListener) {
-// 			mobileQuery.addEventListener("change", initializeAccordion);
-// 		} else {
-// 			mobileQuery.addEventListener(initializeAccordion);
-// 		}
-
-// 		window.addEventListener("resize", () => {
-// 			if (!mobileQuery.matches) return;
-
-// 			const activeCard = cards.find((card) =>
-// 				card.classList.contains("solutionActiveCard"),
-// 			);
-
-// 			if (activeCard) {
-// 				setImageHeight(activeCard, true);
-// 			}
-// 		});
-// 	});
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
 	const containers = document.querySelectorAll(
@@ -3015,3 +2875,78 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.querySelectorAll('[data-case-toc]').forEach(init);
 	});
 })();
+
+// Impact Slider
+$(document).ready(function () {
+	const $slider = $(".impactStoriesSlider");
+	const $arrowBox = $(".platformResultPrevArrow").parent();
+
+	function getSlides() {
+		const w = window.innerWidth;
+		if (w <= 720) return 1.2;
+		if (w <= 1024) return 2;
+		return 3;
+	}
+
+	$slider.on("init reInit breakpoint setPosition", function (e, slick) {
+		$arrowBox.toggleClass("noArrows", slick.slideCount <= slick.options.slidesToShow);
+	});
+
+	$slider.slick({
+		slidesToShow: getSlides(),
+		slidesToScroll: 1,
+		infinite: false,
+		arrows: true,
+		prevArrow: $(".platformResultPrevArrow"),
+		nextArrow: $(".platformResultNextArrow"),
+	});
+
+	$(window).on("resize", function () {
+		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
+	});
+});
+
+//Workforce Page JS
+$(document).ready(function () {
+	const $slider = $(".WorkforceResultSlider");
+
+	function getSlides() {
+		const w = window.innerWidth;
+		if (w <= 720) return 1.1;
+		if (w <= 1024) return 1.5;
+		if (w <= 1280) return 2;
+		return 3;
+	}
+
+	$slider.slick({
+		slidesToShow: getSlides(),
+		slidesToScroll: 1,
+		infinite: false,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		speed: 1000,
+		cssEase: "ease",
+		arrows: true,
+		prevArrow: $(".platformResultPrevArrow"),
+		nextArrow: $(".platformResultNextArrow"),
+	});
+
+	$(window).on("resize", function () {
+		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
+	});
+});
+
+if ($(".howItRunsSec").length) {
+	if (window.innerWidth <= 720) {
+		$(".cardSlider").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			prevArrow: $(".howItRunsPrevArrow"),
+			nextArrow: $(".howItRunsNextArrow"),
+			infinite: false,
+			centerMode: false,
+			focusOnSelect: false,
+		});
+	}
+}

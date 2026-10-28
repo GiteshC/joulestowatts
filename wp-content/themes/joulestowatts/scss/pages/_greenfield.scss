@@ -7,7 +7,7 @@
         }
         .whatgetContent{width: 75%; display: grid; grid-template-columns: repeat(3, 1fr);
             .whatgetBox{padding: 32px 40px; position: relative;
-                .whatgetbg{position: absolute; bottom: 0; left: 0;}
+                .whatgetbg{position: absolute; bottom: 0; left: 0; height: 100%; width: 100%;}
                 h3{@include font24; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
             }
         }
@@ -117,6 +117,13 @@
         .howrunbg{bottom: -80px;}
     }
 }
+
+.page-template-greenfield-consulting{
+    .platformResultSec{
+        &::after{display: none;}
+    }
+}
+
 // Greenfield consulting page only. .whatgetSection, .howrunSection, .resultSection and
 // .talkToPartnerSec are shared with other pages, so every change here stays under the body class.
 // Soft horizontal light band from the design (hero bottom, above the closing call to action).
