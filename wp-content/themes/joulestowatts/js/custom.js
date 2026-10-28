@@ -1997,3 +1997,32 @@ document.addEventListener("DOMContentLoaded", () => {
 		window.addEventListener("load", initHowRun);
 	}
 })();
+
+$(document).ready(function () {
+	const $slider = $(".impactStoriesSlider");
+	const $arrowBox = $(".platformResultPrevArrow").parent();
+
+	function getSlides() {
+		const w = window.innerWidth;
+		if (w <= 720) return 1.2;
+		if (w <= 1024) return 2;
+		return 3;
+	}
+
+	$slider.on("init reInit breakpoint setPosition", function (e, slick) {
+		$arrowBox.toggleClass("noArrows", slick.slideCount <= slick.options.slidesToShow);
+	});
+
+	$slider.slick({
+		slidesToShow: getSlides(),
+		slidesToScroll: 1,
+		infinite: false,
+		arrows: true,
+		prevArrow: $(".platformResultPrevArrow"),
+		nextArrow: $(".platformResultNextArrow"),
+	});
+
+	$(window).on("resize", function () {
+		$slider.slick("slickSetOption", "slidesToShow", getSlides(), true);
+	});
+});

@@ -125,3 +125,9 @@
         .howrunbg{bottom: -80px;}
     }
 }
+
+.page-template-greenfield-consulting{
+    .platformResultSec{
+        &::after{display: none;}
+    }
+}

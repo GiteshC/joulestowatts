@@ -6581,9 +6581,34 @@ footer .footerWrapper .footerlogo .mailBox a {
 
 .talkToPartnerSec {
   position: relative;
+  height: 100vh;
+}
+.talkToPartnerSec::before {
+  content: "";
+  width: 40vw;
+  height: 55vh;
+  background: url(../images/curved-linebg.webp) top left no-repeat;
+  background-size: cover;
+  display: block;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.talkToPartnerSec::after {
+  content: "";
+  width: 40vw;
+  height: 55vh;
+  background: url(../images/curved-linebg.webp) top left no-repeat;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 .talkToPartnerSec .secWrapper {
   position: relative;
+  height: 100%;
 }
 .talkToPartnerSec .secWrapper .imgBox .mblBg {
   display: none;
@@ -6666,6 +6691,8 @@ footer .footerWrapper .footerlogo .mailBox a {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  width: 55%;
+  text-align: center;
 }
 .talkToPartnerSec .secWrapper .secHeading p {
   margin: 32px 0 45px;
@@ -8993,6 +9020,10 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
 }
 
+.page-template-greenfield-consulting .platformResultSec::after {
+  display: none;
+}
+
 .introSection {
   padding: 230px 0px 300px;
   position: relative;
@@ -9117,4 +9148,480 @@ footer .footerWrapper .footerlogo .mailBox a {
 .introSection .diagnosiscenterBG svg {
   width: 100%;
   height: auto;
+}
+.teamSection {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .teamSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .teamSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .teamSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection {
+    margin-bottom: 80px;
+  }
+}
+.teamSection .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .teamSection .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.teamSection .wrapper .secHeading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.teamSection .wrapper .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .teamSection .wrapper .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.teamSection .wrapper .secHeading h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.teamSection .wrapper .secHeading p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .secHeading p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .secHeading p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper .secHeading p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper .secHeading p {
+    font-size: 12px;
+  }
+}
+.teamSection .wrapper .secHeading p {
+  line-height: 180%;
+}
+.teamSection .wrapper .teamContent .teamSlider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 65px;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard {
+  background-color: #2D1021;
+  position: relative;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo {
+  padding: 46px 34px 28px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo span {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo span {
+    font-size: 11px;
+  }
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo span {
+  width: fit-content;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 22px;
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo p {
+    font-size: 16px;
+  }
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo p {
+  line-height: 180%;
+  margin-bottom: 40px;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  gap: 20px;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+    font-size: 14px;
+  }
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile h3 {
+  font-weight: 400;
+  line-height: 180%;
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+    font-size: 12px;
+  }
+}
+.teamSection .wrapper .teamContent .teamSlider .teamCard .teamCardInfo .teamInfo .teamProfile p {
+  margin: 0px;
+}
+
+.impactStories {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .impactStories {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .impactStories {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .impactStories {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .impactStories {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .impactStories {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .impactStories {
+    margin-bottom: 80px;
+  }
+}
+.impactStories .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .impactStories .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .impactStories .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .impactStories .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .impactStories .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.impactStories .wrapper .secHeading {
+  margin-bottom: 70px;
+}
+.impactStories .wrapper .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .impactStories .wrapper .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .impactStories .wrapper .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .impactStories .wrapper .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .impactStories .wrapper .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .impactStories .wrapper .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.impactStories .wrapper .secHeading h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard {
+  background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px 32px 58px;
+  margin: 0px 20px;
+}
+.impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard span {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard span {
+    font-size: 11px;
+  }
+}
+.impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard span {
+  margin-bottom: 170px;
+  display: inline-block;
+}
+.impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+    font-size: 14px;
+  }
+}
+.impactStories .wrapper .impactStoriesContent .impactStoriesSlider .impactStoriesCard p {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  margin-top: 50px;
+  gap: 20px;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow {
+  background: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow svg, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow svg {
+  width: 24px;
+  height: 24px;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow.slick-disabled, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow.slick-disabled {
+  background: #525454;
+  cursor: default;
+  pointer-events: none;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow.slick-disabled svg path, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow.slick-disabled svg path {
+  opacity: 1;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow.slick-disabled:hover, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow.slick-disabled:hover {
+  background: #525454;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox .platformResultPrevArrow:hover, .impactStories .wrapper .impactStoriesContent .arrowBox .platformResultNextArrow:hover {
+  background: #00ACB4;
+}
+.impactStories .wrapper .impactStoriesContent .arrowBox.noArrows {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
