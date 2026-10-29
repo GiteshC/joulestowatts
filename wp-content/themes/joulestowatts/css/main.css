@@ -1006,7 +1006,7 @@ footer .footerWrapper .footerHead h2 {
   line-height: 140%;
   font-weight: 600;
   text-transform: capitalize;
-  width: 75%;
+  width: 80%;
   color: #12161F;
 }
 footer .footerWrapper .footerHead::after {
@@ -4312,138 +4312,78 @@ footer .footerWrapper .footerlogo .mailBox a {
   display: block;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
-  background: #E4E1DD;
   border-radius: 12px;
-  height: 400px !important;
+  height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat;
+  background-position: contain;
   position: relative;
-  overflow: hidden;
-  transition: 0.5s all ease-in;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
-  border-radius: 24px;
   position: absolute;
   top: 32px;
   left: 32px;
   display: inline-block;
   padding: 10px 16px;
-  font-size: 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 14px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1440px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
     font-size: 12px;
   }
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
-  text-transform: uppercase;
-  color: #1B98A0;
-  background: #fff;
-  font-weight: 400;
+@media screen and (max-width: 720px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+    font-size: 11px;
+  }
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 32px;
+  padding: 32px 32px 58px;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
-  font-size: 32px;
+  font-size: 24px;
 }
 @media screen and (max-width: 1800px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
-    font-size: 30px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
-    font-size: 26px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
-    font-size: 24px;
-  }
-}
-@media screen and (max-width: 1280px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 22px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1600px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+    font-size: 14px;
   }
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
   font-weight: 500;
   text-transform: capitalize;
-  color: #19060F;
-  margin: 0;
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows 0.8s cubic-bezier(0.22, 0.7, 0.2, 1), opacity 0.5s ease 0.05s;
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-  color: #504747;
-  font-size: 20px;
-}
-@media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-    font-size: 12px;
-  }
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
-  line-height: 150%;
-  transition: padding-top 0.5s cubic-bezier(0.22, 0.7, 0.2, 1);
-  overflow: hidden;
-  margin: 0;
-  padding-top: 0;
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover {
-  background: #CDB6C4;
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent {
-  transform: translateY(0);
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent p {
-  padding-top: 24px;
+  color: #ffffff;
 }
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
   margin: 0 20px;
@@ -4452,14 +4392,14 @@ footer .footerWrapper .footerlogo .mailBox a {
 .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
   margin: 0 -20px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
   align-items: center;
   justify-content: flex-start;
   display: flex;
   margin-top: 50px;
   gap: 20px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow {
   background: #D9D9D9;
   border: 1px solid #000;
   border-radius: 50%;
@@ -4471,22 +4411,22 @@ footer .footerWrapper .footerlogo .mailBox a {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow svg {
   width: 24px;
   height: 24px;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow.slick-disabled, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow.slick-disabled {
   background: #525454;
   cursor: default;
   pointer-events: none;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled svg path {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow.slick-disabled svg path, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow.slick-disabled svg path {
   opacity: 1;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow.slick-disabled:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow.slick-disabled:hover {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow.slick-disabled:hover, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow.slick-disabled:hover {
   background: #525454;
 }
-.resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow:hover, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow:hover {
+.resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow:hover, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow:hover {
   background: #00ACB4;
 }
 .resultSection .resultSectionBG {
@@ -4549,14 +4489,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
     margin: 0 -10px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
     margin-top: 40px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow {
     width: 45px;
     height: 45px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow svg {
     width: 18px;
     height: 18px;
   }
@@ -4590,11 +4530,11 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
     margin: 0 -8px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow {
     width: 45px;
     height: 45px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow svg {
     width: 18px;
     height: 18px;
   }
@@ -4621,6 +4561,12 @@ footer .footerWrapper .footerlogo .mailBox a {
   }
   .resultSection .secWrapper .resultsCardLayout {
     padding-left: 15px;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider {
+    width: 100%;
+  }
+  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a {
+    display: block;
   }
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
     height: 280px !important;
@@ -4654,16 +4600,16 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
     margin: 0 -6px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
     display: none;
     margin-top: 30px;
     gap: 12px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow {
     width: 32px;
     height: 32px;
   }
-  .resultSection .secWrapper .resultsCardLayout .arrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .arrowBox .resultNextArrow svg {
+  .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow svg, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow svg {
     width: 12px;
     height: 12px;
   }
@@ -5350,7 +5296,7 @@ body.page-template-hompage .homeImpactSec::after {
 }
 
 @media screen and (min-width: 1025px) {
-  .resultSection .arrowBox {
+  .resultSection .sliderarrowBox {
     display: none !important;
   }
 }

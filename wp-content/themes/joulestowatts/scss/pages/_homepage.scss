@@ -957,20 +957,10 @@
         .resultsCardLayout{ padding-left: 100px; padding-right: 0px; position: relative;
             .resultCardSlider{width: 100%;
                 a{display: block;
-                    .box{background: #E4E1DD; border-radius: 12px; height: 400px !important; position: relative; overflow: hidden;  transition: 0.5s all ease-in;
-                        .tag{border-radius: 24px; position:absolute; top:32px; left:32px;  display:inline-block; padding: 10px 16px; @include font20; text-transform: uppercase; color: #1B98A0; background: #fff; font-weight: 400;}
-                        .bottomContent{position:absolute; left:0; right:0; bottom:0; padding: 32px;
-                            h3{@include font32; font-weight: 500; text-transform: capitalize; color: #19060F; margin: 0;}
-                            .moreContent{display:grid; grid-template-rows:0fr; opacity:0; transition: grid-template-rows 0.8s cubic-bezier(.22,.7,.2,1), opacity .5s ease .05s;
-                                p{color: #504747; @include font20; line-height: 150%; transition: padding-top 0.5s cubic-bezier(.22,.7,.2,1); overflow: hidden; margin: 0; padding-top: 0;}
-                            }
-                        }
-                        &:hover{background: #CDB6C4;
-                            .bottomContent{ transform: translateY(0);
-                                .moreContent{grid-template-rows:1fr; opacity:1;
-                                    p{padding-top: 24px;}
-                                }
-                            }
+                    .box{border-radius: 12px; height: 320px; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain; position: relative;
+                        .tag{position:absolute; top:32px; left:32px; display: inline-block; padding: 10px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
+                        .bottomContent{position:absolute; left:0; right:0; bottom:0; padding: 32px 32px 58px;
+                            h3{@include font24; font-weight: 500; text-transform: capitalize; color: #ffffff;}
                         }
                     }
                     &.slick-slide {
@@ -981,7 +971,7 @@
                     margin: 0 -20px;
                 }
             }
-            .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
+            .sliderarrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
                 .resultPrevArrow, .resultNextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
                     svg{width: 24px; height: 24px;}
                     &.slick-disabled{background: #525454; cursor: default; pointer-events: none;
@@ -1045,7 +1035,7 @@
                     }
                     .slick-list {margin: 0 -10px;}
                 }
-                .arrowBox{margin-top: 40px;
+                .sliderarrowBox{margin-top: 40px;
                     .resultPrevArrow, .resultNextArrow{width: 45px; height: 45px;
                         svg{width: 18px; height: 18px;}
                     }
@@ -1075,7 +1065,7 @@
                         margin: 0 -8px;
                     }
                 }
-                .arrowBox{
+                .sliderarrowBox{
                     .resultPrevArrow, .resultNextArrow{width: 45px; height: 45px;
                         svg{width: 18px; height: 18px;}
                     }
@@ -1092,8 +1082,8 @@
                 }
             }
             .resultsCardLayout{padding-left: 15px;
-                .resultCardSlider{
-                    a{
+                .resultCardSlider{width: 100%;
+                    a{display: block;
                         .box{height: 280px !important; border-radius: 12px;
                             .tag{left: 16px; top: 16px; padding: 8px; font-size: 14px;}
                             .bottomContent{padding: 16px;
@@ -1117,7 +1107,7 @@
                         margin: 0 -6px;
                     }
                 }
-                .arrowBox{display: none; margin-top: 30px; gap: 12px;
+                .sliderarrowBox{display: none; margin-top: 30px; gap: 12px;
                     .resultPrevArrow, .resultNextArrow{width: 32px; height: 32px;
                         svg{width: 12px; height: 12px;}
                     }
@@ -1411,5 +1401,5 @@ body.page-template-hompage{
 
 // Customer impact sliders: no arrows on desktop. The slider still autoplays and can be dragged; arrows return below 1025px.
 @media screen and (min-width: 1025px) {
-    .resultSection .arrowBox { display: none !important; }
+    .resultSection .sliderarrowBox { display: none !important; }
 }
