@@ -10,10 +10,10 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
             .linkBoxes{  display: grid; grid-template-columns: repeat(3, 1fr); gap: 156px;
                 .column{
                     .linkHeading{
-                        h3{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 24px;}
+                        h3{color: #939393; @include font18; letter-spacing: 5px; line-height: 100%; text-transform: uppercase; margin-bottom: 28px;}
                         .downIcon{display: none; background: #d9d9d9; border-radius: 50%; width: 32px; height: 32px;}
                     }
-                    .links{display: flex; flex-flow: column; gap: 24px;
+                    .links{display: flex; flex-flow: column; gap: 28px;
                         a{color: #525454; @include font20; line-height: 170%;
                             .linkGroup{position: relative; overflow: hidden; width: max-content; cursor: pointer; 
                                 .text-default, .text-hover { transition: transform 0.3s ease-out;}

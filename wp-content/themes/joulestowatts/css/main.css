@@ -1054,7 +1054,7 @@ footer .footerWrapper .footerLinks .linkBoxes .column .linkHeading h3 {
   letter-spacing: 5px;
   line-height: 100%;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 footer .footerWrapper .footerLinks .linkBoxes .column .linkHeading .downIcon {
   display: none;
@@ -1066,7 +1066,7 @@ footer .footerWrapper .footerLinks .linkBoxes .column .linkHeading .downIcon {
 footer .footerWrapper .footerLinks .linkBoxes .column .links {
   display: flex;
   flex-flow: column;
-  gap: 24px;
+  gap: 28px;
 }
 footer .footerWrapper .footerLinks .linkBoxes .column .links a {
   color: #525454;
