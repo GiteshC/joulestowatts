@@ -1889,39 +1889,55 @@ document.addEventListener("DOMContentLoaded", () => {
 //   data-count="350"          number counts up when visible; keeps any prefix/suffix text
 //   data-marquee              children scroll continuously; content is duplicated for a seamless loop
 (function () {
-	'use strict';
+	"use strict";
 
-	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var reduceMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
 
 	function onVisible(el, callback, threshold) {
-		if (!('IntersectionObserver' in window)) {
+		if (!("IntersectionObserver" in window)) {
 			callback(true);
 			return;
 		}
-		new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				callback(entry.isIntersecting);
-			});
-		}, { threshold: threshold || 0.3 }).observe(el);
+		new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					callback(entry.isIntersecting);
+				});
+			},
+			{ threshold: threshold || 0.3 },
+		).observe(el);
 	}
 
 	function accordions() {
-		document.querySelectorAll('[data-accordion]').forEach(function (root) {
-			var items = Array.prototype.slice.call(root.querySelectorAll('[data-accordion-item]'));
-			var details = Array.prototype.slice.call(root.querySelectorAll('[data-accordion-detail]'));
+		document.querySelectorAll("[data-accordion]").forEach(function (root) {
+			var items = Array.prototype.slice.call(
+				root.querySelectorAll("[data-accordion-item]"),
+			);
+			var details = Array.prototype.slice.call(
+				root.querySelectorAll("[data-accordion-detail]"),
+			);
 			if (!items.length) return;
 
-			var index = Math.max(0, items.findIndex(function (el) { return el.classList.contains('is-open'); }));
+			var index = Math.max(
+				0,
+				items.findIndex(function (el) {
+					return el.classList.contains("is-open");
+				}),
+			);
 			var timer = null;
 			var chosen = false;
 
 			function show(next) {
 				index = next;
 				items.forEach(function (el, i) {
-					el.classList.toggle('is-open', i === index);
-					el.setAttribute('aria-expanded', String(i === index));
+					el.classList.toggle("is-open", i === index);
+					el.setAttribute("aria-expanded", String(i === index));
 				});
-				details.forEach(function (el, i) { el.classList.toggle('is-open', i === index); });
+				details.forEach(function (el, i) {
+					el.classList.toggle("is-open", i === index);
+				});
 			}
 
 			function choose(i) {
@@ -1932,9 +1948,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			items.forEach(function (el, i) {
-				el.addEventListener('click', function () { choose(i); });
-				el.addEventListener('keydown', function (e) {
-					if (e.key === 'Enter' || e.key === ' ') {
+				el.addEventListener("click", function () {
+					choose(i);
+				});
+				el.addEventListener("keydown", function (e) {
+					if (e.key === "Enter" || e.key === " ") {
 						e.preventDefault();
 						choose(i);
 					}
@@ -1942,11 +1960,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			show(index);
 
-			var delay = parseInt(root.getAttribute('data-autoplay') || '0', 10);
+			var delay = parseInt(root.getAttribute("data-autoplay") || "0", 10);
 			if (!delay || reduceMotion) return;
 			onVisible(root, function (visible) {
 				if (visible && !chosen && !timer) {
-					timer = setInterval(function () { show((index + 1) % items.length); }, delay);
+					timer = setInterval(function () {
+						show((index + 1) % items.length);
+					}, delay);
 				} else if (!visible) {
 					clearInterval(timer);
 					timer = null;
@@ -1956,94 +1976,133 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function toggleGroups() {
-		document.querySelectorAll('[data-toggle-group]').forEach(function (group) {
-			var items = Array.prototype.slice.call(group.querySelectorAll('[data-toggle-item]'));
-			items.forEach(function (item) {
-				var trigger = item.querySelector('[data-toggle]');
-				if (!trigger) return;
-				trigger.addEventListener('click', function () {
-					var open = !item.classList.contains('is-open');
-					items.forEach(function (other) {
-						var isOpen = other === item && open;
-						other.classList.toggle('is-open', isOpen);
-						var t = other.querySelector('[data-toggle]');
-						if (t) t.setAttribute('aria-expanded', String(isOpen));
+		document
+			.querySelectorAll("[data-toggle-group]")
+			.forEach(function (group) {
+				var items = Array.prototype.slice.call(
+					group.querySelectorAll("[data-toggle-item]"),
+				);
+				items.forEach(function (item) {
+					var trigger = item.querySelector("[data-toggle]");
+					if (!trigger) return;
+					trigger.addEventListener("click", function () {
+						var open = !item.classList.contains("is-open");
+						items.forEach(function (other) {
+							var isOpen = other === item && open;
+							other.classList.toggle("is-open", isOpen);
+							var t = other.querySelector("[data-toggle]");
+							if (t)
+								t.setAttribute("aria-expanded", String(isOpen));
+						});
 					});
 				});
 			});
-		});
 	}
 
 	function tabs() {
-		document.querySelectorAll('[data-tabs]').forEach(function (root) {
-			var buttons = Array.prototype.slice.call(root.querySelectorAll('[data-tab]'));
-			var panels = Array.prototype.slice.call(root.querySelectorAll('[data-tab-panel]'));
+		document.querySelectorAll("[data-tabs]").forEach(function (root) {
+			var buttons = Array.prototype.slice.call(
+				root.querySelectorAll("[data-tab]"),
+			);
+			var panels = Array.prototype.slice.call(
+				root.querySelectorAll("[data-tab-panel]"),
+			);
 			function show(i) {
 				buttons.forEach(function (b, k) {
-					b.classList.toggle('is-active', k === i);
-					b.setAttribute('aria-selected', String(k === i));
+					b.classList.toggle("is-active", k === i);
+					b.setAttribute("aria-selected", String(k === i));
 				});
 				panels.forEach(function (p, k) {
-					p.classList.toggle('is-active', k === i);
+					p.classList.toggle("is-active", k === i);
 					p.hidden = k !== i;
 				});
 			}
-			buttons.forEach(function (b, i) { b.addEventListener('click', function () { show(i); }); });
-			if (buttons.length) show(Math.max(0, buttons.findIndex(function (b) { return b.classList.contains('is-active'); })));
+			buttons.forEach(function (b, i) {
+				b.addEventListener("click", function () {
+					show(i);
+				});
+			});
+			if (buttons.length)
+				show(
+					Math.max(
+						0,
+						buttons.findIndex(function (b) {
+							return b.classList.contains("is-active");
+						}),
+					),
+				);
 		});
 	}
 
 	function reveal() {
-		var items = document.querySelectorAll('[data-reveal]');
-		if (reduceMotion || !('IntersectionObserver' in window)) {
-			items.forEach(function (el) { el.classList.add('is-visible'); });
+		var items = document.querySelectorAll("[data-reveal]");
+		if (reduceMotion || !("IntersectionObserver" in window)) {
+			items.forEach(function (el) {
+				el.classList.add("is-visible");
+			});
 			return;
 		}
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('is-visible');
-					io.unobserve(entry.target);
-				}
-			});
-		}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-		items.forEach(function (el) { io.observe(el); });
+		var io = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						io.unobserve(entry.target);
+					}
+				});
+			},
+			{ rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+		);
+		items.forEach(function (el) {
+			io.observe(el);
+		});
 	}
 
 	function counters() {
-		document.querySelectorAll('[data-count]').forEach(function (el) {
-			var target = parseFloat(el.getAttribute('data-count'));
+		document.querySelectorAll("[data-count]").forEach(function (el) {
+			var target = parseFloat(el.getAttribute("data-count"));
 			var template = el.textContent;
 			var digits = template.match(/[\d,.]+/);
 			if (!digits || isNaN(target) || reduceMotion) return;
 			var done = false;
-			onVisible(el, function (visible) {
-				if (!visible || done) return;
-				done = true;
-				var start = performance.now();
-				(function step(now) {
-					var t = Math.min(1, (now - start) / 1400);
-					var value = Math.round(target * (1 - Math.pow(1 - t, 3)));
-					el.textContent = template.replace(digits[0], value.toLocaleString('en-US'));
-					if (t < 1) requestAnimationFrame(step);
-				})(start);
-			}, 0.5);
+			onVisible(
+				el,
+				function (visible) {
+					if (!visible || done) return;
+					done = true;
+					var start = performance.now();
+					(function step(now) {
+						var t = Math.min(1, (now - start) / 1400);
+						var value = Math.round(
+							target * (1 - Math.pow(1 - t, 3)),
+						);
+						el.textContent = template.replace(
+							digits[0],
+							value.toLocaleString("en-US"),
+						);
+						if (t < 1) requestAnimationFrame(step);
+					})(start);
+				},
+				0.5,
+			);
 		});
 	}
 
 	function marquees() {
-		document.querySelectorAll('[data-marquee]').forEach(function (track) {
+		document.querySelectorAll("[data-marquee]").forEach(function (track) {
 			if (track.dataset.marqueeReady) return;
-			track.dataset.marqueeReady = '1';
-			Array.prototype.slice.call(track.children).forEach(function (child) {
-				var copy = child.cloneNode(true);
-				copy.setAttribute('aria-hidden', 'true');
-				track.appendChild(copy);
-			});
+			track.dataset.marqueeReady = "1";
+			Array.prototype.slice
+				.call(track.children)
+				.forEach(function (child) {
+					var copy = child.cloneNode(true);
+					copy.setAttribute("aria-hidden", "true");
+					track.appendChild(copy);
+				});
 		});
 	}
 
-	document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener("DOMContentLoaded", function () {
 		accordions();
 		toggleGroups();
 		tabs();
@@ -2056,18 +2115,20 @@ document.addEventListener("DOMContentLoaded", () => {
 // Home page: typewriter on the AI Atlas chip, and impact story cards that
 // open their description on click when they have no link.
 (function () {
-	'use strict';
+	"use strict";
 
-	if (!document.body.classList.contains('page-template-hompage')) {
+	if (!document.body.classList.contains("page-template-hompage")) {
 		return;
 	}
 
-	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var reduceMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
 
 	// AI Atlas chip: type the word, hold, erase, repeat while it is on screen.
 	function typewriter(el) {
-		var text = el.getAttribute('data-typewriter') || '';
-		var typed = el.querySelector('.atlasChipTyped');
+		var text = el.getAttribute("data-typewriter") || "";
+		var typed = el.querySelector(".atlasChipTyped");
 		if (!typed || !text || reduceMotion) {
 			return;
 		}
@@ -2105,16 +2166,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			typed.textContent = text;
 		}
 
-		if ('IntersectionObserver' in window) {
-			new IntersectionObserver(function (entries) {
-				entries.forEach(function (entry) {
-					if (entry.isIntersecting) {
-						start();
-					} else {
-						stop();
-					}
-				});
-			}, { threshold: 0.4 }).observe(el);
+		if ("IntersectionObserver" in window) {
+			new IntersectionObserver(
+				function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							start();
+						} else {
+							stop();
+						}
+					});
+				},
+				{ threshold: 0.4 },
+			).observe(el);
 		} else {
 			start();
 		}
@@ -2122,32 +2186,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Impact story cards without a link: click or Enter/Space shows the description.
 	function impactCards() {
-		document.querySelectorAll('.homeImpactSec .homeImpactCard:not([href])').forEach(function (card) {
-			function toggle() {
-				var open = !card.classList.contains('is-open');
-				card.classList.toggle('is-open', open);
-				card.setAttribute('aria-expanded', open ? 'true' : 'false');
-			}
-			card.addEventListener('click', function (event) {
-				event.preventDefault();
-				toggle();
-			});
-			card.addEventListener('keydown', function (event) {
-				if (event.key === 'Enter' || event.key === ' ') {
+		document
+			.querySelectorAll(".homeImpactSec .homeImpactCard:not([href])")
+			.forEach(function (card) {
+				function toggle() {
+					var open = !card.classList.contains("is-open");
+					card.classList.toggle("is-open", open);
+					card.setAttribute("aria-expanded", open ? "true" : "false");
+				}
+				card.addEventListener("click", function (event) {
 					event.preventDefault();
 					toggle();
-				}
+				});
+				card.addEventListener("keydown", function (event) {
+					if (event.key === "Enter" || event.key === " ") {
+						event.preventDefault();
+						toggle();
+					}
+				});
 			});
-		});
 	}
 
 	function init() {
-		document.querySelectorAll('.atlasChipText[data-typewriter]').forEach(typewriter);
+		document
+			.querySelectorAll(".atlasChipText[data-typewriter]")
+			.forEach(typewriter);
 		impactCards();
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', init);
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
 	} else {
 		init();
 	}
@@ -2156,17 +2224,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // Platform: the Customer Impact Story cards open their description on click
 // (data-toggle-group, above). This adds the keyboard: Enter or Space on a focused card does the same.
 (function () {
-	'use strict';
+	"use strict";
 
-	if (!document.body.classList.contains('page-template-platform')) return;
+	if (!document.body.classList.contains("page-template-platform")) return;
 
-	document.querySelectorAll('.platformResultSec [data-toggle]').forEach(function (box) {
-		box.addEventListener('keydown', function (event) {
-			if (event.key !== 'Enter' && event.key !== ' ') return;
-			event.preventDefault();
-			box.click();
+	document
+		.querySelectorAll(".platformResultSec [data-toggle]")
+		.forEach(function (box) {
+			box.addEventListener("keydown", function (event) {
+				if (event.key !== "Enter" && event.key !== " ") return;
+				event.preventDefault();
+				box.click();
+			});
 		});
-	});
 })();
 
 // AI Atlas page.
@@ -2178,155 +2248,252 @@ document.addEventListener("DOMContentLoaded", () => {
 // this script only keeps the detail block in step.
 //
 // Customer Impact Stories: a card shows its description on hover, or on click/tap.
-(function () {
-	'use strict';
+// (function () {
+// 	'use strict';
 
-	if (!document.body.classList.contains('page-template-ai-atlas')) {
-		return;
-	}
+// 	if (!document.body.classList.contains('page-template-ai-atlas')) {
+// 		return;
+// 	}
 
-	function artifacts() {
-		var section = document.querySelector('.fourArtifactsSec');
-		if (!section) return;
+// 	function artifacts() {
+// 		var section = document.querySelector('.fourArtifactsSec');
+// 		if (!section) return;
 
-		var cards = Array.prototype.slice.call(section.querySelectorAll('.cardContainer .solutionCard'));
-		var details = Array.prototype.slice.call(section.querySelectorAll('.artifactDetailBox .artifactDetail'));
-		if (!cards.length) return;
+// 		var cards = Array.prototype.slice.call(section.querySelectorAll('.cardContainer .solutionCard'));
+// 		var details = Array.prototype.slice.call(section.querySelectorAll('.artifactDetailBox .artifactDetail'));
+// 		if (!cards.length) return;
 
-		var mobile = window.matchMedia('(max-width: 820px)');
-		// The template marks the panel open on load; the accordion above may already have removed
-		// the class from the panel, but not from its detail block.
-		var current = Math.max(0, details.findIndex(function (detail) {
-			return detail.classList.contains('active');
-		}));
+// 		var mobile = window.matchMedia('(max-width: 820px)');
+// 		// The template marks the panel open on load; the accordion above may already have removed
+// 		// the class from the panel, but not from its detail block.
+// 		var current = Math.max(0, details.findIndex(function (detail) {
+// 			return detail.classList.contains('active');
+// 		}));
 
-		function showDetail(index) {
-			details.forEach(function (detail, i) {
-				var active = i === index;
-				detail.classList.toggle('active', active);
-				detail.hidden = !active;
-			});
-		}
+// 		function showDetail(index) {
+// 			details.forEach(function (detail, i) {
+// 				var active = i === index;
+// 				detail.classList.toggle('active', active);
+// 				detail.hidden = !active;
+// 			});
+// 		}
 
-		function syncAria() {
-			cards.forEach(function (card) {
-				card.setAttribute('aria-expanded', String(card.classList.contains('solutionActiveCard')));
-			});
-		}
+// 		function syncAria() {
+// 			cards.forEach(function (card) {
+// 				card.setAttribute('aria-expanded', String(card.classList.contains('solutionActiveCard')));
+// 			});
+// 		}
 
-		function open(index) {
-			current = index;
-			cards.forEach(function (card, i) {
-				card.classList.toggle('solutionActiveCard', i === index);
-			});
-			syncAria();
-			showDetail(index);
-		}
+// 		function open(index) {
+// 			current = index;
+// 			cards.forEach(function (card, i) {
+// 				card.classList.toggle('solutionActiveCard', i === index);
+// 			});
+// 			syncAria();
+// 			showDetail(index);
+// 		}
 
-		cards.forEach(function (card, i) {
-			card.addEventListener('click', function () {
-				if (mobile.matches) {
-					// The accordion above has already opened or closed the panel.
-					var openIndex = cards.findIndex(function (c) {
-						return c.classList.contains('solutionActiveCard');
-					});
-					if (openIndex > -1) {
-						current = openIndex;
-						showDetail(openIndex);
-					}
-					syncAria();
-					return;
+// 		cards.forEach(function (card, i) {
+// 			card.addEventListener('click', function () {
+// 				if (mobile.matches) {
+// 					// The accordion above has already opened or closed the panel.
+// 					var openIndex = cards.findIndex(function (c) {
+// 						return c.classList.contains('solutionActiveCard');
+// 					});
+// 					if (openIndex > -1) {
+// 						current = openIndex;
+// 						showDetail(openIndex);
+// 					}
+// 					syncAria();
+// 					return;
+// 				}
+// 				open(i);
+// 			});
+// 			card.addEventListener('keydown', function (e) {
+// 				if (e.key === 'Enter' || e.key === ' ') {
+// 					e.preventDefault();
+// 					card.click();
+// 				}
+// 			});
+// 		});
+
+// 		// The accordion above closes every panel on wide screens when it starts and when the
+// 		// viewport crosses 820px; reopen the current one.
+// 		if (!mobile.matches) {
+// 			open(current);
+// 		}
+// 		mobile.addEventListener('change', function () {
+// 			if (!mobile.matches) {
+// 				open(current);
+// 			} else {
+// 				syncAria();
+// 			}
+// 		});
+// 	}
+
+// 	function impactCards() {
+// 		var cards = document.querySelectorAll('.impactStoriesSec .resultCardSlider a');
+// 		var canHover = window.matchMedia('(hover: hover)');
+
+// 		Array.prototype.forEach.call(cards, function (card) {
+// 			card.addEventListener('click', function (e) {
+// 				var hasLink = card.hasAttribute('href');
+// 				var isOpen = card.classList.contains('isOpen');
+// 				// A linked card follows its link once its description is showing.
+// 				if (hasLink && (isOpen || canHover.matches)) return;
+// 				e.preventDefault();
+// 				Array.prototype.forEach.call(cards, function (other) {
+// 					if (other !== card) other.classList.remove('isOpen');
+// 				});
+// 				card.classList.toggle('isOpen', !isOpen);
+// 			});
+// 			card.addEventListener('keydown', function (e) {
+// 				if (!card.hasAttribute('href') && (e.key === 'Enter' || e.key === ' ')) {
+// 					e.preventDefault();
+// 					card.click();
+// 				}
+// 			});
+// 		});
+// 	}
+
+// 	function init() {
+// 		artifacts();
+// 		impactCards();
+// 	}
+
+// 	if (document.readyState === 'loading') {
+// 		document.addEventListener('DOMContentLoaded', init);
+// 	} else {
+// 		init();
+// 	}
+// })();
+
+/*
+document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
+    const cards = section.querySelectorAll(".solutionCard");
+    const details = section.querySelectorAll(".artifactDetail");
+
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+			if (window.matchMedia("(max-width: 820px)").matches) return;
+
+            const panelNumber = card.dataset.panel;
+			console.log(panelNumber);
+			
+
+            // Active card update
+            cards.forEach((item) => {
+                item.classList.remove("solutionActiveCard");
+                item.setAttribute("aria-expanded", "false");
+            });
+
+            card.classList.add("solutionActiveCard");
+            card.setAttribute("aria-expanded", "true");
+
+            // Bottom details update
+            details.forEach((detail) => {
+                const isActive = detail.dataset.panel === panelNumber;
+
+                detail.classList.toggle("active", isActive);
+                detail.hidden = !isActive;
+				if (isActive) {
+					// Browser ko animation reset karne do
+					void detail.offsetWidth;
+
+					detail.classList.add("active");
 				}
-				open(i);
-			});
-			card.addEventListener('keydown', function (e) {
-				if (e.key === 'Enter' || e.key === ' ') {
-					e.preventDefault();
-					card.click();
-				}
-			});
-		});
+            });
+        });
+    });
+});
+*/
 
-		// The accordion above closes every panel on wide screens when it starts and when the
-		// viewport crosses 820px; reopen the current one.
-		if (!mobile.matches) {
-			open(current);
-		}
-		mobile.addEventListener('change', function () {
-			if (!mobile.matches) {
-				open(current);
-			} else {
-				syncAria();
+document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
+	const cards = section.querySelectorAll(".solutionCard");
+	const details = section.querySelectorAll(".artifactDetail");
+
+	// Common function: Update bottom details
+	function updateDetails(panelNumber) {
+		details.forEach((detail) => {
+			const isActive = detail.dataset.panel === panelNumber;
+
+			detail.classList.toggle("active", isActive);
+			detail.hidden = !isActive;
+
+			if (isActive) {
+				void detail.offsetWidth;
+				detail.classList.add("active");
 			}
 		});
 	}
 
-	function impactCards() {
-		var cards = document.querySelectorAll('.impactStoriesSec .resultCardSlider a');
-		var canHover = window.matchMedia('(hover: hover)');
+	// Desktop hover functionality
+	cards.forEach((card) => {
+		card.addEventListener("mouseenter", () => {
+			if (window.matchMedia("(max-width: 820px)").matches) return;
 
-		Array.prototype.forEach.call(cards, function (card) {
-			card.addEventListener('click', function (e) {
-				var hasLink = card.hasAttribute('href');
-				var isOpen = card.classList.contains('isOpen');
-				// A linked card follows its link once its description is showing.
-				if (hasLink && (isOpen || canHover.matches)) return;
-				e.preventDefault();
-				Array.prototype.forEach.call(cards, function (other) {
-					if (other !== card) other.classList.remove('isOpen');
-				});
-				card.classList.toggle('isOpen', !isOpen);
+			const panelNumber = card.dataset.panel;
+
+			cards.forEach((item) => {
+				item.classList.remove("solutionActiveCard");
+				item.setAttribute("aria-expanded", "false");
 			});
-			card.addEventListener('keydown', function (e) {
-				if (!card.hasAttribute('href') && (e.key === 'Enter' || e.key === ' ')) {
-					e.preventDefault();
-					card.click();
-				}
+
+			card.classList.add("solutionActiveCard");
+			card.setAttribute("aria-expanded", "true");
+
+			updateDetails(panelNumber);
+		});
+	});
+
+	// Mobile card open/close ke according details update
+	cards.forEach((card) => {
+		card.addEventListener("click", () => {
+			if (!window.matchMedia("(max-width: 820px)").matches) return;
+
+			requestAnimationFrame(() => {
+				// Card open ho ya close, usi card ki details show rakho
+				updateDetails(card.dataset.panel);
 			});
 		});
-	}
-
-	function init() {
-		artifacts();
-		impactCards();
-	}
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', init);
-	} else {
-		init();
-	}
-})();
+	});
+});
 
 // Greenfield consulting: a click on a Customer Impact Story card opens its description
 // (hover still shows it on desktop). Cards without a link of their own do not reload the page.
 (function () {
-	'use strict';
+	"use strict";
 
-	if (!document.body.classList.contains('page-template-greenfield-consulting')) return;
+	if (
+		!document.body.classList.contains("page-template-greenfield-consulting")
+	)
+		return;
 
-	var slider = document.querySelector('.gfImpactSec .platformResultSlider');
+	var slider = document.querySelector(".gfImpactSec .platformResultSlider");
 	if (!slider) return;
 
-	var canHover = window.matchMedia('(hover: hover)');
+	var canHover = window.matchMedia("(hover: hover)");
 
-	slider.addEventListener('click', function (event) {
-		var card = event.target.closest('a');
+	slider.addEventListener("click", function (event) {
+		var card = event.target.closest("a");
 		if (!card || !slider.contains(card)) return;
 
-		var href = card.getAttribute('href');
-		var box = card.querySelector('.box');
-		if (!box || !box.querySelector('.moreContent')) return;
+		var href = card.getAttribute("href");
+		var box = card.querySelector(".box");
+		if (!box || !box.querySelector(".moreContent")) return;
 
-		var hasLink = href && href !== '#';
+		var hasLink = href && href !== "#";
 		// With a link: a mouse (which already shows the description on hover) follows it straight away;
 		// on touch the first tap opens the description and the second follows the link.
-		if (hasLink && (canHover.matches || box.classList.contains('is-open'))) return;
+		if (hasLink && (canHover.matches || box.classList.contains("is-open")))
+			return;
 
 		event.preventDefault();
-		var open = !box.classList.contains('is-open');
-		slider.querySelectorAll('.box.is-open').forEach(function (el) { el.classList.remove('is-open'); });
-		box.classList.toggle('is-open', open);
+		var open = !box.classList.contains("is-open");
+		slider.querySelectorAll(".box.is-open").forEach(function (el) {
+			el.classList.remove("is-open");
+		});
+		box.classList.toggle("is-open", open);
 	});
 })();
 
@@ -2338,91 +2505,102 @@ document.addEventListener("DOMContentLoaded", () => {
 // - Customer impact stories: the three cards fill the row on wide screens (the shared slider shows
 //   2.8 to 3.5), and a click or tap on a card opens its description (hover still shows it on desktop).
 (function () {
-	'use strict';
+	"use strict";
 
-	if (!document.body.classList.contains('page-template-managed-ai-pods')) {
+	if (!document.body.classList.contains("page-template-managed-ai-pods")) {
 		return;
 	}
 
 	function openFirstColumn() {
-		var first = document.querySelector('.whatgetSection .whatgetBox');
+		var first = document.querySelector(".whatgetSection .whatgetBox");
 		if (!first || window.innerWidth < 720) {
 			return;
 		}
-		var parts = first.querySelectorAll('.iconImg, .whatgetbg');
-		if (typeof gsap !== 'undefined') {
+		var parts = first.querySelectorAll(".iconImg, .whatgetbg");
+		if (typeof gsap !== "undefined") {
 			gsap.set(parts, { opacity: 1 });
 		} else {
-			parts.forEach(function (el) { el.style.opacity = '1'; });
+			parts.forEach(function (el) {
+				el.style.opacity = "1";
+			});
 		}
 	}
 
 	// The theme's sequence starts on window load; run after it.
-	if (document.readyState === 'complete') {
+	if (document.readyState === "complete") {
 		openFirstColumn();
 	} else {
-		window.addEventListener('load', function () { setTimeout(openFirstColumn, 0); });
+		window.addEventListener("load", function () {
+			setTimeout(openFirstColumn, 0);
+		});
 	}
 
 	function cardsToShow() {
 		return window.innerWidth > 1024 ? 3 : null;
 	}
 
-	if (typeof jQuery !== 'undefined') {
+	if (typeof jQuery !== "undefined") {
 		jQuery(function ($) {
-			var $slider = $('.mpodsImpactSec .platformResultSlider');
-			if (!$slider.length || !$slider.hasClass('slick-initialized')) {
+			var $slider = $(".mpodsImpactSec .platformResultSlider");
+			if (!$slider.length || !$slider.hasClass("slick-initialized")) {
 				return;
 			}
 			function fit() {
 				var n = cardsToShow();
 				if (n) {
-					$slider.slick('slickSetOption', 'slidesToShow', n, true);
+					$slider.slick("slickSetOption", "slidesToShow", n, true);
 				}
 			}
 			fit();
 			// Registered after the theme's own resize handler, so this wins on wide screens.
-			$(window).on('resize', fit);
+			$(window).on("resize", fit);
 		});
 	}
 
-	document.querySelectorAll('.mpodsImpactSec .resultCardSlider a:not([href])').forEach(function (card) {
-		function toggle() {
-			var box = card.querySelector('.box');
-			if (box) {
-				box.classList.toggle('is-open');
-				card.setAttribute('aria-expanded', String(box.classList.contains('is-open')));
+	document
+		.querySelectorAll(".mpodsImpactSec .resultCardSlider a:not([href])")
+		.forEach(function (card) {
+			function toggle() {
+				var box = card.querySelector(".box");
+				if (box) {
+					box.classList.toggle("is-open");
+					card.setAttribute(
+						"aria-expanded",
+						String(box.classList.contains("is-open")),
+					);
+				}
 			}
-		}
-		card.setAttribute('aria-expanded', 'false');
-		card.addEventListener('click', toggle);
-		card.addEventListener('keydown', function (event) {
-			if (event.key === 'Enter' || event.key === ' ') {
-				event.preventDefault();
-				toggle();
-			}
+			card.setAttribute("aria-expanded", "false");
+			card.addEventListener("click", toggle);
+			card.addEventListener("keydown", function (event) {
+				if (event.key === "Enter" || event.key === " ") {
+					event.preventDefault();
+					toggle();
+				}
+			});
 		});
-	});
 })();
 
 // Talos page: the Operations and governance cards.
 // The row slides sideways (it is wider than the screen); a card opens on click or Enter/Space
 // through the shared data-toggle-group behaviour above.
 (function ($) {
-	'use strict';
+	"use strict";
 
-	document.addEventListener('DOMContentLoaded', function () {
-		document.querySelectorAll('.talosOpsSec [data-toggle]').forEach(function (trigger) {
-			trigger.addEventListener('keydown', function (e) {
-				if (e.key === 'Enter' || e.key === ' ') {
-					e.preventDefault();
-					trigger.click();
-				}
+	document.addEventListener("DOMContentLoaded", function () {
+		document
+			.querySelectorAll(".talosOpsSec [data-toggle]")
+			.forEach(function (trigger) {
+				trigger.addEventListener("keydown", function (e) {
+					if (e.key === "Enter" || e.key === " ") {
+						e.preventDefault();
+						trigger.click();
+					}
+				});
 			});
-		});
 
 		if (!$ || !$.fn || !$.fn.slick) return;
-		$('.talosOpsSlider').slick({
+		$(".talosOpsSlider").slick({
 			slidesToShow: 4.2,
 			slidesToScroll: 1,
 			arrows: false,
@@ -2432,8 +2610,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			responsive: [
 				{ breakpoint: 1281, settings: { slidesToShow: 3.2 } },
 				{ breakpoint: 1025, settings: { slidesToShow: 2.6 } },
-				{ breakpoint: 720, settings: { slidesToShow: 1.4 } }
-			]
+				{ breakpoint: 720, settings: { slidesToShow: 1.4 } },
+			],
 		});
 	});
 })(window.jQuery);
@@ -2441,56 +2619,65 @@ document.addEventListener("DOMContentLoaded", () => {
 // AI Accelerators and Agents: the hero line drawing draws itself in, stroke by stroke.
 // Uses Vivus (loaded in the footer); falls back to a CSS stroke-dashoffset transition.
 (function () {
-	'use strict';
+	"use strict";
 
 	function start() {
-		var box = document.querySelector('.aiaHeroDraw');
-		var svg = box && box.querySelector('svg');
+		var box = document.querySelector(".aiaHeroDraw");
+		var svg = box && box.querySelector("svg");
 		if (!svg) return;
 
 		function done() {
-			box.classList.remove('is-pending');
+			box.classList.remove("is-pending");
 		}
 
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 			done();
 			return;
 		}
 
-		if (typeof window.Vivus === 'function') {
-			new window.Vivus(svg, {
-				type: 'oneByOne',
-				duration: 240,
-				start: 'autostart',
-				animTimingFunction: window.Vivus.EASE_OUT
-			}, function () {
-				// Leave the finished drawing as plain strokes.
-				svg.querySelectorAll('path').forEach(function (p) {
-					p.style.strokeDasharray = '';
-					p.style.strokeDashoffset = '';
-				});
-			});
+		if (typeof window.Vivus === "function") {
+			new window.Vivus(
+				svg,
+				{
+					type: "oneByOne",
+					duration: 240,
+					start: "autostart",
+					animTimingFunction: window.Vivus.EASE_OUT,
+				},
+				function () {
+					// Leave the finished drawing as plain strokes.
+					svg.querySelectorAll("path").forEach(function (p) {
+						p.style.strokeDasharray = "";
+						p.style.strokeDashoffset = "";
+					});
+				},
+			);
 			done();
 			return;
 		}
 
-		var paths = svg.querySelectorAll('path');
+		var paths = svg.querySelectorAll("path");
 		paths.forEach(function (p, i) {
 			var len = p.getTotalLength();
-			p.style.strokeDasharray = len + ' ' + len;
+			p.style.strokeDasharray = len + " " + len;
 			p.style.strokeDashoffset = len;
-			p.style.transition = 'stroke-dashoffset 1.2s ease-out ' + (i / paths.length * 2.8).toFixed(3) + 's';
+			p.style.transition =
+				"stroke-dashoffset 1.2s ease-out " +
+				((i / paths.length) * 2.8).toFixed(3) +
+				"s";
 		});
 		done();
 		requestAnimationFrame(function () {
 			requestAnimationFrame(function () {
-				paths.forEach(function (p) { p.style.strokeDashoffset = '0'; });
+				paths.forEach(function (p) {
+					p.style.strokeDashoffset = "0";
+				});
 			});
 		});
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', start);
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", start);
 	} else {
 		start();
 	}
@@ -2504,110 +2691,166 @@ document.addEventListener("DOMContentLoaded", () => {
 //                            measures how far each panel must slide up to show its text, and lets
 //                            the panel open from the keyboard.
 (function () {
-	'use strict';
+	"use strict";
 
-	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var reduceMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
 
 	function timelines() {
-		document.querySelectorAll('[data-etd-timeline]').forEach(function (root) {
-			var track = root.querySelector('.etdTimelineTrack');
-			var items = Array.prototype.slice.call(root.querySelectorAll('[data-etd-timeline-item]'));
-			if (!track || !items.length) return;
+		document
+			.querySelectorAll("[data-etd-timeline]")
+			.forEach(function (root) {
+				var track = root.querySelector(".etdTimelineTrack");
+				var items = Array.prototype.slice.call(
+					root.querySelectorAll("[data-etd-timeline-item]"),
+				);
+				if (!track || !items.length) return;
 
-			var index = Math.max(0, items.findIndex(function (el) { return el.classList.contains('is-active'); }));
-			var timer = null;
-			var chosen = false;
-			var visible = false;
+				var index = Math.max(
+					0,
+					items.findIndex(function (el) {
+						return el.classList.contains("is-active");
+					}),
+				);
+				var timer = null;
+				var chosen = false;
+				var visible = false;
 
-			function place() {
-				var item = items[index];
-				var last = items[items.length - 1];
-				var max = Math.max(0, last.offsetLeft + last.offsetWidth - root.clientWidth);
-				var target = item.offsetLeft + item.offsetWidth / 2 - root.clientWidth / 2;
-				var shift = Math.min(max, Math.max(0, target));
-				track.style.transform = 'translateX(' + -shift + 'px)';
-			}
+				function place() {
+					var item = items[index];
+					var last = items[items.length - 1];
+					var max = Math.max(
+						0,
+						last.offsetLeft + last.offsetWidth - root.clientWidth,
+					);
+					var target =
+						item.offsetLeft +
+						item.offsetWidth / 2 -
+						root.clientWidth / 2;
+					var shift = Math.min(max, Math.max(0, target));
+					track.style.transform = "translateX(" + -shift + "px)";
+				}
 
-			function show(next) {
-				index = next;
-				items.forEach(function (el, i) {
-					el.classList.toggle('is-active', i === index);
-					el.setAttribute('aria-pressed', String(i === index));
-				});
-				place();
-			}
-
-			function stop() {
-				clearInterval(timer);
-				timer = null;
-			}
-
-			function start() {
-				var delay = parseInt(root.getAttribute('data-autoplay') || '0', 10);
-				if (!delay || reduceMotion || chosen || timer || !visible || items.length < 2) return;
-				timer = setInterval(function () { show((index + 1) % items.length); }, delay);
-			}
-
-			function choose(i) {
-				chosen = true;
-				stop();
-				show(i);
-			}
-
-			items.forEach(function (el, i) {
-				el.addEventListener('click', function () { choose(i); });
-				// Keyboard users tabbing to an item that is off to the side bring it into view.
-				el.addEventListener('focus', function () { if (i !== index) choose(i); });
-			});
-
-			// Swipe left or right on touch screens to move one step.
-			var startX = null;
-			root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
-			root.addEventListener('touchend', function (e) {
-				if (startX === null) return;
-				var dx = e.changedTouches[0].clientX - startX;
-				startX = null;
-				if (Math.abs(dx) < 40) return;
-				choose(Math.min(items.length - 1, Math.max(0, index + (dx < 0 ? 1 : -1))));
-			});
-
-			if ('IntersectionObserver' in window) {
-				new IntersectionObserver(function (entries) {
-					entries.forEach(function (entry) {
-						visible = entry.isIntersecting;
-						if (visible) start(); else stop();
+				function show(next) {
+					index = next;
+					items.forEach(function (el, i) {
+						el.classList.toggle("is-active", i === index);
+						el.setAttribute("aria-pressed", String(i === index));
 					});
-				}, { threshold: 0.4 }).observe(root);
-			}
+					place();
+				}
 
-			window.addEventListener('resize', place);
-			show(index);
-		});
+				function stop() {
+					clearInterval(timer);
+					timer = null;
+				}
+
+				function start() {
+					var delay = parseInt(
+						root.getAttribute("data-autoplay") || "0",
+						10,
+					);
+					if (
+						!delay ||
+						reduceMotion ||
+						chosen ||
+						timer ||
+						!visible ||
+						items.length < 2
+					)
+						return;
+					timer = setInterval(function () {
+						show((index + 1) % items.length);
+					}, delay);
+				}
+
+				function choose(i) {
+					chosen = true;
+					stop();
+					show(i);
+				}
+
+				items.forEach(function (el, i) {
+					el.addEventListener("click", function () {
+						choose(i);
+					});
+					// Keyboard users tabbing to an item that is off to the side bring it into view.
+					el.addEventListener("focus", function () {
+						if (i !== index) choose(i);
+					});
+				});
+
+				// Swipe left or right on touch screens to move one step.
+				var startX = null;
+				root.addEventListener(
+					"touchstart",
+					function (e) {
+						startX = e.touches[0].clientX;
+					},
+					{ passive: true },
+				);
+				root.addEventListener("touchend", function (e) {
+					if (startX === null) return;
+					var dx = e.changedTouches[0].clientX - startX;
+					startX = null;
+					if (Math.abs(dx) < 40) return;
+					choose(
+						Math.min(
+							items.length - 1,
+							Math.max(0, index + (dx < 0 ? 1 : -1)),
+						),
+					);
+				});
+
+				if ("IntersectionObserver" in window) {
+					new IntersectionObserver(
+						function (entries) {
+							entries.forEach(function (entry) {
+								visible = entry.isIntersecting;
+								if (visible) start();
+								else stop();
+							});
+						},
+						{ threshold: 0.4 },
+					).observe(root);
+				}
+
+				window.addEventListener("resize", place);
+				show(index);
+			});
 	}
 
 	function keepCards() {
-		var cards = Array.prototype.slice.call(document.querySelectorAll('.etdKeepCard'));
+		var cards = Array.prototype.slice.call(
+			document.querySelectorAll(".etdKeepCard"),
+		);
 		if (!cards.length) return;
 
 		function measure() {
 			cards.forEach(function (card) {
-				var panel = card.querySelector('.etdKeepPanel');
-				var body = card.querySelector('.panelBody');
-				var text = body ? body.querySelector('p') : null;
+				var panel = card.querySelector(".etdKeepPanel");
+				var body = card.querySelector(".panelBody");
+				var text = body ? body.querySelector("p") : null;
 				if (!panel || !body || !text) return;
 				// Slide up until the description sits inside the card with the panel's bottom padding below it.
-				var bottomPad = parseFloat(getComputedStyle(body).paddingBottom) || 24;
-				var textBottom = panel.offsetTop + text.offsetTop + text.offsetHeight + bottomPad;
+				var bottomPad =
+					parseFloat(getComputedStyle(body).paddingBottom) || 24;
+				var textBottom =
+					panel.offsetTop +
+					text.offsetTop +
+					text.offsetHeight +
+					bottomPad;
 				var shift = Math.max(0, textBottom - card.clientHeight);
-				card.style.setProperty('--etd-shift', shift + 'px');
+				card.style.setProperty("--etd-shift", shift + "px");
 			});
 		}
 
 		cards.forEach(function (card) {
 			var trigger = card.querySelector('[data-toggle][role="button"]');
 			if (!trigger) return;
-			trigger.addEventListener('keydown', function (e) {
-				if (e.key === 'Enter' || e.key === ' ') {
+			trigger.addEventListener("keydown", function (e) {
+				if (e.key === "Enter" || e.key === " ") {
 					e.preventDefault();
 					trigger.click();
 				}
@@ -2615,11 +2858,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		measure();
-		window.addEventListener('resize', measure);
-		window.addEventListener('load', measure);
+		window.addEventListener("resize", measure);
+		window.addEventListener("load", measure);
 	}
 
-	document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener("DOMContentLoaded", function () {
 		timelines();
 		keepCards();
 	});
@@ -2630,17 +2873,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // the visitor uses it. Clicking a milestone scrolls to that year's story below.
 // Arrow keys move between milestones; a horizontal swipe moves one step.
 (function () {
-	'use strict';
+	"use strict";
 
-	document.addEventListener('DOMContentLoaded', function () {
-		var root = document.querySelector('[data-about-timeline]');
+	document.addEventListener("DOMContentLoaded", function () {
+		var root = document.querySelector("[data-about-timeline]");
 		if (!root) return;
 
-		var track = root.querySelector('.aboutTimelineTrack');
-		var items = Array.prototype.slice.call(root.querySelectorAll('[data-timeline-item]'));
+		var track = root.querySelector(".aboutTimelineTrack");
+		var items = Array.prototype.slice.call(
+			root.querySelectorAll("[data-timeline-item]"),
+		);
 		if (!track || !items.length) return;
 
-		var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var reduceMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
 		var index = 0;
 		var timer = null;
 		var stopped = reduceMotion;
@@ -2650,21 +2897,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		function show(next) {
 			index = (next + items.length) % items.length;
 			items.forEach(function (el, i) {
-				el.classList.toggle('is-active', i === index);
-				el.classList.toggle('is-past', i < index);
+				el.classList.toggle("is-active", i === index);
+				el.classList.toggle("is-past", i < index);
 				if (i === index) {
-					el.setAttribute('aria-current', 'step');
+					el.setAttribute("aria-current", "step");
 				} else {
-					el.removeAttribute('aria-current');
+					el.removeAttribute("aria-current");
 				}
 			});
-			track.style.transform = 'translateX(' + (items[0].offsetLeft - items[index].offsetLeft) + 'px)';
+			track.style.transform =
+				"translateX(" +
+				(items[0].offsetLeft - items[index].offsetLeft) +
+				"px)";
 		}
 
 		function sync() {
 			var run = !stopped && visible && !hovering;
 			if (run && !timer) {
-				timer = setInterval(function () { show(index + 1); }, 3000);
+				timer = setInterval(function () {
+					show(index + 1);
+				}, 3000);
 			} else if (!run && timer) {
 				clearInterval(timer);
 				timer = null;
@@ -2677,37 +2929,51 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		items.forEach(function (el, i) {
-			el.addEventListener('click', function (e) {
-				var target = document.querySelector(el.getAttribute('href'));
+			el.addEventListener("click", function (e) {
+				var target = document.querySelector(el.getAttribute("href"));
 				stop();
 				show(i);
 				if (target) {
 					e.preventDefault();
-					target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+					target.scrollIntoView({
+						behavior: reduceMotion ? "auto" : "smooth",
+						block: "start",
+					});
 				}
 			});
-			el.addEventListener('keydown', function (e) {
-				var step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+			el.addEventListener("keydown", function (e) {
+				var step =
+					e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
 				if (!step) return;
 				e.preventDefault();
 				stop();
 				show(Math.min(items.length - 1, Math.max(0, i + step)));
 				items[index].focus({ preventScroll: true });
 			});
-			el.addEventListener('focus', function () {
+			el.addEventListener("focus", function () {
 				if (i !== index) show(i);
 			});
 		});
 
-		root.addEventListener('mouseenter', function () { hovering = true; sync(); });
-		root.addEventListener('mouseleave', function () { hovering = false; sync(); });
+		root.addEventListener("mouseenter", function () {
+			hovering = true;
+			sync();
+		});
+		root.addEventListener("mouseleave", function () {
+			hovering = false;
+			sync();
+		});
 
 		// Swipe: one step per horizontal drag.
 		var startX = null;
 		var startY = null;
 		var swiped = false;
-		root.addEventListener('pointerdown', function (e) { startX = e.clientX; startY = e.clientY; swiped = false; });
-		root.addEventListener('pointerup', function (e) {
+		root.addEventListener("pointerdown", function (e) {
+			startX = e.clientX;
+			startY = e.clientY;
+			swiped = false;
+		});
+		root.addEventListener("pointerup", function (e) {
 			if (startX === null) return;
 			var dx = e.clientX - startX;
 			var dy = e.clientY - startY;
@@ -2715,26 +2981,40 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
 				swiped = true;
 				stop();
-				show(Math.min(items.length - 1, Math.max(0, index + (dx < 0 ? 1 : -1))));
+				show(
+					Math.min(
+						items.length - 1,
+						Math.max(0, index + (dx < 0 ? 1 : -1)),
+					),
+				);
 			}
 		});
 		// A swipe that ends on a milestone should not also follow its link.
-		root.addEventListener('click', function (e) {
-			if (swiped) {
-				e.preventDefault();
-				e.stopImmediatePropagation();
-				swiped = false;
-			}
-		}, true);
+		root.addEventListener(
+			"click",
+			function (e) {
+				if (swiped) {
+					e.preventDefault();
+					e.stopImmediatePropagation();
+					swiped = false;
+				}
+			},
+			true,
+		);
 
-		if ('IntersectionObserver' in window) {
-			new IntersectionObserver(function (entries) {
-				visible = entries[0].isIntersecting;
-				sync();
-			}, { threshold: 0.4 }).observe(root);
+		if ("IntersectionObserver" in window) {
+			new IntersectionObserver(
+				function (entries) {
+					visible = entries[0].isIntersecting;
+					sync();
+				},
+				{ threshold: 0.4 },
+			).observe(root);
 		}
 
-		window.addEventListener('resize', function () { show(index); });
+		window.addEventListener("resize", function () {
+			show(index);
+		});
 		show(0);
 	});
 })();
@@ -2742,22 +3022,29 @@ document.addEventListener("DOMContentLoaded", () => {
 // Case Studies listing: filter chips (one choice per row, rows combine) and
 // "Show more" paging. Runs only where [data-case-studies] is present.
 (function () {
-	'use strict';
+	"use strict";
 
 	function init(root) {
-		var perPage = parseInt(root.getAttribute('data-per-page') || '9', 10);
-		var cards = Array.prototype.slice.call(root.querySelectorAll('[data-case-card]'));
-		var rows = Array.prototype.slice.call(root.querySelectorAll('[data-filter-group]'));
-		var countEl = root.querySelector('[data-count-text]');
-		var more = root.querySelector('.csMore');
-		var moreButton = root.querySelector('[data-show-more]');
-		var empty = root.querySelector('.csEmpty');
+		var perPage = parseInt(root.getAttribute("data-per-page") || "9", 10);
+		var cards = Array.prototype.slice.call(
+			root.querySelectorAll("[data-case-card]"),
+		);
+		var rows = Array.prototype.slice.call(
+			root.querySelectorAll("[data-filter-group]"),
+		);
+		var countEl = root.querySelector("[data-count-text]");
+		var more = root.querySelector(".csMore");
+		var moreButton = root.querySelector("[data-show-more]");
+		var empty = root.querySelector(".csEmpty");
 		var active = {};
 		var limit = perPage;
 
 		function values(card, group) {
 			try {
-				return JSON.parse(card.getAttribute('data-' + group.replace(/_/g, '-')) || '[]');
+				return JSON.parse(
+					card.getAttribute("data-" + group.replace(/_/g, "-")) ||
+						"[]",
+				);
 			} catch (e) {
 				return [];
 			}
@@ -2765,35 +3052,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		function matches(card) {
 			return Object.keys(active).every(function (group) {
-				return !active[group] || values(card, group).indexOf(active[group]) !== -1;
+				return (
+					!active[group] ||
+					values(card, group).indexOf(active[group]) !== -1
+				);
 			});
 		}
 
 		function render() {
 			var matching = cards.filter(matches);
-			cards.forEach(function (card) { card.classList.add('is-hidden'); });
-			matching.slice(0, limit).forEach(function (card) { card.classList.remove('is-hidden'); });
+			cards.forEach(function (card) {
+				card.classList.add("is-hidden");
+			});
+			matching.slice(0, limit).forEach(function (card) {
+				card.classList.remove("is-hidden");
+			});
 			var shown = Math.min(limit, matching.length);
 			if (countEl) {
-				countEl.textContent = countEl.getAttribute('data-count-text')
-					.replace('%1$s', shown)
-					.replace('%2$s', matching.length);
+				countEl.textContent = countEl
+					.getAttribute("data-count-text")
+					.replace("%1$s", shown)
+					.replace("%2$s", matching.length);
 			}
 			if (more) more.hidden = matching.length <= limit;
 			if (empty) empty.hidden = matching.length > 0;
 		}
 
 		rows.forEach(function (row) {
-			var group = row.getAttribute('data-filter-group');
-			var chips = Array.prototype.slice.call(row.querySelectorAll('[data-filter-value]'));
-			active[group] = '';
+			var group = row.getAttribute("data-filter-group");
+			var chips = Array.prototype.slice.call(
+				row.querySelectorAll("[data-filter-value]"),
+			);
+			active[group] = "";
 			chips.forEach(function (chip) {
-				chip.addEventListener('click', function () {
-					active[group] = chip.getAttribute('data-filter-value');
+				chip.addEventListener("click", function () {
+					active[group] = chip.getAttribute("data-filter-value");
 					chips.forEach(function (other) {
 						var on = other === chip;
-						other.classList.toggle('is-active', on);
-						other.setAttribute('aria-pressed', String(on));
+						other.classList.toggle("is-active", on);
+						other.setAttribute("aria-pressed", String(on));
 					});
 					limit = perPage;
 					render();
@@ -2802,7 +3099,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		if (moreButton) {
-			moreButton.addEventListener('click', function () {
+			moreButton.addEventListener("click", function () {
 				limit += perPage;
 				render();
 			});
@@ -2811,8 +3108,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		render();
 	}
 
-	document.addEventListener('DOMContentLoaded', function () {
-		document.querySelectorAll('[data-case-studies]').forEach(init);
+	document.addEventListener("DOMContentLoaded", function () {
+		document.querySelectorAll("[data-case-studies]").forEach(init);
 	});
 })();
 
@@ -2820,23 +3117,27 @@ document.addEventListener("DOMContentLoaded", () => {
 // and scrolls smoothly to a section when clicked. Runs only where
 // [data-case-toc] is present.
 (function () {
-	'use strict';
+	"use strict";
 
 	function init(nav) {
-		var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+		var links = Array.prototype.slice.call(
+			nav.querySelectorAll('a[href^="#"]'),
+		);
 		var targets = links.map(function (link) {
-			return document.getElementById(link.getAttribute('href').slice(1));
+			return document.getElementById(link.getAttribute("href").slice(1));
 		});
-		var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var reduceMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
 		var ticking = false;
 
 		function setActive(index) {
 			links.forEach(function (link, i) {
-				link.classList.toggle('is-active', i === index);
+				link.classList.toggle("is-active", i === index);
 				if (i === index) {
-					link.setAttribute('aria-current', 'true');
+					link.setAttribute("aria-current", "true");
 				} else {
-					link.removeAttribute('aria-current');
+					link.removeAttribute("aria-current");
 				}
 			});
 		}
@@ -2846,33 +3147,42 @@ document.addEventListener("DOMContentLoaded", () => {
 			var line = window.innerHeight * 0.35;
 			var index = 0;
 			targets.forEach(function (target, i) {
-				if (target && target.getBoundingClientRect().top <= line) index = i;
+				if (target && target.getBoundingClientRect().top <= line)
+					index = i;
 			});
 			setActive(index);
 		}
 
 		links.forEach(function (link, i) {
-			link.addEventListener('click', function (e) {
+			link.addEventListener("click", function (e) {
 				var target = targets[i];
 				if (!target) return;
 				e.preventDefault();
-				target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-				if (history.replaceState) history.replaceState(null, '', '#' + target.id);
+				target.scrollIntoView({
+					behavior: reduceMotion ? "auto" : "smooth",
+					block: "start",
+				});
+				if (history.replaceState)
+					history.replaceState(null, "", "#" + target.id);
 				setActive(i);
 			});
 		});
 
-		window.addEventListener('scroll', function () {
-			if (!ticking) {
-				ticking = true;
-				window.requestAnimationFrame(update);
-			}
-		}, { passive: true });
+		window.addEventListener(
+			"scroll",
+			function () {
+				if (!ticking) {
+					ticking = true;
+					window.requestAnimationFrame(update);
+				}
+			},
+			{ passive: true },
+		);
 		update();
 	}
 
-	document.addEventListener('DOMContentLoaded', function () {
-		document.querySelectorAll('[data-case-toc]').forEach(init);
+	document.addEventListener("DOMContentLoaded", function () {
+		document.querySelectorAll("[data-case-toc]").forEach(init);
 	});
 })();
 
@@ -2889,7 +3199,10 @@ $(document).ready(function () {
 	}
 
 	$slider.on("init reInit breakpoint setPosition", function (e, slick) {
-		$arrowBox.toggleClass("noArrows", slick.slideCount <= slick.options.slidesToShow);
+		$arrowBox.toggleClass(
+			"noArrows",
+			slick.slideCount <= slick.options.slidesToShow,
+		);
 	});
 
 	$slider.slick({

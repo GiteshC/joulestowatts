@@ -1,7 +1,24 @@
 @use '../base/_global.scss' as *;
 
 .fourArtifactsSec{position: relative; @include sectionSpacing;
-    .secWrapper{padding-top: 200px; z-index: 2; position: relative; padding-bottom: 100px;}
+    .secWrapper{padding-top: 200px; z-index: 2; position: relative; padding-bottom: 100px;
+        .artifactDetailBox{position: relative; background: linear-gradient(180deg, #1F0A1B 0%, #200F21 60%, #1F1526 100%); padding: 72px 34px 48px;
+            .artifactDetail{ position: absolute; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s, transform 0.5s ease-in-out;
+                &.active {position: relative; top: auto; left: auto; right: auto; opacity: 1; visibility: visible; transform: translateY(0px);   transition: opacity 0.5s ease-in-out, visibility 0s, transform 0.5s ease-in-out;}
+                .detailText{border-bottom: 1px solid #1B98A0; padding-bottom: 32px; margin-bottom: 36px;
+                    .step{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 12px;}
+                    h4{@include font24; color: #fff; font-weight: 600; letter-spacing: 0.48px; text-transform: capitalize; margin-bottom: 16px;}
+                    p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%; padding-right: 10px;}
+                }
+                .detailFacts{display: flex; justify-content: space-between; gap: 40px; padding-right: 40px;
+                    .fact{width: 291px;
+                        span{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 16px;}
+                        p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+                    }
+                }
+            }
+        }
+    }
     .fourArtifactsBG{position: absolute; top: 0; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; transform: rotate(180deg); z-index: 1; justify-self: center;}
     &::after{content:""; position: absolute; background: url(../images/four-artifacts-sec-bg-icon.webp) no-repeat; background-size: contain; bottom: -200px; left: 0; width: 100%; height: 420px;  z-index: 1; pointer-events: none; }
 
@@ -11,13 +28,27 @@
     }
     
     @media all and (max-width: 1600px){
-        .secWrapper{padding-top: 140px;}
+        .secWrapper{padding-top: 140px;
+            .artifactDetailBox{padding: 70px 30px 40px;}
+        }
         &::after{height: 270px; bottom: -100px}
     }
 
     @media all and (max-width: 1440px){
-        .secWrapper{padding-top: 120px;}
+        .secWrapper{padding-top: 120px;
+            .artifactDetailBox{padding: 60px 30px 30px;}
+        }
         &::after{height: 250px; bottom: -110px}
+    }
+    @media all and (max-width: 1280px){
+        .secWrapper{
+            .artifactDetailBox{padding: 30px;
+                .detailText{padding-bottom: 30px; margin-bottom: 26px;} 
+                .artifactDetail {
+                    .detailFacts{padding-right: 20px;}
+                }
+            }
+        }
     }
 
     @media all and (max-width: 1080px){
@@ -36,32 +67,85 @@
 }
 
 .agentSection{@include sectionSpacing; position: relative; z-index: 2; 
-    .wrapper{@include wrapper; position: relative; z-index: 2;}
+    .wrapper{@include wrapper;
+        .studioContainer{
+            h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 auto 56px; text-align: center;}
+            .studioImg{width: 45%; margin: 0 auto 100px;
+                img{width: 100%; height: 100%; object-fit: cover;}
+            }
+            .studioList{display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;
+                .box{ text-align: center;
+                    h3{@include font32; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 auto 24px;}
+                    p{color: rgba(255, 255, 255, 0.80); line-height: 180%; @include font18;}
+                }
+            }
+        }
+    }
     .agentSecBg{position: absolute; bottom: -200px; right: 0; width: 100%; height: 100%; display: flex; align-items: flex-end; z-index: 1; justify-self: center; pointer-events: none;}
-        &::after{content:""; position: absolute; background: url(../images/ai-section-vector-img.png) no-repeat; background-size: contain; bottom: -200px; left: 0; width: 100%; height: 260px; z-index: 1; transform: scaleX(-1); pointer-events: none; }
     @media all and (max-width: 1800px){
         .agentSecBg{bottom: -180px;}
-        &::after{bottom: -180px;}
     }
     @media all and (max-width: 1600px){
+        .wrapper{
+            .studioContainer{
+                h2{margin-bottom: 48px;}
+                .studioImg{margin-bottom: 80px;}
+            }
+        }
         .agentSecBg{bottom: -160px;}
-        &::after{bottom: -160px;}
+        
     }
     @media all and (max-width: 1440px){
+        .wrapper{
+            .studioContainer{
+                h2{margin-bottom: 40px;}
+                .studioImg{margin-bottom: 70px;}
+            }
+        }
         .agentSecBg{bottom: -140px;}
-        &::after{bottom: -140px; height: 200px;}
     }
     @media all and (max-width: 1280px){
+        .wrapper{
+            .studioContainer{
+                h2{margin-bottom: 34px;}
+                .studioImg{margin-bottom: 60px;}
+                .studioList{gap: 20px;
+                    .box{
+                        h3{margin-bottom: 16px;}
+                    }
+                }  
+            }
+        }
         .agentSecBg{bottom: -120px;}
-        &::after{bottom: -120px; height: 180px;}
     }
+    
     @media all and (max-width: 820px){
+        .wrapper{
+            .studioContainer{
+                h2{margin-bottom: 30px;}
+                .studioImg{margin-bottom: 50px; width: 60%;}
+                .studioList{gap: 20px;
+                    .box{
+                        h3{margin-bottom: 16px;}
+                    }
+                }  
+            }
+        }
         .agentSecBg{bottom: -100px;}
-        &::after{bottom: -100px; height: 120px;}
     }
     @media all and (max-width: 720px){
+        .wrapper{
+            .studioContainer{
+                h2{margin-bottom: 30px;}
+                .studioImg{margin-bottom: 30px; width: 100%;}
+                .studioList{grid-template-columns: 1fr 1fr; gap: 20px;
+                    .box{
+                        h3{margin-bottom: 10px;}
+                    }
+                }  
+            }
+        }
         .agentSecBg{bottom: -80px;}
-        &::after{bottom: -80px; height: 100px;}
     }
 }
 
@@ -80,134 +164,99 @@
 // shared section classes (fourArtifactsSec, impactStoriesSec, ...) stay unchanged elsewhere.
 body.page-template-ai-atlas{
 
-    // Hero: no eyebrow, lighter title, wider intro text, illustration 64px below it.
-    .atlasBannerSec{padding-top: 260px;
-        .wrapper{
-            .bannerContent{
-                .bannerHeading{
-                    h1{font-weight: 500; margin-bottom: 24px;}
-                    p{width: 100%; max-width: 1140px;}
-                }
-                img{margin-top: 68px; width: 877px; max-width: 100%; height: auto;}
-            }
-        }
-        @media screen and (max-width:1800px) {padding-top: 200px;
-            .wrapper .bannerContent{width: 75%;
-                .bannerHeading{
-                    p{width: 100%;}
-                }
-                img{margin-top: 48px; width: 760px;}
-            }
-        }
-        @media screen and (max-width:1440px) {padding-top: 170px;
-            .wrapper .bannerContent img{margin-top: 40px; width: 640px;}
-        }
-        @media screen and (max-width:1280px) {padding-top: 140px;
-            .wrapper .bannerContent img{width: 560px;}
-        }
-        @media screen and (max-width:820px) {
-            .wrapper .bannerContent{width: 90%;}
-        }
-        @media screen and (max-width:720px) {padding-top: 120px;
-            .wrapper .bannerContent{width: 100%;
-                img{margin-top: 32px; width: 100%;}
-            }
-        }
-    }
-
     // Four Artifacts: panels open on click only (class solutionActiveCard); hover and
     // first-child no longer open a panel. The open panel's detail shows underneath.
-    .fourArtifactsSec{
-        .secWrapper{padding-top: 210px; padding-bottom: 56px;
-            .cardContainer{
-                .solutionCard{cursor: pointer; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(221, 221, 221, 0.10);
-                    &, &:hover, &:first-child{flex-grow: 1;
-                        .imgBox{opacity: 0;}
-                        .bottomContent{
-                            h3{color: #D9D9D9;}
-                            .description{grid-template-rows:0fr; opacity:0;}
-                        }
-                        &::before{transform: translateY(100%);}
-                    }
-                    &:focus-visible{outline: 1px solid #01D3C7; outline-offset: -1px;}
-                    .imgBox{width: 72%; margin-top: 70px;}
-                    &.solutionActiveCard.solutionActiveCard{flex-grow: 3; cursor: default;
-                        .imgBox{opacity: 1;}
-                        .bottomContent{
-                            h3{color: #fff;}
-                            .description{grid-template-rows:1fr; opacity:1;}
-                        }
-                        &::before{transform: translateY(0);}
-                    }
-                }
-                &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){flex-grow: 1;}
-                &:has(.solutionCard:hover) .solutionCard.solutionActiveCard.solutionActiveCard{flex-grow: 3;
-                    .imgBox{opacity: 1;}
-                    .bottomContent{
-                        .description{grid-template-rows:1fr; opacity:1;}
-                    }
-                    &::before{transform: translateY(0);}
-                }
-            }
-            .artifactDetailBox{position: relative; background: linear-gradient(180deg, #1F0A1B 0%, #200F21 60%, #1F1526 100%); padding: 72px 61px 48px 34px;
-                .artifactDetail{animation: atlasDetailIn 0.6s ease both;
-                    &[hidden]{display: none;}
-                    .detailText{border-bottom: 1px solid #1B98A0; padding-bottom: 32px; margin-bottom: 36px;
-                        .step{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 12px;}
-                        h3{@include font24; color: #fff; font-weight: 600; letter-spacing: 0.48px; text-transform: capitalize; margin-bottom: 16px;}
-                        p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
-                    }
-                    .detailFacts{display: flex; justify-content: space-between; gap: 40px; padding-right: 40px;
-                        .fact{width: 291px;
-                            span{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 16px;}
-                            p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
-                        }
-                    }
-                }
-            }
-        }
-        @media all and (max-width: 1800px){
-            .secWrapper{padding-top: 160px; padding-bottom: 60px;}
-        }
-        @media all and (max-width: 1600px){
-            .secWrapper{padding-top: 140px;}
-        }
-        @media all and (max-width: 1440px){
-            .secWrapper{padding-top: 120px;}
-            .secWrapper .artifactDetailBox{padding: 56px 40px 40px;
-                .artifactDetail .detailFacts{padding-right: 0;}
-            }
-        }
-        @media all and (max-width: 1080px){
-            .secWrapper{padding-top: 100px;}
-            .secWrapper .artifactDetailBox{padding: 40px 32px 32px;
-                .artifactDetail .detailText{padding-bottom: 24px; margin-bottom: 28px;}
-            }
-        }
-        @media all and (max-width: 820px){
-            .secWrapper{padding-top: 80px;
-                .cardContainer .solutionCard{
-                    .imgBox{width: 80%; margin-top: 0;}
-                }
-                .artifactDetailBox{padding: 32px 20px 24px;
-                    .artifactDetail .detailFacts{flex-flow: column; gap: 20px;
-                        .fact{width: 100%;
-                            span{margin-bottom: 8px;}
-                        }
-                    }
-                }
-            }
-        }
-        @media all and (max-width: 720px){
-            .secWrapper{padding-top: 60px; padding-bottom: 60px;}
-            .secWrapper .artifactDetailBox{padding: 24px 16px;
-                .artifactDetail .detailText{padding-bottom: 20px; margin-bottom: 20px;
-                    .step{font-size: 12px; letter-spacing: 2.4px;}
-                }
-                .artifactDetail .detailFacts .fact span{font-size: 12px; letter-spacing: 2.4px;}
-            }
-        }
-    }
+    // .fourArtifactsSec{
+    //     .secWrapper{padding-top: 210px; padding-bottom: 56px;
+    //         .cardContainer{
+    //             .solutionCard{cursor: pointer; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(221, 221, 221, 0.10);
+    //                 &, &:hover, &:first-child{flex-grow: 1;
+    //                     .imgBox{opacity: 0;}
+    //                     .bottomContent{
+    //                         h3{color: #D9D9D9;}
+    //                         .description{grid-template-rows:0fr; opacity:0;}
+    //                     }
+    //                     &::before{transform: translateY(100%);}
+    //                 }
+    //                 &:focus-visible{outline: 1px solid #01D3C7; outline-offset: -1px;}
+    //                 .imgBox{width: 72%; margin-top: 70px;}
+    //                 &.solutionActiveCard.solutionActiveCard{flex-grow: 3; cursor: default;
+    //                     .imgBox{opacity: 1;}
+    //                     .bottomContent{
+    //                         h3{color: #fff;}
+    //                         .description{grid-template-rows:1fr; opacity:1;}
+    //                     }
+    //                     &::before{transform: translateY(0);}
+    //                 }
+    //             }
+    //             &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){flex-grow: 1;}
+    //             &:has(.solutionCard:hover) .solutionCard.solutionActiveCard.solutionActiveCard{flex-grow: 3;
+    //                 .imgBox{opacity: 1;}
+    //                 .bottomContent{
+    //                     .description{grid-template-rows:1fr; opacity:1;}
+    //                 }
+    //                 &::before{transform: translateY(0);}
+    //             }
+    //         }
+    //         .artifactDetailBox{position: relative; background: linear-gradient(180deg, #1F0A1B 0%, #200F21 60%, #1F1526 100%); padding: 72px 61px 48px 34px;
+    //             .artifactDetail{animation: atlasDetailIn 0.6s ease both;
+    //                 &[hidden]{display: none;}
+    //                 .detailText{border-bottom: 1px solid #1B98A0; padding-bottom: 32px; margin-bottom: 36px;
+    //                     .step{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 12px;}
+    //                     h3{@include font24; color: #fff; font-weight: 600; letter-spacing: 0.48px; text-transform: capitalize; margin-bottom: 16px;}
+    //                     p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+    //                 }
+    //                 .detailFacts{display: flex; justify-content: space-between; gap: 40px; padding-right: 40px;
+    //                     .fact{width: 291px;
+    //                         span{display: block; color: #D9D9D9; @include font18; font-weight: 500; letter-spacing: 3.6px; text-transform: uppercase; margin-bottom: 16px;}
+    //                         p{color: rgba(255, 255, 255, 0.80); @include font20; line-height: 170%;}
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     @media all and (max-width: 1800px){
+    //         .secWrapper{padding-top: 160px; padding-bottom: 60px;}
+    //     }
+    //     @media all and (max-width: 1600px){
+    //         .secWrapper{padding-top: 140px;}
+    //     }
+    //     @media all and (max-width: 1440px){
+    //         .secWrapper{padding-top: 120px;}
+    //         .secWrapper .artifactDetailBox{padding: 56px 40px 40px;
+    //             .artifactDetail .detailFacts{padding-right: 0;}
+    //         }
+    //     }
+    //     @media all and (max-width: 1080px){
+    //         .secWrapper{padding-top: 100px;}
+    //         .secWrapper .artifactDetailBox{padding: 40px 32px 32px;
+    //             .artifactDetail .detailText{padding-bottom: 24px; margin-bottom: 28px;}
+    //         }
+    //     }
+    //     @media all and (max-width: 820px){
+    //         .secWrapper{padding-top: 80px;
+    //             .cardContainer .solutionCard{
+    //                 .imgBox{width: 80%; margin-top: 0;}
+    //             }
+    //             .artifactDetailBox{padding: 32px 20px 24px;
+    //                 .artifactDetail .detailFacts{flex-flow: column; gap: 20px;
+    //                     .fact{width: 100%;
+    //                         span{margin-bottom: 8px;}
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     @media all and (max-width: 720px){
+    //         .secWrapper{padding-top: 60px; padding-bottom: 60px;}
+    //         .secWrapper .artifactDetailBox{padding: 24px 16px;
+    //             .artifactDetail .detailText{padding-bottom: 20px; margin-bottom: 20px;
+    //                 .step{font-size: 12px; letter-spacing: 2.4px;}
+    //             }
+    //             .artifactDetail .detailFacts .fact span{font-size: 12px; letter-spacing: 2.4px;}
+    //         }
+    //     }
+    // }
 
     // Three Studios: one illustration with the four studios in a row underneath.
     .atlasStudiosSec{
@@ -292,6 +341,6 @@ body.page-template-ai-atlas{
 }
 
 @keyframes atlasDetailIn{
-    from{opacity: 0; transform: translateY(12px);}
-    to{opacity: 1; transform: translateY(0);}
+    from{opacity: 0; transform: translate3d(0, 12px, 0);}
+    to{opacity: 1; transform: translate3d(0, 0, 0);}
 }

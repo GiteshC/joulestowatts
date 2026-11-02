@@ -7,7 +7,7 @@
                 <h1 class="manrope">Talent Solutions: talent composition</h1>
                 <p>Talent Solutions and Talos. We read the right team mix from your own evidence, not from a template.</p>
             </div>
-            <img src="<?php bloginfo('template_directory'); ?>/images/ai-atlas-banner-anim.gif" alt="Ai Atlas Animation">
+            <img src="<?php bloginfo('template_directory'); ?>/images/workforce-banner-anim.gif" alt="Ai Atlas Animation">
         </div>
     </div>
     <div class="bannerBG">
