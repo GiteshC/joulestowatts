@@ -19,9 +19,7 @@ $aiaGradient: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 
 }
 
 body.page-template-ai-accelerators-and-agents {
-    .aiaBanner {padding-top: 262px;
-        @media screen and (max-width: 1800px) {padding-top: 200px;}
-        @media screen and (max-width: 1280px) {padding-top: 120px;}
+    .aiaBanner {
         .wrapper {
             .bannerContent {width: 72%;
                 .bannerHeading {
@@ -75,7 +73,7 @@ body.page-template-ai-accelerators-and-agents {
 }
 
 // Hero line drawing; js/pages/ai-accelerators-and-agents.js draws the strokes on.
-.aiaHeroDraw {width: 986px; max-width: 100%; margin: clamp(30px, 6.1vw, 117px) auto 0;
+.aiaHeroDraw {width: 986px; max-width: 100%; margin: clamp(30px, 6.1vw, 80px) auto 0;
     svg {display: block; width: 100%; height: auto; overflow: visible;}
     // Hidden only until the draw-on script takes over; shown anyway after 3s if it never runs.
     &.is-pending svg {visibility: hidden; animation: aiaShowDrawing 0s linear 3s forwards;}

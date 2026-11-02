@@ -13661,9 +13661,6 @@ body.page-template-talent-composition .talentStepsCTA .teritaryCTA:hover {
     border-width: 1px;
   }
 }
-body.page-template-talent-composition .talkToPartnerSec {
-  margin-bottom: 86px;
-}
 body.page-template-talent-composition .talkToPartnerSec::before {
   content: "";
   position: absolute;
@@ -13680,15 +13677,7 @@ body.page-template-talent-composition .talkToPartnerSec::before {
 body.page-template-talent-composition .talkToPartnerSec .primaryCTA span {
   text-transform: capitalize;
 }
-@media all and (max-width: 1440px) {
-  body.page-template-talent-composition .talkToPartnerSec {
-    margin-bottom: 60px;
-  }
-}
 @media all and (max-width: 720px) {
-  body.page-template-talent-composition .talkToPartnerSec {
-    margin-bottom: 40px;
-  }
   body.page-template-talent-composition .talkToPartnerSec::before {
     width: 100%;
     height: 320px;
@@ -15271,19 +15260,6 @@ body.page-template-accelerator-family [data-reveal].is-visible {
   transform: none;
 }
 
-body.page-template-ai-accelerators-and-agents .aiaBanner {
-  padding-top: 262px;
-}
-@media screen and (max-width: 1800px) {
-  body.page-template-ai-accelerators-and-agents .aiaBanner {
-    padding-top: 200px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  body.page-template-ai-accelerators-and-agents .aiaBanner {
-    padding-top: 120px;
-  }
-}
 body.page-template-ai-accelerators-and-agents .aiaBanner .wrapper .bannerContent {
   width: 72%;
 }
@@ -15393,7 +15369,7 @@ body.page-template-ai-accelerators-and-agents .talkToPartnerSec.aiaPartner .secW
 .aiaHeroDraw {
   width: 986px;
   max-width: 100%;
-  margin: clamp(30px, 6.1vw, 117px) auto 0;
+  margin: clamp(30px, 6.1vw, 80px) auto 0;
 }
 .aiaHeroDraw svg {
   display: block;

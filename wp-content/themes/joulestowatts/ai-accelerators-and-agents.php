@@ -147,10 +147,6 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 <section class="talkToPartnerSec aiaPartner">
 	<div class="aiaBand" aria-hidden="true"></div>
 	<div class="secWrapper">
-		<div class="imgBox">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-		</div>
 		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
 			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
 				<div class="secHeading">
