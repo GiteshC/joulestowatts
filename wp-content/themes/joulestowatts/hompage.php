@@ -686,7 +686,7 @@ $atlas_sparkles = array(
     </div>
 </section>
 
-<section class="resultSection platformResultSec homeImpactSec">
+<section class="resultSection homeImpactSec">
     <div class="homeImpactGlow" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
@@ -711,21 +711,18 @@ $atlas_sparkles = array(
                     <div class="resultCardSlider platformResultSlider">
                         <?php if( have_rows('results_cards') ): ?>
                             <?php while( have_rows('results_cards') ): the_row(); $card_url = $home_link_url( get_sub_field('card_link') ); ?>
-                                <a<?php if ( $card_url ) : ?> href="<?php echo esc_url( $card_url ); ?>"<?php else : ?> role="button" tabindex="0" aria-expanded="false"<?php endif; ?> class="homeImpactCard">
+                                <a <?php if ( $card_url ) : ?> href="<?php echo esc_url( $card_url ); ?>" <?php else : ?> role="button" tabindex="0" aria-expanded="false"<?php endif; ?> class="homeImpactCard">
                                     <div class="box">
                                         <span class="tag manrope"><?php echo esc_html( get_sub_field('card_tag') ); ?></span>
                                         <div class="bottomContent">
                                             <h3 class="manrope"><?php echo esc_html( get_sub_field('card_heading') ); ?></h3>
-                                            <div class="moreContent">
-                                                <p><?php echo esc_html( get_sub_field('card_description') ); ?></p>
-                                            </div>
                                         </div>
                                     </div>
                                 </a>
                             <?php endwhile; ?>
                         <?php endif; ?>
                     </div>
-                    <div class="arrowBox">
+                    <div class="sliderarrowBox">
                         <span class="platformResultPrevArrow ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
                                 <path d="M9.90509 20.9813L0.305793 11.382C0.109955 11.1861 -6.67789e-05 10.9205 -6.81276e-05 10.6436C-6.67789e-05 10.3666 0.109955 10.101 0.305793 9.90515L9.90509 0.305849C10.1009 0.110011 10.3665 -1.03086e-05 10.6435 -1.0983e-05C10.9205 -1.014e-05 11.1861 0.11001 11.3819 0.305848C11.5777 0.501686 11.6878 0.7673 11.6878 1.04426C11.6878 1.32121 11.5777 1.58683 11.3819 1.78266L3.56494 9.59963L24.6732 9.59871C24.9504 9.59871 25.2161 9.70879 25.4121 9.90474C25.608 10.1007 25.7181 10.3664 25.7181 10.6436C25.7181 10.9207 25.608 11.1864 25.4121 11.3824C25.2161 11.5783 24.9504 11.6884 24.6732 11.6884L3.56494 11.6875L11.3819 19.5044C11.5777 19.7003 11.6878 19.9659 11.6878 20.2429C11.6878 20.5198 11.5777 20.7854 11.3819 20.9813C11.1861 21.1771 10.9205 21.2871 10.6435 21.2871C10.3665 21.2871 10.1009 21.1771 9.90509 20.9813Z" fill="#19060F"/>

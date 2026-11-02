@@ -481,28 +481,6 @@
                     "return_format": "url",
                     "allow_in_bindings": 0,
                     "parent_repeater": "field_6ace1313e1001"
-                },
-                {
-                    "key": "field_6ace13f2e1007",
-                    "label": "Video File",
-                    "name": "video_file",
-                    "aria-label": "",
-                    "type": "file",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "parent_repeater": "field_6ace1313e1001"
                 }
             ]
         },
@@ -1541,5 +1519,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793096203
+    "modified": 1793255381
 }

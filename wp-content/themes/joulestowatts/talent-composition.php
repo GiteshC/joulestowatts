@@ -99,10 +99,10 @@ $glow_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" v
 
 <section class="talkToPartnerSec">
     <div class="secWrapper">
-        <div class="imgBox">
+        <!-- <div class="imgBox">
             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div>
+        </div> -->
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
                 <div class="secHeading">

@@ -619,28 +619,6 @@
                             "parent_repeater": "field_6ad8536d38018"
                         },
                         {
-                            "key": "field_6ae0467b359e1",
-                            "label": "Card Description",
-                            "name": "card_description",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "parent_repeater": "field_6ad8536d38018",
-                            "rows": 3,
-                            "new_lines": ""
-                        },
-                        {
                             "key": "field_6ad853bb3801b",
                             "label": "Card Link",
                             "name": "card_link",
@@ -782,5 +760,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793096094
+    "modified": 1793258788
 }
