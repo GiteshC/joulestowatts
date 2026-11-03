@@ -277,18 +277,18 @@ body.page-template-greenfield-consulting{
         }
     }
 
-    .talkToPartnerSec{margin-top: 21.4vw; margin-bottom: 3.4vw; // collapses with the 200px margin under the stories
-        .secWrapper{
-            .imgBox .desktopBg{visibility: hidden;}
-            &::before{@include gfGlow; top: -13.6vw; height: 31.2vw;}
-            .secHeading{
-                h2{max-width: 664px;}
-                p{max-width: 664px;}
-                .primaryCTA span{text-transform: capitalize;}
-            }
-        }
-        @media screen and (max-width: 720px) {margin-top: 40px; margin-bottom: 0;
-            .secWrapper::before{top: -30vw; height: 60vw;}
-        }
-    }
+    // .talkToPartnerSec{margin-top: 21.4vw; margin-bottom: 3.4vw; // collapses with the 200px margin under the stories
+    //     .secWrapper{
+    //         .imgBox .desktopBg{visibility: hidden;}
+    //         &::before{@include gfGlow; top: -13.6vw; height: 31.2vw;}
+    //         .secHeading{
+    //             h2{max-width: 664px;}
+    //             p{max-width: 664px;}
+    //             .primaryCTA span{text-transform: capitalize;}
+    //         }
+    //     }
+    //     @media screen and (max-width: 720px) {margin-top: 40px; margin-bottom: 0;
+    //         .secWrapper::before{top: -30vw; height: 60vw;}
+    //     }
+    // }
 }

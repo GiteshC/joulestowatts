@@ -196,7 +196,7 @@ $glow_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" v
                     </div>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="resultCardSlider platformResultSlider">
+                    <div class="commanCard platformResultSlider">
                         <?php if( have_rows('impact_stories_content') ): ?>
                             <?php while( have_rows('impact_stories_content') ): the_row(); ?>
                                 <a href="<?php echo esc_url( get_sub_field('card_link') ); ?>">

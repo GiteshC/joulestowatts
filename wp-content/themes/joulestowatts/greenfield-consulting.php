@@ -146,7 +146,7 @@
                     </a>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="resultCardSlider platformResultSlider">
+                    <div class="commanCard platformResultSlider">
                         <?php if( have_rows('use_cases_content') ): ?>
                             <?php while( have_rows('use_cases_content') ): the_row(); ?>
                                 <a href="<?php echo esc_url( get_sub_field('card_link') ); ?>">

@@ -203,7 +203,7 @@ while ( have_posts() ) :
 <?php endif; ?>
 
 <?php if ( $others ) : ?>
-<section class="resultSection platformResultSec impactStoriesSec csExploreSec">
+<section class="resultSection platformResultSec csExploreSec">
     <div class="secWrapper">
         <div class="secHeading ">
             <div class="headingGroup">
@@ -211,7 +211,7 @@ while ( have_posts() ) :
             </div>
         </div>
         <div class="resultsCardLayout">
-            <div class="resultCardSlider platformResultSlider">
+            <div class="commanCard platformResultSlider">
                 <?php foreach ( $others as $other ) :
                     $other_card = get_field( 'card', $other->ID ) ?: array();
                     ?>
@@ -246,10 +246,6 @@ while ( have_posts() ) :
 
 <section class="talkToPartnerSec csStartSec" id="cs-start">
     <div class="secWrapper">
-        <div class="imgBox">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div>
         <div class="secHeading">
             <h2 class="manrope"><?php echo esc_html( $partner_heading ); ?></h2>
             <?php if ( ! empty( $partner['description'] ) ) : ?>

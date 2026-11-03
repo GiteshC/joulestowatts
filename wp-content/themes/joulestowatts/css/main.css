@@ -4305,13 +4305,13 @@ footer .footerWrapper .footerlogo .mailBox a {
   padding-right: 0px;
   position: relative;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider {
+.resultSection .secWrapper .resultsCardLayout .commanCard {
   width: 100%;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a {
+.resultSection .secWrapper .resultsCardLayout .commanCard a {
   display: block;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
+.resultSection .secWrapper .resultsCardLayout .commanCard a .box {
   border-radius: 12px;
   height: 320px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -4319,7 +4319,7 @@ footer .footerWrapper .footerlogo .mailBox a {
   background-position: contain;
   position: relative;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+.resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
   position: absolute;
   top: 32px;
   left: 32px;
@@ -4331,66 +4331,70 @@ footer .footerWrapper .footerlogo .mailBox a {
   font-size: 16px;
 }
 @media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 720px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     font-size: 11px;
   }
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+.resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   padding: 32px 32px 58px;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+.resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
   font-size: 24px;
 }
 @media screen and (max-width: 1800px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 720px) {
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
     font-size: 14px;
   }
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent h3 {
+.resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent h3 {
   font-weight: 500;
   text-transform: capitalize;
   color: #ffffff;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+.resultSection .secWrapper .resultsCardLayout .commanCard a.slick-slide {
   margin: 0 20px;
   box-sizing: border-box;
+  float: left !important;
 }
-.resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+.resultSection .secWrapper .resultsCardLayout .commanCard .slick-list {
   margin: 0 -20px;
+}
+.resultSection .secWrapper .resultsCardLayout .commanCard .slick-list .slick-track {
+  display: inline-flex !important;
 }
 .resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
   align-items: center;
@@ -4458,11 +4462,11 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .secHeading .headingGroup h2 {
     margin-bottom: 30px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     left: 30px;
     top: 30px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent {
     padding: 30px;
   }
 }
@@ -4479,14 +4483,14 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout {
     padding-left: 60px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent p {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box:hover .bottomContent .moreContent p {
     padding-top: 20px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a.slick-slide {
     margin: 0 10px;
     box-sizing: border-box;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+  .resultSection .secWrapper .resultsCardLayout .commanCard .slick-list {
     margin: 0 -10px;
   }
   .resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
@@ -4514,20 +4518,20 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout {
     padding-left: 40px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box {
     height: 350px !important;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     left: 25px;
     top: 25px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent {
     padding: 25px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a.slick-slide {
     margin: 0 8px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+  .resultSection .secWrapper .resultsCardLayout .commanCard .slick-list {
     margin: 0 -8px;
   }
   .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultPrevArrow, .resultSection .secWrapper .resultsCardLayout .sliderarrowBox .resultNextArrow {
@@ -4562,42 +4566,42 @@ footer .footerWrapper .footerlogo .mailBox a {
   .resultSection .secWrapper .resultsCardLayout {
     padding-left: 15px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider {
+  .resultSection .secWrapper .resultsCardLayout .commanCard {
     width: 100%;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a {
     display: block;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box {
     height: 280px !important;
     border-radius: 12px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .tag {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
     left: 16px;
     top: 16px;
     padding: 8px;
     font-size: 14px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent {
     padding: 16px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent .moreContent {
     grid-template-rows: 1fr;
     opacity: 1;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box .bottomContent .moreContent p {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent .moreContent p {
     padding-top: 12px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box:hover {
     background: #E4E1DD;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a .box:hover .bottomContent .moreContent p {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a .box:hover .bottomContent .moreContent p {
     padding-top: 12px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider a.slick-slide {
+  .resultSection .secWrapper .resultsCardLayout .commanCard a.slick-slide {
     margin: 0 6px;
   }
-  .resultSection .secWrapper .resultsCardLayout .resultCardSlider .slick-list {
+  .resultSection .secWrapper .resultsCardLayout .commanCard .slick-list {
     margin: 0 -6px;
   }
   .resultSection .secWrapper .resultsCardLayout .sliderarrowBox {
@@ -5295,11 +5299,6 @@ body.page-template-hompage .homeImpactSec::after {
   }
 }
 
-@media screen and (min-width: 1025px) {
-  .resultSection .sliderarrowBox {
-    display: none !important;
-  }
-}
 .bannerInnerSection {
   padding-top: 200px;
   width: 100%;
@@ -8545,71 +8544,6 @@ body.page-template-hompage .homeImpactSec::after {
 .platformResultSec .secWrapper .resultsCardLayout {
   z-index: 2;
 }
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
-  width: 100%;
-}
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a {
-  display: block;
-}
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
-  height: 320px !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat;
-  background-position: contain;
-}
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-size: 16px;
-}
-@media screen and (max-width: 1600px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-    font-size: 11px;
-  }
-}
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
-  padding: 32px 32px 58px;
-}
-.platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-  color: #fff;
-  font-size: 24px;
-}
-@media screen and (max-width: 1800px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-    font-size: 22px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent h3 {
-    font-size: 14px;
-  }
-}
 .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
   align-items: center;
   justify-content: flex-start;
@@ -8662,23 +8596,8 @@ body.page-template-hompage .homeImpactSec::after {
   .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
     margin-bottom: 26px;
   }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
-    width: 100%;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
-    height: 300px !important;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
-    padding: 30px 30px 50px;
-  }
 }
 @media all and (max-width: 1440px) {
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
-    width: 100%;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
-    height: 300px !important;
-  }
   .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
     margin-top: 40px;
   }
@@ -8694,19 +8613,6 @@ body.page-template-hompage .homeImpactSec::after {
 @media all and (max-width: 1280px) {
   .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
     margin-bottom: 20px;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
-    width: 100%;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
-    height: 260px !important;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-    top: 25px;
-    left: 25px;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
-    padding: 25px 25px 40px;
   }
   .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
     margin-top: 40px;
@@ -8728,19 +8634,6 @@ body.page-template-hompage .homeImpactSec::after {
 @media all and (max-width: 720px) {
   .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
     margin-bottom: 12px;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider {
-    width: 100%;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box {
-    height: 260px !important;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
-    top: 25px;
-    left: 25px;
-  }
-  .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent {
-    padding: 25px 25px 40px;
   }
   .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
     margin-top: 30px;
@@ -9388,11 +9281,6 @@ body.page-template-platform .platformResultSec .secWrapper .resultsCardLayout .r
 }
 body.page-template-platform .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent p {
   padding-top: 24px;
-}
-@media screen and (min-width: 1025px) {
-  body.page-template-platform .platformResultSec .secWrapper .resultsCardLayout .arrowBox {
-    display: none;
-  }
 }
 
 .fourArtifactsSec {
@@ -11090,42 +10978,6 @@ body.page-template-greenfield-consulting .resultSection.gfImpactSec .secWrapper 
   }
   body.page-template-greenfield-consulting .resultSection.gfImpactSec .secWrapper .secHeading .headingGroup {
     width: 100%;
-  }
-}
-body.page-template-greenfield-consulting .talkToPartnerSec {
-  margin-top: 21.4vw;
-  margin-bottom: 3.4vw;
-}
-body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper .imgBox .desktopBg {
-  visibility: hidden;
-}
-body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 40% 13% at 50% 50%, rgba(150, 182, 188, 0.5) 0%, rgba(150, 182, 188, 0) 100%), radial-gradient(ellipse 48% 50% at 50% 50%, rgba(30, 112, 126, 0.58) 0%, rgba(30, 112, 126, 0.24) 52%, rgba(33, 2, 20, 0) 100%);
-  top: -13.6vw;
-  height: 31.2vw;
-}
-body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper .secHeading h2 {
-  max-width: 664px;
-}
-body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper .secHeading p {
-  max-width: 664px;
-}
-body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper .secHeading .primaryCTA span {
-  text-transform: capitalize;
-}
-@media screen and (max-width: 720px) {
-  body.page-template-greenfield-consulting .talkToPartnerSec {
-    margin-top: 40px;
-    margin-bottom: 0;
-  }
-  body.page-template-greenfield-consulting .talkToPartnerSec .secWrapper::before {
-    top: -30vw;
-    height: 60vw;
   }
 }
 
@@ -21632,19 +21484,6 @@ body.single-case_study .csStartSec .primaryCTA {
   body.single-case_study .csStartSec {
     margin-top: 0;
   }
-}
-body.single-case_study .csExploreSec {
-  margin-bottom: 0;
-  z-index: 2;
-}
-body.single-case_study .csExploreSec .secWrapper .secHeading {
-  margin-bottom: 40px;
-}
-body.single-case_study .csExploreSec .secWrapper .secHeading .headingGroup {
-  width: auto;
-}
-body.single-case_study .csExploreSec .secWrapper .secHeading .headingGroup h2 {
-  margin-bottom: 0;
 }
 
 @media screen and (max-width: 1800px) {
