@@ -29,7 +29,8 @@
 	
 <header>
 	<div class="logoBox">
-		<?php the_custom_logo();?>
+		<!-- <?php the_custom_logo();?> -->
+		 <img src="<?php bloginfo('template_directory'); ?>/images/bigger-logo.png" alt="Joules to Watts" class="logo" />
 	</div>
 	<div class="menuBox">
 		<a href="<?php the_field('header_cta_link','option'); ?>" class="primaryCTA"><?php the_field('header_cta_text','option'); ?>
