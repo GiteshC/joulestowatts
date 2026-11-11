@@ -2797,6 +2797,37 @@ footer .footerWrapper .footerlogo .logoBox .logo {
   text-align: center;
   margin-bottom: 60px;
 }
+.whyItSection .secWrapper .secHeading h3 {
+  color: #00ACB4;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .whyItSection .secWrapper .secHeading h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .whyItSection .secWrapper .secHeading h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .whyItSection .secWrapper .secHeading h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .whyItSection .secWrapper .secHeading h3 {
+    font-size: 12px;
+  }
+}
+.whyItSection .secWrapper .secHeading h3 {
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
 .whyItSection .secWrapper .secHeading h2 {
   font-size: 48px;
 }
@@ -6979,6 +7010,42 @@ body.page-template-hompage .homeImpactSec::after {
   }
 }
 
+.solutionSection {
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .solutionSection {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .solutionSection {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .solutionSection {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .solutionSection {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .solutionSection {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .solutionSection {
+    margin-bottom: 80px;
+  }
+}
+.solutionSection {
+  position: relative;
+}
 .solutionSection .secWrapper {
   padding-left: 100px;
   padding-right: 100px;
@@ -7013,6 +7080,37 @@ body.page-template-hompage .homeImpactSec::after {
   margin: 0 auto;
   text-align: center;
   margin-bottom: 48px;
+}
+.solutionSection .secWrapper .secHeading h3 {
+  color: #00ACB4;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .solutionSection .secWrapper .secHeading h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .solutionSection .secWrapper .secHeading h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .solutionSection .secWrapper .secHeading h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .solutionSection .secWrapper .secHeading h3 {
+    font-size: 12px;
+  }
+}
+.solutionSection .secWrapper .secHeading h3 {
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 .solutionSection .secWrapper .secHeading h2 {
   margin-bottom: 12px;
@@ -11507,7 +11605,7 @@ body.page-template-greenfield-consulting .resultSection.gfImpactSec .secWrapper 
 }
 
 .introSection {
-  padding: 230px 0px 300px;
+  padding: 230px 0px 250px;
   position: relative;
 }
 .introSection .wrapper {
@@ -17312,7 +17410,6 @@ body.page-template-enterprise-context-architects .ecaBannerSec .wrapper .bannerC
 body.page-template-enterprise-context-architects .ecaTiersSec {
   position: relative;
   overflow-x: clip;
-  padding-top: calc(min(1px, 0.0520833333vw) * 371);
   margin-bottom: 200px;
 }
 @media screen and (max-width: 1800px) {
@@ -17533,6 +17630,33 @@ body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers
   grid-template-rows: 0fr;
   opacity: 0;
   transition: grid-template-rows 0.6s cubic-bezier(0.22, 0.7, 0.2, 1), opacity 0.4s ease;
+}
+body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc ul {
+  margin: 12px 0px 0;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 4px;
+}
+body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc ul li {
+  color: rgba(88, 255, 245, 0.98);
+  font-size: 14px;
+}
+@media screen and (max-width: 1440px) {
+  body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc ul li {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc ul li {
+    font-size: 10px;
+  }
+}
+body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc ul li {
+  line-height: 120%;
+  text-transform: capitalize;
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid #00ACB4;
 }
 body.page-template-enterprise-context-architects .ecaTiersSec .wrapper .ecaTiers .ecaTier .tierText .tierDesc p {
   min-height: 0;

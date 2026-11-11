@@ -80,10 +80,8 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
         <?php if( have_rows('solution_section') ): ?>
             <?php while( have_rows('solution_section') ): the_row(); ?>
                 <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
                     <h2 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h2>
-                    <?php if( get_sub_field('description') ): ?>
-                        <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
-                    <?php endif; ?>
                 </div>
                 <div class="cardContainer" data-accordion>
                     <?php if( have_rows('solution_content') ): ?>
@@ -112,9 +110,43 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     </div>
 </section>
 
+<section class="whyItSection">
+    <?php if( have_rows('how_to_apply') ): ?>
+        <?php while( have_rows('how_to_apply') ): the_row(); ?>
+            <div class="secWrapper">
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
+                </div>
+                <div class="cardContainer whyItSlider">
+                    <?php if( have_rows('cards') ): ?>
+                        <?php $counter=1; while( have_rows('cards') ): the_row(); ?>
+                            <div class="card">
+                                <div class="imgBox">
+                                    <?php $whyitcardimg = get_sub_field('image'); if( !empty( $whyitcardimg ) ): ?>
+                                        <img src="<?php echo esc_url($whyitcardimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whyitcardimg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="contentBox">
+                                    <h4><?php echo sprintf('%02d', $counter); ?></h4>
+                                    <div class="headingContent">
+                                        <h3><?php echo get_sub_field('title'); ?></h3>
+                                        <div class="moreContent">
+                                            <p><?php echo get_sub_field('description'); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $counter=$counter+1; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
+
 <section class="ecaTiersSec">
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-glow.webp' ); ?>" class="etdGlowDown" alt="" loading="lazy">
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-waves.webp' ); ?>" class="ecaTiersWaves" alt="" loading="lazy">
     <div class="wrapper">
         <?php if ( have_rows( 'what_you_get' ) ) : ?>
             <?php while ( have_rows( 'what_you_get' ) ) : the_row(); ?>
@@ -132,7 +164,14 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                                 <?php endif; ?>
                                 <div class="tierText">
                                     <h3 class="manrope"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-                                    <div class="tierDesc"><p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p></div>
+                                    <div class="tierDesc">
+                                        <ul>
+                                            <li>Context Map</li>
+                                            <li>Context Map</li>
+                                            <li>Context Map</li>
+                                        </ul>
+                                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+                                    </div>
                                 </div>
                             </div>
                         <?php $eca_tier++; endwhile; ?>
@@ -233,39 +272,6 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                             <?php $eca_item++; endwhile; ?>
                         <?php endif; ?>
                     </div>
-                </div>
-            </div>
-        </section>
-    <?php endwhile; ?>
-<?php endif; ?>
-
-<?php if ( have_rows( 'how_to_apply' ) ) : ?>
-    <?php while ( have_rows( 'how_to_apply' ) ) : the_row(); ?>
-        <section class="etdKeepSec ecaApplyStepsSec">
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
-                </div>
-                <div class="etdKeepCards" data-toggle-group>
-                    <?php if ( have_rows( 'cards' ) ) : ?>
-                        <?php $eca_card = 1; while ( have_rows( 'cards' ) ) : the_row(); ?>
-                            <div class="etdKeepCard" data-toggle-item>
-                                <div class="imgBox">
-                                    <?php $eca_apply_img = get_sub_field( 'image' ); if ( ! empty( $eca_apply_img ) ) : ?>
-                                        <img src="<?php echo esc_url( $eca_apply_img['url'] ); ?>" loading="lazy" alt="<?php echo esc_attr( $eca_apply_img['alt'] ); ?>" />
-                                    <?php endif; ?>
-                                </div>
-                                <div class="etdKeepPanel" role="button" tabindex="0" aria-expanded="false" data-toggle>
-                                    <svg class="tab" viewBox="0 0 196 26" preserveAspectRatio="none" aria-hidden="true"><path class="fill" d="M0 26V24Q0 1 22 1H150Q157 1 163 4.6L196 26Z"/><path class="line" d="M0.3 26V24Q0.3 1.3 22 1.3H150Q156.8 1.3 162.8 4.9L196 25.7" fill="none"/></svg>
-                                    <div class="panelBody">
-                                        <span class="num manrope"><?php echo esc_html( sprintf( '%02d', $eca_card ) ); ?></span>
-                                        <div class="titleBox"><h3><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3></div>
-                                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php $eca_card++; endwhile; ?>
-                    <?php endif; ?>
                 </div>
             </div>
         </section>

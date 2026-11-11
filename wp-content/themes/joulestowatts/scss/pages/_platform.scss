@@ -426,9 +426,10 @@
     }
 }
 
-.solutionSection{
+.solutionSection{@include sectionSpacing; position: relative;
     .secWrapper{@include wrapper;
         .secHeading{margin-bottom: 48px; width: 70%; margin: 0 auto; text-align: center; margin-bottom: 48px;
+            h3{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;}
             h2{margin-bottom: 12px; @include font48; font-weight: 500; line-height: 120%; text-transform: capitalize;  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text;-webkit-text-fill-color: transparent;}
             p{color: #C0C6C6; @include font20;  line-height: 170%}
         }

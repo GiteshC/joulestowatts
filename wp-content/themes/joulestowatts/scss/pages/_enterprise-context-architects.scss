@@ -82,7 +82,7 @@ body.page-template-enterprise-context-architects{
     // ------------------------------------------------------------ what you get: tiers accordion
     // Same layout as the What You Get columns, but opened on click
     // (the .whatgetSection script cycles on its own with no click control).
-    .ecaTiersSec{position: relative; overflow-x: clip; padding-top: dp(371); @include sectionSpacing;
+    .ecaTiersSec{position: relative; overflow-x: clip; @include sectionSpacing;
         .ecaTiersWaves{position: absolute; left: dp(900); top: dp(536); width: dp(1058); height: auto; opacity: 0.1; pointer-events: none;}
         .wrapper{@include wrapper; position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between;
             .secHeading{width: 21%; margin-top: dp(26);
@@ -96,6 +96,9 @@ body.page-template-enterprise-context-architects{
                     .tierText{position: relative; z-index: 1;
                         h3{@include font28; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
                         .tierDesc{display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.6s cubic-bezier(.22, .7, .2, 1), opacity 0.4s ease;
+                            ul{margin: 12px 0px 0; display: flex; flex-flow: row wrap; gap: 4px;
+                                li{color: rgba(88, 255, 245, 0.98); @include font14; line-height: 120%; text-transform: capitalize; padding: 2px 8px; border-radius: 100px; border: 1px solid #00ACB4;}
+                            }
                             p{min-height: 0; overflow: hidden; margin-top: 12px; color: rgba(255, 255, 255, 0.80); @include font20; line-height: 120%; text-transform: capitalize;}
                         }
                     }

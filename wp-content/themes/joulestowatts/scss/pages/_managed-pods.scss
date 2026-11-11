@@ -1,6 +1,6 @@
 @use '../base/_global.scss' as *;
 
-.introSection{padding: 230px 0px 300px; position: relative;
+.introSection{padding: 230px 0px 250px; position: relative;
     .wrapper{@include wrapper; display: flex; align-items: center; justify-content: center;
         .introContent{width: 65%; text-align: center;
             h3{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;}
