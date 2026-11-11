@@ -18,7 +18,7 @@ $aia_slider = array(
 $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg';
 ?>
 
-<section class="bannerInnerSection aiaBanner">
+<section class="bannerInnerSection">
 	<div class="wrapper">
 		<?php if ( have_rows( 'banner_section' ) ) : ?>
 			<?php while ( have_rows( 'banner_section' ) ) : the_row(); ?>
@@ -27,12 +27,14 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 						<h1 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h1>
 						<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
 					</div>
-					<?php if ( is_readable( $aia_hero ) ) : ?>
+					<!-- <?php if ( is_readable( $aia_hero ) ) : ?>
 						<div class="aiaHeroDraw" role="img" aria-label="<?php esc_attr_e( 'Charter, AI Atlas Registry, accelerators and agents connected into one system', 'joulestowatts' ); ?>">
 							<script>document.currentScript.parentNode.classList.add('is-pending');</script>
 							<?php echo file_get_contents( $aia_hero ); // phpcs:ignore WordPress.Security.EscapeOutput, WordPress.WP.AlternativeFunctions -- theme-owned SVG file. ?>
 						</div>
-					<?php endif; ?>
+					<?php endif; ?> -->
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/ai-acc-agent-banner.gif" alt="" aria-hidden="true">
+
 				</div>
 				<?php if ( get_sub_field( 'cta_text' ) ) : ?>
 					<div class="casestudyCTA">
@@ -48,35 +50,6 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 	</div>
 	<div class="bannerBG"><?php echo $aia_glow; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup. ?></div>
 </section>
-
-<?php if ( have_rows( 'overview_section' ) ) : ?>
-	<?php while ( have_rows( 'overview_section' ) ) : the_row(); ?>
-		<section class="aiaOverviewSec">
-			<div class="wrapper">
-				<?php if ( get_sub_field( 'intro_text' ) ) : ?>
-					<p class="aiaLead" data-reveal><?php echo wp_kses_post( get_sub_field( 'intro_text' ) ); ?></p>
-				<?php endif; ?>
-				<div class="aiaTable" data-reveal>
-					<?php foreach ( array( 'get' => 'get_items', 'run' => 'run_items' ) as $aia_col => $aia_rows ) : ?>
-						<div class="aiaTableCol">
-							<h2 class="manrope"><span><?php echo wp_kses_post( get_sub_field( $aia_col . '_heading' ) ); ?></span></h2>
-							<?php if ( have_rows( $aia_rows ) ) : ?>
-								<ul>
-									<?php while ( have_rows( $aia_rows ) ) : the_row(); ?>
-										<li class="manrope"><?php echo esc_html( get_sub_field( 'item_text' ) ); ?></li>
-									<?php endwhile; ?>
-								</ul>
-							<?php endif; ?>
-						</div>
-					<?php endforeach; ?>
-				</div>
-				<?php if ( get_sub_field( 'outcomes' ) ) : ?>
-					<div class="aiaOutcomes" data-reveal><p class="manrope"><?php echo esc_html( get_sub_field( 'outcomes' ) ); ?></p></div>
-				<?php endif; ?>
-			</div>
-		</section>
-	<?php endwhile; ?>
-<?php endif; ?>
 
 <?php if ( have_rows( 'accelerators_section' ) ) : ?>
 	<?php while ( have_rows( 'accelerators_section' ) ) : the_row(); ?>
@@ -100,6 +73,144 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 						</div>
 					<?php endif; ?>
 				<?php endforeach; ?>
+			</div>
+		</section>
+	<?php endwhile; ?>
+<?php endif; ?>
+
+<section class="projectTabsSection">
+	<div class="ProjectTabsBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/section-bottom-light-bg.webp' ); ?>" alt="" loading="lazy" class="lines">
+	</div>
+	<div class="secWrapper">
+		<div class="container">
+			<div class="projectTabs tabSlider">
+				<button class="tabBtn active" data-tab="0">Recon Alpha</button>
+				<button class="tabBtn" data-tab="1">ContactFlow AI</button>
+				<button class="tabBtn" data-tab="2">TalkToData</button>
+				<button class="tabBtn" data-tab="3">EnergyAI</button>
+				<button class="tabBtn" data-tab="4">ContactFlow AI</button>
+				<button class="tabBtn" data-tab="5">2D to 3D Accelerator</button>
+			</div>
+			<div class="tabContent">
+				<div class="tabPanel active" data-panel="0">
+					<div class="mockupContent">
+						<h3>Working mockup</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+				<div class="tabPanel" data-panel="1">
+					<div class="mockupContent">
+						<h3>ContactFlow AI</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+				<div class="tabPanel" data-panel="2">
+					<div class="mockupContent">
+						<h3>TalkToData</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+				<div class="tabPanel" data-panel="3">
+					<div class="mockupContent">
+						<h3>EnergyAI</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+				<div class="tabPanel" data-panel="4">
+					<div class="mockupContent">
+						<h3>ContactFlow AI</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+				<div class="tabPanel" data-panel="5">
+					<div class="mockupContent">
+						<h3>2D to 3D Accelerator</h3>
+						<p>Can be added in development only</p>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="talkToPartnerSec aiaPointItSec">
+	<div class="aiaPointItBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/result-sec-shadow.webp' ); ?>" alt="" loading="lazy" class="lines">
+	</div>
+	<div class="secWrapper">
+		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
+			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
+				<div class="secHeading">
+					<h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h2>
+					<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+					<?php if ( get_sub_field( 'cta_text' ) ) : ?>
+						<a href="<?php echo esc_url( $aia_url( get_sub_field( 'cta_link' ) ) ); ?>" class="primaryCTA"><span><?php echo esc_html( get_sub_field( 'cta_text' ) ); ?></span>
+							<div class="arrowBox"><?php echo $aia_arrow;?></div>
+						</a>
+					<?php endif; ?>
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
+</section>
+
+<?php if ( have_rows( 'overview_section' ) ) : ?>
+	<?php while ( have_rows( 'overview_section' ) ) : the_row(); ?>
+		<section class="aiaOverviewSec">
+			<div class="wrapper">
+				<?php if ( get_sub_field( 'intro_text' ) ) : ?>
+					<h2 class="manrope">Every agent ladders to one of four goals</h2>
+					<p class="aiaLead" data-reveal><?php echo wp_kses_post( get_sub_field( 'intro_text' ) ); ?></p>
+				<?php endif; ?>
+				<div class="aiaTable" data-reveal>
+					<?php foreach ( array( 'get' => 'get_items', 'run' => 'run_items' ) as $aia_col => $aia_rows ) : ?>
+						<div class="aiaTableCol">
+							<h3 class="manrope"><span><?php echo wp_kses_post( get_sub_field( $aia_col . '_heading' ) ); ?></span></h3>
+							<?php if ( have_rows( $aia_rows ) ) : ?>
+								<ul>
+									<?php while ( have_rows( $aia_rows ) ) : the_row(); ?>
+										<li class="manrope"><?php echo esc_html( get_sub_field( 'item_text' ) ); ?></li>
+									<?php endwhile; ?>
+								</ul>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<div class="aiaOutcomes">
+					<a href="#">Deploy an accelerator
+						<span>
+							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
+								</svg>
+						</span>
+					</a>
+					<a href="#">Start with the AI Atlas Diagnostic
+						<span>
+							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
+								</svg>
+						</span>
+					</a>
+					<a href="#">Meet the Enterprise Context Architects
+						<span>
+							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
+								</svg>
+						</span>
+					</a>
+                </div>
+				<!-- <?php if ( get_sub_field( 'outcomes' ) ) : ?>
+					<div class="aiaOutcomes" data-reveal>
+						<p class="manrope"><?php echo esc_html( get_sub_field( 'outcomes' ) ); ?></p>
+					</div>
+				<?php endif; ?> -->
 			</div>
 		</section>
 	<?php endwhile; ?>
@@ -154,9 +265,13 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 					<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
 					<?php if ( get_sub_field( 'cta_text' ) ) : ?>
 						<a href="<?php echo esc_url( $aia_url( get_sub_field( 'cta_link' ) ) ); ?>" class="primaryCTA"><span><?php echo esc_html( get_sub_field( 'cta_text' ) ); ?></span>
-							<div class="arrowBox"><?php echo $aia_arrow; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup. ?></div>
+							<div class="arrowBox"><?php echo $aia_arrow; ?></div>
 						</a>
 					<?php endif; ?>
+					<a href="#" class="transparentCTA manrope">Already Know The Use Case? Pick An Accelerator
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+					</a>
+					
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
