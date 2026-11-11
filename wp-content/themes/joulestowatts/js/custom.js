@@ -3273,3 +3273,40 @@ if ($(".aboutNewsSec").length) {
 		io.observe(stage);
 	});
 })();
+
+// ECA page: "Why can't my existing team do this?" role tabs.
+(function () {
+	"use strict";
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var sec = document.querySelector(".ecaRolesSec");
+		if (!sec) return;
+		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".rolesTab"));
+		var panels = Array.prototype.slice.call(sec.querySelectorAll(".rolesPanel"));
+
+		function select(i, focus) {
+			tabs.forEach(function (t, k) {
+				var on = k === i;
+				t.classList.toggle("is-active", on);
+				t.setAttribute("aria-selected", on ? "true" : "false");
+				t.setAttribute("tabindex", on ? "0" : "-1");
+			});
+			panels.forEach(function (p, k) { p.classList.toggle("is-active", k === i); });
+			if (focus) tabs[i].focus();
+		}
+
+		tabs.forEach(function (t, i) {
+			t.addEventListener("click", function () { select(i); });
+			t.addEventListener("keydown", function (e) {
+				var n = tabs.length, next = -1;
+				if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % n;
+				else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + n) % n;
+				else if (e.key === "Home") next = 0;
+				else if (e.key === "End") next = n - 1;
+				if (next < 0) return;
+				e.preventDefault();
+				select(next, true);
+			});
+		});
+	});
+})();

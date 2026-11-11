@@ -228,16 +228,179 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     </div>
 </section>
 
-<section class="talkToPartnerSec oneInstrumentSec ecaApplySec">
-    <div class="secWrapper">
-        <div class="imgBox">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/talk-to-partner-bg.webp' ); ?>" alt="" class="desktopBg" loading="lazy">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/talk-to-partner-bg-mbl.webp' ); ?>" alt="" class="mblBg" loading="lazy">
-        </div>
-        <?php if ( have_rows( 'apply_cta' ) ) : ?>
-            <?php while ( have_rows( 'apply_cta' ) ) : the_row(); ?>
+<section class="ecaRolesSec">
+	<div class="wrapper">
+		<div class="secHeading">
+			<h3 class="manrope">ECA vs existing roles</h3>
+			<h2 class="manrope">Why can't my existing team do this?</h2>
+			<p>Each role sees part of the picture. An ECA connects all of it and makes it usable by AI.</p>
+		</div>
+
+		<div class="rolesTabs" role="tablist" aria-label="Roles">
+			<button class="rolesTab is-active" type="button" role="tab" id="roleTab1" aria-controls="rolePanel1" aria-selected="true">Business Analyst</button>
+			<button class="rolesTab" type="button" role="tab" id="roleTab2" aria-controls="rolePanel2" aria-selected="false" tabindex="-1">Enterprise Architect</button>
+			<button class="rolesTab" type="button" role="tab" id="roleTab3" aria-controls="rolePanel3" aria-selected="false" tabindex="-1">Data Architect</button>
+			<button class="rolesTab" type="button" role="tab" id="roleTab4" aria-controls="rolePanel4" aria-selected="false" tabindex="-1">ECA</button>
+		</div>
+
+		<div class="rolesPanels">
+			<div class="rolesPanel is-active" role="tabpanel" id="rolePanel1" aria-labelledby="roleTab1">
+				<img class="rolesImg" src="<?php echo get_template_directory_uri(); ?>/images/eca-existing1.webp" alt="" width="660" height="440" loading="lazy">
+				<div class="rolesCols">
+					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
+					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
+					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
+				</div>
+			</div>
+			<!-- Panels 2 to 4: same markup (ids rolePanel2..4, aria-labelledby roleTab2..4, without is-active). -->
+            <div class="rolesPanel" role="tabpanel" id="rolePanel2" aria-labelledby="roleTab2">
+				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
+				<div class="rolesCols">
+					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
+					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
+					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
+				</div>
+			</div>
+            <div class="rolesPanel" role="tabpanel" id="rolePanel3" aria-labelledby="roleTab3">
+				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
+				<div class="rolesCols">
+					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
+					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
+					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
+				</div>
+			</div>
+            <div class="rolesPanel" role="tabpanel" id="rolePanel4" aria-labelledby="roleTab4">
+				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
+				<div class="rolesCols">
+					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
+					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
+					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ecaChangesSec">
+	<div class="wrapper">
+		<div class="secHeading">
+            <h3 class="manrope">Business outcomes</h3>
+			<h2 class="manrope">What changes for you</h2>
+		</div>
+		<div class="changesGrid">
+			<div class="changeCard">
+				<h3>Faster AI deployment</h3>
+				<p>Use cases start from validated context, not months of discovery.</p>
+			</div>
+			<div class="changeCard">
+				<h3>Better grounding</h3>
+				<p>RAG, copilots and agents answer from what can be proven.</p>
+			</div>
+			<div class="changeCard">
+				<h3>Fewer operational errors</h3>
+				<p>Exceptions and decision rules are captured, not guessed.</p>
+			</div>
+			<div class="changeCard">
+				<h3>Reusable knowledge</h3>
+				<p>Context outlives the project and the people who held it.</p>
+			</div>
+			<div class="changeCard">
+				<h3>Stronger governance</h3>
+				<p>Every context asset has an owner, a version and an audit trail.</p>
+			</div>
+			<div class="changeCard">
+				<h3>Released capacity</h3>
+				<p>Teams spend less time on rework and exceptions, and more on the work only they can do.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ecaWorkSec">
+	<div class="wrapper">
+		<div class="secHeading">
+			<h3 class="manrope">For enterprise leaders</h3>
+			<h2 class="manrope">Two ways to work with them</h2>
+		</div>
+		<div class="workGrid">
+			<div class="workCol">
+				<div class="workHead"><h3>We run AI Atlas for you</h3></div>
+				<div class="workBody">
+                    <div>
+                        <p class="workDesc">Our Enterprise Context Architects run AI Atlas end to end, from first interview to governed AI, and own the outcome against a KPI you sign.</p>
+                    </div>
+					<a class="primaryCTA" href="#">Explore AI Atlas
+						<div class="arrowBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                            </svg>
+                        </div>
+					</a>
+				</div>
+			</div>
+			<div class="workCol">
+				<div class="workHead"><h3>They join your team</h3></div>
+				<div class="workBody">
+                    <div>
+                        <p class="workDesc">Deploy a certified Enterprise Context Architect in your team for discovery and excavation: mapping how work really runs, and surfacing the exceptions, workarounds and unwritten rules your systems miss. You direct the work.</p>
+					    <p class="workNote">Start with ten hours on one business unit: where context is missing, what it is costing you, and where AI will pay back first.</p>
+                    </div>
+					<a class="primaryCTA" href="#">Explore AI Atlas
+                        <div class="arrowBox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                            </svg>
+                        </div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ecaTiersSec">
+    <div class="wrapper">
+        <?php if ( have_rows( 'enterprise_context' ) ) : ?>
+            <?php while ( have_rows( 'enterprise_context' ) ) : the_row(); ?>
                 <div class="secHeading">
-                    <h3 class="manrope"><?php echo esc_html( get_sub_field( 'sub_heading' ) ); ?></h3>
+                    <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
+                    <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+                </div>
+                <div class="ecaTiers" data-accordion data-autoplay="4000">
+                    <?php if ( have_rows( 'tiers' ) ) : ?>
+                        <?php $eca_tier = 0; while ( have_rows( 'tiers' ) ) : the_row(); ?>
+                            <div class="ecaTier<?php echo 0 === $eca_tier ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 0 === $eca_tier ? 'true' : 'false'; ?>">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/whatgetbg.webp' ); ?>" class="tierBg" alt="" loading="lazy">
+                                <?php $eca_tier_img = get_sub_field( 'image' ); if ( ! empty( $eca_tier_img ) ) : ?>
+                                    <img src="<?php echo esc_url( $eca_tier_img['url'] ); ?>" loading="lazy" class="tierImg" alt="<?php echo esc_attr( $eca_tier_img['alt'] ); ?>" />
+                                <?php endif; ?>
+                                <div class="tierText">
+                                    <h3 class="manrope"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+                                    <div class="tierDesc">
+                                        <ul>
+                                            <?php if ( have_rows( 'tags_list' ) ) : ?>
+                                                <?php while ( have_rows( 'tags_list' ) ) : the_row(); ?>
+                                                    <li><?php echo esc_html( get_sub_field( 'tags' ) ); ?></li>
+                                                <?php endwhile; ?>
+                                            <?php endif; ?>
+                                        </ul>
+                                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $eca_tier++; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+</section>
+
+<section class="talkToPartnerSec">
+    <div class="secWrapper">
+        <?php if ( have_rows( 'joulestowatts_certified' ) ) : ?>
+            <?php while ( have_rows( 'joulestowatts_certified' ) ) : the_row(); ?>
+                <div class="secHeading">
                     <h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h2>
                     <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
                     <a href="<?php echo esc_url( get_sub_field( 'cta_link' ) ); ?>" class="primaryCTA"><span><?php echo esc_html( get_sub_field( 'cta_text' ) ); ?></span>
@@ -269,30 +432,64 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     <?php endwhile; ?>
 <?php endif; ?>
 
-<?php if ( have_rows( 'what_you_become' ) ) : ?>
-    <?php while ( have_rows( 'what_you_become' ) ) : the_row(); ?>
-        <section class="ecaBecomeSec">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-glow.webp' ); ?>" class="etdGlowDown" alt="" loading="lazy">
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
+<section class="howItRunsSec">
+    <div class="wrapper">
+        <div class="secHeading">
+            <h2 class="manrope">What you become</h2>
+        </div>
+        <div class="cardContainer cardSlider">
+            <div class="card">
+                <div class="cardSticky">
+                    <div class="imgBox">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/workforce-howItRuns-bg.webp" class="howItRunsbg">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/eca-become1.webp" alt="" >
+                    </div>
+                    <div class="contentBox">
+                        <h3 class="manrope">Engineer</h3>
+                        <p>Build and ship agents, integrations, and evaluations that hold up in production.</p>
+                    </div>
+
                 </div>
-                <?php if ( have_rows( 'roles' ) ) : ?>
-                    <?php while ( have_rows( 'roles' ) ) : the_row(); ?>
-                        <div class="ecaBecomeCard">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/eca-become-bg.webp' ); ?>" class="cardBg" alt="" loading="lazy">
-                            <?php $eca_role_img = get_sub_field( 'image' ); if ( ! empty( $eca_role_img ) ) : ?>
-                                <img src="<?php echo esc_url( $eca_role_img['url'] ); ?>" class="roleImg" loading="lazy" alt="<?php echo esc_attr( $eca_role_img['alt'] ); ?>" />
-                            <?php endif; ?>
-                            <h3 class="manrope"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-                            <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
-                        </div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
             </div>
-        </section>
-    <?php endwhile; ?>
-<?php endif; ?>
+            <div class="card">
+                <div class="cardSticky">
+                    <div class="imgBox">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/workforce-howItRuns-bg.webp" class="howItRunsbg">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/eca-become2.webp" alt="" >
+                    </div>
+                    <div class="contentBox">
+                        <h3 class="manrope">Product thinker</h3>
+                        <p>decide what is worth building, and drop what does not pay back.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardSticky">
+                    <div class="imgBox">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/workforce-howItRuns-bg.webp" class="howItRunsbg">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/eca-become3.webp" alt="" >
+                    </div>
+                    <div class="contentBox">
+                        <h3 class="manrope">Listener</h3>
+                        <p>sit with the people who do the work and hear what the process document leaves out.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrowBox">
+            <span class="howItRunsPrevArrow ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
+                    <path d="M9.90509 20.9813L0.305793 11.382C0.109955 11.1861 -6.67789e-05 10.9205 -6.81276e-05 10.6436C-6.67789e-05 10.3666 0.109955 10.101 0.305793 9.90515L9.90509 0.305849C10.1009 0.110011 10.3665 -1.03086e-05 10.6435 -1.0983e-05C10.9205 -1.014e-05 11.1861 0.11001 11.3819 0.305848C11.5777 0.501686 11.6878 0.7673 11.6878 1.04426C11.6878 1.32121 11.5777 1.58683 11.3819 1.78266L3.56494 9.59963L24.6732 9.59871C24.9504 9.59871 25.2161 9.70879 25.4121 9.90474C25.608 10.1007 25.7181 10.3664 25.7181 10.6436C25.7181 10.9207 25.608 11.1864 25.4121 11.3824C25.2161 11.5783 24.9504 11.6884 24.6732 11.6884L3.56494 11.6875L11.3819 19.5044C11.5777 19.7003 11.6878 19.9659 11.6878 20.2429C11.6878 20.5198 11.5777 20.7854 11.3819 20.9813C11.1861 21.1771 10.9205 21.2871 10.6435 21.2871C10.3665 21.2871 10.1009 21.1771 9.90509 20.9813Z" fill="#19060F"/>
+                </svg>
+            </span>
+            <span class="howItRunsNextArrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
+                    <path d="M15.8129 20.9813L25.4122 11.382C25.6081 11.1861 25.7181 10.9205 25.7181 10.6436C25.7181 10.3666 25.6081 10.101 25.4122 9.90515L15.8129 0.305849C15.6171 0.110011 15.3515 -1.03086e-05 15.0745 -1.0983e-05C14.7976 -1.014e-05 14.5319 0.11001 14.3361 0.305848C14.1403 0.501686 14.0303 0.7673 14.0303 1.04426C14.0303 1.32121 14.1403 1.58683 14.3361 1.78266L22.1531 9.59963L1.04478 9.59871C0.767665 9.59871 0.501903 9.70879 0.305957 9.90474C0.11001 10.1007 -7.1796e-05 10.3664 -7.17854e-05 10.6436C-7.1796e-05 10.9207 0.11001 11.1864 0.305957 11.3824C0.501903 11.5783 0.767665 11.6884 1.04478 11.6884L22.1531 11.6875L14.3361 19.5044C14.1403 19.7003 14.0303 19.9659 14.0303 20.2429C14.0303 20.5198 14.1403 20.7854 14.3361 20.9813C14.5319 21.1771 14.7976 21.2871 15.0745 21.2871C15.3515 21.2871 15.6171 21.1771 15.8129 20.9813Z" fill="#19060F"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+</section>
 
 <?php if ( have_rows( 'who_we_look_for' ) ) : ?>
     <?php while ( have_rows( 'who_we_look_for' ) ) : the_row(); ?>
@@ -324,62 +521,40 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     <?php endwhile; ?>
 <?php endif; ?>
 
-<?php if ( have_rows( 'hour_by_hour' ) ) : ?>
-    <?php while ( have_rows( 'hour_by_hour' ) ) : the_row(); ?>
-        <section class="etdHourSec ecaHourSec">
-            <div class="wrapper">
-                <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
-            </div>
-            <div class="etdTimeline" data-etd-timeline data-autoplay="3500">
-                <div class="etdTimelineTrack">
-                    <span class="etdTimelineLine" aria-hidden="true"></span>
-                    <?php if ( have_rows( 'steps' ) ) : ?>
-                        <?php $eca_step = 0; while ( have_rows( 'steps' ) ) : the_row(); ?>
-                            <button type="button" class="etdTimelineItem<?php echo 0 === $eca_step ? ' is-active' : ''; ?>" data-etd-timeline-item aria-pressed="<?php echo 0 === $eca_step ? 'true' : 'false'; ?>">
-                                <span class="glow" aria-hidden="true"></span>
-                                <span class="imgBox">
-                                    <?php $eca_hour_img = get_sub_field( 'image' ); if ( ! empty( $eca_hour_img ) ) : ?>
-                                        <img src="<?php echo esc_url( $eca_hour_img['url'] ); ?>" loading="lazy" alt="<?php echo esc_attr( $eca_hour_img['alt'] ); ?>" />
+<section class="whyItSection">
+    <?php if( have_rows('how_to_apply_section') ): ?>
+        <?php while( have_rows('how_to_apply_section') ): the_row(); ?>
+            <div class="secWrapper">
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
+                </div>
+                <div class="cardContainer whyItSlider">
+                    <?php if( have_rows('cards') ): ?>
+                        <?php $counter=1; while( have_rows('cards') ): the_row(); ?>
+                            <div class="card">
+                                <div class="imgBox">
+                                    <?php $whyitcardimg = get_sub_field('image'); if( !empty( $whyitcardimg ) ): ?>
+                                        <img src="<?php echo esc_url($whyitcardimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whyitcardimg['alt']); ?>" />
                                     <?php endif; ?>
-                                </span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="title manrope"><?php echo esc_html( get_sub_field( 'title' ) ); ?></span>
-                                <span class="desc"><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></span>
-                            </button>
-                        <?php $eca_step++; endwhile; ?>
+                                </div>
+                                <div class="contentBox">
+                                    <h4><?php echo sprintf('%02d', $counter); ?></h4>
+                                    <div class="headingContent">
+                                        <h3><?php echo get_sub_field('title'); ?></h3>
+                                        <div class="moreContent">
+                                            <p><?php echo get_sub_field('description'); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $counter=$counter+1; endwhile; ?>
                     <?php endif; ?>
                 </div>
             </div>
-        </section>
-    <?php endwhile; ?>
-<?php endif; ?>
-
-<?php if ( have_rows( 'residency_cta' ) ) : ?>
-    <?php while ( have_rows( 'residency_cta' ) ) : the_row(); ?>
-        <section class="ecaResidencySec">
-            <div class="etdLens" aria-hidden="true">
-                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-glow.webp' ); ?>" alt="" loading="lazy">
-                <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-glow.webp' ); ?>" alt="" loading="lazy" class="flip">
-            </div>
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-topo-lines.webp' ); ?>" class="ecaResidencyTopo" alt="" loading="lazy">
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h3 class="manrope"><?php echo esc_html( get_sub_field( 'sub_heading' ) ); ?></h3>
-                    <h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h2>
-                    <a href="<?php echo esc_url( get_sub_field( 'cta_link' ) ); ?>" class="primaryCTA"><span><?php echo esc_html( get_sub_field( 'cta_text' ) ); ?></span>
-                        <div class="arrowBox"><?php echo $eca_arrow; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG. ?></div>
-                    </a>
-                    <?php $eca_email = get_sub_field( 'email' ); ?>
-                    <p class="contact">
-                        <?php echo esc_html( get_sub_field( 'question_text' ) ); ?>
-                        <?php if ( $eca_email ) : ?>
-                            <br><a href="<?php echo esc_url( 'mailto:' . $eca_email ); ?>"><?php echo esc_html( $eca_email ); ?></a>
-                        <?php endif; ?>
-                    </p>
-                </div>
-            </div>
-        </section>
-    <?php endwhile; ?>
-<?php endif; ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
 
 <?php get_footer(); ?>
