@@ -166,9 +166,11 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                                     <h3 class="manrope"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
                                     <div class="tierDesc">
                                         <ul>
-                                            <li>Context Map</li>
-                                            <li>Context Map</li>
-                                            <li>Context Map</li>
+                                            <?php if ( have_rows( 'tags_list' ) ) : ?>
+                                                <?php while ( have_rows( 'tags_list' ) ) : the_row(); ?>
+                                                    <li><?php echo esc_html( get_sub_field( 'tags' ) ); ?></li>
+                                                <?php endwhile; ?>
+                                            <?php endif; ?>
                                         </ul>
                                         <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
                                     </div>
@@ -179,6 +181,50 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
+    </div>
+</section>
+
+<section class="evidenceSec">
+    <div class="wrapper">
+        <div class="secHeading">
+            <h3 class="manrope">Claims, then evidence</h3>
+            <h2 class="manrope">Every claim, tied to evidence</h2>
+            <p>An ECA doesn't just record what people say. Every important claim is logged with its source, evidence, owner, timestamp, confidence, and validation status, so your AI is grounded in what can be proven.</p>
+        </div>
+        <div class="evidenceContent">
+            <div class="boxHeading">
+                <h4 class="manrope">Claim</h4>
+                <h3 class="manrope">Refunds above ₹50,000 need CFO approval.</h3>
+            </div>
+            <div class="evidenceBox">
+                <div class="evidenceBoxInner">
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Source</h4>
+                        <p>Finance policy v3.2</p>
+                    </div>
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Evidence</h4>
+                        <p>14 approval records reviewed</p>
+                    </div>
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Owner</h4>
+                        <p>Finance Controller</p>
+                    </div>
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Timestamp</h4>
+                        <p>12 Oct 2026</p>
+                    </div>
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Confidence</h4>
+                        <p>High</p>
+                    </div>
+                    <div class="evidenceBoxContent">
+                        <h4 class="manrope">Status</h4>
+                        <p>Validated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
