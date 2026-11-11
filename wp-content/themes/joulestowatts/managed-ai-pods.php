@@ -169,7 +169,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="resultCardSlider platformResultSlider">
+                    <div class="commanCard platformResultSlider">
                         <?php if( have_rows('use_cases_content') ): ?>
                             <?php while( have_rows('use_cases_content') ): the_row(); $cardlink = get_sub_field('card_link'); ?>
                                 <a <?php if( $cardlink ): ?>href="<?php echo esc_url( $cardlink ); ?>"<?php else: ?>tabindex="0" role="button"<?php endif; ?>>

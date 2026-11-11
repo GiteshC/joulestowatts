@@ -120,7 +120,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 					<?php endif; ?>
 				</div>
 				<div class="resultsCardLayout">
-					<div class="resultCardSlider platformResultSlider">
+					<div class="commanCard platformResultSlider">
 						<?php if ( have_rows( 'impact_stories_content' ) ) : ?>
 							<?php while ( have_rows( 'impact_stories_content' ) ) : the_row(); ?>
 								<a href="<?php echo esc_url( $aia_url( get_sub_field( 'card_link' ) ) ); ?>">

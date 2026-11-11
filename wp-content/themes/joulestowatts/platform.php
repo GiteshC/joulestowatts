@@ -412,7 +412,7 @@
                     </a>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="resultCardSlider platformResultSlider" data-toggle-group>
+                    <div class="commanCard platformResultSlider" data-toggle-group>
                         <?php if( have_rows('results_content') ): ?>
                             <?php while( have_rows('results_content') ): the_row(); ?>
                                 <a <?php if( get_sub_field('box_link') ): ?>href="<?php echo esc_url( get_sub_field('box_link') ); ?>"<?php endif; ?> data-toggle-item>

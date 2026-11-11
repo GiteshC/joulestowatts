@@ -312,7 +312,7 @@
                     </div>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="resultCardSlider platformResultSlider">
+                    <div class="commanCard platformResultSlider">
                         <?php if( have_rows('impact_stories_content') ): ?>
                             <?php while( have_rows('impact_stories_content') ): the_row(); ?>
                                 <?php $cardLink = get_sub_field('card_link'); ?>

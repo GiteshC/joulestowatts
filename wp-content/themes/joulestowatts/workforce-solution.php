@@ -205,7 +205,7 @@
             </div>
         </div>
         <div class="resultsCardLayout">
-            <div class="resultCardSlider platformResultSlider WorkforceResultSlider">
+            <div class="commanCard WorkforceResultSlider">
                 <a href="">
                     <div class="box">
                         <span class="tag manrope">Core banking, Indian bank</span>

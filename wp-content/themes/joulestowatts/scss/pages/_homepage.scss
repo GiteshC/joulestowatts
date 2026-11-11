@@ -956,7 +956,7 @@
             }
         }
         .resultsCardLayout{ padding-left: 100px; padding-right: 0px; position: relative;
-            .resultCardSlider{width: 100%;
+            .commanCard{width: 100%;
                 a{display: block;
                     .box{border-radius: 12px; height: 320px; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain; position: relative;
                         .tag{position:absolute; top:32px; left:32px; display: inline-block; padding: 10px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
@@ -965,11 +965,11 @@
                         }
                     }
                     &.slick-slide {
-                        margin: 0 20px; box-sizing: border-box;
+                        margin: 0 20px; box-sizing: border-box;  float: left !important
                     }
                 }
-                .slick-list {
-                    margin: 0 -20px;
+                .slick-list {margin: 0 -20px;
+                    .slick-track{display: inline-flex !important;}
                 }
             }
             .sliderarrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
@@ -1000,7 +1000,7 @@
                 }
             }
             .resultsCardLayout{
-                .resultCardSlider{
+                .commanCard{
                     a{
                         .box{
                             .tag{left: 30px; top: 30px;}
@@ -1019,7 +1019,7 @@
                 }
             }
             .resultsCardLayout{padding-left: 60px;
-                .resultCardSlider{
+                .commanCard{
                     a{
                         .box{
                             &:hover{
@@ -1052,7 +1052,7 @@
                 }
             }
             .resultsCardLayout{padding-left: 40px;
-                .resultCardSlider{
+                .commanCard{
                     a{
                         .box{height: 350px !important;
                             .tag{left: 25px; top: 25px;}
@@ -1083,7 +1083,7 @@
                 }
             }
             .resultsCardLayout{padding-left: 15px;
-                .resultCardSlider{width: 100%;
+                .commanCard{width: 100%;
                     a{display: block;
                         .box{height: 280px !important; border-radius: 12px;
                             .tag{left: 16px; top: 16px; padding: 8px; font-size: 14px;}
@@ -1398,9 +1398,4 @@ body.page-template-hompage{
             .homeImpactGlow{top: calc(10px - 39.17vw);}
         }
     }
-}
-
-// Customer impact sliders: no arrows on desktop. The slider still autoplays and can be dragged; arrows return below 1025px.
-@media screen and (min-width: 1025px) {
-    .resultSection .sliderarrowBox { display: none !important; }
 }

@@ -866,16 +866,16 @@
             }
         }
         .resultsCardLayout{ z-index: 2;
-            .resultCardSlider.platformResultSlider{width: 100%;
-                a{display: block;
-                    .box{height: 320px !important; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain;
-                        .tag{border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
-                        .bottomContent{padding: 32px 32px 58px;
-                            h3{color: #fff; @include font24; }
-                        }
-                    }
-                }
-            }
+            // .resultCardSlider.platformResultSlider{width: 100%;
+            //     a{display: block;
+            //         .box{height: 320px !important; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain;
+            //             .tag{border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
+            //             .bottomContent{padding: 32px 32px 58px;
+            //                 h3{color: #fff; @include font24; }
+            //             }
+            //         }
+            //     }
+            // }
             .arrowBox{align-items: center;justify-content: flex-start;display: flex; margin-top: 50px; gap: 20px;
                 .platformResultPrevArrow, .platformResultNextArrow{background: #D9D9D9; border: 1px solid #000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.5s ease-in-out;
                     svg{width: 24px; height: 24px;}
@@ -900,26 +900,11 @@
                     }
                 }
             }
-            .resultsCardLayout{
-                .resultCardSlider.platformResultSlider{width: 100%;
-                    a{
-                        .box{height: 300px !important;
-                            .bottomContent{padding: 30px 30px 50px;}
-                        }
-                    }
-                }
-            }
-            
         }
     }
     @media all and (max-width: 1440px){
         .secWrapper{
             .resultsCardLayout{
-                .resultCardSlider.platformResultSlider{width: 100%;
-                    a{
-                        .box{height: 300px !important;}
-                    }
-                }
                 .arrowBox{margin-top: 40px;
                     .platformResultPrevArrow, .platformResultNextArrow{width: 45px; height: 45px;
                         svg{width: 18px; height: 18px;}
@@ -939,14 +924,6 @@
                 }
             }
             .resultsCardLayout{
-                .resultCardSlider.platformResultSlider{width: 100%;
-                    a{
-                        .box{height: 260px !important;
-                            .tag{top: 25px; left: 25px;}
-                            .bottomContent{padding: 25px 25px 40px;}
-                        }
-                    }
-                }
                 .arrowBox{margin-top: 40px;
                     .platformResultPrevArrow, .platformResultNextArrow{width: 45px; height: 45px;
                         svg{width: 18px; height: 18px;}
@@ -969,14 +946,6 @@
                 }
             }
             .resultsCardLayout{
-                .resultCardSlider.platformResultSlider{width: 100%;
-                    a{
-                        .box{height: 260px !important;
-                            .tag{top: 25px; left: 25px;}
-                            .bottomContent{padding: 25px 25px 40px;}
-                        }
-                    }
-                }
                 .arrowBox{margin-top: 30px; gap: 12px;
                     .platformResultPrevArrow, .platformResultNextArrow{width: 32px; height: 32px;
                         svg{width: 12px; height: 12px;}
@@ -991,8 +960,7 @@
 // Platform page updates. Scoped to this template so the
 // shared sections above keep their look on the other pages.
 body.page-template-platform{
-   
-
+    
     .diagnosisSection{
         .wrapper{
             .diagnosisContent{
@@ -1234,9 +1202,6 @@ body.page-template-platform{
                             }
                         }
                     }
-                }
-                .arrowBox{
-                    @media screen and (min-width: 1025px){display: none;}
                 }
             }
         }
