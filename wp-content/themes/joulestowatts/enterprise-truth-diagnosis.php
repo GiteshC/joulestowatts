@@ -98,7 +98,7 @@ $etd_arrow   = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" v
     <?php endwhile; ?>
 <?php endif; ?>
 
-<?php if ( have_rows( 'what_you_keep' ) ) : ?>
+<!-- <?php if ( have_rows( 'what_you_keep' ) ) : ?>
     <?php while ( have_rows( 'what_you_keep' ) ) : the_row(); ?>
         <section class="etdKeepSec">
             <div class="wrapper">
@@ -129,7 +129,42 @@ $etd_arrow   = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" v
             </div>
         </section>
     <?php endwhile; ?>
-<?php endif; ?>
+<?php endif; ?> -->
+
+<section class="whyItSection">
+    <?php if( have_rows('what_you_keep') ): ?>
+        <?php while( have_rows('what_you_keep') ): the_row(); ?>
+            <div class="secWrapper">
+                <div class="secHeading">
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <!-- <p><?php echo get_sub_field('description'); ?></p> -->
+                </div>
+                <div class="cardContainer whyItSlider">
+                    <?php if( have_rows('cards') ): ?>
+                        <?php $counter=1; while( have_rows('cards') ): the_row(); ?>
+                            <div class="card">
+                                <div class="imgBox">
+                                    <?php $whyitcardimg = get_sub_field('image'); if( !empty( $whyitcardimg ) ): ?>
+                                        <img src="<?php echo esc_url($whyitcardimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($whyitcardimg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="contentBox">
+                                    <h4><?php echo sprintf('%02d', $counter); ?></h4>
+                                    <div class="headingContent">
+                                        <h3><?php echo get_sub_field('title'); ?></h3>
+                                        <div class="moreContent">
+                                            <p><?php echo get_sub_field('description'); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $counter=$counter+1; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
 
 <?php if ( have_rows( 'book_section' ) ) : ?>
     <?php while ( have_rows( 'book_section' ) ) : the_row(); ?>

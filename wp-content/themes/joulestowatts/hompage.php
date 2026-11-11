@@ -51,6 +51,7 @@ $atlas_sparkles = array(
                         </span>
                         <?php echo esc_html( get_sub_field('banner_description') ); ?>
                     </p>
+		            <img src="<?php bloginfo('template_directory'); ?>/images/home-banner.webp" alt="Joules to Watts" class="bannerImg" />
                 </div>
                 <div class="bannerVisual">
                     <?php $bannerimg = get_sub_field('banner_image'); if( !empty( $bannerimg ) ): ?>

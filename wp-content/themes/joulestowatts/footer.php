@@ -87,9 +87,10 @@
 					<a href="mailto: <?php the_field('email_id','option'); ?>"><?php the_field('email_id','option'); ?></a>
 				</div>
 				<div class="logoBox">
-					<?php $footerlogo = get_field('footer_logo', 'option'); if( !empty( $footerlogo ) ): ?>
+					<!-- <?php $footerlogo = get_field('footer_logo', 'option'); if( !empty( $footerlogo ) ): ?>
 						<img src="<?php echo esc_url($footerlogo['url']); ?>" loading="lazy" alt="<?php echo esc_attr($footerlogo['alt']); ?>" />
-					<?php endif; ?>
+					<?php endif; ?> -->
+					<img src="<?php bloginfo('template_directory'); ?>/images/bigger-logo-footer.webp" alt="Joules to Watts" class="logo" />
 				</div>
 			</div>
 		</div>

@@ -14,23 +14,28 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     </defs>
 </svg>
 
-<section class="bannerInnerSection ecaBannerSec">
+<section class="bannerInnerSection">
     <div class="wrapper">
         <?php if ( have_rows( 'banner_section' ) ) : ?>
             <?php while ( have_rows( 'banner_section' ) ) : the_row(); ?>
                 <div class="bannerContent">
                     <div class="bannerHeading">
                         <h1 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h1>
-                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
-                    </div>
-                    <?php $bannerimage = get_sub_field( 'banner_image' ); ?>
-                    <div class="ecaHeroDrawing">
-                        <?php if ( ! empty( $bannerimage ) ) : ?>
-                            <img src="<?php echo esc_url( $bannerimage['url'] ); ?>" loading="eager" alt="<?php echo esc_attr( $bannerimage['alt'] ); ?>" />
-                        <?php else : ?>
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/eca-hero-drawing.svg' ); ?>" width="1129" height="452" loading="eager" alt="<?php esc_attr_e( 'Campus graduates and consultants moving through training and certification into enterprise client teams', 'joulestowatts' ); ?>" />
+                        <?php if ( get_sub_field( 'tagline' ) ) : ?>
+                            <p class="tagline"><?php echo esc_html( get_sub_field( 'tagline' ) ); ?></p>
                         <?php endif; ?>
+                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+                        <a href="<?php get_sub_field('primary_cta_link'); ?>" class="primaryCTA"><?php echo esc_html( get_sub_field( 'primary_cta_text' ) ); ?>
+                            <div class="arrowBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
+                    <?php $bannerimg = get_sub_field('banner_image'); if( !empty( $bannerimg ) ): ?>
+                        <img src="<?php echo esc_url($bannerimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($bannerimg['alt']); ?>" />
+                    <?php endif; ?>
                 </div>
                 <?php if ( get_sub_field( 'cta_text' ) ) : ?>
                     <div class="casestudyCTA">
@@ -48,6 +53,62 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     </div>
     <div class="bannerBG">
         <img src="<?php echo esc_url( get_template_directory_uri() . '/images/etd-glow.webp' ); ?>" class="bannerGlow" alt="" loading="eager">
+    </div>
+</section>
+
+<section class="introSection">
+    <div class="wrapper">
+        <div class="introContent">
+            <?php if( have_rows('intro_section') ): ?>
+                <?php while( have_rows('intro_section') ): the_row(); ?>
+                    <div class="secHeading">
+                        <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                        <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                        <p><?php echo get_sub_field('description'); ?></p>    
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="introPatch">
+        <img src="<?php bloginfo('template_directory');?>/images/intro-patch.webp" alt="">
+    </div>
+</section>
+
+<section class="solutionSection scrollAnimation" id="offerings">
+    <div class="secWrapper">
+        <?php if( have_rows('solution_section') ): ?>
+            <?php while( have_rows('solution_section') ): the_row(); ?>
+                <div class="secHeading">
+                    <h2 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h2>
+                    <?php if( get_sub_field('description') ): ?>
+                        <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
+                    <?php endif; ?>
+                </div>
+                <div class="cardContainer" data-accordion>
+                    <?php if( have_rows('solution_content') ): ?>
+                        <?php $solutionsec = get_field('solution_section'); $solutioncount = ! empty( $solutionsec['solution_content'] ) ? count( $solutionsec['solution_content'] ) : 0; $counter=1; while( have_rows('solution_content') ): the_row(); ?>
+                            <div class="solutionCard<?php echo $counter === $solutioncount ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo $counter === $solutioncount ? 'true' : 'false'; ?>">
+                                <div class="imgBox">
+                                    <?php $solutionimg = get_sub_field('box_image'); if( !empty( $solutionimg ) ): ?>
+                                        <img src="<?php echo esc_url($solutionimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($solutionimg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="bottomContent">
+                                    <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
+                                    <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
+                                    <div class="description">
+                                        <div class="descriptionInner">
+                                            <p><?php echo wp_kses_post( get_sub_field('box_description') ); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $counter++; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 </section>
 

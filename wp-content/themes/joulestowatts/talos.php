@@ -63,8 +63,41 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
     <img src="<?php echo esc_url( $talos_horizon ); ?>" class="gccHorizon" alt="" loading="eager">
 </section>
 
-<section class="solutionSection fourArtifactsSec talosStepsSec">
+<section class="counterSection counterSectionTalos">
     <img src="<?php echo esc_url( $talos_horizon ); ?>" class="gccHorizon gccHorizonDown" alt="" loading="lazy">
+    <div class="wrapper">
+        <?php if( have_rows('counter_section') ): ?>
+            <?php while( have_rows('counter_section') ): the_row(); ?>
+                <div class="secHeading">
+                    <h2 class="manrope"><?php echo esc_html( get_sub_field('section_heading') ); ?></h2>
+                    <p><?php echo esc_html( get_sub_field('section_description') ); ?></p>
+                </div>
+                <div class="counterContent">
+                    <?php if( have_rows('counter_content') ): ?>
+                        <?php while( have_rows('counter_content') ): the_row(); ?>
+                            <div class="counterBox">
+                                <div class="counter">
+                                    <div class="counterValue">
+                                        <h4><?php echo esc_html( get_sub_field('counter_number') ); ?></h4><?php if( get_sub_field('counter_unit') ): ?><em class="counterUnit"><?php echo esc_html( get_sub_field('counter_unit') ); ?></em><?php endif; ?><span>+</span>
+                                    </div>
+                                    <p><?php echo wp_kses_post( get_sub_field('counter_heading') ); ?></p>
+                                </div>
+                                <div class="counterImg">
+                                    <?php $counterimg = get_sub_field('counter_image'); if( !empty( $counterimg ) ): ?>
+                                        <img src="<?php echo esc_url($counterimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($counterimg['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+</section>
+
+<section class="solutionSection fourArtifactsSec talosStepsSec">
+    <!-- <img src="<?php echo esc_url( $talos_horizon ); ?>" class="gccHorizon gccHorizonDown" alt="" loading="lazy"> -->
     <div class="secWrapper">
         <?php if( have_rows('five_steps') ): ?>
             <?php while( have_rows('five_steps') ): the_row(); ?>
@@ -92,6 +125,8 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
                                             <?php if( get_sub_field('card_description') ): ?>
                                                 <p><?php echo wp_kses_post( get_sub_field('card_description') ); ?></p>
                                             <?php endif; ?>
+                                            <p class="practice"><span>In practice:</span> <?php echo esc_html( get_sub_field('practice_description') ); ?></p>
+                                            <p class="hiring"><span>Hiring manager sees:</span> <?php echo esc_html( get_sub_field('hiring_description') ); ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +185,9 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
             <div class="secWrapper">
                 <div class="secHeading">
                     <h2 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h2>
+                    <?php if( get_sub_field('description') ): ?>
+                        <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="cardContainer talosOpsSlider" data-toggle-group>
                     <?php if( have_rows('operations_content') ): ?>

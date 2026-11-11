@@ -32,12 +32,20 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
                 p{color: $darkbody; font-weight: 500; @include font20; line-height: 170%;}
                 a{@include font20; line-height: 170%; color: $darkbody;}
             }
+            .logoBox{margin: 40px 0px;
+                .logo{width: 900px; height: auto;}
+            }
         }
     }
     @media all and (max-width: 1600px){padding: 120px 0 20px;
         .footerWrapper{gap: 60px;
             .footerHead{padding-bottom: 50px;}
             .footerLinks{padding-bottom: 70px;}
+            .footerlogo{
+                .logoBox{margin: 35px 0px;
+                    .logo{width: 760px;}
+                }
+            }
         }
     }
     @media all and (max-width: 1440px){padding: 100px 0 20px;
@@ -56,6 +64,11 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
                     }
                 }
             }
+            .footerlogo{
+                .logoBox{margin: 30px 0px;
+                    .logo{width: 660px;}
+                }
+            }
         }
     }
     @media all and (max-width: 1280px){padding: 100px 0 20px;
@@ -65,6 +78,11 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
             }
             .footerLinks{padding-bottom: 50px;
                 &::after{left: -20px; width: calc(100% + 40px);}
+            }
+            .footerlogo{
+                .logoBox{margin: 25px 0px;
+                    .logo{width: 560px;}
+                }
             }
         }
     }
@@ -117,6 +135,9 @@ footer{background: $lightbg; padding: 135px 0 30px; border-top-left-radius: 32px
             }
             .footerlogo{
                 .mailBox{flex-flow: column; gap: 30spx; align-items: flex-start; margin-bottom: 20px;}
+                .logoBox{margin: 20px 0px;
+                    .logo{width: 340px;}
+                }
             }
         }
 
