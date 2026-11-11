@@ -152,10 +152,6 @@ $gcc_glow = function () {
 
 <section class="talkToPartnerSec oneInstrumentSec">
     <div class="secWrapper">
-        <div class="imgBox">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div>
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
                 <div class="secHeading">

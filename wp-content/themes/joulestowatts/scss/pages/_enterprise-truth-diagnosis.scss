@@ -39,13 +39,13 @@ body.page-template-enterprise-truth-diagnosis{
     .etdBannerSec{
         .wrapper{
             .bannerContent{
-                .bannerHeading{padding-top: dp(35);
+                .bannerHeading{
                     h1{margin-bottom: 24px;}
                     p{width: 100%; max-width: 1231px; @include font18; line-height: 170%;
                         &.tagline{@include font20; margin-bottom: 24px;}
                     }
                 }
-                img{width: min(837px, 43.6vw); height: auto; margin-top: clamp(40px, 5.3vw, 102px);}
+                img{width: min(837px, 43.6vw); height: auto; margin-top: clamp(40px, 5.3vw, 80px);}
             }
         }
         @media screen and (max-width: 1800px) {

@@ -1,13 +1,14 @@
 @use '../base/_global.scss' as *;
 
 header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    --logoW: 369px;
+    --logoWScrolled: 300px;
+    transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
     .logoBox{
-        .logo{transition: width 0.3s ease;}
+        .logo{width: var(--logoW); height: auto; transition: width 0.5s ease;}
     }
     &.scrolled{border-radius: 4px; border-bottom: 1px solid #2B2B2B; background: rgba(89, 89, 89, 0.10); backdrop-filter: blur(50px); padding-top: 15px; padding-bottom: 15px;
-        .logoBox{
-            .logo{width: 330px; height: auto; transition: width 0.3s ease;}
-        }
+        --logoW: var(--logoWScrolled);
     }
     // NOTE: don't give .menuBox a position/transform — .mainMenu is
     // positioned against the fixed <header> so it always covers the viewport
@@ -62,24 +63,16 @@ header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: spa
         }
     }
     @media screen and (max-width:1800px) {padding: 16px 80px;
-        .logoBox{
-            img{width: 280px;}
-        }
+        --logoW: 280px; --logoWScrolled: 240px;
     }
     @media screen and (max-width:1440px) {padding: 16px 60px;
-        .logoBox{
-            img{width: 260px;}
-        }
+        --logoW: 260px; --logoWScrolled: 220px;
     }
     @media screen and (max-width:1280px) {padding: 16px 40px;
-        .logoBox{
-            img{width: 240px;}
-        }
+        --logoW: 240px; --logoWScrolled: 200px;
     }
     @media screen and (max-width: 720px) {padding: 15px 15px;
-        .logoBox{
-            img{width: 200px;}
-        }
+        --logoW: 200px; --logoWScrolled: 170px;
         .menuBox{
             .mainMenu{width: 100vw; padding: 100px 24px 40px;}
         }
