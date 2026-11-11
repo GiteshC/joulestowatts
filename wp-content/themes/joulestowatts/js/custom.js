@@ -817,7 +817,6 @@ if (window.innerWidth <= 820) {
 
 //Platform page
 
-
 $(document).ready(function () {
 	const $slider = $(".platformResultSlider");
 	const $prev = $(".platformResultPrevArrow");
@@ -2784,156 +2783,6 @@ document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
 	});
 })();
 
-// About us: milestone strip in "Our story".
-// The strip steps through the milestones on its own while in view, and stops for good once
-// the visitor uses it. Clicking a milestone scrolls to that year's story below.
-// Arrow keys move between milestones; a horizontal swipe moves one step.
-(function () {
-	"use strict";
-
-	document.addEventListener("DOMContentLoaded", function () {
-		var root = document.querySelector("[data-about-timeline]");
-		if (!root) return;
-
-		var track = root.querySelector(".aboutTimelineTrack");
-		var items = Array.prototype.slice.call(
-			root.querySelectorAll("[data-timeline-item]"),
-		);
-		if (!track || !items.length) return;
-
-		var reduceMotion = window.matchMedia(
-			"(prefers-reduced-motion: reduce)",
-		).matches;
-		var index = 0;
-		var timer = null;
-		var stopped = reduceMotion;
-		var hovering = false;
-		var visible = false;
-
-		function show(next) {
-			index = (next + items.length) % items.length;
-			items.forEach(function (el, i) {
-				el.classList.toggle("is-active", i === index);
-				el.classList.toggle("is-past", i < index);
-				if (i === index) {
-					el.setAttribute("aria-current", "step");
-				} else {
-					el.removeAttribute("aria-current");
-				}
-			});
-			track.style.transform =
-				"translateX(" +
-				(items[0].offsetLeft - items[index].offsetLeft) +
-				"px)";
-		}
-
-		function sync() {
-			var run = !stopped && visible && !hovering;
-			if (run && !timer) {
-				timer = setInterval(function () {
-					show(index + 1);
-				}, 3000);
-			} else if (!run && timer) {
-				clearInterval(timer);
-				timer = null;
-			}
-		}
-
-		function stop() {
-			stopped = true;
-			sync();
-		}
-
-		items.forEach(function (el, i) {
-			el.addEventListener("click", function (e) {
-				var target = document.querySelector(el.getAttribute("href"));
-				stop();
-				show(i);
-				if (target) {
-					e.preventDefault();
-					target.scrollIntoView({
-						behavior: reduceMotion ? "auto" : "smooth",
-						block: "start",
-					});
-				}
-			});
-			el.addEventListener("keydown", function (e) {
-				var step =
-					e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-				if (!step) return;
-				e.preventDefault();
-				stop();
-				show(Math.min(items.length - 1, Math.max(0, i + step)));
-				items[index].focus({ preventScroll: true });
-			});
-			el.addEventListener("focus", function () {
-				if (i !== index) show(i);
-			});
-		});
-
-		root.addEventListener("mouseenter", function () {
-			hovering = true;
-			sync();
-		});
-		root.addEventListener("mouseleave", function () {
-			hovering = false;
-			sync();
-		});
-
-		// Swipe: one step per horizontal drag.
-		var startX = null;
-		var startY = null;
-		var swiped = false;
-		root.addEventListener("pointerdown", function (e) {
-			startX = e.clientX;
-			startY = e.clientY;
-			swiped = false;
-		});
-		root.addEventListener("pointerup", function (e) {
-			if (startX === null) return;
-			var dx = e.clientX - startX;
-			var dy = e.clientY - startY;
-			startX = null;
-			if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-				swiped = true;
-				stop();
-				show(
-					Math.min(
-						items.length - 1,
-						Math.max(0, index + (dx < 0 ? 1 : -1)),
-					),
-				);
-			}
-		});
-		// A swipe that ends on a milestone should not also follow its link.
-		root.addEventListener(
-			"click",
-			function (e) {
-				if (swiped) {
-					e.preventDefault();
-					e.stopImmediatePropagation();
-					swiped = false;
-				}
-			},
-			true,
-		);
-
-		if ("IntersectionObserver" in window) {
-			new IntersectionObserver(
-				function (entries) {
-					visible = entries[0].isIntersecting;
-					sync();
-				},
-				{ threshold: 0.4 },
-			).observe(root);
-		}
-
-		window.addEventListener("resize", function () {
-			show(index);
-		});
-		show(0);
-	});
-})();
 
 // Case Studies listing: filter chips (one choice per row, rows combine) and
 // "Show more" paging. Runs only where [data-case-studies] is present.
@@ -3179,3 +3028,248 @@ if ($(".howItRunsSec").length) {
 		});
 	}
 }
+
+// Ai-Accelerators and agent
+
+document.querySelectorAll(".projectTabsSection").forEach((section) => {
+	const tabs = section.querySelectorAll(".tabBtn");
+	const panels = section.querySelectorAll(".tabPanel");
+
+	tabs.forEach((tab) => {
+		tab.addEventListener("click", () => {
+			const index = tab.dataset.tab;
+
+			tabs.forEach((item) => item.classList.remove("active"));
+			panels.forEach((panel) => panel.classList.remove("active"));
+
+			tab.classList.add("active");
+
+			const activePanel = section.querySelector(
+				`.tabPanel[data-panel="${index}"]`,
+			);
+
+			if (activePanel) {
+				activePanel.classList.add("active");
+			}
+		});
+	});
+});
+
+if ($(".projectTabsSection").length) {
+	if (window.innerWidth <= 820) {
+		$(".tabSlider").slick({
+			slidesToShow: 5.2,
+			slidesToScroll: 1,
+			arrows: false,
+			infinite: false,
+			centerMode: false,
+			focusOnSelect: false,
+			responsive: [
+				{
+					breakpoint: 721,
+					settings: {
+						slidesToShow: 2.5,
+						slidesToScroll: 1,
+					},
+				},
+			],
+		});
+	}
+}
+
+if ($(".aboutAwardsSec").length) {
+	$(".marqueeGroup").slick({
+		dots: false,
+		infinite: true,
+		arrows: false,
+		slidesToShow: 3.8,
+		slidesToScroll: 1,
+		speed: 8000,
+		autoplay: true,
+		autoplaySpeed: 0,
+		cssEase: "linear",
+		pauseOnHover: true,
+		responsive: [
+			{
+				breakpoint: 1081,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1.5,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	});
+}
+
+if ($(".aboutNewsSec").length) {
+	$(".investorSlider").slick({
+		dots: false,
+		infinite: false,
+		arrows: false,
+		slidesToShow: 3.1,
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 1081,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1.5,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	});
+}
+
+// About us: "Where we are". The dashed dividers between offices draw in once the section scrolls into view.
+(function () {
+	"use strict";
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var sec = document.querySelector(".aboutOfficesSec");
+		if (!sec) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+
+		sec.classList.add("js-reveal");
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (e) {
+				if (!e.isIntersecting) return;
+				sec.classList.add("is-in");
+				io.disconnect();
+			});
+		}, {threshold: 0.25});
+		io.observe(sec);
+	});
+})();
+
+// About us: "The first ten years" timeline.
+// Desktop (>1100px): the section pins and the years move with the scroll (GSAP ScrollTrigger, already in the theme).
+// Tablet and mobile (<=1100px): no pinning. The section keeps its natural height and the years are a swipeable strip.
+// Year tabs work in both modes.
+(function () {
+	"use strict";
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var sec = document.querySelector(".aboutDecadeSec");
+		if (!sec) return;
+
+		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".yearTab"));
+		var items = Array.prototype.slice.call(sec.querySelectorAll(".decadeItem"));
+		var view = sec.querySelector(".decadeViewport");
+		var track = sec.querySelector(".decadeTrack");
+		var stage = sec.querySelector(".decadeStage");
+		var N = items.length;
+		if (!N || !view || !track || !stage) return;
+
+		var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		var active = -1;
+		var st = null;      // the ScrollTrigger, only while pinned
+		var lockUntil = 0;  // ignore strip scroll events right after a tab click
+
+		function setActive(i) {
+			i = Math.max(0, Math.min(N - 1, i));
+			if (i === active) return;
+			active = i;
+			items.forEach(function (el, k) { el.classList.toggle("is-active", k === i); });
+			tabs.forEach(function (t, k) {
+				t.classList.toggle("is-active", k === i);
+				if (k === i) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current");
+			});
+			// Keep the active tab in view when the tab row scrolls (small screens).
+			var box = tabs[i] && tabs[i].parentNode;
+			if (box && box.scrollWidth > box.clientWidth) {
+				box.scrollTo({left: tabs[i].offsetLeft - (box.clientWidth - tabs[i].offsetWidth) / 2, behavior: reduce ? "auto" : "smooth"});
+			}
+		}
+
+		function stepWidth() {
+			return N > 1 ? items[1].offsetLeft - items[0].offsetLeft : items[0].offsetWidth;
+		}
+
+		function goTo(i) {
+			setActive(i);
+			if (st) {
+				var y = st.start + (i / (N - 1)) * (st.end - st.start);
+				window.scrollTo({top: y, behavior: reduce ? "auto" : "smooth"});
+				return;
+			}
+			lockUntil = Date.now() + 800;
+			view.scrollTo({left: i * stepWidth(), behavior: reduce ? "auto" : "smooth"});
+		}
+
+		tabs.forEach(function (t, i) {
+			t.addEventListener("click", function () { goTo(i); });
+		});
+
+		// Strip (not pinned): the scroll position decides the active year.
+		var ticking = false;
+		view.addEventListener("scroll", function () {
+			if (st || sec.classList.contains("is-pinned") || Date.now() < lockUntil || ticking) return;
+			ticking = true;
+			window.requestAnimationFrame(function () {
+				ticking = false;
+				var max = view.scrollWidth - view.clientWidth;
+				var idx = view.scrollLeft >= max - 2 ? N - 1 : Math.round(view.scrollLeft / stepWidth());
+				setActive(idx);
+			});
+		}, {passive: true});
+
+		// Pinned, scroll-driven mode.
+		if (window.gsap && window.ScrollTrigger && !reduce) {
+			window.gsap.registerPlugin(window.ScrollTrigger);
+			window.gsap.matchMedia().add("(min-width: 1101px)", function () {
+				sec.classList.add("is-pinned");
+				var perYear = function () { return Math.round(window.innerHeight * 0.5); };
+				var tween = window.gsap.to(track, {
+					x: function () { return -(N - 1) * stepWidth(); },
+					ease: "none",
+					scrollTrigger: {
+						trigger: sec,
+						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
+						start: function () { return sec.offsetHeight > window.innerHeight ? "bottom bottom" : "top top"; },
+						end: function () { return "+=" + (N - 1) * perYear(); },
+						pin: true,
+						anticipatePin: 1,
+						scrub: 0.6,
+						invalidateOnRefresh: true,
+						snap: {snapTo: 1 / (N - 1), duration: {min: 0.2, max: 0.5}, ease: "power2.out"},
+						onUpdate: function (self) { setActive(Math.round(self.progress * (N - 1))); }
+					}
+				});
+				st = tween.scrollTrigger;
+				return function () {
+					sec.classList.remove("is-pinned");
+					st = null;
+					window.gsap.set(track, {clearProps: "transform"});
+				};
+			});
+		}
+
+		// Intro: line draws, then the dot pops. Plays once.
+		setActive(0);
+		if (reduce || !("IntersectionObserver" in window)) return;
+		sec.classList.add("js-reveal");
+		var io = new IntersectionObserver(function (entries) {
+			if (!entries[0].isIntersecting) return;
+			sec.classList.add("is-in");
+			window.setTimeout(function () { sec.classList.add("is-ready"); }, 3000);
+			io.disconnect();
+		}, {threshold: 0.3});
+		io.observe(stage);
+	});
+})();
