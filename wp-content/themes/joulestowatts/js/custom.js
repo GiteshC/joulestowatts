@@ -3310,3 +3310,83 @@ if ($(".aboutNewsSec").length) {
 		});
 	});
 })();
+
+// ECA Video Section
+// ECA page: "Hear from our Enterprise Context Architects" video popup.
+// Works with YouTube/Vimeo embed URLs (iframe) or direct .mp4/.webm files (video tag).
+(function () {
+	"use strict";
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var buttons = document.querySelectorAll(".ecaVoicesSec .voicePlay");
+		if (!buttons.length) return;
+
+		var modal = document.createElement("div");
+		modal.className = "ecaVideoModal";
+		modal.setAttribute("role", "dialog");
+		modal.setAttribute("aria-modal", "true");
+		modal.setAttribute("aria-label", "Video");
+		modal.innerHTML =
+			'<div class="modalBox">' +
+				'<button class="modalClose" type="button" aria-label="Close video"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2 2 14"/></svg></button>' +
+				'<div class="modalMedia"></div>' +
+			'</div>';
+		document.body.appendChild(modal);
+
+		var media = modal.querySelector(".modalMedia");
+		var closeBtn = modal.querySelector(".modalClose");
+		var opener = null;
+
+		function build(url) {
+			var el;
+			if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) {
+				el = document.createElement("video");
+				el.src = url;
+				el.controls = true;
+				el.autoplay = true;
+				el.setAttribute("playsinline", "");
+			} else {
+				el = document.createElement("iframe");
+				el.src = url + (url.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+				el.allow = "autoplay; fullscreen; picture-in-picture";
+				el.allowFullscreen = true;
+				el.title = "Video";
+			}
+			return el;
+		}
+
+		function open(btn) {
+			var url = btn.getAttribute("data-video");
+			if (!url) return;
+			opener = btn;
+			media.innerHTML = "";
+			media.appendChild(build(url));
+			modal.classList.add("is-open");
+			document.body.classList.add("modalOpen");
+			closeBtn.focus();
+		}
+
+		function close() {
+			modal.classList.remove("is-open");
+			document.body.classList.remove("modalOpen");
+			media.innerHTML = ""; // removes the player, which also stops playback
+			if (opener) opener.focus();
+		}
+
+		Array.prototype.forEach.call(buttons, function (btn) {
+			btn.addEventListener("click", function () { open(btn); });
+		});
+		closeBtn.addEventListener("click", close);
+		modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+		document.addEventListener("keydown", function (e) {
+			if (!modal.classList.contains("is-open")) return;
+			if (e.key === "Escape") close();
+			if (e.key === "Tab") { // keep focus inside the popup
+				var focusables = modal.querySelectorAll("button, video[controls], iframe");
+				var first = focusables[0], last = focusables[focusables.length - 1];
+				if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+				else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+			}
+		});
+	});
+})();

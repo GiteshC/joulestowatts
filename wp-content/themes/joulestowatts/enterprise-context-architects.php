@@ -557,4 +557,59 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     <?php endif; ?>
 </section>
 
+<section class="ecaVoicesSec">
+	<img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
+	<div class="wrapper">
+		<div class="secHeading">
+			<h2>Hear from our Enterprise Context Architects</h2>
+			<p>Short films from the people doing the work, on what they found inside real enterprises.</p>
+		</div>
+		<div class="voicesGrid">
+			<div class="voiceCard">
+				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
+					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+				</button>
+				<div class="voiceMeta">
+					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
+					<div class="voiceInfo">
+						<h3>Queen Rachel Joyce D</h3>
+						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
+						<p class="voiceDomain">Industrial, Auto and Engineering</p>
+					</div>
+				</div>
+			</div>
+            <div class="voiceCard">
+				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
+					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+				</button>
+				<div.o class="voiceMeta">
+					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
+					<div class="voiceInfo">
+						<h3>Queen Rachel Joyce D</h3>
+						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
+						<p class="voiceDomain">Industrial, Auto and Engineering</p>
+					</div>
+				</div.o>
+			</div>
+            <div class="voiceCard">
+				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
+					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+				</button>
+				<div class="voiceMeta">
+					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
+					<div class="voiceInfo">
+						<h3>Queen Rachel Joyce D</h3>
+						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
+						<p class="voiceDomain">Industrial, Auto and Engineering</p>
+					</div>
+				</div>
+			</div> ,.
+			<!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
+		</div>
+	</div>
+</section>
+
 <?php get_footer(); ?>

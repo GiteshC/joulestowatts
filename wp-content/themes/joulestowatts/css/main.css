@@ -20414,6 +20414,399 @@ body.page-template-enterprise-context-architects .ecaResidencySec .wrapper .secH
   }
 }
 
+.ecaVoicesSec {
+  position: relative;
+  overflow-x: clip;
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 1800px) {
+  .ecaVoicesSec {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ecaVoicesSec {
+    margin-bottom: 160px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec {
+    margin-bottom: 140px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec {
+    margin-bottom: 120px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .ecaVoicesSec {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec {
+    margin-bottom: 80px;
+  }
+}
+.ecaVoicesSec {
+  padding-top: calc(min(1px, 0.0520833333vw) * 120);
+}
+.ecaVoicesSec::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 70%;
+  height: calc(min(1px, 0.0520833333vw) * 320);
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(140, 190, 195, 0.45), rgba(140, 190, 195, 0) 70%);
+  pointer-events: none;
+}
+.ecaVoicesSec .ecaVoicesWaves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(min(1px, 0.0520833333vw) * 560);
+  height: auto;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.ecaVoicesSec .wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .ecaVoicesSec .wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.ecaVoicesSec .wrapper {
+  position: relative;
+  z-index: 1;
+}
+.ecaVoicesSec .wrapper .secHeading {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.ecaVoicesSec .wrapper .secHeading h2 {
+  font-size: 48px;
+}
+@media screen and (max-width: 1800px) {
+  .ecaVoicesSec .wrapper .secHeading h2 {
+    font-size: 44px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .ecaVoicesSec .wrapper .secHeading h2 {
+    font-size: 38px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper .secHeading h2 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper .secHeading h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec .wrapper .secHeading h2 {
+    font-size: 24px;
+  }
+}
+.ecaVoicesSec .wrapper .secHeading h2 {
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 32px;
+  background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ecaVoicesSec .wrapper .secHeading p {
+  color: #C0C6C6;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ecaVoicesSec .wrapper .secHeading p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper .secHeading p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper .secHeading p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec .wrapper .secHeading p {
+    font-size: 12px;
+  }
+}
+.ecaVoicesSec .wrapper .secHeading p {
+  line-height: 170%;
+}
+.ecaVoicesSec .wrapper .voicesGrid {
+  margin-top: calc(min(1px, 0.0520833333vw) * 40);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(min(1px, 0.0520833333vw) * 35);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard {
+  min-width: 0;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 382/310;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: hsl(324.8276, 47.541%, 11.9608%);
+  overflow: hidden;
+  cursor: pointer;
+  color: #01D3C7;
+  transition: background-color 0.3s ease;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay .voicePoster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay .playIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(min(1px, 0.0520833333vw) * 68);
+  min-width: 48px;
+  height: auto;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay .playIcon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay:hover .playIcon {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voicePlay:focus-visible {
+  outline: 1px dashed rgba(0, 172, 180, 0.8);
+  outline-offset: 3px;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta {
+  display: flex;
+  align-items: center;
+  gap: calc(min(1px, 0.0520833333vw) * 16);
+  margin-top: calc(min(1px, 0.0520833333vw) * 28);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceAvatar {
+  flex: 0 0 auto;
+  width: calc(min(1px, 0.0520833333vw) * 76);
+  min-width: 56px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo {
+  min-width: 0;
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+    font-size: 12px;
+  }
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo h3 {
+  font-weight: 400;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.95);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceRole {
+  margin-top: 2px;
+  font-size: 14px;
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceRole {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceRole {
+    font-size: 10px;
+  }
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceRole {
+  line-height: 150%;
+  color: rgba(255, 255, 255, 0.9);
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceDomain {
+  margin-top: 2px;
+  font-size: 14px;
+}
+@media screen and (max-width: 1440px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceDomain {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceDomain {
+    font-size: 10px;
+  }
+}
+.ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta .voiceInfo .voiceDomain {
+  line-height: 150%;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+}
+@media screen and (max-width: 1024px) {
+  .ecaVoicesSec .wrapper .voicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 720px) {
+  .ecaVoicesSec .ecaVoicesWaves {
+    display: none;
+  }
+  .ecaVoicesSec .wrapper .voicesGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 24px;
+  }
+  .ecaVoicesSec .wrapper .voicesGrid .voiceCard .voiceMeta {
+    margin-top: 16px;
+  }
+}
+
+.ecaVideoModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 2, 11, 0.88);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.ecaVideoModal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.ecaVideoModal .modalBox {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.ecaVideoModal .modalBox video, .ecaVideoModal .modalBox iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+}
+.ecaVideoModal .modalClose {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.ecaVideoModal .modalClose svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+}
+.ecaVideoModal .modalClose:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #01D3C7;
+}
+.ecaVideoModal .modalClose:focus-visible {
+  outline: 2px solid #01D3C7;
+  outline-offset: 2px;
+}
+@media screen and (max-width: 720px) {
+  .ecaVideoModal {
+    padding: 16px;
+  }
+  .ecaVideoModal .modalClose {
+    top: -44px;
+  }
+}
+
+body.modalOpen {
+  overflow: hidden;
+}
+
 body.page-template-about-us {
   --aboutS: 1;
 }
