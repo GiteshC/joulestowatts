@@ -2783,7 +2783,6 @@ document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
 	});
 })();
 
-
 // Case Studies listing: filter chips (one choice per row, rows combine) and
 // "Show more" paging. Runs only where [data-case-studies] is present.
 (function () {
@@ -3143,16 +3142,23 @@ if ($(".aboutNewsSec").length) {
 	document.addEventListener("DOMContentLoaded", function () {
 		var sec = document.querySelector(".aboutOfficesSec");
 		if (!sec) return;
-		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+		if (
+			window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+			!("IntersectionObserver" in window)
+		)
+			return;
 
 		sec.classList.add("js-reveal");
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (e) {
-				if (!e.isIntersecting) return;
-				sec.classList.add("is-in");
-				io.disconnect();
-			});
-		}, {threshold: 0.25});
+		var io = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (e) {
+					if (!e.isIntersecting) return;
+					sec.classList.add("is-in");
+					io.disconnect();
+				});
+			},
+			{ threshold: 0.25 },
+		);
 		io.observe(sec);
 	});
 })();
@@ -3163,99 +3169,155 @@ if ($(".aboutNewsSec").length) {
 // Year tabs work in both modes.
 (function () {
 	"use strict";
-
 	document.addEventListener("DOMContentLoaded", function () {
 		var sec = document.querySelector(".aboutDecadeSec");
 		if (!sec) return;
 
 		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".yearTab"));
-		var items = Array.prototype.slice.call(sec.querySelectorAll(".decadeItem"));
+		var items = Array.prototype.slice.call(
+			sec.querySelectorAll(".decadeItem"),
+		);
 		var view = sec.querySelector(".decadeViewport");
 		var track = sec.querySelector(".decadeTrack");
 		var stage = sec.querySelector(".decadeStage");
 		var N = items.length;
 		if (!N || !view || !track || !stage) return;
 
-		var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		var reduce = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
 		var active = -1;
-		var st = null;      // the ScrollTrigger, only while pinned
-		var lockUntil = 0;  // ignore strip scroll events right after a tab click
+		var st = null; // the ScrollTrigger, only while pinned
+		var lockUntil = 0; // ignore strip scroll events right after a tab click
+		var readyTimer = 0;
 
 		function setActive(i) {
 			i = Math.max(0, Math.min(N - 1, i));
 			if (i === active) return;
+			if (active !== -1) showDots();
 			active = i;
-			items.forEach(function (el, k) { el.classList.toggle("is-active", k === i); });
+			items.forEach(function (el, k) {
+				el.classList.toggle("is-active", k === i);
+			});
 			tabs.forEach(function (t, k) {
 				t.classList.toggle("is-active", k === i);
-				if (k === i) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current");
+				if (k === i) t.setAttribute("aria-current", "true");
+				else t.removeAttribute("aria-current");
 			});
 			// Keep the active tab in view when the tab row scrolls (small screens).
 			var box = tabs[i] && tabs[i].parentNode;
 			if (box && box.scrollWidth > box.clientWidth) {
-				box.scrollTo({left: tabs[i].offsetLeft - (box.clientWidth - tabs[i].offsetWidth) / 2, behavior: reduce ? "auto" : "smooth"});
+				box.scrollTo({
+					left:
+						tabs[i].offsetLeft -
+						(box.clientWidth - tabs[i].offsetWidth) / 2,
+					behavior: reduce ? "auto" : "smooth",
+				});
 			}
+		}
+		function showDots() {
+			window.clearTimeout(readyTimer);
+			sec.classList.add("is-ready");
 		}
 
 		function stepWidth() {
-			return N > 1 ? items[1].offsetLeft - items[0].offsetLeft : items[0].offsetWidth;
+			return N > 1
+				? items[1].offsetLeft - items[0].offsetLeft
+				: items[0].offsetWidth;
 		}
 
 		function goTo(i) {
 			setActive(i);
 			if (st) {
 				var y = st.start + (i / (N - 1)) * (st.end - st.start);
-				window.scrollTo({top: y, behavior: reduce ? "auto" : "smooth"});
+				window.scrollTo({
+					top: y,
+					behavior: reduce ? "auto" : "smooth",
+				});
 				return;
 			}
 			lockUntil = Date.now() + 800;
-			view.scrollTo({left: i * stepWidth(), behavior: reduce ? "auto" : "smooth"});
+			view.scrollTo({
+				left: i * stepWidth(),
+				behavior: reduce ? "auto" : "smooth",
+			});
 		}
 
 		tabs.forEach(function (t, i) {
-			t.addEventListener("click", function () { goTo(i); });
+			t.addEventListener("click", function () {
+				goTo(i);
+			});
 		});
 
 		// Strip (not pinned): the scroll position decides the active year.
 		var ticking = false;
-		view.addEventListener("scroll", function () {
-			if (st || sec.classList.contains("is-pinned") || Date.now() < lockUntil || ticking) return;
-			ticking = true;
-			window.requestAnimationFrame(function () {
-				ticking = false;
-				var max = view.scrollWidth - view.clientWidth;
-				var idx = view.scrollLeft >= max - 2 ? N - 1 : Math.round(view.scrollLeft / stepWidth());
-				setActive(idx);
-			});
-		}, {passive: true});
+		view.addEventListener(
+			"scroll",
+			function () {
+				if (
+					st ||
+					sec.classList.contains("is-pinned") ||
+					Date.now() < lockUntil ||
+					ticking
+				)
+					return;
+				ticking = true;
+				window.requestAnimationFrame(function () {
+					ticking = false;
+					var max = view.scrollWidth - view.clientWidth;
+					var idx =
+						view.scrollLeft >= max - 2
+							? N - 1
+							: Math.round(view.scrollLeft / stepWidth());
+					setActive(idx);
+				});
+			},
+			{ passive: true },
+		);
 
 		// Pinned, scroll-driven mode.
 		if (window.gsap && window.ScrollTrigger && !reduce) {
 			window.gsap.registerPlugin(window.ScrollTrigger);
 			window.gsap.matchMedia().add("(min-width: 1101px)", function () {
 				sec.classList.add("is-pinned");
-				var perYear = function () { return Math.round(window.innerHeight * 0.5); };
+				var perYear = function () {
+					return Math.round(window.innerHeight * 0.5);
+				};
 				var tween = window.gsap.to(track, {
-					x: function () { return -(N - 1) * stepWidth(); },
+					x: function () {
+						return -(N - 1) * stepWidth();
+					},
 					ease: "none",
 					scrollTrigger: {
 						trigger: sec,
 						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
-						start: function () { return sec.offsetHeight > window.innerHeight ? "bottom bottom" : "top top"; },
-						end: function () { return "+=" + (N - 1) * perYear(); },
+						start: function () {
+							return sec.offsetHeight > window.innerHeight
+								? "bottom bottom"
+								: "top top";
+						},
+						end: function () {
+							return "+=" + (N - 1) * perYear();
+						},
 						pin: true,
 						anticipatePin: 1,
 						scrub: 0.6,
 						invalidateOnRefresh: true,
-						snap: {snapTo: 1 / (N - 1), duration: {min: 0.2, max: 0.5}, ease: "power2.out"},
-						onUpdate: function (self) { setActive(Math.round(self.progress * (N - 1))); }
-					}
+						snap: {
+							snapTo: 1 / (N - 1),
+							duration: { min: 0.2, max: 0.5 },
+							ease: "power2.out",
+						},
+						onUpdate: function (self) {
+							setActive(Math.round(self.progress * (N - 1)));
+						},
+					},
 				});
 				st = tween.scrollTrigger;
 				return function () {
 					sec.classList.remove("is-pinned");
 					st = null;
-					window.gsap.set(track, {clearProps: "transform"});
+					window.gsap.set(track, { clearProps: "transform" });
 				};
 			});
 		}
@@ -3264,12 +3326,15 @@ if ($(".aboutNewsSec").length) {
 		setActive(0);
 		if (reduce || !("IntersectionObserver" in window)) return;
 		sec.classList.add("js-reveal");
-		var io = new IntersectionObserver(function (entries) {
-			if (!entries[0].isIntersecting) return;
-			sec.classList.add("is-in");
-			window.setTimeout(function () { sec.classList.add("is-ready"); }, 3000);
-			io.disconnect();
-		}, {threshold: 0.3});
+		var io = new IntersectionObserver(
+			function (entries) {
+				if (!entries[0].isIntersecting) return;
+				sec.classList.add("is-in");
+				readyTimer = window.setTimeout(showDots, 2400);
+				io.disconnect();
+			},
+			{ threshold: 0.3 },
+		);
 		io.observe(stage);
 	});
 })();
@@ -3281,8 +3346,12 @@ if ($(".aboutNewsSec").length) {
 	document.addEventListener("DOMContentLoaded", function () {
 		var sec = document.querySelector(".ecaRolesSec");
 		if (!sec) return;
-		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".rolesTab"));
-		var panels = Array.prototype.slice.call(sec.querySelectorAll(".rolesPanel"));
+		var tabs = Array.prototype.slice.call(
+			sec.querySelectorAll(".rolesTab"),
+		);
+		var panels = Array.prototype.slice.call(
+			sec.querySelectorAll(".rolesPanel"),
+		);
 
 		function select(i, focus) {
 			tabs.forEach(function (t, k) {
@@ -3291,16 +3360,23 @@ if ($(".aboutNewsSec").length) {
 				t.setAttribute("aria-selected", on ? "true" : "false");
 				t.setAttribute("tabindex", on ? "0" : "-1");
 			});
-			panels.forEach(function (p, k) { p.classList.toggle("is-active", k === i); });
+			panels.forEach(function (p, k) {
+				p.classList.toggle("is-active", k === i);
+			});
 			if (focus) tabs[i].focus();
 		}
 
 		tabs.forEach(function (t, i) {
-			t.addEventListener("click", function () { select(i); });
+			t.addEventListener("click", function () {
+				select(i);
+			});
 			t.addEventListener("keydown", function (e) {
-				var n = tabs.length, next = -1;
-				if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % n;
-				else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + n) % n;
+				var n = tabs.length,
+					next = -1;
+				if (e.key === "ArrowRight" || e.key === "ArrowDown")
+					next = (i + 1) % n;
+				else if (e.key === "ArrowLeft" || e.key === "ArrowUp")
+					next = (i - 1 + n) % n;
 				else if (e.key === "Home") next = 0;
 				else if (e.key === "End") next = n - 1;
 				if (next < 0) return;
@@ -3328,9 +3404,9 @@ if ($(".aboutNewsSec").length) {
 		modal.setAttribute("aria-label", "Video");
 		modal.innerHTML =
 			'<div class="modalBox">' +
-				'<button class="modalClose" type="button" aria-label="Close video"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2 2 14"/></svg></button>' +
-				'<div class="modalMedia"></div>' +
-			'</div>';
+			'<button class="modalClose" type="button" aria-label="Close video"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2 2 14"/></svg></button>' +
+			'<div class="modalMedia"></div>' +
+			"</div>";
 		document.body.appendChild(modal);
 
 		var media = modal.querySelector(".modalMedia");
@@ -3347,7 +3423,8 @@ if ($(".aboutNewsSec").length) {
 				el.setAttribute("playsinline", "");
 			} else {
 				el = document.createElement("iframe");
-				el.src = url + (url.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+				el.src =
+					url + (url.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
 				el.allow = "autoplay; fullscreen; picture-in-picture";
 				el.allowFullscreen = true;
 				el.title = "Video";
@@ -3374,19 +3451,307 @@ if ($(".aboutNewsSec").length) {
 		}
 
 		Array.prototype.forEach.call(buttons, function (btn) {
-			btn.addEventListener("click", function () { open(btn); });
+			btn.addEventListener("click", function () {
+				open(btn);
+			});
 		});
 		closeBtn.addEventListener("click", close);
-		modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+		modal.addEventListener("click", function (e) {
+			if (e.target === modal) close();
+		});
 		document.addEventListener("keydown", function (e) {
 			if (!modal.classList.contains("is-open")) return;
 			if (e.key === "Escape") close();
-			if (e.key === "Tab") { // keep focus inside the popup
-				var focusables = modal.querySelectorAll("button, video[controls], iframe");
-				var first = focusables[0], last = focusables[focusables.length - 1];
-				if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-				else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+			if (e.key === "Tab") {
+				// keep focus inside the popup
+				var focusables = modal.querySelectorAll(
+					"button, video[controls], iframe",
+				);
+				var first = focusables[0],
+					last = focusables[focusables.length - 1];
+				if (e.shiftKey && document.activeElement === first) {
+					e.preventDefault();
+					last.focus();
+				} else if (!e.shiftKey && document.activeElement === last) {
+					e.preventDefault();
+					first.focus();
+				}
 			}
 		});
+	});
+})();
+
+// About us: "The leaders behind the journey". "Read the letter" opens a drawer that slides in from the right.
+if ($(".aboutLeadersSec").length) {
+	document.addEventListener("DOMContentLoaded", function () {
+		// Select all the elements for cards (".imgBox") and modals (".teamDetailPopup")
+		const elements = document.querySelectorAll(".leaderCard"); // Select all card elements
+		const closeButtons = document.querySelectorAll(".drawerClose"); // Select all close buttons
+		const body = document.querySelector("body");
+		const html = document.querySelector("html");
+		// Add click event listeners to each card
+		elements.forEach((element) => {
+			element.addEventListener("click", function () {
+				// Replace the card id to find the corresponding modal (dynamically)
+				const panelId = this.id.replace("leaderCard", "founder");
+				const modal = document.getElementById(panelId);
+				// Show the modal and hide the scrollbar
+				// modal.style.display = "block";
+
+				if (!modal) {
+					console.warn("Modal not found:", panelId);
+					return;
+				}
+				modal.classList.add("is-open");
+				body.classList.add("hideScrollbar");
+				html.classList.add("hideScrollbarhtml");
+			});
+		});
+		// Add click event listeners to each close button to close the modal
+		closeButtons.forEach((button) => {
+			button.addEventListener("click", function (e) {
+				e.stopPropagation();
+				const modal = this.closest(".aboutLetterDrawer");
+				if (!modal) return;
+				modal.classList.remove("is-open");
+				body.classList.remove("hideScrollbar");
+				html.classList.remove("hideScrollbarhtml");
+			});
+		});
+		// Close modal if clicking outside of the modal content
+		window.addEventListener("click", function (event) {
+			if (event.target.classList.contains("drawerOverlay")) {
+				const modal = event.target.closest(".aboutLetterDrawer");
+
+				if (!modal) return;
+
+				modal.classList.remove("is-open");
+
+				body.classList.remove("hideScrollbar");
+				html.classList.remove("hideScrollbarhtml");
+			}
+		});
+	});
+}
+
+// Profile drawer: opens from the right. Content is read from plain HTML, no JSON.
+// Trigger: any element with data-profile-open="<id>".
+// Source:  <div hidden> holding <article data-profile-item data-profile-id="<id>"> blocks. One hidden div = one Previous/Next group.
+// API:     window.ProfileDrawer.open(id) / .close()
+(function () {
+	"use strict";
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var drawer = document.querySelector("[data-profile-drawer]");
+		console.log(drawer);
+		
+		if (!drawer) return;
+		if (drawer.parentNode !== document.body)
+			document.body.appendChild(drawer); // avoids clipping and stacking from parents
+
+		var el = {
+			scroll: drawer.querySelector(".pdScroll"),
+			close: drawer.querySelector(".pdClose"),
+			overlay: drawer.querySelector(".pdOverlay"),
+			count: drawer.querySelector("[data-pd-count]"),
+			img: drawer.querySelector("[data-pd-img]"),
+			name: drawer.querySelector("[data-pd-name]"),
+			role: drawer.querySelector("[data-pd-role]"),
+			category: drawer.querySelector("[data-pd-category]"),
+			bio: drawer.querySelector("[data-pd-bio]"),
+			prev: drawer.querySelector("[data-pd-prev]"),
+			next: drawer.querySelector("[data-pd-next]"),
+		};
+
+		var items = []; // profile blocks of the active group, in page order
+		var index = -1;
+		var opener = null;
+		var isOpen = false;
+		var swapTimer = null;
+
+		function field(item, name) {
+			return item.querySelector("[data-f='" + name + "']");
+		}
+		function text(item, name) {
+			var n = field(item, name);
+			return n ? n.textContent.trim() : "";
+		}
+
+		function pad(n, len) {
+			n = String(n);
+			while (n.length < len) n = "0" + n;
+			return n;
+		}
+
+		function fill(i) {
+			var item = items[i];
+			var img = field(item, "image");
+			var bio = field(item, "bio");
+			var len = Math.max(2, String(items.length).length);
+			index = i;
+			el.count.textContent =
+				pad(i + 1, len) + "/" + pad(items.length, len);
+			el.img.src = img ? img.getAttribute("src") : "";
+			el.img.alt = text(item, "name");
+			el.name.textContent = text(item, "name");
+			el.role.textContent = text(item, "role");
+			el.role.hidden = !el.role.textContent;
+			el.category.textContent = text(item, "category");
+			el.category.hidden = !el.category.textContent;
+			el.bio.innerHTML = bio ? bio.innerHTML : ""; // your own page markup, so links and <strong> keep working
+			setNav(el.prev, items[i - 1]);
+			setNav(el.next, items[i + 1]);
+			el.scroll.scrollTop = 0;
+		}
+
+		function setNav(btn, target) {
+			// no wrap-around: the first and last profile disable their own side
+			btn.disabled = !target;
+			btn.querySelector("[data-pd-nav-name]").textContent = target
+				? text(target, "name")
+				: "";
+		}
+
+		function go(i) {
+			if (i < 0 || i >= items.length || i === index) return;
+			clearTimeout(swapTimer);
+			drawer.classList.add("is-swapping");
+			swapTimer = setTimeout(function () {
+				fill(i);
+				drawer.classList.remove("is-swapping");
+			}, 250);
+		}
+
+		function lockScroll(on) {
+			var gap = window.innerWidth - document.documentElement.clientWidth; // keep the page from shifting when the scrollbar goes
+			document.body.classList.toggle("profileDrawerOpen", on);
+			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
+		}
+
+		function open(id, trigger) {
+			var all = document.querySelectorAll("[data-profile-item]");
+			var item = null;
+			Array.prototype.forEach.call(all, function (n) {
+				if (!item && n.getAttribute("data-profile-id") === id) item = n;
+			});
+			if (!item) return;
+			items = Array.prototype.filter.call(
+				item.parentNode.children,
+				function (n) {
+					return n.hasAttribute("data-profile-item");
+				},
+			);
+			opener = trigger || null;
+			clearTimeout(swapTimer);
+			drawer.classList.remove("is-swapping");
+			fill(items.indexOf(item));
+			isOpen = true;
+			drawer.classList.add("is-open");
+			drawer.setAttribute("aria-hidden", "false");
+			lockScroll(true);
+			el.close.focus();
+		}
+
+		function close() {
+			if (!isOpen) return;
+			isOpen = false;
+			clearTimeout(swapTimer);
+			drawer.classList.remove("is-open", "is-swapping");
+			drawer.setAttribute("aria-hidden", "true");
+			lockScroll(false);
+			if (opener && document.body.contains(opener)) opener.focus();
+			opener = null;
+		}
+
+		// Triggers: delegated, so cards added later (tabs, AJAX) work too.
+		function triggerFrom(target) {
+			return target.closest
+				? target.closest("[data-profile-open]")
+				: null;
+		}
+
+		document.addEventListener("click", function (e) {
+			var t = triggerFrom(e.target);
+			if (!t) return;
+			e.preventDefault();
+			open(t.getAttribute("data-profile-open"), t);
+		});
+
+		Array.prototype.forEach.call(
+			document.querySelectorAll("[data-profile-open]"),
+			function (t) {
+				// non-button triggers (a card, an li) become keyboard accessible
+				var tag = t.tagName;
+				if (tag === "BUTTON" || tag === "A") return;
+				if (!t.hasAttribute("tabindex"))
+					t.setAttribute("tabindex", "0");
+				if (!t.hasAttribute("role")) t.setAttribute("role", "button");
+				t.setAttribute("aria-haspopup", "dialog");
+			},
+		);
+
+		document.addEventListener("keydown", function (e) {
+			if (!isOpen) {
+				var t = triggerFrom(e.target);
+				if (
+					t &&
+					(e.key === "Enter" || e.key === " ") &&
+					t.tagName !== "BUTTON" &&
+					t.tagName !== "A"
+				) {
+					e.preventDefault();
+					open(t.getAttribute("data-profile-open"), t);
+				}
+				return;
+			}
+			if (e.key === "Escape") {
+				close();
+				return;
+			}
+			if (e.key === "ArrowLeft") {
+				go(index - 1);
+				return;
+			}
+			if (e.key === "ArrowRight") {
+				go(index + 1);
+				return;
+			}
+			if (e.key === "Tab") {
+				// keep focus inside the open drawer
+				var f = Array.prototype.filter.call(
+					drawer.querySelectorAll(
+						"button, a[href], [tabindex]:not([tabindex='-1'])",
+					),
+					function (n) {
+						return !n.disabled;
+					},
+				);
+				var first = f[0],
+					last = f[f.length - 1];
+				if (e.shiftKey && document.activeElement === first) {
+					e.preventDefault();
+					last.focus();
+				} else if (!e.shiftKey && document.activeElement === last) {
+					e.preventDefault();
+					first.focus();
+				}
+			}
+		});
+
+		el.close.addEventListener("click", close);
+		el.overlay.addEventListener("click", close);
+		el.prev.addEventListener("click", function () {
+			go(index - 1);
+		});
+		el.next.addEventListener("click", function () {
+			go(index + 1);
+		});
+
+		window.ProfileDrawer = {
+			open: function (id) {
+				open(id, null);
+			},
+			close: close,
+		};
 	});
 })();
