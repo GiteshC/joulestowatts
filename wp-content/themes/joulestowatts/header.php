@@ -50,18 +50,36 @@
 		<div class="mainMenu" aria-label="Main menu">
 			<nav>
 				<ul class="menuGroups">
-					<?php foreach ( joulestowatts_main_menu_groups() as $group ) : ?>
-						<li class="menuGroup">
-							<a href="<?php echo esc_url( $group['url'] ); ?>" class="menuHeading manrope"><?php echo esc_html( $group['label'] ); ?></a>
-							<?php if ( $group['links'] ) : ?>
-								<ul class="menuLinks">
-									<?php foreach ( $group['links'] as $link ) : ?>
-										<li><a href="<?php echo esc_url( $link['url'] ); ?>" class="manrope"><?php echo esc_html( $link['label'] ); ?></a></li>
-									<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
-						</li>
-					<?php endforeach; ?>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">Home</a>
+					</li>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">The Proprietary IP</a>
+						<ul class="menuLinks">
+							<li><a href="#" class="manrope">AI Atlas</a></li>
+							<li><a href="#" class="manrope">ECA</a></li>
+							<li><a href="#" class="manrope">Talos</a></li>
+							<li><a href="#" class="manrope">Greenfield Accelerator</a></li>
+						</ul>
+					</li>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">Our Offerings</a>
+						<ul class="menuLinks">
+							<li><a href="#" class="manrope">Talent Solutions: talent composition</a></li>
+							<li><a href="#" class="manrope">Managed Talent Pods</a></li>
+							<li><a href="#" class="manrope">AI accelerators and agents</a></li>
+							<li><a href="#" class="manrope">Greenfield: consulting + set up</a></li>
+						</ul>
+					</li>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">Customer Success stories</a>
+					</li>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">About us</a>
+					</li>
+					<li class="menuGroup">
+						<a href="#" class="menuHeading manrope">Contact Us</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
