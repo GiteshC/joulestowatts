@@ -51,34 +51,34 @@
 			<nav>
 				<ul class="menuGroups">
 					<li class="menuGroup">
-						<a href="#" class="menuHeading manrope">Home</a>
+						<a href="<?php echo get_site_url(); ?>/" class="menuHeading manrope">Home</a>
 					</li>
 					<li class="menuGroup">
 						<a href="#" class="menuHeading manrope">The Proprietary IP</a>
 						<ul class="menuLinks">
-							<li><a href="#" class="manrope">AI Atlas</a></li>
-							<li><a href="#" class="manrope">ECA</a></li>
-							<li><a href="#" class="manrope">Talos</a></li>
-							<li><a href="#" class="manrope">Greenfield Accelerator</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/ai-atlas" class="manrope">AI Atlas</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/enterprise-context-architects" class="manrope">ECA</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/talos" class="manrope">Talos</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/gcc-accelerator" class="manrope">Greenfield Accelerator</a></li>
 						</ul>
 					</li>
 					<li class="menuGroup">
 						<a href="#" class="menuHeading manrope">Our Offerings</a>
 						<ul class="menuLinks">
-							<li><a href="#" class="manrope">Talent Solutions: talent composition</a></li>
-							<li><a href="#" class="manrope">Managed Talent Pods</a></li>
-							<li><a href="#" class="manrope">AI accelerators and agents</a></li>
-							<li><a href="#" class="manrope">Greenfield: consulting + set up</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/workforce-solutions" class="manrope">Talent Solutions: talent composition</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/managed-ai-pods" class="manrope">Managed Talent Pods</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/ai-accelerators-and-agents" class="manrope">AI accelerators and agents</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/greenfield-consulting" class="manrope">Greenfield: consulting + set up</a></li>
 						</ul>
 					</li>
 					<li class="menuGroup">
-						<a href="#" class="menuHeading manrope">Customer Success stories</a>
+						<a href="<?php echo get_site_url(); ?>/customer-success-stories" class="menuHeading manrope">Customer Success stories</a>
 					</li>
 					<li class="menuGroup">
-						<a href="#" class="menuHeading manrope">About us</a>
+						<a href="<?php echo get_site_url(); ?>/about-us" class="menuHeading manrope">About us</a>
 					</li>
 					<li class="menuGroup">
-						<a href="#" class="menuHeading manrope">Contact Us</a>
+						<a href="<?php echo get_site_url(); ?>/contact-us" class="menuHeading manrope">Contact Us</a>
 					</li>
 				</ul>
 			</nav>
