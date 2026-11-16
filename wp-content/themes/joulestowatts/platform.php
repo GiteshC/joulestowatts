@@ -207,13 +207,15 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="bottomContent">
-                                    <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
-                                    <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
-                                    <div class="description">
-                                        <div class="descriptionInner">
-                                            <p><?php echo wp_kses_post( get_sub_field('box_description') ); ?></p>
+                                    <a href="<?php echo esc_html( get_sub_field('box_link') ); ?>">
+                                        <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
+                                        <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
+                                        <div class="description">
+                                            <div class="descriptionInner">
+                                                <p><?php echo wp_kses_post( get_sub_field('box_description') ); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         <?php $counter++; endwhile; ?>
