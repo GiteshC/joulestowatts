@@ -54,6 +54,9 @@
 						<a href="<?php echo get_site_url(); ?>/" class="menuHeading manrope">Home</a>
 					</li>
 					<li class="menuGroup">
+						<a href="<?php echo get_site_url(); ?>/platform" class="menuHeading manrope">Platform</a>
+					</li>
+					<li class="menuGroup">
 						<a href="#" class="menuHeading manrope">The Proprietary IP</a>
 						<ul class="menuLinks">
 							<li><a href="<?php echo get_site_url(); ?>/ai-atlas" class="manrope">AI Atlas</a></li>
