@@ -25564,11 +25564,6 @@ body.aboutLetterOpen {
     padding-right: 16px;
   }
 }
-@media screen and (max-width: 720px) {
-  .profileDrawer .pdName {
-    font-size: 22px;
-  }
-}
 @media screen and (prefers-reduced-motion: reduce) {
   .profileDrawer, .profileDrawer .pdOverlay, .profileDrawer .pdPanel, .profileDrawer .pdScroll {
     transition-duration: 0.01s !important;

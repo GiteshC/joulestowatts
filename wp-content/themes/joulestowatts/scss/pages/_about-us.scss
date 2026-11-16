@@ -1204,14 +1204,6 @@ $pdTeal: #01D3C7;
 	// 	.pdPerson{gap: 16px;}
 	// 	.pdNavBtn{min-height: 96px; padding: 20px 20px 20px 32px; &.is-next{padding-left: 32px;}}
 	// }
-	@media screen and (max-width: 720px) {
-		.pdPanel{}
-		.pdScroll{}
-		.pdClose{}
-		.pdPerson{ img{}}
-		.pdName{font-size: 22px;}
-		
-	}
 	@media screen and (prefers-reduced-motion: reduce) {
 		&, .pdOverlay, .pdPanel, .pdScroll{transition-duration: 0.01s !important;}
 	}
