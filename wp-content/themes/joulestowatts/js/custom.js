@@ -3090,9 +3090,17 @@ if ($(".aboutAwardsSec").length) {
 		pauseOnHover: true,
 		responsive: [
 			{
-				breakpoint: 1081,
+				breakpoint: 1281,
 				settings: {
 					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 1081,
+				settings: {
+					slidesToShow: 2.5,
 					slidesToScroll: 1,
 					infinite: true,
 				},
@@ -3203,6 +3211,178 @@ if ($(".aboutNewsSec").length) {
 // Desktop (>1100px): the section pins and the years move with the scroll (GSAP ScrollTrigger, already in the theme).
 // Tablet and mobile (<=1100px): no pinning. The section keeps its natural height and the years are a swipeable strip.
 // Year tabs work in both modes.
+// (function () {
+// 	"use strict";
+// 	document.addEventListener("DOMContentLoaded", function () {
+// 		var sec = document.querySelector(".aboutDecadeSec");
+// 		if (!sec) return;
+
+// 		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".yearTab"));
+// 		var items = Array.prototype.slice.call(
+// 			sec.querySelectorAll(".decadeItem"),
+// 		);
+// 		var view = sec.querySelector(".decadeViewport");
+// 		var track = sec.querySelector(".decadeTrack");
+// 		var stage = sec.querySelector(".decadeStage");
+// 		var N = items.length;
+// 		if (!N || !view || !track || !stage) return;
+
+// 		var reduce = window.matchMedia(
+// 			"(prefers-reduced-motion: reduce)",
+// 		).matches;
+// 		var active = -1;
+// 		var st = null; // the ScrollTrigger, only while pinned
+// 		var lockUntil = 0; // ignore strip scroll events right after a tab click
+// 		var readyTimer = 0;
+
+// 		function setActive(i) {
+// 			i = Math.max(0, Math.min(N - 1, i));
+// 			if (i === active) return;
+// 			if (active !== -1) showDots();
+// 			active = i;
+// 			items.forEach(function (el, k) {
+// 				el.classList.toggle("is-active", k === i);
+// 			});
+// 			tabs.forEach(function (t, k) {
+// 				t.classList.toggle("is-active", k === i);
+// 				if (k === i) t.setAttribute("aria-current", "true");
+// 				else t.removeAttribute("aria-current");
+// 			});
+// 			// Keep the active tab in view when the tab row scrolls (small screens).
+// 			var box = tabs[i] && tabs[i].parentNode;
+// 			if (box && box.scrollWidth > box.clientWidth) {
+// 				box.scrollTo({
+// 					left:
+// 						tabs[i].offsetLeft -
+// 						(box.clientWidth - tabs[i].offsetWidth) / 2,
+// 					behavior: reduce ? "auto" : "smooth",
+// 				});
+// 			}
+// 		}
+// 		function showDots() {
+// 			window.clearTimeout(readyTimer);
+// 			sec.classList.add("is-ready");
+// 		}
+
+// 		function stepWidth() {
+// 			return N > 1
+// 				? items[1].offsetLeft - items[0].offsetLeft
+// 				: items[0].offsetWidth;
+// 		}
+
+// 		function goTo(i) {
+// 			setActive(i);
+// 			if (st) {
+// 				var y = st.start + (i / (N - 1)) * (st.end - st.start);
+// 				window.scrollTo({
+// 					top: y,
+// 					behavior: reduce ? "auto" : "smooth",
+// 				});
+// 				return;
+// 			}
+// 			lockUntil = Date.now() + 800;
+// 			view.scrollTo({
+// 				left: i * stepWidth(),
+// 				behavior: reduce ? "auto" : "smooth",
+// 			});
+// 		}
+
+// 		tabs.forEach(function (t, i) {
+// 			t.addEventListener("click", function () {
+// 				goTo(i);
+// 			});
+// 		});
+
+// 		// Strip (not pinned): the scroll position decides the active year.
+// 		var ticking = false;
+// 		view.addEventListener(
+// 			"scroll",
+// 			function () {
+// 				if (
+// 					st ||
+// 					sec.classList.contains("is-pinned") ||
+// 					Date.now() < lockUntil ||
+// 					ticking
+// 				)
+// 					return;
+// 				ticking = true;
+// 				window.requestAnimationFrame(function () {
+// 					ticking = false;
+// 					var max = view.scrollWidth - view.clientWidth;
+// 					var idx =
+// 						view.scrollLeft >= max - 2
+// 							? N - 1
+// 							: Math.round(view.scrollLeft / stepWidth());
+// 					setActive(idx);
+// 				});
+// 			},
+// 			{ passive: true },
+// 		);
+
+// 		// Pinned, scroll-driven mode.
+// 		if (window.gsap && window.ScrollTrigger && !reduce) {
+// 			window.gsap.registerPlugin(window.ScrollTrigger);
+// 			window.gsap.matchMedia().add("(min-width: 1101px)", function () {
+// 				sec.classList.add("is-pinned");
+// 				var perYear = function () {
+// 					return Math.round(window.innerHeight * 0.5);
+// 				};
+// 				var tween = window.gsap.to(track, {
+// 					x: function () {
+// 						return -(N - 1) * stepWidth();
+// 					},
+// 					ease: "none",
+// 					scrollTrigger: {
+// 						trigger: sec,
+// 						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
+// 						start: function () {
+// 							return sec.offsetHeight > window.innerHeight
+// 								? "bottom bottom"
+// 								: "top top";
+// 						},
+// 						end: function () {
+// 							return "+=" + (N - 1) * perYear();
+// 						},
+// 						pin: true,
+// 						anticipatePin: 1,
+// 						scrub: 0.6,
+// 						invalidateOnRefresh: true,
+// 						snap: {
+// 							snapTo: 1 / (N - 1),
+// 							duration: { min: 0.2, max: 0.5 },
+// 							ease: "power2.out",
+// 						},
+// 						onUpdate: function (self) {
+// 							setActive(Math.round(self.progress * (N - 1)));
+// 						},
+// 					},
+// 				});
+// 				st = tween.scrollTrigger;
+// 				return function () {
+// 					sec.classList.remove("is-pinned");
+// 					st = null;
+// 					window.gsap.set(track, { clearProps: "transform" });
+// 				};
+// 			});
+// 		}
+
+// 		// Intro: line draws, then the dot pops. Plays once.
+// 		setActive(0);
+// 		if (reduce || !("IntersectionObserver" in window)) return;
+// 		sec.classList.add("js-reveal");
+// 		var io = new IntersectionObserver(
+// 			function (entries) {
+// 				if (!entries[0].isIntersecting) return;
+// 				sec.classList.add("is-in");
+// 				readyTimer = window.setTimeout(showDots, 2400);
+// 				io.disconnect();
+// 			},
+// 			{ threshold: 0.3 },
+// 		);
+// 		io.observe(stage);
+// 	});
+// })();
+
 (function () {
 	"use strict";
 	document.addEventListener("DOMContentLoaded", function () {
@@ -3216,6 +3396,7 @@ if ($(".aboutNewsSec").length) {
 		var view = sec.querySelector(".decadeViewport");
 		var track = sec.querySelector(".decadeTrack");
 		var stage = sec.querySelector(".decadeStage");
+		var line = sec.querySelector(".decadeLine");
 		var N = items.length;
 		if (!N || !view || !track || !stage) return;
 
@@ -3224,7 +3405,8 @@ if ($(".aboutNewsSec").length) {
 		).matches;
 		var active = -1;
 		var st = null; // the ScrollTrigger, only while pinned
-		var lockUntil = 0; // ignore strip scroll events right after a tab click
+		var lockUntil = 0; // ignore strip scroll events while a tab click is still scrolling
+		var lockTarget = 0; // where that scroll is heading
 		var readyTimer = 0;
 
 		function setActive(i) {
@@ -3262,6 +3444,71 @@ if ($(".aboutNewsSec").length) {
 				: items[0].offsetWidth;
 		}
 
+		// Strip mode: real position of a card inside the scrolling content, and where the snapped card sits (scroll-padding).
+		function itemX(i) {
+			return (
+				items[i].getBoundingClientRect().left -
+				view.getBoundingClientRect().left +
+				view.scrollLeft
+			);
+		}
+		function snapPad() {
+			return parseFloat(window.getComputedStyle(view).scrollPaddingLeft) || 0;
+		}
+
+		// Desktop: once the first card moves left of the line's start, the line grows with it and reaches left: 0 with the card.
+		var lineBase = 0;
+		var lineW = 0;
+		function syncLine() {
+			if (!line) return;
+			if (window.innerWidth <= 1100) {
+				line.style.left = "";
+				line.style.backgroundPositionX = "";
+				return;
+			}
+			var box = stage.getBoundingClientRect();
+			if (box.width !== lineW) {
+				// read the start the stylesheet gives the line (left: 30.5%)
+				lineW = box.width;
+				line.style.left = "";
+				lineBase = line.offsetLeft;
+			}
+			var left = Math.max(
+				0,
+				Math.min(lineBase, items[0].getBoundingClientRect().left - box.left),
+			);
+			line.style.left = left + "px";
+			line.style.backgroundPositionX = lineBase - left + "px"; // keeps the dots from sliding
+		}
+
+		// Strip mode: which year the scroll position points at.
+		function stripIndex() {
+			var max = view.scrollWidth - view.clientWidth;
+			if (view.scrollLeft >= max - 2) return N - 1; // the end is always the last year
+			var pad = snapPad();
+			var reach = 0; // last card that can still be scrolled to the left edge
+			items.forEach(function (el, k) {
+				if (itemX(k) - pad <= max + 1) reach = k;
+			});
+			var from = itemX(reach) - pad;
+			if (reach < N - 1 && view.scrollLeft > from) {
+				// last stretch: spread the remaining cards over it so none is skipped
+				return (
+					reach + Math.round(((view.scrollLeft - from) / (max - from)) * (N - 1 - reach))
+				);
+			}
+			var idx = 0;
+			var best = Infinity;
+			items.forEach(function (el, k) {
+				var dist = Math.abs(itemX(k) - pad - view.scrollLeft);
+				if (dist < best) {
+					best = dist;
+					idx = k;
+				}
+			});
+			return idx;
+		}
+
 		function goTo(i) {
 			setActive(i);
 			if (st) {
@@ -3272,9 +3519,15 @@ if ($(".aboutNewsSec").length) {
 				});
 				return;
 			}
-			lockUntil = Date.now() + 800;
+			var target = Math.max(
+				0,
+				Math.min(view.scrollWidth - view.clientWidth, itemX(i) - snapPad()),
+			);
+			// the strip cannot scroll past its end, so the last few cards never reach the left edge: keep the clicked year active
+			lockTarget = target;
+			lockUntil = Math.abs(view.scrollLeft - target) > 2 ? Date.now() + 1500 : 0;
 			view.scrollTo({
-				left: i * stepWidth(),
+				left: target,
 				behavior: reduce ? "auto" : "smooth",
 			});
 		}
@@ -3290,22 +3543,18 @@ if ($(".aboutNewsSec").length) {
 		view.addEventListener(
 			"scroll",
 			function () {
-				if (
-					st ||
-					sec.classList.contains("is-pinned") ||
-					Date.now() < lockUntil ||
-					ticking
-				)
+				syncLine();
+				if (st || sec.classList.contains("is-pinned") || ticking) return;
+				if (Date.now() < lockUntil) {
+					// a tab click is still scrolling; the clicked year is already active
+					if (Math.abs(view.scrollLeft - lockTarget) <= 2)
+						lockUntil = Date.now() + 150; // arrived: let the last events pass
 					return;
+				}
 				ticking = true;
 				window.requestAnimationFrame(function () {
 					ticking = false;
-					var max = view.scrollWidth - view.clientWidth;
-					var idx =
-						view.scrollLeft >= max - 2
-							? N - 1
-							: Math.round(view.scrollLeft / stepWidth());
-					setActive(idx);
+					setActive(stripIndex());
 				});
 			},
 			{ passive: true },
@@ -3324,6 +3573,7 @@ if ($(".aboutNewsSec").length) {
 						return -(N - 1) * stepWidth();
 					},
 					ease: "none",
+					onUpdate: syncLine,
 					scrollTrigger: {
 						trigger: sec,
 						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
@@ -3339,6 +3589,7 @@ if ($(".aboutNewsSec").length) {
 						anticipatePin: 1,
 						scrub: 0.6,
 						invalidateOnRefresh: true,
+						onRefresh: syncLine,
 						snap: {
 							snapTo: 1 / (N - 1),
 							duration: { min: 0.2, max: 0.5 },
@@ -3354,12 +3605,16 @@ if ($(".aboutNewsSec").length) {
 					sec.classList.remove("is-pinned");
 					st = null;
 					window.gsap.set(track, { clearProps: "transform" });
+					syncLine();
 				};
 			});
 		}
 
+		window.addEventListener("resize", syncLine);
+
 		// Intro: line draws, then the dot pops. Plays once.
 		setActive(0);
+		syncLine();
 		if (reduce || !("IntersectionObserver" in window)) return;
 		sec.classList.add("js-reveal");
 		var io = new IntersectionObserver(
@@ -3660,7 +3915,12 @@ if ($(".aboutLeadersSec").length) {
 
 		function lockScroll(on) {
 			var gap = window.innerWidth - document.documentElement.clientWidth; // keep the page from shifting when the scrollbar goes
+			var html = document.documentElement;
+
 			document.body.classList.toggle("profileDrawerOpen", on);
+			document.body.classList.toggle("hideScrollbar", on);
+    		html.classList.toggle("hideScrollbarhtml", on);
+			
 			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
 		}
 
