@@ -34,18 +34,15 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutQuestionsSec" aria-labelledby="aboutQuestionsTitle">
-	<div class="aboutQuestionBgCont" aria-hidden="true">
-		<div class="aboutQuestionBg aboutQuestionBg--lower"></div>			
+	<div class="aboutQuestionBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
 	<div class="wrapper">
 		<div class="questionsIntro">
 			<h2 class="manrope" id="aboutQuestionsTitle">Every capability center starts with the same questions.</h2>
 			<p>We answer them as one partner, from the first diagnosis to the team that runs your center day to day.</p>
-			<a class="questionsCTA" href="#">
-				<span>Explore more</span>
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-					<path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#fff"/>
-				</svg>
+			<a href="#" class="transparentCTA manrope">Explore more
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
 			</a>
 		</div>
 		<ol class="questionsList">
@@ -230,8 +227,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 			<button class="yearTab" type="button">2026</button>
 		</div>
 	</div>
-
-	<!-- Outside the wrapper so the years run to the screen edge. -->
 	<div class="decadeStage">
 		<span class="decadeLine" aria-hidden="true"></span>
 		<div class="decadeViewport" tabindex="0" role="region" aria-label="Company timeline, 2015 to 2026">
@@ -262,7 +257,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2017</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -273,7 +268,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2016</span>
+						<span class="year manrope">2018</span>
 						<h3>Backed by India's first women-focused tech fund</h3>
 						<p>Saha Fund, India's first women entrepreneurship</p>
 					</div>
@@ -284,7 +279,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2019</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -295,7 +290,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2016</span>
+						<span class="year manrope">2020</span>
 						<h3>Backed by India's first women-focused tech fund</h3>
 						<p>Saha Fund, India's first women entrepreneurship</p>
 					</div>
@@ -306,7 +301,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2021</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -317,7 +312,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2016</span>
+						<span class="year manrope">2022</span>
 						<h3>Backed by India's first women-focused tech fund</h3>
 						<p>Saha Fund, India's first women entrepreneurship</p>
 					</div>
@@ -328,7 +323,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2023</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -339,7 +334,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2016</span>
+						<span class="year manrope">2024</span>
 						<h3>Backed by India's first women-focused tech fund</h3>
 						<p>Saha Fund, India's first women entrepreneurship</p>
 					</div>
@@ -350,7 +345,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2025</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -361,7 +356,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 					</figure>
 					<span class="dot" aria-hidden="true"></span>
 					<div class="decadeCard">
-						<span class="year manrope">2015</span>
+						<span class="year manrope">2026</span>
 						<h3>A founder bets on India's GCCs</h3>
 						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
 					</div>
@@ -562,7 +557,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 		</div>
 
 		<!-- Leadership -->
-		<div class="teamPanel" role="tabpanel" id="team-panel-1" aria-labelledby="team-tab-1" data-team-panel>
+		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
 			<div class="panelHead">
 				<h3 class="manrope">Leadership</h3>
 				<p>Business heads and directors who listen, scope your need and stay with the account.</p>
@@ -615,7 +610,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 			</ul>
 		</div>
 		<!-- Your first conversation -->
-		<div class="teamPanel" role="tabpanel" id="team-panel-1" aria-labelledby="team-tab-1" data-team-panel>
+		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
 			<div class="panelHead">
 				<h3 class="manrope">Your first conversation</h3>
 				<p>Business heads and directors who listen, scope your need and stay with the account.</p>
@@ -668,7 +663,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 			</ul>
 		</div>
 		<!-- Leadership -->
-		<div class="teamPanel" role="tabpanel" id="team-panel-1" aria-labelledby="team-tab-1" data-team-panel>
+		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
 			<div class="panelHead">
 				<h3 class="manrope">Delivery</h3>
 				<p>The people who run your engagement day to day.</p>
@@ -800,7 +795,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 		<!-- 3. Backed By (note the isBacked class) -->
 		<div class="teamPanel isBacked" role="tabpanel" id="team-panel-3" aria-labelledby="team-tab-3" data-team-panel >
 			<div class="panelTitle">
-				<h2 class="manrope">Backed By</h2>
+				<h2 class="manrope teamTitle">Backed By</h2>
 			</div>
 			<ul class="infoGrid">
 				<li class="infoCard">

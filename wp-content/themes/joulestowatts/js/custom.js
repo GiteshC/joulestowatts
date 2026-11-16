@@ -3108,6 +3108,42 @@ if ($(".aboutAwardsSec").length) {
 	});
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const teamTabs = document.querySelectorAll("[data-team-tab]");
+
+    const teamSections = [
+        document.querySelector(".aboutTeamSec"),
+        document.querySelector(".boardSection"),
+        document.querySelector(".backedBySection"),
+    ];
+
+    teamTabs.forEach((tab, index) => {
+        tab.addEventListener("click", function () {
+
+            // Active tab
+            teamTabs.forEach((item) => item.classList.remove("is-active"));
+            this.classList.add("is-active");
+
+            // Scroll to respective section
+            const targetSection = teamSections[index];
+
+            if (targetSection) {
+                const headerOffset = 100;
+
+                const targetPosition =
+                    targetSection.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerOffset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth",
+                });
+            }
+        });
+    });
+});
+
 if ($(".aboutNewsSec").length) {
 	$(".investorSlider").slick({
 		dots: false,
@@ -3544,7 +3580,7 @@ if ($(".aboutLeadersSec").length) {
 	document.addEventListener("DOMContentLoaded", function () {
 		var drawer = document.querySelector("[data-profile-drawer]");
 		console.log(drawer);
-		
+
 		if (!drawer) return;
 		if (drawer.parentNode !== document.body)
 			document.body.appendChild(drawer); // avoids clipping and stacking from parents
