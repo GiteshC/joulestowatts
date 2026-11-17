@@ -4160,173 +4160,173 @@ if ($(".aboutLeadersSec").length) {
 // Case at a glance: fills the bars and complexity dots from the values in the HTML, and plays the reveal once when the card scrolls into view.
 
 (function () {
-    “use strict”;
+	"use strict";
 
-    var SEGMENTS = 48;
-    var PERIOD = 100 / SEGMENTS;
+	var SEGMENTS = 48;
+	var PERIOD = 100 / SEGMENTS;
 
-    var DAYS = {
-        day: 1,
-        week: 7,
-        wk: 7,
-        month: 30.4375,
-        mo: 30.4375,
-        year: 365.25,
-        yr: 365.25,
-    };
+	var DAYS = {
+		day: 1,
+		week: 7,
+		wk: 7,
+		month: 30.4375,
+		mo: 30.4375,
+		year: 365.25,
+		yr: 365.25,
+	};
 
-    var WORDS = {
-        “very low”: 1,
-        low: 1,
-        medium: 3,
-        moderate: 3,
-        high: 5,
-        “very high”: 5,
-    };
+	var WORDS = {
+		"very low": 1,
+		low: 1,
+		medium: 3,
+		moderate: 3,
+		high: 5,
+		"very high": 5,
+	};
 
-    // Convert backend value into days
-    function getDays(text) {
-        var match =
-            /(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
-                text || “”,
-            );
+	// Convert backend value into days
+	function getDays(text) {
+		var match =
+			/(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
+				text || "",
+			);
 
-        if (!match) return null;
+		if (!match) return null;
 
-        var number = parseFloat(match[1].replace(“,”, “.”));
-        var unit = match[2].toLowerCase();
+		var number = parseFloat(match[1].replace(",", "."));
+		var unit = match[2].toLowerCase();
 
-        return number * DAYS[unit];
-    }
+		return number * DAYS[unit];
+	}
 
-    // Calculate progress bars
-    function fillBars(card) {
-        var rows = Array.prototype.slice.call(
-            card.querySelectorAll(“.glanceBarRow”),
-        );
+	// Calculate progress bars
+	function fillBars(card) {
+		var rows = Array.prototype.slice.call(
+			card.querySelectorAll(".glanceBarRow"),
+		);
 
-        var days = rows.map(function (row) {
-            var value = row.querySelector(“.glanceBarValue”);
-            return value ? getDays(value.textContent.trim()) : null;
-        });
+		var days = rows.map(function (row) {
+			var value = row.querySelector(".glanceBarValue");
+			return value ? getDays(value.textContent.trim()) : null;
+		});
 
-        var validDays = days.filter(function (value) {
-            return value !== null && isFinite(value) && value >= 0;
-        });
+		var validDays = days.filter(function (value) {
+			return value !== null && isFinite(value) && value >= 0;
+		});
 
-        if (!validDays.length) return;
+		if (!validDays.length) return;
 
-        var longest = Math.max.apply(null, validDays);
+		var longest = Math.max.apply(null, validDays);
 
-        if (longest <= 0) return;
+		if (longest <= 0) return;
 
-        rows.forEach(function (row, index) {
-            var bar = row.querySelector(“.glanceBar”);
-            var value = row.querySelector(“.glanceBarValue”);
+		rows.forEach(function (row, index) {
+			var bar = row.querySelector(".glanceBar");
+			var value = row.querySelector(".glanceBarValue");
 
-            if (!bar || days[index] === null) return;
+			if (!bar || days[index] === null) return;
 
-            var fill = bar.querySelector(“.glanceBarFill”);
+			var fill = bar.querySelector(".glanceBarFill");
 
-            if (!fill && row.classList.contains(“is-active”)) {
-                fill = document.createElement(“span”);
-                fill.className = “glanceBarFill”;
-                bar.appendChild(fill);
-            }
+			if (!fill && row.classList.contains("is-active")) {
+				fill = document.createElement("span");
+				fill.className = "glanceBarFill";
+				bar.appendChild(fill);
+			}
 
-            var percentage = (days[index] / longest) * 100;
+			var percentage = (days[index] / longest) * 100;
 
-            percentage = Math.max(0, Math.min(100, percentage));
+			percentage = Math.max(0, Math.min(100, percentage));
 
-            var clip = “inset(0 ” + (100 - percentage).toFixed(4) + “% 0 0)“;
+			var clip = "inset(0 " + (100 - percentage).toFixed(4) + "% 0 0)";
 
-            if (fill) {
-                fill.style.clipPath = clip;
-            } else {
-                bar.style.clipPath = clip;
-            }
+			if (fill) {
+				fill.style.clipPath = clip;
+			} else {
+				bar.style.clipPath = clip;
+			}
 
-            bar.setAttribute(“aria-label”, value.textContent.trim());
-        });
-    }
+			bar.setAttribute("aria-label", value.textContent.trim());
+		});
+	}
 
-    // Calculate complexity dots
-    function fillDots(card) {
-        var dots = card.querySelector(“.glanceDots”);
+	// Calculate complexity dots
+	function fillDots(card) {
+		var dots = card.querySelector(".glanceDots");
 
-        if (!dots) return;
+		if (!dots) return;
 
-        // Read score directly from backend HTML
-        var score = parseFloat(dots.getAttribute(“data-score”));
+		// Read score directly from backend HTML
+		var score = parseFloat(dots.getAttribute("data-score"));
 
-        if (isNaN(score)) return;
+		if (isNaN(score)) return;
 
-        // Keep score between 0 and 5
-        score = Math.max(0, Math.min(5, score));
+		// Keep score between 0 and 5
+		score = Math.max(0, Math.min(5, score));
 
-        Array.prototype.forEach.call(dots.children, function (dot, index) {
-            var part = score - index;
+		Array.prototype.forEach.call(dots.children, function (dot, index) {
+			var part = score - index;
 
-            dot.className =
-                part >= 0.75 ? “is-on” : part >= 0.25 ? “is-half” : “”;
-        });
+			dot.className =
+				part >= 0.75 ? "is-on" : part >= 0.25 ? "is-half" : "";
+		});
 
-        dots.setAttribute(“aria-label”, “Complexity: “ + score + “ out of 5");
-    }
+		dots.setAttribute("aria-label", "Complexity: " + score + " out of 5");
+	}
 
-    // Refresh all cards
-    function updateCards() {
-        var cards = document.querySelectorAll(“.caseGlance”);
+	// Refresh all cards
+	function updateCards() {
+		var cards = document.querySelectorAll(".caseGlance");
 
-        Array.prototype.forEach.call(cards, function (card) {
-            fillBars(card);
-            fillDots(card);
+		Array.prototype.forEach.call(cards, function (card) {
+			fillBars(card);
+			fillDots(card);
 
-            if (
-                !card.classList.contains(“js-reveal”) &&
-                !window.matchMedia(“(prefers-reduced-motion: reduce)“)
-                    .matches &&
-                “IntersectionObserver” in window
-            ) {
-                card.classList.add(“js-reveal”);
+			if (
+				!card.classList.contains("js-reveal") &&
+				!window.matchMedia("(prefers-reduced-motion: reduce)")
+					.matches &&
+				"IntersectionObserver" in window
+			) {
+				card.classList.add("js-reveal");
 
-                var observer = new IntersectionObserver(
-                    function (entries) {
-                        if (!entries[0].isIntersecting) return;
+				var observer = new IntersectionObserver(
+					function (entries) {
+						if (!entries[0].isIntersecting) return;
 
-                        card.classList.add(“is-in”);
-                        observer.disconnect();
-                    },
-                    {
-                        threshold: 0.3,
-                    },
-                );
+						card.classList.add("is-in");
+						observer.disconnect();
+					},
+					{
+						threshold: 0.3,
+					},
+				);
 
-                observer.observe(card);
-            }
-        });
-    }
+				observer.observe(card);
+			}
+		});
+	}
 
-    function init() {
-        updateCards();
+	function init() {
+		updateCards();
 
-        // Watch backend / AJAX HTML updates
-        if (“MutationObserver” in window && document.body) {
-            var mutationObserver = new MutationObserver(function () {
-                updateCards();
-            });
+		// Watch backend / AJAX HTML updates
+		if ("MutationObserver" in window && document.body) {
+			var mutationObserver = new MutationObserver(function () {
+				updateCards();
+			});
 
-            mutationObserver.observe(document.body, {
-                childList: true,
-                subtree: true,
-                characterData: true,
-            });
-        }
-    }
+			mutationObserver.observe(document.body, {
+				childList: true,
+				subtree: true,
+				characterData: true,
+			});
+		}
+	}
 
-    if (document.readyState === “loading”) {
-        document.addEventListener(“DOMContentLoaded”, init);
-    } else {
-        init();
-    }
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
+	} else {
+		init();
+	}
 })();
