@@ -3090,9 +3090,17 @@ if ($(".aboutAwardsSec").length) {
 		pauseOnHover: true,
 		responsive: [
 			{
-				breakpoint: 1081,
+				breakpoint: 1281,
 				settings: {
 					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 1081,
+				settings: {
+					slidesToShow: 2.5,
 					slidesToScroll: 1,
 					infinite: true,
 				},
@@ -3109,39 +3117,38 @@ if ($(".aboutAwardsSec").length) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const teamTabs = document.querySelectorAll("[data-team-tab]");
+	const teamTabs = document.querySelectorAll("[data-team-tab]");
 
-    const teamSections = [
-        document.querySelector(".aboutTeamSec"),
-        document.querySelector(".boardSection"),
-        document.querySelector(".backedBySection"),
-    ];
+	const teamSections = [
+		document.querySelector(".aboutTeamSec"),
+		document.querySelector(".boardSection"),
+		document.querySelector(".backedBySection"),
+	];
 
-    teamTabs.forEach((tab, index) => {
-        tab.addEventListener("click", function () {
+	teamTabs.forEach((tab, index) => {
+		tab.addEventListener("click", function () {
+			// Active tab
+			teamTabs.forEach((item) => item.classList.remove("is-active"));
+			this.classList.add("is-active");
 
-            // Active tab
-            teamTabs.forEach((item) => item.classList.remove("is-active"));
-            this.classList.add("is-active");
+			// Scroll to respective section
+			const targetSection = teamSections[index];
 
-            // Scroll to respective section
-            const targetSection = teamSections[index];
+			if (targetSection) {
+				const headerOffset = 100;
 
-            if (targetSection) {
-                const headerOffset = 100;
+				const targetPosition =
+					targetSection.getBoundingClientRect().top +
+					window.scrollY -
+					headerOffset;
 
-                const targetPosition =
-                    targetSection.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerOffset;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth",
-                });
-            }
-        });
-    });
+				window.scrollTo({
+					top: targetPosition,
+					behavior: "smooth",
+				});
+			}
+		});
+	});
 });
 
 if ($(".aboutNewsSec").length) {
@@ -3203,6 +3210,178 @@ if ($(".aboutNewsSec").length) {
 // Desktop (>1100px): the section pins and the years move with the scroll (GSAP ScrollTrigger, already in the theme).
 // Tablet and mobile (<=1100px): no pinning. The section keeps its natural height and the years are a swipeable strip.
 // Year tabs work in both modes.
+// (function () {
+// 	"use strict";
+// 	document.addEventListener("DOMContentLoaded", function () {
+// 		var sec = document.querySelector(".aboutDecadeSec");
+// 		if (!sec) return;
+
+// 		var tabs = Array.prototype.slice.call(sec.querySelectorAll(".yearTab"));
+// 		var items = Array.prototype.slice.call(
+// 			sec.querySelectorAll(".decadeItem"),
+// 		);
+// 		var view = sec.querySelector(".decadeViewport");
+// 		var track = sec.querySelector(".decadeTrack");
+// 		var stage = sec.querySelector(".decadeStage");
+// 		var N = items.length;
+// 		if (!N || !view || !track || !stage) return;
+
+// 		var reduce = window.matchMedia(
+// 			"(prefers-reduced-motion: reduce)",
+// 		).matches;
+// 		var active = -1;
+// 		var st = null; // the ScrollTrigger, only while pinned
+// 		var lockUntil = 0; // ignore strip scroll events right after a tab click
+// 		var readyTimer = 0;
+
+// 		function setActive(i) {
+// 			i = Math.max(0, Math.min(N - 1, i));
+// 			if (i === active) return;
+// 			if (active !== -1) showDots();
+// 			active = i;
+// 			items.forEach(function (el, k) {
+// 				el.classList.toggle("is-active", k === i);
+// 			});
+// 			tabs.forEach(function (t, k) {
+// 				t.classList.toggle("is-active", k === i);
+// 				if (k === i) t.setAttribute("aria-current", "true");
+// 				else t.removeAttribute("aria-current");
+// 			});
+// 			// Keep the active tab in view when the tab row scrolls (small screens).
+// 			var box = tabs[i] && tabs[i].parentNode;
+// 			if (box && box.scrollWidth > box.clientWidth) {
+// 				box.scrollTo({
+// 					left:
+// 						tabs[i].offsetLeft -
+// 						(box.clientWidth - tabs[i].offsetWidth) / 2,
+// 					behavior: reduce ? "auto" : "smooth",
+// 				});
+// 			}
+// 		}
+// 		function showDots() {
+// 			window.clearTimeout(readyTimer);
+// 			sec.classList.add("is-ready");
+// 		}
+
+// 		function stepWidth() {
+// 			return N > 1
+// 				? items[1].offsetLeft - items[0].offsetLeft
+// 				: items[0].offsetWidth;
+// 		}
+
+// 		function goTo(i) {
+// 			setActive(i);
+// 			if (st) {
+// 				var y = st.start + (i / (N - 1)) * (st.end - st.start);
+// 				window.scrollTo({
+// 					top: y,
+// 					behavior: reduce ? "auto" : "smooth",
+// 				});
+// 				return;
+// 			}
+// 			lockUntil = Date.now() + 800;
+// 			view.scrollTo({
+// 				left: i * stepWidth(),
+// 				behavior: reduce ? "auto" : "smooth",
+// 			});
+// 		}
+
+// 		tabs.forEach(function (t, i) {
+// 			t.addEventListener("click", function () {
+// 				goTo(i);
+// 			});
+// 		});
+
+// 		// Strip (not pinned): the scroll position decides the active year.
+// 		var ticking = false;
+// 		view.addEventListener(
+// 			"scroll",
+// 			function () {
+// 				if (
+// 					st ||
+// 					sec.classList.contains("is-pinned") ||
+// 					Date.now() < lockUntil ||
+// 					ticking
+// 				)
+// 					return;
+// 				ticking = true;
+// 				window.requestAnimationFrame(function () {
+// 					ticking = false;
+// 					var max = view.scrollWidth - view.clientWidth;
+// 					var idx =
+// 						view.scrollLeft >= max - 2
+// 							? N - 1
+// 							: Math.round(view.scrollLeft / stepWidth());
+// 					setActive(idx);
+// 				});
+// 			},
+// 			{ passive: true },
+// 		);
+
+// 		// Pinned, scroll-driven mode.
+// 		if (window.gsap && window.ScrollTrigger && !reduce) {
+// 			window.gsap.registerPlugin(window.ScrollTrigger);
+// 			window.gsap.matchMedia().add("(min-width: 1101px)", function () {
+// 				sec.classList.add("is-pinned");
+// 				var perYear = function () {
+// 					return Math.round(window.innerHeight * 0.5);
+// 				};
+// 				var tween = window.gsap.to(track, {
+// 					x: function () {
+// 						return -(N - 1) * stepWidth();
+// 					},
+// 					ease: "none",
+// 					scrollTrigger: {
+// 						trigger: sec,
+// 						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
+// 						start: function () {
+// 							return sec.offsetHeight > window.innerHeight
+// 								? "bottom bottom"
+// 								: "top top";
+// 						},
+// 						end: function () {
+// 							return "+=" + (N - 1) * perYear();
+// 						},
+// 						pin: true,
+// 						anticipatePin: 1,
+// 						scrub: 0.6,
+// 						invalidateOnRefresh: true,
+// 						snap: {
+// 							snapTo: 1 / (N - 1),
+// 							duration: { min: 0.2, max: 0.5 },
+// 							ease: "power2.out",
+// 						},
+// 						onUpdate: function (self) {
+// 							setActive(Math.round(self.progress * (N - 1)));
+// 						},
+// 					},
+// 				});
+// 				st = tween.scrollTrigger;
+// 				return function () {
+// 					sec.classList.remove("is-pinned");
+// 					st = null;
+// 					window.gsap.set(track, { clearProps: "transform" });
+// 				};
+// 			});
+// 		}
+
+// 		// Intro: line draws, then the dot pops. Plays once.
+// 		setActive(0);
+// 		if (reduce || !("IntersectionObserver" in window)) return;
+// 		sec.classList.add("js-reveal");
+// 		var io = new IntersectionObserver(
+// 			function (entries) {
+// 				if (!entries[0].isIntersecting) return;
+// 				sec.classList.add("is-in");
+// 				readyTimer = window.setTimeout(showDots, 2400);
+// 				io.disconnect();
+// 			},
+// 			{ threshold: 0.3 },
+// 		);
+// 		io.observe(stage);
+// 	});
+// })();
+
 (function () {
 	"use strict";
 	document.addEventListener("DOMContentLoaded", function () {
@@ -3216,6 +3395,7 @@ if ($(".aboutNewsSec").length) {
 		var view = sec.querySelector(".decadeViewport");
 		var track = sec.querySelector(".decadeTrack");
 		var stage = sec.querySelector(".decadeStage");
+		var line = sec.querySelector(".decadeLine");
 		var N = items.length;
 		if (!N || !view || !track || !stage) return;
 
@@ -3224,7 +3404,8 @@ if ($(".aboutNewsSec").length) {
 		).matches;
 		var active = -1;
 		var st = null; // the ScrollTrigger, only while pinned
-		var lockUntil = 0; // ignore strip scroll events right after a tab click
+		var lockUntil = 0; // ignore strip scroll events while a tab click is still scrolling
+		var lockTarget = 0; // where that scroll is heading
 		var readyTimer = 0;
 
 		function setActive(i) {
@@ -3262,6 +3443,80 @@ if ($(".aboutNewsSec").length) {
 				: items[0].offsetWidth;
 		}
 
+		// Strip mode: real position of a card inside the scrolling content, and where the snapped card sits (scroll-padding).
+		function itemX(i) {
+			return (
+				items[i].getBoundingClientRect().left -
+				view.getBoundingClientRect().left +
+				view.scrollLeft
+			);
+		}
+		function snapPad() {
+			return (
+				parseFloat(window.getComputedStyle(view).scrollPaddingLeft) || 0
+			);
+		}
+
+		// Desktop: once the first card moves left of the line's start, the line grows with it and reaches left: 0 with the card.
+		var lineBase = 0;
+		var lineW = 0;
+		function syncLine() {
+			if (!line) return;
+			if (window.innerWidth <= 1100) {
+				line.style.left = "";
+				line.style.backgroundPositionX = "";
+				return;
+			}
+			var box = stage.getBoundingClientRect();
+			if (box.width !== lineW) {
+				// read the start the stylesheet gives the line (left: 30.5%)
+				lineW = box.width;
+				line.style.left = "";
+				lineBase = line.offsetLeft;
+			}
+			var left = Math.max(
+				0,
+				Math.min(
+					lineBase,
+					items[0].getBoundingClientRect().left - box.left,
+				),
+			);
+			line.style.left = left + "px";
+			line.style.backgroundPositionX = lineBase - left + "px"; // keeps the dots from sliding
+		}
+
+		// Strip mode: which year the scroll position points at.
+		function stripIndex() {
+			var max = view.scrollWidth - view.clientWidth;
+			if (view.scrollLeft >= max - 2) return N - 1; // the end is always the last year
+			var pad = snapPad();
+			var reach = 0; // last card that can still be scrolled to the left edge
+			items.forEach(function (el, k) {
+				if (itemX(k) - pad <= max + 1) reach = k;
+			});
+			var from = itemX(reach) - pad;
+			if (reach < N - 1 && view.scrollLeft > from) {
+				// last stretch: spread the remaining cards over it so none is skipped
+				return (
+					reach +
+					Math.round(
+						((view.scrollLeft - from) / (max - from)) *
+							(N - 1 - reach),
+					)
+				);
+			}
+			var idx = 0;
+			var best = Infinity;
+			items.forEach(function (el, k) {
+				var dist = Math.abs(itemX(k) - pad - view.scrollLeft);
+				if (dist < best) {
+					best = dist;
+					idx = k;
+				}
+			});
+			return idx;
+		}
+
 		function goTo(i) {
 			setActive(i);
 			if (st) {
@@ -3272,9 +3527,19 @@ if ($(".aboutNewsSec").length) {
 				});
 				return;
 			}
-			lockUntil = Date.now() + 800;
+			var target = Math.max(
+				0,
+				Math.min(
+					view.scrollWidth - view.clientWidth,
+					itemX(i) - snapPad(),
+				),
+			);
+			// the strip cannot scroll past its end, so the last few cards never reach the left edge: keep the clicked year active
+			lockTarget = target;
+			lockUntil =
+				Math.abs(view.scrollLeft - target) > 2 ? Date.now() + 1500 : 0;
 			view.scrollTo({
-				left: i * stepWidth(),
+				left: target,
 				behavior: reduce ? "auto" : "smooth",
 			});
 		}
@@ -3290,22 +3555,19 @@ if ($(".aboutNewsSec").length) {
 		view.addEventListener(
 			"scroll",
 			function () {
-				if (
-					st ||
-					sec.classList.contains("is-pinned") ||
-					Date.now() < lockUntil ||
-					ticking
-				)
+				syncLine();
+				if (st || sec.classList.contains("is-pinned") || ticking)
 					return;
+				if (Date.now() < lockUntil) {
+					// a tab click is still scrolling; the clicked year is already active
+					if (Math.abs(view.scrollLeft - lockTarget) <= 2)
+						lockUntil = Date.now() + 150; // arrived: let the last events pass
+					return;
+				}
 				ticking = true;
 				window.requestAnimationFrame(function () {
 					ticking = false;
-					var max = view.scrollWidth - view.clientWidth;
-					var idx =
-						view.scrollLeft >= max - 2
-							? N - 1
-							: Math.round(view.scrollLeft / stepWidth());
-					setActive(idx);
+					setActive(stripIndex());
 				});
 			},
 			{ passive: true },
@@ -3324,6 +3586,7 @@ if ($(".aboutNewsSec").length) {
 						return -(N - 1) * stepWidth();
 					},
 					ease: "none",
+					onUpdate: syncLine,
 					scrollTrigger: {
 						trigger: sec,
 						// If the section is taller than the screen, pin it by its bottom edge so nothing is cut.
@@ -3339,6 +3602,7 @@ if ($(".aboutNewsSec").length) {
 						anticipatePin: 1,
 						scrub: 0.6,
 						invalidateOnRefresh: true,
+						onRefresh: syncLine,
 						snap: {
 							snapTo: 1 / (N - 1),
 							duration: { min: 0.2, max: 0.5 },
@@ -3354,12 +3618,16 @@ if ($(".aboutNewsSec").length) {
 					sec.classList.remove("is-pinned");
 					st = null;
 					window.gsap.set(track, { clearProps: "transform" });
+					syncLine();
 				};
 			});
 		}
 
+		window.addEventListener("resize", syncLine);
+
 		// Intro: line draws, then the dot pops. Plays once.
 		setActive(0);
+		syncLine();
 		if (reduce || !("IntersectionObserver" in window)) return;
 		sec.classList.add("js-reveal");
 		var io = new IntersectionObserver(
@@ -3660,7 +3928,12 @@ if ($(".aboutLeadersSec").length) {
 
 		function lockScroll(on) {
 			var gap = window.innerWidth - document.documentElement.clientWidth; // keep the page from shifting when the scrollbar goes
+			var html = document.documentElement;
+
 			document.body.classList.toggle("profileDrawerOpen", on);
+			document.body.classList.toggle("hideScrollbar", on);
+			html.classList.toggle("hideScrollbarhtml", on);
+
 			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
 		}
 
@@ -3872,4 +4145,179 @@ if ($(".aboutLeadersSec").length) {
 
 	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
 	else init();
+})();
+
+// Case at a glance: fills the engagement bar from the two values in the HTML, and plays the reveal once when the card scrolls into view.
+// Case at a glance: fills the bars and complexity dots from the values in the HTML, and plays the reveal once when the card scrolls into view.
+
+(function () {
+    “use strict”;
+
+    var SEGMENTS = 48;
+    var PERIOD = 100 / SEGMENTS;
+
+    var DAYS = {
+        day: 1,
+        week: 7,
+        wk: 7,
+        month: 30.4375,
+        mo: 30.4375,
+        year: 365.25,
+        yr: 365.25,
+    };
+
+    var WORDS = {
+        “very low”: 1,
+        low: 1,
+        medium: 3,
+        moderate: 3,
+        high: 5,
+        “very high”: 5,
+    };
+
+    // Convert backend value into days
+    function getDays(text) {
+        var match =
+            /(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
+                text || “”,
+            );
+
+        if (!match) return null;
+
+        var number = parseFloat(match[1].replace(“,”, “.”));
+        var unit = match[2].toLowerCase();
+
+        return number * DAYS[unit];
+    }
+
+    // Calculate progress bars
+    function fillBars(card) {
+        var rows = Array.prototype.slice.call(
+            card.querySelectorAll(“.glanceBarRow”),
+        );
+
+        var days = rows.map(function (row) {
+            var value = row.querySelector(“.glanceBarValue”);
+            return value ? getDays(value.textContent.trim()) : null;
+        });
+
+        var validDays = days.filter(function (value) {
+            return value !== null && isFinite(value) && value >= 0;
+        });
+
+        if (!validDays.length) return;
+
+        var longest = Math.max.apply(null, validDays);
+
+        if (longest <= 0) return;
+
+        rows.forEach(function (row, index) {
+            var bar = row.querySelector(“.glanceBar”);
+            var value = row.querySelector(“.glanceBarValue”);
+
+            if (!bar || days[index] === null) return;
+
+            var fill = bar.querySelector(“.glanceBarFill”);
+
+            if (!fill && row.classList.contains(“is-active”)) {
+                fill = document.createElement(“span”);
+                fill.className = “glanceBarFill”;
+                bar.appendChild(fill);
+            }
+
+            var percentage = (days[index] / longest) * 100;
+
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            var clip = “inset(0 ” + (100 - percentage).toFixed(4) + “% 0 0)“;
+
+            if (fill) {
+                fill.style.clipPath = clip;
+            } else {
+                bar.style.clipPath = clip;
+            }
+
+            bar.setAttribute(“aria-label”, value.textContent.trim());
+        });
+    }
+
+    // Calculate complexity dots
+    function fillDots(card) {
+        var dots = card.querySelector(“.glanceDots”);
+
+        if (!dots) return;
+
+        // Read score directly from backend HTML
+        var score = parseFloat(dots.getAttribute(“data-score”));
+
+        if (isNaN(score)) return;
+
+        // Keep score between 0 and 5
+        score = Math.max(0, Math.min(5, score));
+
+        Array.prototype.forEach.call(dots.children, function (dot, index) {
+            var part = score - index;
+
+            dot.className =
+                part >= 0.75 ? “is-on” : part >= 0.25 ? “is-half” : “”;
+        });
+
+        dots.setAttribute(“aria-label”, “Complexity: “ + score + “ out of 5");
+    }
+
+    // Refresh all cards
+    function updateCards() {
+        var cards = document.querySelectorAll(“.caseGlance”);
+
+        Array.prototype.forEach.call(cards, function (card) {
+            fillBars(card);
+            fillDots(card);
+
+            if (
+                !card.classList.contains(“js-reveal”) &&
+                !window.matchMedia(“(prefers-reduced-motion: reduce)“)
+                    .matches &&
+                “IntersectionObserver” in window
+            ) {
+                card.classList.add(“js-reveal”);
+
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        if (!entries[0].isIntersecting) return;
+
+                        card.classList.add(“is-in”);
+                        observer.disconnect();
+                    },
+                    {
+                        threshold: 0.3,
+                    },
+                );
+
+                observer.observe(card);
+            }
+        });
+    }
+
+    function init() {
+        updateCards();
+
+        // Watch backend / AJAX HTML updates
+        if (“MutationObserver” in window && document.body) {
+            var mutationObserver = new MutationObserver(function () {
+                updateCards();
+            });
+
+            mutationObserver.observe(document.body, {
+                childList: true,
+                subtree: true,
+                characterData: true,
+            });
+        }
+    }
+
+    if (document.readyState === “loading”) {
+        document.addEventListener(“DOMContentLoaded”, init);
+    } else {
+        init();
+    }
 })();

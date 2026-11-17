@@ -17,11 +17,93 @@
         h1{@include font72; font-weight: 500; line-height: 120%; text-transform: capitalize; margin-bottom: 32px; width: fit-content; @include csdGradientText;}
         p{max-width: 622px; @include font20; font-weight: 300; line-height: 160%; color: rgba(221, 225, 225, 0.80);}
     }
-    .csFacts{position: relative; flex: 0 0 855px; max-width: 52%; margin-top: 15px; display: grid; grid-template-columns: 52.9% 1fr; row-gap: 78px; padding: 47px 24px 32px; border: 1px solid rgba(111, 99, 99, 0.5); border-radius: 12px; background: rgba(33, 2, 19, 0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-        &::before{content: ""; position: absolute; inset: -1px; border-radius: 12px; padding: 1.2px; background: linear-gradient(138deg, #01D3C7 4%, rgba(255, 255, 255, 0) 52%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;}
-        .csFact{min-width: 0; padding-right: 24px;
-            .label{@include csdLabel; margin-bottom: 8px;}
-            p{max-width: 290px; @include font20; font-weight: 400; line-height: 140%; color: #D9D9D9; text-transform: capitalize;}
+    // .csFacts{position: relative; flex: 0 0 855px; max-width: 52%; margin-top: 15px; display: grid; grid-template-columns: 52.9% 1fr; row-gap: 78px; padding: 47px 24px 32px; border: 1px solid rgba(111, 99, 99, 0.5); border-radius: 12px; background: rgba(33, 2, 19, 0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    //     &::before{content: ""; position: absolute; inset: -1px; border-radius: 12px; padding: 1.2px; background: linear-gradient(138deg, #01D3C7 4%, rgba(255, 255, 255, 0) 52%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;}
+    //     .csFact{min-width: 0; padding-right: 24px;
+    //         .label{@include csdLabel; margin-bottom: 8px;}
+    //         p{max-width: 290px; @include font20; font-weight: 400; line-height: 140%; color: #D9D9D9; text-transform: capitalize;}
+    //     }
+    // }
+    // Case at a glance card (Case Study Details). Static content, sizes from Figma node 1954:6040.
+    $glTeal: #00ACB4;
+    $glMuted: #81716A;
+    $glText: #D9D9D9;
+    $glSeg: rgba(217, 217, 217, 0.24);
+
+    .caseGlance{position: relative; display: flex; flex-flow: column; gap: 26px; box-sizing: border-box; width: 100%; max-width: 928px; padding: 24px 24px 56px; border: 1px solid transparent; border-radius: 20px; // gradient border: teal top-left into the red #CC2033 (the stroke in Figma is an instance, so this is matched by eye)
+        background: linear-gradient(#2F0A20, #2F0A20) padding-box, linear-gradient(135deg, #01D3C7 0%, rgba(1, 211, 199, 0) 32%, rgba(204, 32, 51, 0.55) 70%, #CC2033 100%) border-box;
+        .glanceLabel{margin: 0; font-size: 16px; font-weight: 500; line-height: 160%; letter-spacing: 1.6px; text-transform: uppercase; color: $glMuted;}
+        .glanceValue{margin: 0; font-size: 20px; font-weight: 400; line-height: 140%; text-transform: capitalize; color: $glText;}
+        .glanceDot{flex: 0 0 auto; width: 5.371px; height: 5.371px; background: $glTeal;}
+
+        .glanceHead{display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; height: 68px; padding: 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.2);}
+        .glanceStatus{display: flex; align-items: center; gap: 4px; margin: 0; font-size: 16px; font-weight: 500; line-height: 160%; color: rgba(255, 255, 255, 0.8); white-space: nowrap;}
+
+        .glanceBody{display: flex; flex-flow: column; gap: 25px; max-width: 752px;}
+        .glanceBlock{display: flex; flex-flow: column; gap: 8px; min-width: 0;}
+
+        // Engagement length
+        .glanceMain{display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; margin: 0;}
+        .glanceNote{font-size: 16px; font-weight: 500; line-height: 160%; color: $glMuted;}
+        .glanceBarRow{display: flex; align-items: center; gap: 8px; max-width: 655px;
+            .glanceBarLabel{flex: 0 0 140px; margin: 0; font-size: 16px; font-weight: 500; line-height: 160%; color: $glMuted;}
+            .glanceBarValue{flex: 0 0 auto; margin: 0; font-size: 16px; font-weight: 500; line-height: 160%; color: $glMuted; white-space: nowrap;}
+            &.is-active .glanceBarValue{color: $glTeal;}
+        }
+        // 48 segments at any width: each period is 2.0937% of the bar (6.777px + 2px gap on 419.3px)
+        .glanceBar{position: relative; flex: 0 1 419.3px; width: 419.3px; min-width: 0; height: 7.833px; margin-left: 0; overflow: hidden; background: repeating-linear-gradient(90deg, $glSeg 0, $glSeg 1.6164%, transparent 1.6164%, transparent 2.0937%);}
+        .glanceBarFill{position: absolute; inset: 0; background: repeating-linear-gradient(90deg, $glTeal 0, $glTeal 1.6164%, transparent 1.6164%, transparent 2.0937%);} // same grid as the bar; its clip-path (inline, % of the bar) sets how much is filled
+
+        // Rows below
+        .glanceRows{display: flex; flex-flow: column; gap: 36px;}
+        .glanceRow{display: flex; align-items: flex-start; gap: 87px;}
+        .glanceImpact{flex: 0 0 340px;}
+        .glanceComplexity{flex: 0 0 205px; gap: 12px;}
+        .glanceStack{display: flex; flex-flow: column; gap: 8px;
+            .glanceLabel{line-height: 140%;}
+        }
+        .glanceStake{flex: 0 0 auto;}
+        .glanceBand{flex: 1 1 0;}
+        .glanceChips{display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none;}
+        .glanceChip{display: flex; align-items: center; justify-content: center; gap: 10px; box-sizing: border-box; height: 42px; padding: 10px 16px; border-radius: 24px; font-family: "Poppins", sans-serif; font-weight: 300; line-height: normal; white-space: nowrap;
+            &.is-teal{background: rgba(1, 101, 95, 0.17); font-size: 16px; color: rgba(255, 255, 255, 0.7);}
+            &.is-red{border: 1px solid #A71D20; background: rgba(255, 0, 0, 0.1); font-size: 14px; color: #FFFFFF;}
+        }
+        .glanceDots{display: flex; gap: 6px; height: 12px;
+            i{display: block; width: 12px; height: 12px; border-radius: 50%; background: $glSeg;
+                &.is-on{background: #CC2033;}
+                &.is-half{background: linear-gradient(90deg, #CC2033 50%, $glSeg 50%);}
+            }
+        }
+        .glanceMix{display: flex; flex-wrap: wrap; gap: 0 24px;}
+
+        // Reveal (Figma: each block wipes in from the left, 1.8s ease-in-out; the three groups start at 0s, 1.1s and 1.65s). Only hidden once JS runs.
+        &.js-reveal [data-glance-reveal]{clip-path: inset(0 100% 0 0); transition: clip-path 1.8s ease-in-out;}
+        &.js-reveal [data-glance-reveal="b"]{transition-delay: 1.1s;}
+        &.js-reveal [data-glance-reveal="c"]{transition-delay: 1.65s;}
+        &.js-reveal.is-in [data-glance-reveal]{clip-path: inset(0 0 0 0);}
+
+        @media screen and (max-width: 1024px) {
+            .glanceRow{gap: 48px;}
+            .glanceImpact{flex-basis: 300px;}
+        }
+        @media screen and (max-width: 720px) {padding: 16px 16px 32px; gap: 20px; border-radius: 16px;
+            .glanceHead{height: 56px;}
+            .glanceBody{gap: 20px;}
+            .glanceRows{gap: 28px;}
+            .glanceRow{flex-flow: column; gap: 28px;}
+            .glanceImpact, .glanceComplexity, .glanceStake{flex: 0 0 auto;}
+            .glanceBand{flex: 0 0 auto;}
+            .glanceBarRow{flex-wrap: wrap; row-gap: 6px;
+                .glanceBarLabel{flex: 1 1 auto;}
+                .glanceBarValue{order: 2;}
+                .glanceBar{order: 3; flex: 1 1 100%; width: 100%;}
+            }
+            .glanceMix{gap: 0 12px;}
+            .glanceNote{flex: 1 0 100%;}
+        }
+        @media screen and (prefers-reduced-motion: reduce) {
+            &.js-reveal [data-glance-reveal]{clip-path: none; transition: none;}
         }
     }
     .csRating{display: flex; gap: 6px; margin-top: 12px;
@@ -96,15 +178,9 @@ body.single-case_study {
         @media screen and (max-width: 1280px){margin-top: -40px;}
         @media screen and (max-width: 720px){margin-top: 0;}
     }
-    // .csExploreSec{margin-bottom: 0; z-index: 2;
-    //     .secWrapper{
-    //         .secHeading{margin-bottom: 40px;
-    //             .headingGroup{width: auto;
-    //                 h2{margin-bottom: 0;}
-    //             }
-    //         }
-    //     }
-    // }
+    .csExploreSec{
+        &::after{display: none;}
+    }
 }
 
 // ---------------------------------------------------------------- responsive

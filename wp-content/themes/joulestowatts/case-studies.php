@@ -45,7 +45,7 @@ $all_label     = ! empty( $filters['all_label'] ) ? $filters['all_label'] : 'All
                 </div>
             <?php endforeach; ?>
         </div>
-
+    
         <div class="csResults">
             <p class="csCount" aria-live="polite">
                 <span data-count-text="<?php echo esc_attr( $count_text ); ?>"><?php echo esc_html( sprintf( $count_text, $shown, $total ) ); ?></span>
@@ -53,6 +53,27 @@ $all_label     = ! empty( $filters['all_label'] ) ? $filters['all_label'] : 'All
                     <span><?php echo esc_html( $settings['library_text'] ); ?></span>
                 <?php endif; ?>
             </p>
+            <section class="featuredStory">
+                <div class="storyInner">
+                    <div class="storyMedia">
+                        <h2 class="storyStat">
+                            <span class="storyNum">$1.2</span>
+                            <span class="storyUnit" data-text="B">B</span>
+                        </h2>
+                    </div>
+                    <div class="storyContent">
+                        <p class="storyDesc">Automated drone thermal analysis and predictive O&amp;M across renewable generation assets.</p>
+                        <ul class="storyTags">
+                            <li>P&amp;LBalance sheet</li>
+                            <li>Banking</li>
+                            <li>GCC Build</li>
+                        </ul>
+                        <a href="#" class="transparentCTA manrope">Read the Story
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
             <div class="csGrid">
                 <?php foreach ( $stories as $index => $story ) :

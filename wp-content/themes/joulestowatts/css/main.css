@@ -665,6 +665,7 @@ button:focus {
   color: #FFFFFF;
   text-decoration: none;
   transition: background-color 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
 }
 .transparentCTA svg {
   flex: 0 0 auto;
@@ -21612,6 +21613,7 @@ body.page-template-about-us {
 
 .aboutLetterDrawer {
   position: fixed;
+  height: 100vh;
   inset: 0;
   z-index: 9999;
   visibility: visible;
@@ -21621,6 +21623,7 @@ body.page-template-about-us {
 .aboutLetterDrawer .drawerOverlay {
   position: absolute;
   inset: 0;
+  height: 100%;
   background: rgba(10, 0, 7, 0.6);
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -21631,6 +21634,7 @@ body.page-template-about-us {
   right: 0;
   bottom: 0;
   width: 50%;
+  height: 100%;
   background: #220214;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   transform: translateX(100%);
@@ -21666,7 +21670,6 @@ body.page-template-about-us {
 .aboutLetterDrawer .drawerPanel .drawerScroll {
   height: 100%;
   box-sizing: border-box;
-  overflow-y: auto;
   overscroll-behavior: contain;
   padding: 32px;
   display: flex;
@@ -21852,10 +21855,14 @@ body.page-template-about-us {
   flex-flow: column;
   gap: 50px;
   margin-top: -5px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 .aboutLetterDrawer .drawerPanel .drawerBody .innerBody {
-  max-height: 54vh;
-  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 .aboutLetterDrawer .drawerPanel .drawerBody .innerBody::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -21903,6 +21910,58 @@ body.page-template-about-us {
 }
 .aboutLetterDrawer.is-open .drawerPanel {
   transform: none;
+}
+@media screen and (max-width: 1600px) {
+  .aboutLetterDrawer .drawerPanel .drawerScroll {
+    padding: 30px;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .aboutLetterDrawer .drawerPanel .drawerClose {
+    width: 30px;
+    height: 30px;
+    right: 28px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerScroll {
+    padding: 28px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerHead {
+    padding-bottom: 30px;
+    gap: 18px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerAuthor {
+    padding-bottom: 30px;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .aboutLetterDrawer .drawerPanel .drawerScroll {
+    padding: 20px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerHead {
+    padding-bottom: 24px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerAuthor {
+    padding-bottom: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .aboutLetterDrawer .drawerPanel .drawerClose {
+    width: 24px;
+    height: 24px;
+    right: 16px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerScroll {
+    gap: 16px;
+    padding: 16px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerHead {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .aboutLetterDrawer .drawerPanel .drawerAuthor {
+    padding-bottom: 20px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .aboutLetterDrawer .drawerPanel {
@@ -21996,16 +22055,6 @@ body.aboutLetterOpen {
 }
 .aboutDecadeSec {
   padding-top: 150px;
-  --decItemW: calc(520px * var(--aboutS));
-  --decPadT: calc(38px * var(--aboutS));
-  --decImgH: calc(215px * var(--aboutS));
-  --decDot: calc(24px * var(--aboutS));
-  --decDotGap: calc(12px * var(--aboutS));
-  --decCardGap: calc(96px * var(--aboutS));
-  --decCardW: calc(366px * var(--aboutS));
-  --decAnchor: 61.3%;
-  --decLineLeft: 30.5%;
-  --decPadL: 0px;
 }
 .aboutDecadeSec .aboutDecadeBg {
   position: absolute;
@@ -22185,9 +22234,9 @@ body.aboutLetterOpen {
 .aboutDecadeSec .decadeStage .decadeLine {
   position: absolute;
   z-index: 0;
-  left: var(--decLineLeft);
+  left: 30.5%;
   right: 0;
-  top: calc(var(--decPadT) + var(--decImgH) + var(--decDotGap) + var(--decDot) / 2 - 1.5px);
+  top: calc(calc(277px * var(--aboutS)) - 1.5px);
   height: 3px;
   background: radial-gradient(circle, rgba(1, 211, 199, 0.55) 1.1px, rgba(1, 211, 199, 0) 1.6px) 0 50%/6px 3px repeat-x;
   pointer-events: none;
@@ -22207,25 +22256,25 @@ body.aboutLetterOpen {
   align-items: flex-start;
   width: max-content;
   margin: 0;
-  padding: 0 calc(100% - var(--decAnchor) - var(--decItemW) / 2) 0 calc(var(--decAnchor) - var(--decItemW) / 2);
+  padding: 0 calc(38.7% - calc(260px * var(--aboutS))) 0 calc(61.3% - calc(260px * var(--aboutS)));
   list-style: none;
   will-change: transform;
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem {
   position: relative;
-  flex: 0 0 var(--decItemW);
+  flex: 0 0 calc(520px * var(--aboutS));
   display: flex;
   flex-flow: column;
   align-items: center;
   box-sizing: border-box;
-  padding-top: var(--decPadT);
+  padding-top: calc(38px * var(--aboutS));
   scroll-snap-align: start;
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeImg {
   display: flex;
   justify-content: center;
-  height: var(--decImgH);
-  min-width: var(--decImgH);
+  height: calc(215px * var(--aboutS));
+  min-width: calc(215px * var(--aboutS));
   margin: 0;
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeImg img {
@@ -22238,10 +22287,10 @@ body.aboutLetterOpen {
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .dot {
   position: absolute;
   left: 50%;
-  top: calc(var(--decPadT) + var(--decImgH) + var(--decDotGap));
-  width: var(--decDot);
-  height: var(--decDot);
-  margin-left: calc(var(--decDot) / -2);
+  top: calc(265px * var(--aboutS));
+  width: calc(24px * var(--aboutS));
+  height: calc(24px * var(--aboutS));
+  margin-left: calc(-12px * var(--aboutS));
   border-radius: 50%;
   background: #17E3F2;
   transform: scale(0);
@@ -22254,29 +22303,90 @@ body.aboutLetterOpen {
   display: flex;
   flex-flow: column;
   gap: calc(16px * var(--aboutS));
-  width: var(--decCardW);
-  margin-top: var(--decCardGap);
+  width: calc(366px * var(--aboutS));
+  margin-top: calc(96px * var(--aboutS));
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
   display: block;
   width: 100%;
-  font-size: max(16px, 20px * var(--aboutS));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
+    font-size: 12px;
+  }
+}
+.aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard .year {
   font-weight: 500;
   line-height: 120%;
   text-transform: capitalize;
-  background: linear-gradient(-27.81deg, #01D3C7 50.17%, #FFFFFF 139.2%);
+  background: linear-gradient(277deg, rgba(1, 211, 199, 0.98) 50.17%, rgba(255, 255, 255, 0.98) 139.2%);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
-  font-size: max(16px, 20px * var(--aboutS));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
+    font-size: 12px;
+  }
+}
+.aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard h3 {
   font-weight: 400;
   line-height: 140%;
   color: rgba(255, 255, 255, 0.8);
 }
 .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard p {
-  font-size: max(14px, 16px * var(--aboutS));
+  font-size: 16px;
+}
+@media screen and (max-width: 1600px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard p {
+    font-size: 11px;
+  }
+}
+.aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard p {
   line-height: 160%;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -22296,23 +22406,23 @@ body.aboutLetterOpen {
 .aboutDecadeSec.js-reveal .decadeLine {
   transition: opacity 0.1s linear 0.3s, clip-path 2s cubic-bezier(0.16, 0, 0.3, 1) 0.3s;
 }
-@media all and (max-width: 1600px) {
+@media all and (max-width: 1800px) {
   .aboutDecadeSec {
     padding-top: 100px;
   }
+  .aboutDecadeSec .decadeStage {
+    margin-top: 80px;
+  }
+}
+@media all and (max-width: 1440px) {
+  .aboutDecadeSec {
+    padding-top: 80px;
+  }
+  .aboutDecadeSec .decadeStage {
+    margin-top: 60px;
+  }
 }
 @media screen and (max-width: 1100px) {
-  .aboutDecadeSec {
-    --decItemW: 340px;
-    --decPadT: 8px;
-    --decImgH: 180px;
-    --decDot: 22px;
-    --decDotGap: 10px;
-    --decCardGap: 62px;
-    --decCardW: 290px;
-    --decLineLeft: 0%;
-    --decPadL: 40px;
-  }
   .aboutDecadeSec .decadeHead {
     gap: 14px;
   }
@@ -22326,14 +22436,36 @@ body.aboutLetterOpen {
   .aboutDecadeSec .decadeStage {
     margin-top: 32px;
   }
-  .aboutDecadeSec .decadeViewport {
+  .aboutDecadeSec .decadeStage .decadeLine {
+    left: 0;
+    top: 207.5px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport {
     scroll-snap-type: x mandatory;
-    scroll-padding-left: var(--decPadL);
+    scroll-padding-left: 40px;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
   }
-  .aboutDecadeSec .decadeTrack {
-    padding: 0 var(--decPadL);
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack {
+    padding: 0 40px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem {
+    flex: 0 0 340px;
+    padding-top: 8px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeImg {
+    height: 180px;
+    min-width: 180px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .dot {
+    top: 198px;
+    width: 22px;
+    height: 22px;
+    margin-left: -11px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard {
+    width: 290px;
+    margin-top: 62px;
   }
   .aboutDecadeSec .decadeItem .dot {
     background: rgba(1, 211, 199, 0.75);
@@ -22351,15 +22483,31 @@ body.aboutLetterOpen {
   }
 }
 @media screen and (max-width: 720px) {
-  .aboutDecadeSec {
-    --decItemW: 300px;
-    --decImgH: 150px;
-    --decCardW: 260px;
-    --decCardGap: 58px;
-    --decPadL: 15px;
-  }
   .aboutDecadeSec .decadeStage {
     margin-top: 24px;
+  }
+  .aboutDecadeSec .decadeStage .decadeLine {
+    top: 177.5px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport {
+    scroll-padding-left: 15px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack {
+    padding: 0 15px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem {
+    flex: 0 0 300px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeImg {
+    height: 150px;
+    min-width: 150px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .dot {
+    top: 168px;
+  }
+  .aboutDecadeSec .decadeStage .decadeViewport .decadeTrack .decadeItem .decadeCard {
+    width: 260px;
+    margin-top: 58px;
   }
 }
 @media screen and (prefers-reduced-motion: reduce) {
@@ -25042,21 +25190,43 @@ body.aboutLetterOpen {
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: calc(48px * var(--aboutS, 1)) calc(16px * var(--aboutS, 1)) calc(48px * var(--aboutS, 1)) calc(32px * var(--aboutS, 1));
+  padding: 48px 16px 48px 32px;
   display: flex;
   flex-flow: column;
-  gap: calc(26px * var(--aboutS, 1));
+  gap: 26px;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .profileDrawer .pdPanel .pdScroll .pdHead {
   display: flex;
   flex-flow: column;
-  gap: calc(20px * var(--aboutS, 1));
-  padding-bottom: calc(32px * var(--aboutS, 1));
+  gap: 20px;
+  padding-bottom: 32px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
-  font-size: max(14px, 20px * var(--aboutS, 1));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
+    font-size: 12px;
+  }
+}
+.profileDrawer .pdPanel .pdScroll .pdHead .pdCount {
   font-weight: 400;
   line-height: 160%;
   letter-spacing: 2px;
@@ -25066,12 +25236,12 @@ body.aboutLetterOpen {
 .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson {
   display: flex;
   align-items: center;
-  gap: calc(20px * var(--aboutS, 1));
+  gap: 20px;
 }
 .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson img {
   flex: 0 0 auto;
-  width: max(88px, 145px * var(--aboutS, 1));
-  height: max(88px, 145px * var(--aboutS, 1));
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -25080,13 +25250,40 @@ body.aboutLetterOpen {
 .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId {
   display: flex;
   flex-flow: column;
-  gap: calc(8px * var(--aboutS, 1));
+  gap: 8px;
   min-width: 0;
 }
 .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
   width: fit-content;
   max-width: 100%;
-  font-size: max(22px, 32px * var(--aboutS, 1));
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
+    font-size: 16px;
+  }
+}
+.profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdName {
   font-weight: 500;
   line-height: 120%;
   text-transform: capitalize;
@@ -25096,7 +25293,29 @@ body.aboutLetterOpen {
   color: transparent;
 }
 .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
-  font-size: max(14px, 20px * var(--aboutS, 1));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
+    font-size: 12px;
+  }
+}
+.profileDrawer .pdPanel .pdScroll .pdHead .pdPerson .pdId .pdRole {
   line-height: 180%;
   color: #01D3C7;
 }
@@ -25109,12 +25328,55 @@ body.aboutLetterOpen {
   display: flex;
   flex-flow: column;
   gap: 1.8em;
-  font-size: max(15px, 22px * var(--aboutS, 1));
+  font-size: 22px;
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdScroll .pdBio {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdScroll .pdBio {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdScroll .pdBio {
+    font-size: 16px;
+  }
+}
+.profileDrawer .pdPanel .pdScroll .pdBio {
   line-height: 180%;
   color: rgba(255, 255, 255, 0.8);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
-.profileDrawer .pdPanel .pdScroll .pdBio p {
-  margin: 0;
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio p {
+  margin-bottom: 10px;
+}
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio p:last-of-type {
+  margin-bottom: 0;
+}
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background: transparent !important;
+}
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio::-webkit-scrollbar {
+  width: 8px;
+  background: transparent !important;
+}
+.profileDrawer .pdPanel .pdScroll .pdBio .innerBio::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .profileDrawer .pdPanel.is-swapping .pdScroll {
   opacity: 0;
@@ -25134,7 +25396,7 @@ body.aboutLetterOpen {
   gap: 0;
   min-height: calc(124px * var(--aboutS, 1));
   box-sizing: border-box;
-  padding: calc(26px * var(--aboutS, 1)) calc(32px * var(--aboutS, 1)) calc(26px * var(--aboutS, 1)) calc(68px * var(--aboutS, 1));
+  padding: 26px 32px 26px 68px;
   border: 0;
   background: transparent;
   text-align: left;
@@ -25143,12 +25405,34 @@ body.aboutLetterOpen {
   transition: background-color 0.3s ease;
 }
 .profileDrawer .pdPanel .pdNav .pdNavBtn.is-next {
-  padding-left: calc(130px * var(--aboutS, 1));
-  padding-right: calc(40px * var(--aboutS, 1));
+  padding-left: 130px;
+  padding-right: 40px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
-  font-size: max(14px, 20px * var(--aboutS, 1));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
+    font-size: 12px;
+  }
+}
+.profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavLabel {
   font-weight: 400;
   line-height: 160%;
   letter-spacing: 2px;
@@ -25158,7 +25442,24 @@ body.aboutLetterOpen {
 }
 .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavName {
   max-width: 100%;
-  font-size: max(15px, 22px * var(--aboutS, 1));
+  font-size: 22px;
+}
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavName {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavName {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavName {
+    font-size: 16px;
+  }
+}
+.profileDrawer .pdPanel .pdNav .pdNavBtn .pdNavName {
   line-height: 180%;
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
@@ -25188,64 +25489,96 @@ body.aboutLetterOpen {
 .profileDrawer.is-open .pdPanel {
   transform: none;
 }
-@media screen and (max-width: 1024px) {
-  .profileDrawer .pdPanel {
-    width: 70vw;
-    min-width: 520px;
+@media screen and (max-width: 1600px) {
+  .profileDrawer .pdPanel .pdScroll {
+    padding: 40px 16px 40px 30px;
+    gap: 20px;
   }
-  .profileDrawer .pdScroll {
-    padding: 40px 28px;
-    gap: 22px;
-  }
-  .profileDrawer .pdClose {
-    top: 24px;
-    right: 24px;
-  }
-  .profileDrawer .pdHead {
-    gap: 14px;
-    padding-bottom: 24px;
-  }
-  .profileDrawer .pdPerson {
-    gap: 16px;
-  }
-  .profileDrawer .pdNavBtn {
-    min-height: 96px;
-    padding: 20px 20px 20px 32px;
-  }
-  .profileDrawer .pdNavBtn.is-next {
-    padding-left: 32px;
+  .profileDrawer .pdPanel .pdScroll .pdHead {
+    padding-bottom: 30px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1440px) {
+  .profileDrawer .pdPanel .pdClose {
+    width: 30px;
+    height: 30px;
+  }
+  .profileDrawer .pdPanel .pdScroll {
+    padding: 30px 16px 30px 24px;
+    gap: 16px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead {
+    padding-bottom: 20px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson img {
+    width: 120px;
+    height: 120px;
+  }
+  .profileDrawer .pdPanel .pdNav .pdNavBtn {
+    padding: 22px 30px 22px 60px;
+  }
+  .profileDrawer .pdPanel .pdNav .pdNavBtn.is-next {
+    padding-left: 100px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .profileDrawer .pdPanel .pdClose {
+    width: 24px;
+    height: 24px;
+  }
+  .profileDrawer .pdPanel .pdScroll {
+    padding: 24px 16px 24px 20px;
+    gap: 16px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead {
+    padding-bottom: 20px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson img {
+    width: 80px;
+    height: 80px;
+  }
+  .profileDrawer .pdPanel .pdNav {
+    min-height: 90px;
+  }
+  .profileDrawer .pdPanel .pdNav .pdNavBtn {
+    padding: 22px 30px 22px 60px;
+  }
+  .profileDrawer .pdPanel .pdNav .pdNavBtn.is-next {
+    padding-left: 100px;
+  }
+}
+@media all and (max-width: 720px) {
   .profileDrawer .pdPanel {
     width: 100%;
     min-width: 0;
     border-left: 0;
   }
-  .profileDrawer .pdScroll {
-    padding: 24px 20px 28px;
-  }
-  .profileDrawer .pdClose {
+  .profileDrawer .pdPanel .pdClose {
     top: 16px;
     right: 16px;
     width: 30px;
     height: 29px;
   }
-  .profileDrawer .pdPerson {
+  .profileDrawer .pdPanel .pdScroll {
+    padding: 24px 20px 28px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead {
+    padding-bottom: 20px;
+  }
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson {
     gap: 14px;
   }
-  .profileDrawer .pdPerson img {
+  .profileDrawer .pdPanel .pdScroll .pdHead .pdPerson img {
     width: 80px;
     height: 80px;
   }
-  .profileDrawer .pdName {
-    font-size: 22px;
-  }
-  .profileDrawer .pdNavBtn {
+  .profileDrawer .pdPanel .pdNav {
     min-height: 80px;
+  }
+  .profileDrawer .pdPanel .pdNav .pdNavBtn {
     padding: 14px 16px;
   }
-  .profileDrawer .pdNavBtn.is-next {
+  .profileDrawer .pdPanel .pdNav .pdNavBtn.is-next {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -25839,6 +26172,10 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
 }
 .csListSec .csFilters {
   margin-top: 68px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #2F0A20;
+  padding: 32px;
 }
 .csListSec .csFilterRow {
   display: flex;
@@ -25902,7 +26239,7 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
   border: 0;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.1);
-  color: #1B98A0;
+  color: rgba(255, 255, 255, 0.7);
   font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
@@ -25943,6 +26280,7 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
 .csListSec .csChip.is-active {
   background: #1B98A0;
   color: #210214;
+  font-weight: 500;
 }
 .csListSec .csResults {
   margin-top: 80px;
@@ -25975,6 +26313,229 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
   line-height: 150%;
   color: rgba(221, 225, 225, 0.8);
   margin-bottom: 24px;
+}
+.csListSec .featuredStory {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 24px;
+}
+.csListSec .featuredStory .storyInner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1721px;
+  margin: 0 auto;
+}
+.csListSec .featuredStory .storyMedia {
+  position: relative;
+  flex: 0 0 57.06%;
+  box-sizing: border-box;
+  height: 620px;
+  isolation: isolate;
+  background: #210214;
+  border: 1.5px solid rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  background: #210214 url(../images/case-study-card-bg.webp) no-repeat 35% 0/137.14% 100%;
+  overflow: hidden;
+}
+.csListSec .featuredStory .storyStat {
+  position: absolute;
+  left: 48px;
+  bottom: 118px;
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.364;
+}
+.csListSec .featuredStory .storyNum {
+  font-size: 96.8px;
+  letter-spacing: -0.9px;
+  background: linear-gradient(125.86deg, rgba(1, 211, 199, 0.984) 8.27%, rgba(255, 255, 255, 0.984) 68.11%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.csListSec .featuredStory .storyUnit {
+  position: relative;
+  font-size: 105px;
+  font-weight: 600;
+  letter-spacing: -1.18px;
+  color: #FF3535;
+  line-height: 1;
+}
+.csListSec .featuredStory .storyUnit::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(3.5px);
+  pointer-events: none;
+}
+.csListSec .featuredStory .storyContent {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 734px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.csListSec .featuredStory .storyDesc {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 137%;
+  color: #D4D2D2;
+}
+.csListSec .featuredStory .storyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #1B98A0;
+}
+@media screen and (max-width: 1600px) {
+  .csListSec .featuredStory .storyMedia {
+    height: 540px;
+  }
+  .csListSec .featuredStory .storyStat {
+    left: 40px;
+    bottom: 100px;
+    gap: 14px;
+  }
+  .csListSec .featuredStory .storyNum {
+    font-size: 82px;
+  }
+  .csListSec .featuredStory .storyUnit {
+    font-size: 89px;
+  }
+  .csListSec .featuredStory .storyDesc {
+    font-size: 28px;
+  }
+  .csListSec .featuredStory .storyTags {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .csListSec .featuredStory .storyMedia {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .csListSec .featuredStory .storyMedia {
+    height: 400px;
+  }
+  .csListSec .featuredStory .storyStat {
+    left: 32px;
+    bottom: 80px;
+    gap: 12px;
+  }
+  .csListSec .featuredStory .storyNum {
+    font-size: 66px;
+    letter-spacing: -0.6px;
+  }
+  .csListSec .featuredStory .storyUnit {
+    font-size: 72px;
+  }
+  .csListSec .featuredStory .storyDesc {
+    font-size: 24px;
+  }
+  .csListSec .featuredStory .storyInner {
+    gap: 24px;
+  }
+  .csListSec .featuredStory .storyBtn {
+    height: 56px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .csListSec .featuredStory .storyInner {
+    flex-flow: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .csListSec .featuredStory .storyMedia {
+    flex: none;
+    width: 100%;
+    height: 440px;
+  }
+  .csListSec .featuredStory .storyContent {
+    max-width: none;
+  }
+  .csListSec .featuredStory .storyDesc {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .csListSec .featuredStory .storyInner {
+    gap: 24px;
+  }
+  .csListSec .featuredStory .storyMedia {
+    height: 340px;
+  }
+  .csListSec .featuredStory .storyStat {
+    left: 24px;
+    bottom: 36px;
+    gap: 10px;
+  }
+  .csListSec .featuredStory .storyNum {
+    font-size: 56px;
+    letter-spacing: -0.5px;
+  }
+  .csListSec .featuredStory .storyUnit {
+    font-size: 61px;
+  }
+  .csListSec .featuredStory .storyDesc {
+    font-size: 20px;
+  }
+  .csListSec .featuredStory .storyTags {
+    font-size: 14px;
+    line-height: 20px;
+    gap: 4px 16px;
+  }
+  .csListSec .featuredStory .storyBtn {
+    height: 52px;
+    min-width: 170px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .csListSec .featuredStory .storyMedia {
+    height: 280px;
+  }
+  .csListSec .featuredStory .storyStat {
+    left: 20px;
+    bottom: 28px;
+  }
+  .csListSec .featuredStory .storyNum {
+    font-size: 44px;
+  }
+  .csListSec .featuredStory .storyUnit {
+    font-size: 48px;
+  }
+  .csListSec .featuredStory .storyDesc {
+    font-size: 18px;
+  }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .csListSec .featuredStory .storyMedia::before, .csListSec .featuredStory .storyMedia::after {
+    animation: none;
+  }
+}
+@keyframes storyGlow {
+  0%, 20% {
+    opacity: 0;
+  }
+  80%, 100% {
+    opacity: 1;
+  }
 }
 .csListSec .csGrid {
   display: grid;
@@ -26549,93 +27110,289 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
   line-height: 160%;
   color: rgba(221, 225, 225, 0.8);
 }
-.csDetailHero .csFacts {
+.csDetailHero .caseGlance {
   position: relative;
-  flex: 0 0 855px;
-  max-width: 52%;
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: 52.9% 1fr;
-  row-gap: 78px;
-  padding: 47px 24px 32px;
-  border: 1px solid rgba(111, 99, 99, 0.5);
-  border-radius: 12px;
-  background: rgba(33, 2, 19, 0.4);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  display: flex;
+  flex-flow: column;
+  gap: 26px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 928px;
+  padding: 24px 24px 56px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(#2F0A20, #2F0A20) padding-box, linear-gradient(135deg, #01D3C7 0%, rgba(1, 211, 199, 0) 32%, rgba(204, 32, 51, 0.55) 70%, #CC2033 100%) border-box;
 }
-.csDetailHero .csFacts::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 12px;
-  padding: 1.2px;
-  background: linear-gradient(138deg, #01D3C7 4%, rgba(255, 255, 255, 0) 52%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-.csDetailHero .csFacts .csFact {
-  min-width: 0;
-  padding-right: 24px;
-}
-.csDetailHero .csFacts .csFact .label {
-  display: block;
+.csDetailHero .caseGlance .glanceLabel {
+  margin: 0;
   font-size: 16px;
-}
-@media screen and (max-width: 1600px) {
-  .csDetailHero .csFacts .csFact .label {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .csDetailHero .csFacts .csFact .label {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .csDetailHero .csFacts .csFact .label {
-    font-size: 11px;
-  }
-}
-.csDetailHero .csFacts .csFact .label {
   font-weight: 500;
   line-height: 160%;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
   color: #81716A;
-  margin-bottom: 8px;
 }
-.csDetailHero .csFacts .csFact p {
-  max-width: 290px;
+.csDetailHero .caseGlance .glanceValue {
+  margin: 0;
   font-size: 20px;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: capitalize;
+  color: #D9D9D9;
 }
-@media screen and (max-width: 1600px) {
-  .csDetailHero .csFacts .csFact p {
-    font-size: 18px;
+.csDetailHero .caseGlance .glanceDot {
+  flex: 0 0 auto;
+  width: 5.371px;
+  height: 5.371px;
+  background: #00ACB4;
+}
+.csDetailHero .caseGlance .glanceHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+  height: 68px;
+  padding: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.csDetailHero .caseGlance .glanceStatus {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+.csDetailHero .caseGlance .glanceBody {
+  display: flex;
+  flex-flow: column;
+  gap: 25px;
+  max-width: 752px;
+}
+.csDetailHero .caseGlance .glanceBlock {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  min-width: 0;
+}
+.csDetailHero .caseGlance .glanceMain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  margin: 0;
+}
+.csDetailHero .caseGlance .glanceNote {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: #81716A;
+}
+.csDetailHero .caseGlance .glanceBarRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 655px;
+}
+.csDetailHero .caseGlance .glanceBarRow .glanceBarLabel {
+  flex: 0 0 140px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: #81716A;
+}
+.csDetailHero .caseGlance .glanceBarRow .glanceBarValue {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: #81716A;
+  white-space: nowrap;
+}
+.csDetailHero .caseGlance .glanceBarRow.is-active .glanceBarValue {
+  color: #00ACB4;
+}
+.csDetailHero .caseGlance .glanceBar {
+  position: relative;
+  flex: 0 1 419.3px;
+  width: 419.3px;
+  min-width: 0;
+  height: 7.833px;
+  margin-left: 0;
+  overflow: hidden;
+  background: repeating-linear-gradient(90deg, rgba(217, 217, 217, 0.24) 0, rgba(217, 217, 217, 0.24) 1.6164%, transparent 1.6164%, transparent 2.0937%);
+}
+.csDetailHero .caseGlance .glanceBarFill {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, #00ACB4 0, #00ACB4 1.6164%, transparent 1.6164%, transparent 2.0937%);
+}
+.csDetailHero .caseGlance .glanceRows {
+  display: flex;
+  flex-flow: column;
+  gap: 36px;
+}
+.csDetailHero .caseGlance .glanceRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 87px;
+}
+.csDetailHero .caseGlance .glanceImpact {
+  flex: 0 0 340px;
+}
+.csDetailHero .caseGlance .glanceComplexity {
+  flex: 0 0 205px;
+  gap: 12px;
+}
+.csDetailHero .caseGlance .glanceStack {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+}
+.csDetailHero .caseGlance .glanceStack .glanceLabel {
+  line-height: 140%;
+}
+.csDetailHero .caseGlance .glanceStake {
+  flex: 0 0 auto;
+}
+.csDetailHero .caseGlance .glanceBand {
+  flex: 1 1 0;
+}
+.csDetailHero .caseGlance .glanceChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.csDetailHero .caseGlance .glanceChip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 10px 16px;
+  border-radius: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  line-height: normal;
+  white-space: nowrap;
+}
+.csDetailHero .caseGlance .glanceChip.is-teal {
+  background: rgba(1, 101, 95, 0.17);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.csDetailHero .caseGlance .glanceChip.is-red {
+  border: 1px solid #A71D20;
+  background: rgba(255, 0, 0, 0.1);
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.csDetailHero .caseGlance .glanceDots {
+  display: flex;
+  gap: 6px;
+  height: 12px;
+}
+.csDetailHero .caseGlance .glanceDots i {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(217, 217, 217, 0.24);
+}
+.csDetailHero .caseGlance .glanceDots i.is-on {
+  background: #CC2033;
+}
+.csDetailHero .caseGlance .glanceDots i.is-half {
+  background: linear-gradient(90deg, #CC2033 50%, rgba(217, 217, 217, 0.24) 50%);
+}
+.csDetailHero .caseGlance .glanceMix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+}
+.csDetailHero .caseGlance.js-reveal [data-glance-reveal] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.8s ease-in-out;
+}
+.csDetailHero .caseGlance.js-reveal [data-glance-reveal=b] {
+  transition-delay: 1.1s;
+}
+.csDetailHero .caseGlance.js-reveal [data-glance-reveal=c] {
+  transition-delay: 1.65s;
+}
+.csDetailHero .caseGlance.js-reveal.is-in [data-glance-reveal] {
+  clip-path: inset(0 0 0 0);
+}
+@media screen and (max-width: 1024px) {
+  .csDetailHero .caseGlance .glanceRow {
+    gap: 48px;
   }
-}
-@media screen and (max-width: 1440px) {
-  .csDetailHero .csFacts .csFact p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .csDetailHero .csFacts .csFact p {
-    font-size: 14px;
+  .csDetailHero .caseGlance .glanceImpact {
+    flex-basis: 300px;
   }
 }
 @media screen and (max-width: 720px) {
-  .csDetailHero .csFacts .csFact p {
-    font-size: 12px;
+  .csDetailHero .caseGlance {
+    padding: 16px 16px 32px;
+    gap: 20px;
+    border-radius: 16px;
+  }
+  .csDetailHero .caseGlance .glanceHead {
+    height: 56px;
+  }
+  .csDetailHero .caseGlance .glanceBody {
+    gap: 20px;
+  }
+  .csDetailHero .caseGlance .glanceRows {
+    gap: 28px;
+  }
+  .csDetailHero .caseGlance .glanceRow {
+    flex-flow: column;
+    gap: 28px;
+  }
+  .csDetailHero .caseGlance .glanceImpact, .csDetailHero .caseGlance .glanceComplexity, .csDetailHero .caseGlance .glanceStake {
+    flex: 0 0 auto;
+  }
+  .csDetailHero .caseGlance .glanceBand {
+    flex: 0 0 auto;
+  }
+  .csDetailHero .caseGlance .glanceBarRow {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .csDetailHero .caseGlance .glanceBarRow .glanceBarLabel {
+    flex: 1 1 auto;
+  }
+  .csDetailHero .caseGlance .glanceBarRow .glanceBarValue {
+    order: 2;
+  }
+  .csDetailHero .caseGlance .glanceBarRow .glanceBar {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .csDetailHero .caseGlance .glanceMix {
+    gap: 0 12px;
+  }
+  .csDetailHero .caseGlance .glanceNote {
+    flex: 1 0 100%;
   }
 }
-.csDetailHero .csFacts .csFact p {
-  font-weight: 400;
-  line-height: 140%;
-  color: #D9D9D9;
-  text-transform: capitalize;
+@media screen and (prefers-reduced-motion: reduce) {
+  .csDetailHero .caseGlance.js-reveal [data-glance-reveal] {
+    clip-path: none;
+    transition: none;
+  }
 }
 .csDetailHero .csRating {
   display: flex;
@@ -27171,6 +27928,9 @@ body.single-case_study .csStartSec .primaryCTA {
   body.single-case_study .csStartSec {
     margin-top: 0;
   }
+}
+body.single-case_study .csExploreSec::after {
+  display: none;
 }
 
 @media screen and (max-width: 1800px) {

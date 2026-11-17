@@ -391,7 +391,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 	<div class="awardsMarquee">
 		<div class="marqueeRow">			
 			<div class="marqueeGroup leftSlider">
-				<a class="awardCard" href="#">
+				<div class="awardCard">
 					<span class="badgeIcon " aria-hidden="true">
 						<span class="year">2017</span>
 					</span>
@@ -399,61 +399,61 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<h4 class="manrope">Smart CEO Award</h4>
 						<p>Femina, World Women Leadership Congress</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2019</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">Great Place to Work</h4>
 						<p>Certified six times in a row</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
-				<a class="awardCard" href="#">
+				</div>
+				<div class="awardCard">
 					<span class="badgeIcon" aria-hidden="true"><span class="year">2023</span></span>
 					<span class="badgeText">
 						<h4 class="manrope">GE HealthCare Collaboration and Innovation Award</h4>
 						<p>Runner-up, for data-driven delivery</p>
 					</span>
-				</a>
+				</div>
 			</div>
 		</div>
 		<div class="marqueeRow">
 			<div class="marqueeGroup rightSlider">
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -462,7 +462,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Femina, World Women Leadership Congress</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -471,7 +471,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Process Maturity</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -480,7 +480,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Process Maturity</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -489,7 +489,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Femina, World Women Leadership Congress</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -498,7 +498,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Process Maturity</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -507,7 +507,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Process Maturity</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -516,7 +516,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Femina, World Women Leadership Congress</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -525,7 +525,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 						<p>Process Maturity</p>
 					</span>
 				</a>
-				<a class="awardCard" href="#">
+				<a class="awardCard">
 					<span class="badgeIcon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M9 20h6M10 17h4"/></svg>
 					</span>
@@ -1010,9 +1010,11 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 				</div>
 			</div>
 			<p class="pdCategory" data-pd-category>Leadership</p>
-			<div class="pdBio" data-pd-bio>
-				<p>An operator, investor and entrepreneur with 20+ years across venture capital, high-growth startups and investment banking. Priya was most recently a Partner at General Catalyst India and earlier Managing Partner at Venture Highway.</p>
-				<p>She co-founded the EdTech platform Vidyartha, which was acquired by Byju's. A Chartered Accountant and ISB graduate, she is a Kamalnayan Bajaj Aspen Fellow.</p>
+			<div class="pdBio" >
+				<div class="innerBio" data-pd-bio>
+					<p>An operator, investor and entrepreneur with 20+ years across venture capital, high-growth startups and investment banking. Priya was most recently a Partner at General Catalyst India and earlier Managing Partner at Venture Highway.</p>
+					<p>She co-founded the EdTech platform Vidyartha, which was acquired by Byju's. A Chartered Accountant and ISB graduate, she is a Kamalnayan Bajaj Aspen Fellow.</p>
+				</div>
 			</div>
 		</div>
 		<nav class="pdNav" aria-label="Profiles">
@@ -1037,6 +1039,11 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
         <span data-f="category">Leadership</span>
         <div data-f="bio">
             <p>Priti Sawant is a visionary leader with extensive experience in business strategy and organizational growth.</p>
+            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
+            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
+            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
+            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
+            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
             <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
         </div>
     </article>

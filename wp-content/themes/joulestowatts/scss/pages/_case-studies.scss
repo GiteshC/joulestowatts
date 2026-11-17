@@ -18,7 +18,7 @@
         }
     }
 
-    .csFilters{margin-top: 68px;}
+    .csFilters{margin-top: 68px; border: 1px solid transparent; border-radius: 12px; background: #2F0A20; padding: 32px;}
     .csFilterRow{display: flex; align-items: flex-start; gap: 40px; padding: 40px 0; border-bottom: 1px solid #6F6363;
         &:first-child{padding-top: 0;}
         &:last-child{padding-bottom: 0; border-bottom: 0;}
@@ -28,14 +28,75 @@
             @media screen and (min-width: 1801px){margin-right: -46px;}
         }
     }
-    .csChip{display: inline-flex; align-items: center; min-height: 50px; padding: 10px 16px; border: 0; border-radius: 24px; background: rgba(255, 255, 255, 0.10); color: #1B98A0; font-family: "Poppins", sans-serif; @include font20; font-weight: 300; line-height: 150%; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;
+    .csChip{display: inline-flex; align-items: center; min-height: 50px; padding: 10px 16px; border: 0; border-radius: 24px; background: rgba(255, 255, 255, 0.10); color: rgba(255, 255, 255, 0.70); font-family: "Poppins", sans-serif; @include font20; font-weight: 300; line-height: 150%; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;
         &:hover{background: rgba(27, 152, 160, 0.22); color: #01D3C7;}
         &:focus-visible{outline: 2px solid #01D3C7; outline-offset: 2px;}
-        &.is-active{background: #1B98A0; color: #210214;}
+        &.is-active{background: #1B98A0; color: #210214; font-weight: 500;}
     }
 
     .csResults{margin-top: 80px;}
     .csCount{@include font20; font-weight: 300; line-height: 150%; color: rgba(221, 225, 225, 0.80); margin-bottom: 24px;}
+    // Featured story: "$1.2 B" visual on the left, text, tags and button on the right. Static values only.
+    .featuredStory{font-family: "Manrope", sans-serif; margin-bottom: 24px;
+        .storyInner{display: flex; align-items: center; gap: 20px; max-width: 1721px; margin: 0 auto;}
+        .storyMedia{position: relative; flex: 0 0 57.06%; box-sizing: border-box; height: 620px; isolation: isolate; background: #210214; border: 1.5px solid rgba(255, 255, 255, 0.02); border-radius: 12px; background: #210214 url(../images/case-study-card-bg.webp) no-repeat 35% 0 / 137.14% 100%; overflow: hidden;}
+
+        .storyStat{position: absolute; left: 48px; bottom: 118px; display: flex; align-items: flex-start; gap: 17px; margin: 0; font-weight: 400; line-height: 1.364;}
+        .storyNum{font-size: 96.8px; letter-spacing: -0.9px; background: linear-gradient(125.86deg, rgba(1, 211, 199, 0.984) 8.27%, rgba(255, 255, 255, 0.984) 68.11%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;}
+        .storyUnit{position: relative; font-size: 105px; font-weight: 600; letter-spacing: -1.18px; color: #FF3535; line-height: 1;
+            &::before{content: attr(data-text); position: absolute; left: 0; top: 0; filter: blur(3.5px); pointer-events: none;} // soft red glow behind the B
+        }
+        .storyContent{flex: 1 1 0; min-width: 0; max-width: 734px; display: flex; flex-flow: column; align-items: flex-start; gap: 20px;}
+        .storyDesc{margin: 0; font-size: 32px; font-weight: 400; line-height: 137%; color: #D4D2D2;}
+        .storyTags{display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; list-style: none; font-size: 18px; font-weight: 500; line-height: 25px; color: #1B98A0;}
+        @media screen and (max-width: 1600px) {
+            .storyMedia{height: 540px;}
+            .storyStat{left: 40px; bottom: 100px; gap: 14px;}
+            .storyNum{font-size: 82px;}
+            .storyUnit{font-size: 89px;}
+            .storyDesc{font-size: 28px;}
+            .storyTags{font-size: 16px; line-height: 22px;}
+        }
+        @media screen and (max-width: 1440px){
+            .storyMedia{height: 450px;}
+        }
+        @media screen and (max-width: 1280px) {
+            .storyMedia{height: 400px;}
+            .storyStat{left: 32px; bottom: 80px; gap: 12px;}
+            .storyNum{font-size: 66px; letter-spacing: -0.6px;}
+            .storyUnit{font-size: 72px;}
+            .storyDesc{font-size: 24px;}
+            .storyInner{gap: 24px;}
+            .storyBtn{height: 56px;}
+        }
+        @media screen and (max-width: 1024px) {
+            .storyInner{flex-flow: column; align-items: stretch; gap: 28px;}
+            .storyMedia{flex: none; width: 100%; height: 440px;}
+            .storyContent{max-width: none;}
+            .storyDesc{font-size: 26px;}
+        }
+        @media screen and (max-width: 720px) {
+            .storyInner{gap: 24px;}
+            .storyMedia{height: 340px;}
+            .storyStat{left: 24px; bottom: 36px; gap: 10px;}
+            .storyNum{font-size: 56px; letter-spacing: -0.5px;}
+            .storyUnit{font-size: 61px;}
+            .storyDesc{font-size: 20px;}
+            .storyTags{font-size: 14px; line-height: 20px; gap: 4px 16px;}
+            .storyBtn{height: 52px; min-width: 170px; font-size: 14px;}
+        }
+        @media screen and (max-width: 480px) {
+            .storyMedia{height: 280px;}
+            .storyStat{left: 20px; bottom: 28px;}
+            .storyNum{font-size: 44px;}
+            .storyUnit{font-size: 48px;}
+            .storyDesc{font-size: 18px;}
+        }
+        @media screen and (prefers-reduced-motion: reduce) {
+            .storyMedia::before, .storyMedia::after{animation: none;}
+        }
+    }
+    @keyframes storyGlow{0%, 20%{opacity: 0;} 80%, 100%{opacity: 1;}} // image fades in from 0.4s to 1.6s over 2s, like Figma
     .csGrid{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 20px;}
     .csCard{position: relative; display: flex; flex-flow: column; justify-content: space-between; height: 462px; padding: 24px 24px 37px; border: 1.5px solid rgba(255, 255, 255, 0.05); border-radius: 12px; background: #210214 url(../images/case-study-card-bg.webp) no-repeat 35% 0 / 137.14% 100%; overflow: hidden; transition: border-color 0.35s ease, transform 0.35s ease;
         &.is-hidden{display: none;}
