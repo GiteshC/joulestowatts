@@ -53,7 +53,7 @@ $all_label     = ! empty( $filters['all_label'] ) ? $filters['all_label'] : 'All
                     <span><?php echo esc_html( $settings['library_text'] ); ?></span>
                 <?php endif; ?>
             </p>
-            <section class="featuredStory">
+            <div class="featuredStory">
                 <div class="storyInner">
                     <div class="storyMedia">
                         <h2 class="storyStat">
@@ -73,7 +73,7 @@ $all_label     = ! empty( $filters['all_label'] ) ? $filters['all_label'] : 'All
                         </a>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <div class="csGrid">
                 <?php foreach ( $stories as $index => $story ) :

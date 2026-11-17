@@ -49,6 +49,9 @@
         .storyContent{flex: 1 1 0; min-width: 0; max-width: 734px; display: flex; flex-flow: column; align-items: flex-start; gap: 20px;}
         .storyDesc{margin: 0; font-size: 32px; font-weight: 400; line-height: 137%; color: #D4D2D2;}
         .storyTags{display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; list-style: none; font-size: 18px; font-weight: 500; line-height: 25px; color: #1B98A0;}
+        &[hidden] {
+            display: none !important;
+        }
         @media screen and (max-width: 1600px) {
             .storyMedia{height: 540px;}
             .storyStat{left: 40px; bottom: 100px; gap: 14px;}

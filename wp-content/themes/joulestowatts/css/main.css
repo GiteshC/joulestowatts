@@ -26382,6 +26382,9 @@ body.page-template-contact-us .contactFormBox .wpcf7-response-output {
   line-height: 25px;
   color: #1B98A0;
 }
+.csListSec .featuredStory[hidden] {
+  display: none !important;
+}
 @media screen and (max-width: 1600px) {
   .csListSec .featuredStory .storyMedia {
     height: 540px;

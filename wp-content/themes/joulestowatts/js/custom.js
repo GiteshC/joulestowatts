@@ -2790,6 +2790,7 @@ document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
 
 	function init(root) {
 		var perPage = parseInt(root.getAttribute("data-per-page") || "9", 10);
+		var featuredStory = root.querySelector(".featuredStory");
 		var cards = Array.prototype.slice.call(
 			root.querySelectorAll("[data-case-card]"),
 		);
@@ -2825,6 +2826,14 @@ document.querySelectorAll(".fourArtifactsSec").forEach((section) => {
 
 		function render() {
 			var matching = cards.filter(matches);
+			// Show featured story only when all filters are selected as All
+			var hasActiveFilter = Object.keys(active).some(function (group) {
+				return active[group] !== "";
+			});
+
+			if (featuredStory) {
+				featuredStory.hidden = hasActiveFilter;
+			}
 			cards.forEach(function (card) {
 				card.classList.add("is-hidden");
 			});
