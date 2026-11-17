@@ -856,7 +856,7 @@ $(document).ready(function () {
 		infinite: false,
 
 		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		speed: 1000,
 		cssEase: "ease",
 
@@ -3000,7 +3000,7 @@ $(document).ready(function () {
 		slidesToScroll: 1,
 		infinite: false,
 		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		speed: 1000,
 		cssEase: "ease",
 		arrows: true,
@@ -3790,4 +3790,86 @@ if ($(".aboutLeadersSec").length) {
 			close: close,
 		};
 	});
+})();
+
+// Video popup. Trigger: any element with data-video-open (link href or data-video-src gives the file).
+// Optional on the trigger: data-video-poster="<image url>".
+(function () {
+	"use strict";
+
+	function init() {
+		var modal = document.querySelector("[data-video-modal]");
+		if (!modal) return;
+		if (modal.parentNode !== document.body) document.body.appendChild(modal); // avoids clipping and stacking from parents
+
+		var box = modal.querySelector(".vmBox");
+		var video = modal.querySelector(".vmVideo");
+		var closeBtn = modal.querySelector(".vmClose");
+		var opener = null;
+		var isOpen = false;
+
+		function lockScroll(on) {
+			var gap = window.innerWidth - document.documentElement.clientWidth; // keeps the page from shifting when the scrollbar goes
+			document.body.classList.toggle("videoModalOpen", on);
+			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
+		}
+
+		function open(trigger) {
+			var src = trigger.getAttribute("data-video-src") || trigger.getAttribute("href");
+			if (!src) return;
+			opener = trigger;
+			video.src = src;
+			var poster = trigger.getAttribute("data-video-poster");
+			if (poster) video.poster = poster; else video.removeAttribute("poster");
+			isOpen = true;
+			modal.classList.add("is-open");
+			modal.setAttribute("aria-hidden", "false");
+			lockScroll(true);
+			closeBtn.focus();
+			var played = video.play(); // allowed: it runs from the user's click
+			if (played && played.catch) played.catch(function () {}); // if the browser blocks it, the controls are right there
+		}
+
+		function close() {
+			if (!isOpen) return;
+			isOpen = false;
+			video.pause();
+			modal.classList.remove("is-open");
+			modal.setAttribute("aria-hidden", "true");
+			lockScroll(false);
+			window.setTimeout(function () { // after the fade, drop the file so nothing keeps loading or playing
+				if (isOpen) return;
+				video.removeAttribute("src");
+				video.removeAttribute("poster");
+				video.load();
+			}, 400);
+			if (opener && document.body.contains(opener)) opener.focus();
+			opener = null;
+		}
+
+		document.addEventListener("click", function (e) {
+			var t = e.target.closest ? e.target.closest("[data-video-open]") : null;
+			if (!t) return;
+			e.preventDefault();
+			open(t);
+		});
+
+		modal.addEventListener("click", function (e) { // click on the dark area around the video
+			if (!box.contains(e.target) || e.target === closeBtn || closeBtn.contains(e.target)) close();
+		});
+
+		document.addEventListener("keydown", function (e) {
+			if (!isOpen) return;
+			if (e.key === "Escape") { close(); return; }
+			if (e.key === "Tab") { // keep focus on the popup: only the close button and the video controls
+				var f = [closeBtn, video];
+				var i = f.indexOf(document.activeElement);
+				if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+				else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+			}
+		});
+	}
+
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	else init();
 })();

@@ -207,7 +207,8 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="bottomContent">
-                                    <a href="<?php echo esc_html( get_sub_field('box_link') ); ?>">
+                                    <?php $boxLink = get_sub_field('box_link'); ?>
+                                    <a <?php echo $boxLink ? 'href="' . esc_url( $boxLink ) . '"' : 'tabindex="0"'; ?>>
                                         <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
                                         <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
                                         <div class="description">
@@ -392,9 +393,13 @@
     </div>
 </section>
 
-<div class ="ourAibgImgBox"></div>
+<!-- <div class ="ourAibgImgBox"></div> -->
 
-<section class="resultSection platformResultSec">
+<section class="resultSection homeImpactSec">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
     <div class="secWrapper">
         <?php if( have_rows('results_section') ): ?>
             <?php while( have_rows('results_section') ): the_row(); ?>
@@ -414,7 +419,7 @@
                     </a>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="commanCard platformResultSlider" data-toggle-group>
+                    <div class="commanCard resultCardSlider" data-toggle-group>
                         <?php if( have_rows('results_content') ): ?>
                             <?php while( have_rows('results_content') ): the_row(); ?>
                                 <a <?php if( get_sub_field('box_link') ): ?>href="<?php echo esc_url( get_sub_field('box_link') ); ?>"<?php endif; ?> data-toggle-item>

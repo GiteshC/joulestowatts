@@ -22,29 +22,29 @@
 
 // The cards open on click (data-accordion in custom.js sets .is-open), never on hover.
 // Below 821px the existing tap behaviour (.solutionActiveCard) takes over.
-@mixin gccClickCards {
-    @media all and (min-width: 821px){
-        .solutionSection .secWrapper .cardContainer{
-            .solutionCard{cursor: pointer;
-                .bottomContent h3{transition: color 0.3s ease-in-out;}
-                &:hover, &:first-child{@include gccCardClosed;}
-                &:hover .bottomContent h3{color: #01D3C7;}
-                &.is-open, &.is-open:hover, &.is-open:first-child{@include gccCardOpen;
-                    .bottomContent h3{color: #FFF;}
-                }
-                &:focus-visible{outline: 1px solid #00ACB4; outline-offset: -1px;}
-            }
-            &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){@include gccCardClosed;
-                &.is-open{@include gccCardOpen;}
-            }
-        }
-    }
-}
+// @mixin gccClickCards {
+//     @media all and (min-width: 821px){
+//         .solutionSection .secWrapper .cardContainer{
+//             .solutionCard{cursor: pointer;
+//                 .bottomContent h3{transition: color 0.3s ease-in-out;}
+//                 &:hover, &:first-child{@include gccCardClosed;}
+//                 &:hover .bottomContent h3{color: #01D3C7;}
+//                 &.is-open, &.is-open:hover, &.is-open:first-child{@include gccCardOpen;
+//                     .bottomContent h3{color: #FFF;}
+//                 }
+//                 &:focus-visible{outline: 1px solid #00ACB4; outline-offset: -1px;}
+//             }
+//             &:has(.solutionCard:hover) .solutionCard:first-child:not(:hover){@include gccCardClosed;
+//                 &.is-open{@include gccCardOpen;}
+//             }
+//         }
+//     }
+// }
 
 // Shared with the Talos page, which uses the same expanding cards.
-body.page-template-gcc-accelerator, body.page-template-talos{
-    @include gccClickCards;
-}
+// body.page-template-gcc-accelerator, body.page-template-talos{
+//     @include gccClickCards;
+// }
 
 body.page-template-gcc-accelerator{
     .gccBannerSec{padding-top: 232px;

@@ -98,6 +98,13 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<div class="videoModal" data-video-modal role="dialog" aria-modal="true" aria-label="Video" aria-hidden="true">
+	<div class="vmBox">
+		<button class="vmClose" type="button" aria-label="Close video"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15"/></svg></button>
+		<video class="vmVideo" controls playsinline preload="none"></video>
+	</div>
+</div>
+
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
