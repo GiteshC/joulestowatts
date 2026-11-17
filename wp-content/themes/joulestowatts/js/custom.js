@@ -3117,39 +3117,38 @@ if ($(".aboutAwardsSec").length) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const teamTabs = document.querySelectorAll("[data-team-tab]");
+	const teamTabs = document.querySelectorAll("[data-team-tab]");
 
-    const teamSections = [
-        document.querySelector(".aboutTeamSec"),
-        document.querySelector(".boardSection"),
-        document.querySelector(".backedBySection"),
-    ];
+	const teamSections = [
+		document.querySelector(".aboutTeamSec"),
+		document.querySelector(".boardSection"),
+		document.querySelector(".backedBySection"),
+	];
 
-    teamTabs.forEach((tab, index) => {
-        tab.addEventListener("click", function () {
+	teamTabs.forEach((tab, index) => {
+		tab.addEventListener("click", function () {
+			// Active tab
+			teamTabs.forEach((item) => item.classList.remove("is-active"));
+			this.classList.add("is-active");
 
-            // Active tab
-            teamTabs.forEach((item) => item.classList.remove("is-active"));
-            this.classList.add("is-active");
+			// Scroll to respective section
+			const targetSection = teamSections[index];
 
-            // Scroll to respective section
-            const targetSection = teamSections[index];
+			if (targetSection) {
+				const headerOffset = 100;
 
-            if (targetSection) {
-                const headerOffset = 100;
+				const targetPosition =
+					targetSection.getBoundingClientRect().top +
+					window.scrollY -
+					headerOffset;
 
-                const targetPosition =
-                    targetSection.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerOffset;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth",
-                });
-            }
-        });
-    });
+				window.scrollTo({
+					top: targetPosition,
+					behavior: "smooth",
+				});
+			}
+		});
+	});
 });
 
 if ($(".aboutNewsSec").length) {
@@ -3453,7 +3452,9 @@ if ($(".aboutNewsSec").length) {
 			);
 		}
 		function snapPad() {
-			return parseFloat(window.getComputedStyle(view).scrollPaddingLeft) || 0;
+			return (
+				parseFloat(window.getComputedStyle(view).scrollPaddingLeft) || 0
+			);
 		}
 
 		// Desktop: once the first card moves left of the line's start, the line grows with it and reaches left: 0 with the card.
@@ -3475,7 +3476,10 @@ if ($(".aboutNewsSec").length) {
 			}
 			var left = Math.max(
 				0,
-				Math.min(lineBase, items[0].getBoundingClientRect().left - box.left),
+				Math.min(
+					lineBase,
+					items[0].getBoundingClientRect().left - box.left,
+				),
 			);
 			line.style.left = left + "px";
 			line.style.backgroundPositionX = lineBase - left + "px"; // keeps the dots from sliding
@@ -3494,7 +3498,11 @@ if ($(".aboutNewsSec").length) {
 			if (reach < N - 1 && view.scrollLeft > from) {
 				// last stretch: spread the remaining cards over it so none is skipped
 				return (
-					reach + Math.round(((view.scrollLeft - from) / (max - from)) * (N - 1 - reach))
+					reach +
+					Math.round(
+						((view.scrollLeft - from) / (max - from)) *
+							(N - 1 - reach),
+					)
 				);
 			}
 			var idx = 0;
@@ -3521,11 +3529,15 @@ if ($(".aboutNewsSec").length) {
 			}
 			var target = Math.max(
 				0,
-				Math.min(view.scrollWidth - view.clientWidth, itemX(i) - snapPad()),
+				Math.min(
+					view.scrollWidth - view.clientWidth,
+					itemX(i) - snapPad(),
+				),
 			);
 			// the strip cannot scroll past its end, so the last few cards never reach the left edge: keep the clicked year active
 			lockTarget = target;
-			lockUntil = Math.abs(view.scrollLeft - target) > 2 ? Date.now() + 1500 : 0;
+			lockUntil =
+				Math.abs(view.scrollLeft - target) > 2 ? Date.now() + 1500 : 0;
 			view.scrollTo({
 				left: target,
 				behavior: reduce ? "auto" : "smooth",
@@ -3544,7 +3556,8 @@ if ($(".aboutNewsSec").length) {
 			"scroll",
 			function () {
 				syncLine();
-				if (st || sec.classList.contains("is-pinned") || ticking) return;
+				if (st || sec.classList.contains("is-pinned") || ticking)
+					return;
 				if (Date.now() < lockUntil) {
 					// a tab click is still scrolling; the clicked year is already active
 					if (Math.abs(view.scrollLeft - lockTarget) <= 2)
@@ -3919,8 +3932,8 @@ if ($(".aboutLeadersSec").length) {
 
 			document.body.classList.toggle("profileDrawerOpen", on);
 			document.body.classList.toggle("hideScrollbar", on);
-    		html.classList.toggle("hideScrollbarhtml", on);
-			
+			html.classList.toggle("hideScrollbarhtml", on);
+
 			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
 		}
 
@@ -4050,4 +4063,179 @@ if ($(".aboutLeadersSec").length) {
 			close: close,
 		};
 	});
+})();
+
+// Case at a glance: fills the engagement bar from the two values in the HTML, and plays the reveal once when the card scrolls into view.
+// Case at a glance: fills the bars and complexity dots from the values in the HTML, and plays the reveal once when the card scrolls into view.
+
+(function () {
+	"use strict";
+
+	var SEGMENTS = 48;
+	var PERIOD = 100 / SEGMENTS;
+
+	var DAYS = {
+		day: 1,
+		week: 7,
+		wk: 7,
+		month: 30.4375,
+		mo: 30.4375,
+		year: 365.25,
+		yr: 365.25,
+	};
+
+	var WORDS = {
+		"very low": 1,
+		low: 1,
+		medium: 3,
+		moderate: 3,
+		high: 5,
+		"very high": 5,
+	};
+
+	// Convert backend value into days
+	function getDays(text) {
+		var match =
+			/(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
+				text || "",
+			);
+
+		if (!match) return null;
+
+		var number = parseFloat(match[1].replace(",", "."));
+		var unit = match[2].toLowerCase();
+
+		return number * DAYS[unit];
+	}
+
+	// Calculate progress bars
+	function fillBars(card) {
+		var rows = Array.prototype.slice.call(
+			card.querySelectorAll(".glanceBarRow"),
+		);
+
+		var days = rows.map(function (row) {
+			var value = row.querySelector(".glanceBarValue");
+			return value ? getDays(value.textContent.trim()) : null;
+		});
+
+		var validDays = days.filter(function (value) {
+			return value !== null && isFinite(value) && value >= 0;
+		});
+
+		if (!validDays.length) return;
+
+		var longest = Math.max.apply(null, validDays);
+
+		if (longest <= 0) return;
+
+		rows.forEach(function (row, index) {
+			var bar = row.querySelector(".glanceBar");
+			var value = row.querySelector(".glanceBarValue");
+
+			if (!bar || days[index] === null) return;
+
+			var fill = bar.querySelector(".glanceBarFill");
+
+			if (!fill && row.classList.contains("is-active")) {
+				fill = document.createElement("span");
+				fill.className = "glanceBarFill";
+				bar.appendChild(fill);
+			}
+
+			var percentage = (days[index] / longest) * 100;
+
+			percentage = Math.max(0, Math.min(100, percentage));
+
+			var clip = "inset(0 " + (100 - percentage).toFixed(4) + "% 0 0)";
+
+			if (fill) {
+				fill.style.clipPath = clip;
+			} else {
+				bar.style.clipPath = clip;
+			}
+
+			bar.setAttribute("aria-label", value.textContent.trim());
+		});
+	}
+
+	// Calculate complexity dots
+	function fillDots(card) {
+		var dots = card.querySelector(".glanceDots");
+
+		if (!dots) return;
+
+		// Read score directly from backend HTML
+		var score = parseFloat(dots.getAttribute("data-score"));
+
+		if (isNaN(score)) return;
+
+		// Keep score between 0 and 5
+		score = Math.max(0, Math.min(5, score));
+
+		Array.prototype.forEach.call(dots.children, function (dot, index) {
+			var part = score - index;
+
+			dot.className =
+				part >= 0.75 ? "is-on" : part >= 0.25 ? "is-half" : "";
+		});
+
+		dots.setAttribute("aria-label", "Complexity: " + score + " out of 5");
+	}
+
+	// Refresh all cards
+	function updateCards() {
+		var cards = document.querySelectorAll(".caseGlance");
+
+		Array.prototype.forEach.call(cards, function (card) {
+			fillBars(card);
+			fillDots(card);
+
+			if (
+				!card.classList.contains("js-reveal") &&
+				!window.matchMedia("(prefers-reduced-motion: reduce)")
+					.matches &&
+				"IntersectionObserver" in window
+			) {
+				card.classList.add("js-reveal");
+
+				var observer = new IntersectionObserver(
+					function (entries) {
+						if (!entries[0].isIntersecting) return;
+
+						card.classList.add("is-in");
+						observer.disconnect();
+					},
+					{
+						threshold: 0.3,
+					},
+				);
+
+				observer.observe(card);
+			}
+		});
+	}
+
+	function init() {
+		updateCards();
+
+		// Watch backend / AJAX HTML updates
+		if ("MutationObserver" in window && document.body) {
+			var mutationObserver = new MutationObserver(function () {
+				updateCards();
+			});
+
+			mutationObserver.observe(document.body, {
+				childList: true,
+				subtree: true,
+				characterData: true,
+			});
+		}
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
+	} else {
+		init();
+	}
 })();

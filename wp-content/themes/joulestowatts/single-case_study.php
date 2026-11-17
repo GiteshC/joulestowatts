@@ -65,7 +65,7 @@ while ( have_posts() ) :
                 <p><?php echo esc_html( $description ); ?></p>
             <?php endif; ?>
         </div>
-        <?php if ( $has_facts ) : ?>
+        <!-- <?php if ( $has_facts ) : ?>
             <div class="csFacts">
                 <?php foreach ( $fact_boxes as $box ) :
                     if ( '' === (string) $box[2] ) {
@@ -95,7 +95,76 @@ while ( have_posts() ) :
                     </div>
                 <?php endforeach; ?>
             </div>
-        <?php endif; ?>
+        <?php endif; ?> -->
+        <aside class="caseGlance" aria-label="Case at a glance">
+            <div class="glanceHead">
+                <p class="glanceLabel manrope">Case at a glance</p>
+                <p class="glanceStatus manrope"><span class="glanceDot"></span>Delivered</p>
+            </div>
+            <div class="glanceBody">
+                <div class="glanceBlock glanceLength" data-glance-reveal="a">
+                    <p class="glanceLabel manrope">Engagement Length</p>
+                    <p class="glanceMain">
+                        <span class="glanceValue manrope">18 weeks</span>
+                        <span class="glanceNote manrope">Against a 24 month standard estimate</span>
+                    </p>
+                    <div class="glanceBarRow">
+                        <p class="glanceBarLabel manrope">Standard estimate</p>
+                        <span class="glanceBar" role="img" aria-label="16 weeks"><span class="glanceBarFill" style="clip-path: inset(0 79.1667% 0 0)"></span></span>
+                        <p class="glanceBarValue manrope">24 months</p>
+                    </div>
+                    <div class="glanceBarRow is-active">
+                        <p class="glanceBarLabel manrope">This Engagement</p>
+                        <span class="glanceBar" role="img" aria-label="16 weeks"><span class="glanceBarFill" style="clip-path: inset(0 79.1667% 0 0)"></span></span>
+                        <p class="glanceBarValue manrope">18 weeks</p>
+                    </div>
+                </div>
+                <div class="glanceRows">
+                    <div class="glanceRow">
+                        <div class="glanceBlock glanceImpact" data-glance-reveal="a">
+                            <p class="glanceLabel manrope">Impact On</p>
+                            <ul class="glanceChips">
+                                <li class="glanceChip is-teal"><span class="glanceDot"></span>P&amp;L</li>
+                                <li class="glanceChip is-teal"><span class="glanceDot"></span>Speed to Market</li>
+                            </ul>
+                        </div>
+                        <div class="glanceBlock glanceComplexity" data-glance-reveal="b">
+                            <div class="glanceStack">
+                                <p class="glanceLabel manrope">Complexity</p>
+                                <p class="glanceValue manrope">High</p>
+                            </div>
+                            <span class="glanceDots" role="img" data-score="3" aria-label="Complexity: 3 out of 5">
+                                <i class="is-on"></i>
+                                <i class="is-on"></i>
+                                <i class="is-on"></i>
+                                <i class="is-half"></i>
+                                <i></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="glanceBlock glanceNature" data-glance-reveal="c">
+                        <p class="glanceLabel manrope">Nature of Solution</p>
+                        <p class="glanceValue manrope glanceMix"><span>Legacy Integration</span><span aria-hidden="true">+</span><span>AI Automation</span><span aria-hidden="true">+</span><span>AI Atlas</span></p>
+                    </div>
+                    <div class="glanceRow">
+                        <div class="glanceBlock glanceStake" data-glance-reveal="a">
+                            <p class="glanceLabel manrope">Stakeholders</p>
+                            <ul class="glanceChips">
+                                <li class="glanceChip is-red">CIO</li>
+                                <li class="glanceChip is-red">CFO</li>
+                                <li class="glanceChip is-red">Plant</li>
+                                <li class="glanceChip is-red">Ops</li>
+                                <li class="glanceChip is-red">ERP</li>
+                            </ul>
+                        </div>
+                        <div class="glanceBlock glanceBand" data-glance-reveal="c">
+                            <p class="glanceLabel manrope">On the Band</p>
+                            <p class="glanceValue manrope">Product Engineering Instrument</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
     <div class="csHeroLines" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/images/case-study-detail-hero-lines.webp" alt="" loading="eager">
