@@ -856,7 +856,7 @@ $(document).ready(function () {
 		infinite: false,
 
 		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		speed: 1000,
 		cssEase: "ease",
 
@@ -3009,7 +3009,7 @@ $(document).ready(function () {
 		slidesToScroll: 1,
 		infinite: false,
 		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplaySpeed: 3000,
 		speed: 1000,
 		cssEase: "ease",
 		arrows: true,
@@ -4074,177 +4074,259 @@ if ($(".aboutLeadersSec").length) {
 	});
 })();
 
+// Video popup. Trigger: any element with data-video-open (link href or data-video-src gives the file).
+// Optional on the trigger: data-video-poster="<image url>".
+(function () {
+	"use strict";
+
+	function init() {
+		var modal = document.querySelector("[data-video-modal]");
+		if (!modal) return;
+		if (modal.parentNode !== document.body) document.body.appendChild(modal); // avoids clipping and stacking from parents
+
+		var box = modal.querySelector(".vmBox");
+		var video = modal.querySelector(".vmVideo");
+		var closeBtn = modal.querySelector(".vmClose");
+		var opener = null;
+		var isOpen = false;
+
+		function lockScroll(on) {
+			var gap = window.innerWidth - document.documentElement.clientWidth; // keeps the page from shifting when the scrollbar goes
+			document.body.classList.toggle("videoModalOpen", on);
+			document.body.style.paddingRight = on && gap > 0 ? gap + "px" : "";
+		}
+
+		function open(trigger) {
+			var src = trigger.getAttribute("data-video-src") || trigger.getAttribute("href");
+			if (!src) return;
+			opener = trigger;
+			video.src = src;
+			var poster = trigger.getAttribute("data-video-poster");
+			if (poster) video.poster = poster; else video.removeAttribute("poster");
+			isOpen = true;
+			modal.classList.add("is-open");
+			modal.setAttribute("aria-hidden", "false");
+			lockScroll(true);
+			closeBtn.focus();
+			var played = video.play(); // allowed: it runs from the user's click
+			if (played && played.catch) played.catch(function () {}); // if the browser blocks it, the controls are right there
+		}
+
+		function close() {
+			if (!isOpen) return;
+			isOpen = false;
+			video.pause();
+			modal.classList.remove("is-open");
+			modal.setAttribute("aria-hidden", "true");
+			lockScroll(false);
+			window.setTimeout(function () { // after the fade, drop the file so nothing keeps loading or playing
+				if (isOpen) return;
+				video.removeAttribute("src");
+				video.removeAttribute("poster");
+				video.load();
+			}, 400);
+			if (opener && document.body.contains(opener)) opener.focus();
+			opener = null;
+		}
+
+		document.addEventListener("click", function (e) {
+			var t = e.target.closest ? e.target.closest("[data-video-open]") : null;
+			if (!t) return;
+			e.preventDefault();
+			open(t);
+		});
+
+		modal.addEventListener("click", function (e) { // click on the dark area around the video
+			if (!box.contains(e.target) || e.target === closeBtn || closeBtn.contains(e.target)) close();
+		});
+
+		document.addEventListener("keydown", function (e) {
+			if (!isOpen) return;
+			if (e.key === "Escape") { close(); return; }
+			if (e.key === "Tab") { // keep focus on the popup: only the close button and the video controls
+				var f = [closeBtn, video];
+				var i = f.indexOf(document.activeElement);
+				if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+				else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+			}
+		});
+	}
+
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	else init();
+})();
+
 // Case at a glance: fills the engagement bar from the two values in the HTML, and plays the reveal once when the card scrolls into view.
 // Case at a glance: fills the bars and complexity dots from the values in the HTML, and plays the reveal once when the card scrolls into view.
 
 (function () {
-	"use strict";
+    “use strict”;
 
-	var SEGMENTS = 48;
-	var PERIOD = 100 / SEGMENTS;
+    var SEGMENTS = 48;
+    var PERIOD = 100 / SEGMENTS;
 
-	var DAYS = {
-		day: 1,
-		week: 7,
-		wk: 7,
-		month: 30.4375,
-		mo: 30.4375,
-		year: 365.25,
-		yr: 365.25,
-	};
+    var DAYS = {
+        day: 1,
+        week: 7,
+        wk: 7,
+        month: 30.4375,
+        mo: 30.4375,
+        year: 365.25,
+        yr: 365.25,
+    };
 
-	var WORDS = {
-		"very low": 1,
-		low: 1,
-		medium: 3,
-		moderate: 3,
-		high: 5,
-		"very high": 5,
-	};
+    var WORDS = {
+        “very low”: 1,
+        low: 1,
+        medium: 3,
+        moderate: 3,
+        high: 5,
+        “very high”: 5,
+    };
 
-	// Convert backend value into days
-	function getDays(text) {
-		var match =
-			/(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
-				text || "",
-			);
+    // Convert backend value into days
+    function getDays(text) {
+        var match =
+            /(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
+                text || “”,
+            );
 
-		if (!match) return null;
+        if (!match) return null;
 
-		var number = parseFloat(match[1].replace(",", "."));
-		var unit = match[2].toLowerCase();
+        var number = parseFloat(match[1].replace(“,”, “.”));
+        var unit = match[2].toLowerCase();
 
-		return number * DAYS[unit];
-	}
+        return number * DAYS[unit];
+    }
 
-	// Calculate progress bars
-	function fillBars(card) {
-		var rows = Array.prototype.slice.call(
-			card.querySelectorAll(".glanceBarRow"),
-		);
+    // Calculate progress bars
+    function fillBars(card) {
+        var rows = Array.prototype.slice.call(
+            card.querySelectorAll(“.glanceBarRow”),
+        );
 
-		var days = rows.map(function (row) {
-			var value = row.querySelector(".glanceBarValue");
-			return value ? getDays(value.textContent.trim()) : null;
-		});
+        var days = rows.map(function (row) {
+            var value = row.querySelector(“.glanceBarValue”);
+            return value ? getDays(value.textContent.trim()) : null;
+        });
 
-		var validDays = days.filter(function (value) {
-			return value !== null && isFinite(value) && value >= 0;
-		});
+        var validDays = days.filter(function (value) {
+            return value !== null && isFinite(value) && value >= 0;
+        });
 
-		if (!validDays.length) return;
+        if (!validDays.length) return;
 
-		var longest = Math.max.apply(null, validDays);
+        var longest = Math.max.apply(null, validDays);
 
-		if (longest <= 0) return;
+        if (longest <= 0) return;
 
-		rows.forEach(function (row, index) {
-			var bar = row.querySelector(".glanceBar");
-			var value = row.querySelector(".glanceBarValue");
+        rows.forEach(function (row, index) {
+            var bar = row.querySelector(“.glanceBar”);
+            var value = row.querySelector(“.glanceBarValue”);
 
-			if (!bar || days[index] === null) return;
+            if (!bar || days[index] === null) return;
 
-			var fill = bar.querySelector(".glanceBarFill");
+            var fill = bar.querySelector(“.glanceBarFill”);
 
-			if (!fill && row.classList.contains("is-active")) {
-				fill = document.createElement("span");
-				fill.className = "glanceBarFill";
-				bar.appendChild(fill);
-			}
+            if (!fill && row.classList.contains(“is-active”)) {
+                fill = document.createElement(“span”);
+                fill.className = “glanceBarFill”;
+                bar.appendChild(fill);
+            }
 
-			var percentage = (days[index] / longest) * 100;
+            var percentage = (days[index] / longest) * 100;
 
-			percentage = Math.max(0, Math.min(100, percentage));
+            percentage = Math.max(0, Math.min(100, percentage));
 
-			var clip = "inset(0 " + (100 - percentage).toFixed(4) + "% 0 0)";
+            var clip = “inset(0 ” + (100 - percentage).toFixed(4) + “% 0 0)“;
 
-			if (fill) {
-				fill.style.clipPath = clip;
-			} else {
-				bar.style.clipPath = clip;
-			}
+            if (fill) {
+                fill.style.clipPath = clip;
+            } else {
+                bar.style.clipPath = clip;
+            }
 
-			bar.setAttribute("aria-label", value.textContent.trim());
-		});
-	}
+            bar.setAttribute(“aria-label”, value.textContent.trim());
+        });
+    }
 
-	// Calculate complexity dots
-	function fillDots(card) {
-		var dots = card.querySelector(".glanceDots");
+    // Calculate complexity dots
+    function fillDots(card) {
+        var dots = card.querySelector(“.glanceDots”);
 
-		if (!dots) return;
+        if (!dots) return;
 
-		// Read score directly from backend HTML
-		var score = parseFloat(dots.getAttribute("data-score"));
+        // Read score directly from backend HTML
+        var score = parseFloat(dots.getAttribute(“data-score”));
 
-		if (isNaN(score)) return;
+        if (isNaN(score)) return;
 
-		// Keep score between 0 and 5
-		score = Math.max(0, Math.min(5, score));
+        // Keep score between 0 and 5
+        score = Math.max(0, Math.min(5, score));
 
-		Array.prototype.forEach.call(dots.children, function (dot, index) {
-			var part = score - index;
+        Array.prototype.forEach.call(dots.children, function (dot, index) {
+            var part = score - index;
 
-			dot.className =
-				part >= 0.75 ? "is-on" : part >= 0.25 ? "is-half" : "";
-		});
+            dot.className =
+                part >= 0.75 ? “is-on” : part >= 0.25 ? “is-half” : “”;
+        });
 
-		dots.setAttribute("aria-label", "Complexity: " + score + " out of 5");
-	}
+        dots.setAttribute(“aria-label”, “Complexity: “ + score + “ out of 5");
+    }
 
-	// Refresh all cards
-	function updateCards() {
-		var cards = document.querySelectorAll(".caseGlance");
+    // Refresh all cards
+    function updateCards() {
+        var cards = document.querySelectorAll(“.caseGlance”);
 
-		Array.prototype.forEach.call(cards, function (card) {
-			fillBars(card);
-			fillDots(card);
+        Array.prototype.forEach.call(cards, function (card) {
+            fillBars(card);
+            fillDots(card);
 
-			if (
-				!card.classList.contains("js-reveal") &&
-				!window.matchMedia("(prefers-reduced-motion: reduce)")
-					.matches &&
-				"IntersectionObserver" in window
-			) {
-				card.classList.add("js-reveal");
+            if (
+                !card.classList.contains(“js-reveal”) &&
+                !window.matchMedia(“(prefers-reduced-motion: reduce)“)
+                    .matches &&
+                “IntersectionObserver” in window
+            ) {
+                card.classList.add(“js-reveal”);
 
-				var observer = new IntersectionObserver(
-					function (entries) {
-						if (!entries[0].isIntersecting) return;
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        if (!entries[0].isIntersecting) return;
 
-						card.classList.add("is-in");
-						observer.disconnect();
-					},
-					{
-						threshold: 0.3,
-					},
-				);
+                        card.classList.add(“is-in”);
+                        observer.disconnect();
+                    },
+                    {
+                        threshold: 0.3,
+                    },
+                );
 
-				observer.observe(card);
-			}
-		});
-	}
+                observer.observe(card);
+            }
+        });
+    }
 
-	function init() {
-		updateCards();
+    function init() {
+        updateCards();
 
-		// Watch backend / AJAX HTML updates
-		if ("MutationObserver" in window && document.body) {
-			var mutationObserver = new MutationObserver(function () {
-				updateCards();
-			});
+        // Watch backend / AJAX HTML updates
+        if (“MutationObserver” in window && document.body) {
+            var mutationObserver = new MutationObserver(function () {
+                updateCards();
+            });
 
-			mutationObserver.observe(document.body, {
-				childList: true,
-				subtree: true,
-				characterData: true,
-			});
-		}
-	}
+            mutationObserver.observe(document.body, {
+                childList: true,
+                subtree: true,
+                characterData: true,
+            });
+        }
+    }
 
-	if (document.readyState === "loading") {
-		document.addEventListener("DOMContentLoaded", init);
-	} else {
-		init();
-	}
+    if (document.readyState === “loading”) {
+        document.addEventListener(“DOMContentLoaded”, init);
+    } else {
+        init();
+    }
 })();

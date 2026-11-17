@@ -18,7 +18,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="casestudyCTA">
-                    <a href="<?php echo get_sub_field('cta_link'); ?>" class="teritaryCTA"><?php echo get_sub_field('cta_text'); ?>
+                    <a href="<?php echo get_sub_field('video_link'); ?>" class="teritaryCTA" data-video-open><?php echo get_sub_field('cta_text'); ?>
                         <span>
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/>
@@ -69,53 +69,6 @@
                         <p><?php echo esc_html( get_sub_field('description') ); ?></p>
                     <?php endif; ?>
                 </div>
-                <!-- <div class="cardContainer">
-                    <?php if( have_rows('four_artifacts_content') ): ?>
-                        <?php $counter=1; while( have_rows('four_artifacts_content') ): the_row(); ?>
-                            <div class="solutionCard<?php echo $counter === $openPanel ? ' solutionActiveCard' : ''; ?>" data-panel="<?php echo $counter; ?>" role="button" tabindex="0" aria-expanded="<?php echo $counter === $openPanel ? 'true' : 'false'; ?>" aria-controls="artifactDetail<?php echo $counter; ?>">
-                                <div class="imgBox">
-                                    <?php $faimg = get_sub_field('card_image'); if( !empty( $faimg ) ): ?>
-                                        <img src="<?php echo esc_url($faimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($faimg['alt']); ?>" />
-                                    <?php endif; ?>
-                                </div>
-                                <div class="bottomContent">
-                                    <span class="manrope num">0<?php echo $counter; ?> </span>
-                                    <h3 class="manrope"><?php echo get_sub_field('card_heading'); ?></h3>
-                                    <div class="description">
-                                        <div class="descriptionInner">
-                                            <p><?php echo get_sub_field('card_description'); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php $counter=$counter+1; endwhile; ?>
-                    <?php endif; ?>
-                </div> -->
-                <!--
-                <div class="artifactDetailBox">
-                    <?php if( have_rows('four_artifacts_content') ): ?>
-                        <?php $counter=1; while( have_rows('four_artifacts_content') ): the_row(); ?>
-                            <div class="artifactDetail<?php echo $counter === $openPanel ? ' active' : ''; ?>" id="artifactDetail<?php echo $counter; ?>" data-panel="<?php echo $counter; ?>"<?php echo $counter === $openPanel ? '' : ' hidden'; ?>>
-                                <div class="detailText">
-                                    <span class="manrope step"><?php echo esc_html( get_sub_field('detail_step') ); ?></span>
-                                    <h3 class="manrope"><?php echo esc_html( get_sub_field('detail_heading') ); ?></h3>
-                                    <p><?php echo esc_html( get_sub_field('detail_description') ); ?></p>
-                                </div>
-                                <?php if( have_rows('detail_facts') ): ?>
-                                    <div class="detailFacts">
-                                        <?php while( have_rows('detail_facts') ): the_row(); ?>
-                                            <div class="fact">
-                                                <span class="manrope"><?php echo esc_html( get_sub_field('fact_label') ); ?></span>
-                                                <p><?php echo esc_html( get_sub_field('fact_value') ); ?></p>
-                                            </div>
-                                        <?php endwhile; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        <?php $counter=$counter+1; endwhile; ?>
-                    <?php endif; ?>
-                </div>
-                --->
                 <div class="cardContainer">
                     <?php if( have_rows('four_artifacts_content') ): ?>
                         <?php $counter=1; while( have_rows('four_artifacts_content') ): the_row(); ?>
@@ -302,7 +255,11 @@
     </div>
 </section>
 
-<section class="resultSection platformResultSec impactStoriesSec">
+<section class="resultSection homeImpactSec">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
     <div class="secWrapper">
         <?php if( have_rows('impact_stories') ): ?>
             <?php while( have_rows('impact_stories') ): the_row(); ?>
@@ -312,7 +269,7 @@
                     </div>
                 </div>
                 <div class="resultsCardLayout">
-                    <div class="commanCard platformResultSlider">
+                    <div class="commanCard resultCardSlider">
                         <?php if( have_rows('impact_stories_content') ): ?>
                             <?php while( have_rows('impact_stories_content') ): the_row(); ?>
                                 <?php $cardLink = get_sub_field('card_link'); ?>

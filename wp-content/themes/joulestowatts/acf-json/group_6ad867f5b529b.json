@@ -104,10 +104,10 @@
                 },
                 {
                     "key": "field_6ad89dec95d66",
-                    "label": "CTA Link",
-                    "name": "cta_link",
+                    "label": "Video Link",
+                    "name": "video_link",
                     "aria-label": "",
-                    "type": "link",
+                    "type": "file",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -117,6 +117,10 @@
                         "id": ""
                     },
                     "return_format": "url",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "",
                     "allow_in_bindings": 0
                 },
                 {
@@ -340,32 +344,6 @@
                     "append": ""
                 },
                 {
-                    "key": "field_6ae1daf43efc8",
-                    "label": "Studio Image",
-                    "name": "studio_image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium"
-                },
-                {
                     "key": "field_6ad894a8f6208",
                     "label": "Studio Agent Content",
                     "name": "studio_agent_content",
@@ -429,6 +407,33 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
+                            "parent_repeater": "field_6ad894a8f6208"
+                        },
+                        {
+                            "key": "field_6ad894d0f620b",
+                            "label": "Card Image",
+                            "name": "card_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium",
                             "parent_repeater": "field_6ad894a8f6208"
                         }
                     ]
@@ -701,5 +706,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793186699
+    "modified": 1794834413
 }

@@ -48,7 +48,7 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
                 </div>
                 <?php if( get_sub_field('cta_text') ): ?>
                     <div class="casestudyCTA">
-                        <a href="<?php echo esc_url( get_sub_field('cta_link') ); ?>" class="teritaryCTA"><?php echo esc_html( get_sub_field('cta_text') ); ?>
+                        <a href="<?php echo get_sub_field('video_link'); ?>" class="teritaryCTA" data-video-open><?php echo esc_html( get_sub_field('cta_text') ); ?>
                             <span>
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/>
@@ -96,8 +96,7 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
     </div>
 </section>
 
-<section class="solutionSection fourArtifactsSec talosStepsSec">
-    <!-- <img src="<?php echo esc_url( $talos_horizon ); ?>" class="gccHorizon gccHorizonDown" alt="" loading="lazy"> -->
+<section class="solutionSection scrollAnimation" id="offerings">
     <div class="secWrapper">
         <?php if( have_rows('five_steps') ): ?>
             <?php while( have_rows('five_steps') ): the_row(); ?>
@@ -108,27 +107,26 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
                     <?php endif; ?>
                 </div>
                 <div class="cardContainer" data-accordion>
-                    <img src="<?php echo esc_url( $talos_horizon ); ?>" class="gccHorizon gccHorizonDown" alt="" loading="lazy">
                     <?php if( have_rows('steps_content') ): ?>
-                        <?php $counter = 1; while( have_rows('steps_content') ): the_row(); ?>
-                            <div class="solutionCard<?php echo 1 === $counter ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 1 === $counter ? 'true' : 'false'; ?>">
+                        <?php $solutionsec = get_field('five_steps'); $solutioncount = ! empty( $solutionsec['steps_content'] ) ? count( $solutionsec['steps_content'] ) : 0; $counter=1; while( have_rows('steps_content') ): the_row(); ?>
+                            <div class="solutionCard<?php echo $counter === $solutioncount ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo $counter === $solutioncount ? 'true' : 'false'; ?>">
                                 <div class="imgBox">
-                                    <?php $stepimg = get_sub_field('card_image'); if( !empty( $stepimg ) ): ?>
-                                        <img src="<?php echo esc_url($stepimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($stepimg['alt']); ?>" />
+                                    <?php $solutionimg = get_sub_field('card_image'); if( !empty( $solutionimg ) ): ?>
+                                        <img src="<?php echo esc_url($solutionimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($solutionimg['alt']); ?>" />
                                     <?php endif; ?>
                                 </div>
                                 <div class="bottomContent">
-                                    <span class="manrope num"><?php echo esc_html( sprintf( '%02d', $counter ) ); ?></span>
-                                    <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('card_heading') ); ?></h3>
-                                    <div class="description">
-                                        <div class="descriptionInner">
-                                            <?php if( get_sub_field('card_description') ): ?>
+                                    <a href="<?php echo esc_html( get_sub_field('box_link') ); ?>">
+                                        <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
+                                        <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('card_heading') ); ?></h3>
+                                        <div class="description">
+                                            <div class="descriptionInner">
                                                 <p><?php echo wp_kses_post( get_sub_field('card_description') ); ?></p>
-                                            <?php endif; ?>
-                                            <p class="practice"><span>In practice:</span> <?php echo esc_html( get_sub_field('practice_description') ); ?></p>
-                                            <p class="hiring"><span>Hiring manager sees:</span> <?php echo esc_html( get_sub_field('hiring_description') ); ?></p>
+                                                <p class="practice"><span>In practice:</span> <?php echo esc_html( get_sub_field('practice_description') ); ?></p>
+                                                <p class="hiring"><span>Hiring manager sees:</span> <?php echo esc_html( get_sub_field('hiring_description') ); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         <?php $counter++; endwhile; ?>
@@ -137,7 +135,9 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
             <?php endwhile; ?>
         <?php endif; ?>
     </div>
-    <div class="fourArtifactsBG"><?php $talos_glow(); ?></div>
+    <div class="bottomGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 </section>
 
 <section class="gccReadsSec talosReadsSec">
@@ -218,18 +218,11 @@ $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
     <?php endif; ?>
 </section>
 
-<section class="talkToPartnerSec oneInstrumentSec">
+<section class="talkToPartnerSec">
     <div class="secWrapper">
-        <div class="imgBox">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div>
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
                 <div class="secHeading">
-                    <?php if( get_sub_field('sub_heading') ): ?>
-                        <h3 class="manrope"><?php echo esc_html( get_sub_field('sub_heading') ); ?></h3>
-                    <?php endif; ?>
                     <h2 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h2>
                     <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
                     <a href="<?php echo esc_url( get_sub_field('cta_link') ); ?>" class="primaryCTA"><span><?php echo esc_html( get_sub_field('cta_text') ); ?></span>

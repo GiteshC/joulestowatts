@@ -5345,10 +5345,11 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
 body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) .card-link .body .arrow {
   opacity: 0;
 }
-body.page-template-hompage .homeImpactSec {
+
+.homeImpactSec {
   padding-top: 222px;
 }
-body.page-template-hompage .homeImpactSec .homeImpactGlow {
+.homeImpactSec .homeImpactGlow {
   position: absolute;
   left: 0;
   top: calc(33px - 39.17vw);
@@ -5356,81 +5357,81 @@ body.page-template-hompage .homeImpactSec .homeImpactGlow {
   z-index: 0;
   pointer-events: none;
 }
-body.page-template-hompage .homeImpactSec .homeImpactGlow img {
+.homeImpactSec .homeImpactGlow img {
   display: block;
   width: 100%;
   height: auto;
   filter: blur(3px);
 }
-body.page-template-hompage .homeImpactSec .homeImpactGlow img:last-child {
+.homeImpactSec .homeImpactGlow img:last-child {
   transform: scaleY(-1);
   margin-top: -2px;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .secHeading .headingGroup p {
+.homeImpactSec .secWrapper .secHeading .headingGroup p {
   max-width: 530px;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .secHeading .headingGroup p:first-of-type {
+.homeImpactSec .secWrapper .secHeading .headingGroup p:first-of-type {
   font-weight: 400;
   margin-bottom: 0;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a {
   cursor: pointer;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .tag {
   text-transform: none;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 22px;
 }
 @media screen and (max-width: 1600px) {
-  body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
+  .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1440px) {
-  body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
+  .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 1280px) {
-  body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
+  .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
     font-size: 16px;
   }
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a .box .bottomContent .moreContent p {
   line-height: 155%;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent {
   grid-template-rows: 1fr;
   opacity: 1;
 }
-body.page-template-hompage .homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent p {
+.homeImpactSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent p {
   padding-top: 24px;
 }
-body.page-template-hompage .homeImpactSec::after {
+.homeImpactSec::after {
   display: none;
 }
 @media all and (max-width: 1600px) {
-  body.page-template-hompage .homeImpactSec {
+  .homeImpactSec {
     padding-top: 160px;
   }
 }
 @media all and (max-width: 1440px) {
-  body.page-template-hompage .homeImpactSec {
+  .homeImpactSec {
     padding-top: 130px;
   }
 }
 @media all and (max-width: 1280px) {
-  body.page-template-hompage .homeImpactSec {
+  .homeImpactSec {
     padding-top: 100px;
   }
 }
 @media all and (max-width: 720px) {
-  body.page-template-hompage .homeImpactSec {
+  .homeImpactSec {
     padding-top: 60px;
   }
-  body.page-template-hompage .homeImpactSec .homeImpactGlow {
+  .homeImpactSec .homeImpactGlow {
     top: calc(10px - 39.17vw);
   }
 }
@@ -7116,6 +7117,20 @@ body.page-template-hompage .homeImpactSec::after {
 }
 .solutionSection {
   position: relative;
+}
+.solutionSection .bottomGlow {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  transform: rotate(180deg);
+}
+.solutionSection .bottomGlow img {
+  width: 100%;
+  height: auto;
 }
 .solutionSection .secWrapper {
   padding-left: 100px;
@@ -8885,17 +8900,6 @@ body.page-template-hompage .homeImpactSec::after {
 .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultPrevArrow:hover, .platformResultSec .secWrapper .resultsCardLayout .arrowBox .platformResultNextArrow:hover {
   background: #00ACB4;
 }
-.platformResultSec::after {
-  content: "";
-  position: absolute;
-  background: url(../images/platform-result-bg-img.png) no-repeat;
-  background-size: contain;
-  bottom: -340px;
-  right: 0;
-  width: 45%;
-  height: 430px;
-  z-index: 1;
-}
 @media all and (max-width: 1600px) {
   .platformResultSec .secWrapper .secHeading .headingGroup p:first-of-type {
     margin-bottom: 26px;
@@ -9585,6 +9589,97 @@ body.page-template-platform .platformResultSec .secWrapper .resultsCardLayout .r
 }
 body.page-template-platform .platformResultSec .secWrapper .resultsCardLayout .resultCardSlider.platformResultSlider a.is-open .box .bottomContent .moreContent p {
   padding-top: 24px;
+}
+
+.videoModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  box-sizing: border-box;
+  background: rgba(10, 0, 7, 0.88);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+.videoModal .vmBox {
+  position: relative;
+  width: min(100%, 1100px);
+  transform: scale(0.94);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.videoModal .vmVideo {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 140px);
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 12px;
+  object-fit: contain;
+}
+.videoModal .vmClose {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.videoModal .vmClose svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.videoModal .vmClose:hover {
+  background: #01D3C7;
+  color: #220214;
+  transform: rotate(90deg);
+}
+.videoModal .vmClose:focus-visible {
+  outline: 2px solid #01D3C7;
+  outline-offset: 2px;
+}
+.videoModal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.videoModal.is-open .vmBox {
+  transform: none;
+}
+@media screen and (max-width: 720px) {
+  .videoModal {
+    padding: 64px 12px 24px;
+  }
+  .videoModal .vmVideo {
+    border-radius: 8px;
+  }
+  .videoModal .vmClose {
+    width: 36px;
+    height: 36px;
+    bottom: calc(100% + 10px);
+  }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .videoModal, .videoModal .vmBox {
+    transition-duration: 0.01s !important;
+  }
+}
+
+body.videoModalOpen {
+  overflow: hidden;
 }
 
 .fourArtifactsSec {
@@ -10389,9 +10484,6 @@ body.page-template-ai-atlas .atlasStudiosSec .studioContainer .studioList .box p
   body.page-template-ai-atlas .atlasStudiosSec .studioContainer .studioList .box h3 {
     margin-bottom: 10px;
   }
-}
-body.page-template-ai-atlas .impactStoriesSec {
-  padding-bottom: 60px;
 }
 @media all and (max-width: 1280px) {
   body.page-template-ai-atlas .impactStoriesSec {
@@ -12654,79 +12746,6 @@ body.page-template-managed-ai-pods .talkToPartnerSec .secWrapper .secHeading p {
   }
   .mpodsTeamSec .wrapper .mpodsTeamGrid .mpodsTeamCard .mpodsTeamBottom .person .personText span {
     font-size: 13px;
-  }
-}
-
-@media all and (min-width: 821px) {
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard {
-    cursor: pointer;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard .bottomContent h3, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard .bottomContent h3 {
-    transition: color 0.3s ease-in-out;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:hover, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:first-child, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:hover, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:first-child {
-    flex-grow: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:hover .imgBox, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:first-child .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:hover .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:first-child .imgBox {
-    opacity: 0;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:hover .bottomContent .description, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:first-child .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:hover .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:first-child .bottomContent .description {
-    grid-template-rows: 0fr;
-    opacity: 0;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:hover::before, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:first-child::before, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:hover::before, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:first-child::before {
-    transform: translateY(100%);
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:hover .bottomContent h3, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:hover .bottomContent h3 {
-    color: #01D3C7;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child {
-    flex-grow: var(--gccOpenGrow, 3);
-    min-height: 100%;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open .imgBox, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .imgBox, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .imgBox {
-    opacity: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open .bottomContent .description, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .bottomContent .description, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .bottomContent .description {
-    grid-template-rows: 1fr;
-    opacity: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open::before, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover::before, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child::before, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open::before, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover::before, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child::before {
-    transform: translateY(0);
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open .bottomContent h3, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .bottomContent h3, body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .bottomContent h3, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open .bottomContent h3, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:hover .bottomContent h3, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard.is-open:first-child .bottomContent h3 {
-    color: #FFF;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer .solutionCard:focus-visible, body.page-template-talos .solutionSection .secWrapper .cardContainer .solutionCard:focus-visible {
-    outline: 1px solid #00ACB4;
-    outline-offset: -1px;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover), body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover) {
-    flex-grow: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover) .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover) .imgBox {
-    opacity: 0;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover) .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover) .bottomContent .description {
-    grid-template-rows: 0fr;
-    opacity: 0;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover)::before, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover)::before {
-    transform: translateY(100%);
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open {
-    flex-grow: var(--gccOpenGrow, 3);
-    min-height: 100%;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open .imgBox, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open .imgBox {
-    opacity: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open .bottomContent .description, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open .bottomContent .description {
-    grid-template-rows: 1fr;
-    opacity: 1;
-  }
-  body.page-template-gcc-accelerator .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open::before, body.page-template-talos .solutionSection .secWrapper .cardContainer:has(.solutionCard:hover) .solutionCard:first-child:not(:hover).is-open::before {
-    transform: translateY(0);
   }
 }
 

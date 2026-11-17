@@ -1,5 +1,27 @@
 @use '../base/_global.scss' as *;
 
+// Video popup: opens from any [data-video-open] link/button, plays its video, closes on X, outside click or Esc.
+.videoModal{position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 60px 24px; box-sizing: border-box; background: rgba(10, 0, 7, 0.88); opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+	.vmBox{position: relative; width: min(100%, 1100px); transform: scale(0.94); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);}
+	.vmVideo{display: block; width: 100%; max-height: calc(100vh - 140px); aspect-ratio: 16 / 9; background: #000; border-radius: 12px; object-fit: contain;}
+	.vmClose{position: absolute; right: 0; bottom: calc(100% + 12px); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.12); color: #FFFFFF; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease;
+		svg{display: block; width: 18px; height: 18px;}
+		&:hover{background: #01D3C7; color: #220214; transform: rotate(90deg);}
+		&:focus-visible{outline: 2px solid #01D3C7; outline-offset: 2px;}
+	}
+	&.is-open{opacity: 1; visibility: visible; transition-delay: 0s;
+		.vmBox{transform: none;}
+	}
+	@media screen and (max-width: 720px) {padding: 64px 12px 24px;
+		.vmVideo{border-radius: 8px;}
+		.vmClose{width: 36px; height: 36px; bottom: calc(100% + 10px);}
+	}
+	@media screen and (prefers-reduced-motion: reduce) {
+		&, .vmBox{transition-duration: 0.01s !important;}
+	}
+}
+body.videoModalOpen{overflow: hidden;}
+
 .fourArtifactsSec{position: relative; @include sectionSpacing;
     .secWrapper{padding-top: 200px; z-index: 2; position: relative; padding-bottom: 100px;
         .artifactDetailBox{position: relative; background: linear-gradient(180deg, #1F0A1B 0%, #200F21 60%, #1F1526 100%); padding: 72px 34px 48px;
@@ -300,7 +322,7 @@ body.page-template-ai-atlas{
 
     // Customer Impact Stories: heading spacing, sentence-case tags, and the
     // description revealed on hover or click.
-    .impactStoriesSec{padding-bottom: 60px;
+    .impactStoriesSec{
         @media all and (max-width: 1280px){padding-bottom: 30px;}
         @media all and (max-width: 720px){padding-bottom: 0;}
         .secWrapper{
