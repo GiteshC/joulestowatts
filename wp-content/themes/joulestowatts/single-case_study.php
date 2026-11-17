@@ -38,6 +38,53 @@ while ( have_posts() ) :
 	);
 	$has_facts = (bool) array_filter( array_column( $fact_boxes, 2 ) );
 
+    // Case at a glance (hero card). Uses the same "facts" group. New optional fields: status, engagement_standard.
+if ( ! function_exists( 'joulestowatts_glance_list' ) ) {
+	function joulestowatts_glance_list( $value ) { // "A, B + C" or one item per line -> array of clean strings
+		if ( is_array( $value ) ) {
+			$items = array();
+			foreach ( $value as $v ) {
+				if ( is_scalar( $v ) ) { $items = array_merge( $items, joulestowatts_glance_list( $v ) ); }
+			}
+			return $items;
+		}
+		$text  = str_replace( array( '</p>', '</li>', '<br>', '<br/>', '<br />' ), "\n", (string) $value );
+		$text  = html_entity_decode( wp_strip_all_tags( $text ), ENT_QUOTES, 'UTF-8' );
+		$items = preg_split( '/[\r\n,;|+]+/', $text );
+		return array_values( array_filter( array_map( 'trim', $items ), 'strlen' ) );
+	}
+}
+if ( ! function_exists( 'joulestowatts_glance_days' ) ) {
+	function joulestowatts_glance_days( $text ) { // "24 months", "18 weeks" -> days
+		$units = array( 'day' => 1, 'week' => 7, 'wk' => 7, 'month' => 30.4375, 'mo' => 30.4375, 'year' => 365.25, 'yr' => 365.25 );
+		if ( preg_match( '/(\d+(?:[.,]\d+)?)[\s\x{00a0}-]*(day|week|wk|month|mo|year|yr)s?\b/iu', (string) $text, $m ) ) {
+			return (float) str_replace( ',', '.', $m[1] ) * $units[ strtolower( $m[2] ) ];
+		}
+		return null;
+	}
+}
+if ( ! function_exists( 'joulestowatts_glance_clip' ) ) {
+	function joulestowatts_glance_clip( $days, $longest ) { // same maths as case-glance.js (48 segments, 2.0937% each)
+		if ( null === $days || $longest <= 0 ) { return ''; }
+		$segs = max( $days > 0 ? 1 : 0, min( 48, round( $days / $longest * 48 ) ) );
+		return sprintf( 'inset(0 %s%% 0 0)', round( max( 0, 100 - $segs * 2.0937 ), 4 ) );
+	}
+}
+
+$gl_status   = ! empty( $facts['status'] ) ? $facts['status'] : 'Delivered'; // remove the fallback if status should stay empty
+$gl_length   = trim( wp_strip_all_tags( (string) ( $facts['engagement'] ?? '' ) ) );
+$gl_standard = trim( wp_strip_all_tags( (string) ( $facts['engagement_standard'] ?? '' ) ) );
+$gl_impact   = joulestowatts_glance_list( $facts['impact'] ?? '' );
+$gl_nature   = joulestowatts_glance_list( $facts['nature'] ?? '' );
+$gl_people   = joulestowatts_glance_list( $facts['stakeholders'] ?? '' );
+$gl_cx       = trim( wp_strip_all_tags( (string) ( $facts['complexity'] ?? '' ) ) );
+$gl_band     = trim( wp_strip_all_tags( (string) ( $facts['band'] ?? '' ) ) );
+$gl_rating   = '' !== (string) ( $facts['complexity_rating'] ?? '' ) ? max( 0, min( 5, (float) $facts['complexity_rating'] ) ) : null;
+$gl_days_std = joulestowatts_glance_days( $gl_standard );
+$gl_days_len = joulestowatts_glance_days( $gl_length );
+$gl_longest  = max( (float) $gl_days_std, (float) $gl_days_len );
+$gl_has      = $gl_length || $gl_standard || $gl_impact || $gl_nature || $gl_people || $gl_cx || $gl_band || null !== $gl_rating;
+
 	// Content blocks with their navigation labels; empty blocks are left out.
 	$blocks = array(
 		'cs-problem'    => array( $problem, 'The business problem', ! empty( $problem['description'] ) ),
@@ -65,38 +112,7 @@ while ( have_posts() ) :
                 <p><?php echo esc_html( $description ); ?></p>
             <?php endif; ?>
         </div>
-        <!-- <?php if ( $has_facts ) : ?>
-            <div class="csFacts">
-                <?php foreach ( $fact_boxes as $box ) :
-                    if ( '' === (string) $box[2] ) {
-                        echo '<div class="csFact"></div>';
-                        continue;
-                    }
-                    ?>
-                    <div class="csFact">
-                        <span class="label manrope"><?php echo esc_html( $box[0] ?: $box[1] ); ?></span>
-                        <p class="manrope"><?php echo wp_kses_post( $box[2] ); ?></p>
-                        <?php if ( 'rating' === ( $box[3] ?? '' ) && '' !== (string) ( $facts['complexity_rating'] ?? '' ) ) :
-                            $rating = max( 0, min( 5, (float) $facts['complexity_rating'] ) );
-                            ?>
-                            <span class="csRating" role="img" aria-label="<?php echo esc_attr( sprintf( '%s out of 5', $rating ) ); ?>">
-                                <?php for ( $i = 1; $i <= 5; $i++ ) :
-                                    $state = $rating >= $i ? 'is-full' : ( $rating > $i - 1 ? 'is-half' : '' );
-                                    ?>
-                                    <span class="<?php echo esc_attr( $state ); ?>"></span>
-                                <?php endfor; ?>
-                            </span>
-                        <?php endif; ?>
-                        <?php if ( 'band' === ( $box[3] ?? '' ) ) :
-                            $position = max( 0, min( 100, (float) ( $facts['band_position'] ?? 50 ) ) );
-                            ?>
-                            <span class="csBand" aria-hidden="true"><span class="dot" style="left: <?php echo esc_attr( $position ); ?>%;"></span></span>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?> -->
-        <aside class="caseGlance" aria-label="Case at a glance">
+        <!-- <div class="caseGlance" aria-label="Case at a glance">
             <div class="glanceHead">
                 <p class="glanceLabel manrope">Case at a glance</p>
                 <p class="glanceStatus manrope"><span class="glanceDot"></span>Delivered</p>
@@ -115,8 +131,8 @@ while ( have_posts() ) :
                     </div>
                     <div class="glanceBarRow is-active">
                         <p class="glanceBarLabel manrope">This Engagement</p>
-                        <span class="glanceBar" role="img" aria-label="16 weeks"><span class="glanceBarFill" style="clip-path: inset(0 79.1667% 0 0)"></span></span>
-                        <p class="glanceBarValue manrope">18 weeks</p>
+                        <span class="glanceBar" role="img" aria-label="11 weeks"><span class="glanceBarFill" style="clip-path: inset(0 79.1667% 0 0)"></span></span>
+                        <p class="glanceBarValue manrope">11 weeks</p>
                     </div>
                 </div>
                 <div class="glanceRows">
@@ -164,7 +180,104 @@ while ( have_posts() ) :
                     </div>
                 </div>
             </div>
-        </aside>
+        </div> -->
+        <?php if ( $gl_has ) : ?>
+        <div class="caseGlance" aria-label="Case at a glance">
+            <div class="glanceHead">
+                <p class="glanceLabel manrope">Case at a glance</p>
+                <?php if ( $gl_status ) : ?>
+                    <p class="glanceStatus manrope"><span class="glanceDot"></span><?php echo esc_html( $gl_status ); ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="glanceBody">
+                <?php if ( $gl_length || $gl_standard ) : ?>
+                    <div class="glanceBlock glanceLength" data-glance-reveal="a">
+                        <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['engagement_label'] ?? '' ) ?: 'Engagement Length' ); ?></p>
+                        <p class="glanceMain">
+                            <?php if ( $gl_length ) : ?><span class="glanceValue manrope"><?php echo esc_html( $gl_length ); ?></span><?php endif; ?>
+                            <?php if ( $gl_standard ) : ?><span class="glanceNote manrope"><?php echo esc_html( 'Against a ' . preg_replace( '/(\d)\s*(day|week|month|year)s\b/i', '$1 $2', $gl_standard ) . ' standard estimate' ); ?></span><?php endif; ?>
+                        </p>
+                        <?php if ( $gl_standard ) : ?>
+                            <div class="glanceBarRow">
+                                <p class="glanceBarLabel manrope">Standard estimate</p>
+                                <span class="glanceBar" role="img" aria-label="<?php echo esc_attr( $gl_standard ); ?>"<?php echo $gl_days_std ? ' style="clip-path: ' . esc_attr( joulestowatts_glance_clip( $gl_days_std, $gl_longest ) ) . '"' : ''; ?>></span>
+                                <p class="glanceBarValue manrope"><?php echo esc_html( $gl_standard ); ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ( $gl_length ) : ?>
+                            <div class="glanceBarRow is-active">
+                                <p class="glanceBarLabel manrope">This Engagement</p>
+                                <span class="glanceBar" role="img" aria-label="<?php echo esc_attr( $gl_length ); ?>"><span class="glanceBarFill"<?php echo $gl_days_len ? ' style="clip-path: ' . esc_attr( joulestowatts_glance_clip( $gl_days_len, $gl_longest ) ) . '"' : ''; ?>></span></span>
+                                <p class="glanceBarValue manrope"><?php echo esc_html( $gl_length ); ?></p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+                <div class="glanceRows">
+                    <?php if ( $gl_impact || $gl_cx || null !== $gl_rating ) : ?>
+                        <div class="glanceRow">
+                            <?php if ( $gl_impact ) : ?>
+                                <div class="glanceBlock glanceImpact" data-glance-reveal="a">
+                                    <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['impact_label'] ?? '' ) ?: 'Impact On' ); ?></p>
+                                    <ul class="glanceChips">
+                                        <?php foreach ( $gl_impact as $gl_item ) : ?>
+                                            <li class="glanceChip is-teal"><span class="glanceDot"></span><?php echo esc_html( $gl_item ); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ( $gl_cx || null !== $gl_rating ) : ?>
+                                <div class="glanceBlock glanceComplexity" data-glance-reveal="b">
+                                    <div class="glanceStack">
+                                        <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['complexity_label'] ?? '' ) ?: 'Complexity' ); ?></p>
+                                        <?php if ( $gl_cx ) : ?><p class="glanceValue manrope"><?php echo esc_html( $gl_cx ); ?></p><?php endif; ?>
+                                    </div>
+                                    <?php if ( null !== $gl_rating ) : ?>
+                                        <span class="glanceDots" role="img" data-score="<?php echo esc_attr( $gl_rating ); ?>" aria-label="<?php echo esc_attr( sprintf( 'Complexity: %s out of 5', $gl_rating ) ); ?>">
+                                            <?php for ( $i = 1; $i <= 5; $i++ ) :
+                                                $gl_state = $gl_rating >= $i ? 'is-on' : ( $gl_rating > $i - 1 ? 'is-half' : '' );
+                                                ?>
+                                                <i<?php echo $gl_state ? ' class="' . esc_attr( $gl_state ) . '"' : ''; ?>></i>
+                                            <?php endfor; ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ( $gl_nature ) : ?>
+                        <div class="glanceBlock glanceNature" data-glance-reveal="c">
+                            <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['nature_label'] ?? '' ) ?: 'Nature of Solution' ); ?></p>
+                            <p class="glanceValue manrope glanceMix"><?php foreach ( $gl_nature as $gl_n => $gl_item ) :
+                                if ( $gl_n ) { echo '<span aria-hidden="true">+</span>'; }
+                                echo '<span>' . esc_html( $gl_item ) . '</span>';
+                            endforeach; ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ( $gl_people || $gl_band ) : ?>
+                        <div class="glanceRow">
+                            <?php if ( $gl_people ) : ?>
+                                <div class="glanceBlock glanceStake" data-glance-reveal="a">
+                                    <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['stakeholders_label'] ?? '' ) ?: 'Stakeholders' ); ?></p>
+                                    <ul class="glanceChips">
+                                        <?php foreach ( $gl_people as $gl_item ) : ?>
+                                            <li class="glanceChip is-red"><?php echo esc_html( $gl_item ); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ( $gl_band ) : ?>
+                                <div class="glanceBlock glanceBand" data-glance-reveal="c">
+                                    <p class="glanceLabel manrope"><?php echo esc_html( ( $facts['band_label'] ?? '' ) ?: 'On the Band' ); ?></p>
+                                    <p class="glanceValue manrope"><?php echo esc_html( $gl_band ); ?></p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
     </div>
     <div class="csHeroLines" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/images/case-study-detail-hero-lines.webp" alt="" loading="eager">

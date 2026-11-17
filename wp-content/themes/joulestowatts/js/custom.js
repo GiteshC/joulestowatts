@@ -4151,7 +4151,7 @@ if ($(".aboutLeadersSec").length) {
 // Case at a glance: fills the bars and complexity dots from the values in the HTML, and plays the reveal once when the card scrolls into view.
 
 (function () {
-    “use strict”;
+    "use strict";
 
     var SEGMENTS = 48;
     var PERIOD = 100 / SEGMENTS;
@@ -4167,24 +4167,24 @@ if ($(".aboutLeadersSec").length) {
     };
 
     var WORDS = {
-        “very low”: 1,
+        "very low": 1,
         low: 1,
         medium: 3,
         moderate: 3,
         high: 5,
-        “very high”: 5,
+        "very high": 5,
     };
 
     // Convert backend value into days
     function getDays(text) {
         var match =
             /(\d+(?:[.,]\d+)?)[\s\u00a0-]*(day|week|wk|month|mo|year|yr)s?\b/i.exec(
-                text || “”,
+                text || "",
             );
 
         if (!match) return null;
 
-        var number = parseFloat(match[1].replace(“,”, “.”));
+        var number = parseFloat(match[1].replace(",", "."));
         var unit = match[2].toLowerCase();
 
         return number * DAYS[unit];
@@ -4193,11 +4193,11 @@ if ($(".aboutLeadersSec").length) {
     // Calculate progress bars
     function fillBars(card) {
         var rows = Array.prototype.slice.call(
-            card.querySelectorAll(“.glanceBarRow”),
+            card.querySelectorAll(".glanceBarRow"),
         );
 
         var days = rows.map(function (row) {
-            var value = row.querySelector(“.glanceBarValue”);
+            var value = row.querySelector(".glanceBarValue");
             return value ? getDays(value.textContent.trim()) : null;
         });
 
@@ -4212,16 +4212,16 @@ if ($(".aboutLeadersSec").length) {
         if (longest <= 0) return;
 
         rows.forEach(function (row, index) {
-            var bar = row.querySelector(“.glanceBar”);
-            var value = row.querySelector(“.glanceBarValue”);
+            var bar = row.querySelector(".glanceBar");
+            var value = row.querySelector(".glanceBarValue");
 
             if (!bar || days[index] === null) return;
 
-            var fill = bar.querySelector(“.glanceBarFill”);
+            var fill = bar.querySelector(".glanceBarFill");
 
-            if (!fill && row.classList.contains(“is-active”)) {
-                fill = document.createElement(“span”);
-                fill.className = “glanceBarFill”;
+            if (!fill && row.classList.contains("is-active")) {
+                fill = document.createElement("span");
+                fill.className = "glanceBarFill";
                 bar.appendChild(fill);
             }
 
@@ -4229,7 +4229,7 @@ if ($(".aboutLeadersSec").length) {
 
             percentage = Math.max(0, Math.min(100, percentage));
 
-            var clip = “inset(0 ” + (100 - percentage).toFixed(4) + “% 0 0)“;
+            var clip = "inset(0 " + (100 - percentage).toFixed(4) + "% 0 0)";
 
             if (fill) {
                 fill.style.clipPath = clip;
@@ -4237,18 +4237,18 @@ if ($(".aboutLeadersSec").length) {
                 bar.style.clipPath = clip;
             }
 
-            bar.setAttribute(“aria-label”, value.textContent.trim());
+            bar.setAttribute("aria-label", value.textContent.trim());
         });
     }
 
     // Calculate complexity dots
     function fillDots(card) {
-        var dots = card.querySelector(“.glanceDots”);
+        var dots = card.querySelector(".glanceDots");
 
         if (!dots) return;
 
         // Read score directly from backend HTML
-        var score = parseFloat(dots.getAttribute(“data-score”));
+        var score = parseFloat(dots.getAttribute("data-score"));
 
         if (isNaN(score)) return;
 
@@ -4259,33 +4259,33 @@ if ($(".aboutLeadersSec").length) {
             var part = score - index;
 
             dot.className =
-                part >= 0.75 ? “is-on” : part >= 0.25 ? “is-half” : “”;
+                part >= 0.75 ? "is-on" : part >= 0.25 ? "is-half" : "";
         });
 
-        dots.setAttribute(“aria-label”, “Complexity: “ + score + “ out of 5");
+        dots.setAttribute("aria-label", "Complexity: " + score + " out of 5");
     }
 
     // Refresh all cards
     function updateCards() {
-        var cards = document.querySelectorAll(“.caseGlance”);
+        var cards = document.querySelectorAll(".caseGlance");
 
         Array.prototype.forEach.call(cards, function (card) {
             fillBars(card);
             fillDots(card);
 
             if (
-                !card.classList.contains(“js-reveal”) &&
-                !window.matchMedia(“(prefers-reduced-motion: reduce)“)
+                !card.classList.contains("js-reveal") &&
+                !window.matchMedia("(prefers-reduced-motion: reduce)")
                     .matches &&
-                “IntersectionObserver” in window
+                "IntersectionObserver" in window
             ) {
-                card.classList.add(“js-reveal”);
+                card.classList.add("js-reveal");
 
                 var observer = new IntersectionObserver(
                     function (entries) {
                         if (!entries[0].isIntersecting) return;
 
-                        card.classList.add(“is-in”);
+                        card.classList.add("is-in");
                         observer.disconnect();
                     },
                     {
@@ -4302,7 +4302,7 @@ if ($(".aboutLeadersSec").length) {
         updateCards();
 
         // Watch backend / AJAX HTML updates
-        if (“MutationObserver” in window && document.body) {
+        if ("MutationObserver" in window && document.body) {
             var mutationObserver = new MutationObserver(function () {
                 updateCards();
             });
@@ -4315,8 +4315,8 @@ if ($(".aboutLeadersSec").length) {
         }
     }
 
-    if (document.readyState === “loading”) {
-        document.addEventListener(“DOMContentLoaded”, init);
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
     } else {
         init();
     }
