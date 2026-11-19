@@ -4081,7 +4081,8 @@ if ($(".aboutLeadersSec").length) {
 	function init() {
 		var modal = document.querySelector("[data-video-modal]");
 		if (!modal) return;
-		if (modal.parentNode !== document.body) document.body.appendChild(modal); // avoids clipping and stacking from parents
+		if (modal.parentNode !== document.body)
+			document.body.appendChild(modal); // avoids clipping and stacking from parents
 
 		var box = modal.querySelector(".vmBox");
 		var video = modal.querySelector(".vmVideo");
@@ -4096,12 +4097,15 @@ if ($(".aboutLeadersSec").length) {
 		}
 
 		function open(trigger) {
-			var src = trigger.getAttribute("data-video-src") || trigger.getAttribute("href");
+			var src =
+				trigger.getAttribute("data-video-src") ||
+				trigger.getAttribute("href");
 			if (!src) return;
 			opener = trigger;
 			video.src = src;
 			var poster = trigger.getAttribute("data-video-poster");
-			if (poster) video.poster = poster; else video.removeAttribute("poster");
+			if (poster) video.poster = poster;
+			else video.removeAttribute("poster");
 			isOpen = true;
 			modal.classList.add("is-open");
 			modal.setAttribute("aria-hidden", "false");
@@ -4118,7 +4122,8 @@ if ($(".aboutLeadersSec").length) {
 			modal.classList.remove("is-open");
 			modal.setAttribute("aria-hidden", "true");
 			lockScroll(false);
-			window.setTimeout(function () { // after the fade, drop the file so nothing keeps loading or playing
+			window.setTimeout(function () {
+				// after the fade, drop the file so nothing keeps loading or playing
 				if (isOpen) return;
 				video.removeAttribute("src");
 				video.removeAttribute("poster");
@@ -4129,29 +4134,47 @@ if ($(".aboutLeadersSec").length) {
 		}
 
 		document.addEventListener("click", function (e) {
-			var t = e.target.closest ? e.target.closest("[data-video-open]") : null;
+			var t = e.target.closest
+				? e.target.closest("[data-video-open]")
+				: null;
 			if (!t) return;
 			e.preventDefault();
 			open(t);
 		});
 
-		modal.addEventListener("click", function (e) { // click on the dark area around the video
-			if (!box.contains(e.target) || e.target === closeBtn || closeBtn.contains(e.target)) close();
+		modal.addEventListener("click", function (e) {
+			// click on the dark area around the video
+			if (
+				!box.contains(e.target) ||
+				e.target === closeBtn ||
+				closeBtn.contains(e.target)
+			)
+				close();
 		});
 
 		document.addEventListener("keydown", function (e) {
 			if (!isOpen) return;
-			if (e.key === "Escape") { close(); return; }
-			if (e.key === "Tab") { // keep focus on the popup: only the close button and the video controls
+			if (e.key === "Escape") {
+				close();
+				return;
+			}
+			if (e.key === "Tab") {
+				// keep focus on the popup: only the close button and the video controls
 				var f = [closeBtn, video];
 				var i = f.indexOf(document.activeElement);
-				if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
-				else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+				if (e.shiftKey && i <= 0) {
+					e.preventDefault();
+					f[f.length - 1].focus();
+				} else if (!e.shiftKey && i === f.length - 1) {
+					e.preventDefault();
+					f[0].focus();
+				}
 			}
 		});
 	}
 
-	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	if (document.readyState === "loading")
+		document.addEventListener("DOMContentLoaded", init);
 	else init();
 })();
 
@@ -4346,7 +4369,6 @@ if ($(".deployedSec").length) {
 				settings: {
 					slidesToShow: 2.1,
 					slidesToScroll: 1,
-					
 				},
 			},
 			{
@@ -4373,14 +4395,23 @@ if ($(".deployedSec").length) {
 	function init() {
 		var viewers = document.querySelectorAll(".readinessViewer");
 		Array.prototype.forEach.call(viewers, function (viewer) {
-			var tabs = Array.prototype.slice.call(viewer.querySelectorAll("[data-rv-tab]"));
-			var panels = Array.prototype.slice.call(viewer.querySelectorAll("[data-rv-panel]"));
+			var tabs = Array.prototype.slice.call(
+				viewer.querySelectorAll("[data-rv-tab]"),
+			);
+			var panels = Array.prototype.slice.call(
+				viewer.querySelectorAll("[data-rv-panel]"),
+			);
 			if (!tabs.length || !panels.length) return;
 
 			function show(tab, focus) {
 				var key = tab.getAttribute("data-rv-tab");
-				var panel = viewer.querySelector('[data-rv-panel="' + key + '"]');
-				if (!panel) { if (focus) tab.focus(); return; } // panel not added yet: just move focus
+				var panel = viewer.querySelector(
+					'[data-rv-panel="' + key + '"]',
+				);
+				if (!panel) {
+					if (focus) tab.focus();
+					return;
+				} // panel not added yet: just move focus
 				tabs.forEach(function (t) {
 					var on = t === tab;
 					t.classList.toggle("is-active", on);
@@ -4396,11 +4427,16 @@ if ($(".deployedSec").length) {
 			}
 
 			tabs.forEach(function (tab, i) {
-				tab.addEventListener("click", function () { show(tab, false); });
-				tab.addEventListener("keydown", function (e) { // arrow keys move between tabs
+				tab.addEventListener("click", function () {
+					show(tab, false);
+				});
+				tab.addEventListener("keydown", function (e) {
+					// arrow keys move between tabs
 					var next = null;
-					if (e.key === "ArrowDown" || e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
-					else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+					if (e.key === "ArrowDown" || e.key === "ArrowRight")
+						next = tabs[(i + 1) % tabs.length];
+					else if (e.key === "ArrowUp" || e.key === "ArrowLeft")
+						next = tabs[(i - 1 + tabs.length) % tabs.length];
 					else if (e.key === "Home") next = tabs[0];
 					else if (e.key === "End") next = tabs[tabs.length - 1];
 					if (!next) return;
@@ -4411,6 +4447,45 @@ if ($(".deployedSec").length) {
 		});
 	}
 
-	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	if (document.readyState === "loading")
+		document.addEventListener("DOMContentLoaded", init);
 	else init();
+})();
+
+// Apply form: shows the chosen resume file name in the upload row, and puts the placeholder text back if the file is removed.
+
+// Apply form: shows the chosen resume file name in the upload row, and puts the placeholder text back if the file is removed.
+(function () {
+	"use strict";
+
+	function init() {
+		var inputs = document.querySelectorAll(".acUpload .acFile");
+
+		Array.prototype.forEach.call(inputs, function (input) {
+			var text = input.parentNode.querySelector("[data-upload-text]");
+
+			if (!text) return;
+
+			var placeholder = text.textContent.trim();
+
+			input.addEventListener("change", function () {
+				var file = input.files && input.files[0];
+
+				text.textContent = file ? file.name : placeholder;
+
+				input.parentNode.classList.toggle("has-file", !!file);
+
+				console.log(
+					"Selected file:",
+					file ? file.name : "No file selected",
+				);
+			});
+		});
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
+	} else {
+		init();
+	}
 })();

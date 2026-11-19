@@ -8,19 +8,17 @@ $fieldBorder: rgba(213, 187, 228, 0.14);
 $chevron: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Crect width='32' height='32' rx='16' fill='%23D9D9D9'/%3E%3Cpath d='M10.6953 13.3467L16.002 18.6534L21.3088 13.3467' stroke-width='1.76891' stroke-linecap='round' stroke-linejoin='round' stroke='black'/%3E%3C/svg%3E";
 $sendArrow: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z' fill='%23210214'/%3E%3C/svg%3E";
 
-body.page-template-contact-us {
-    .bannerInnerSection.contactBannerSec{height: auto; padding-bottom: 200px;
-        .wrapper{height: auto;
-            .bannerContent{width: 100%; max-width: 1352px;
-                .bannerHeading{
-                    h4{font-weight: 600; margin-bottom: 2px;}
-                    h1{margin-bottom: 24px;}
-                    p{width: auto; font-weight: 500;}
-                }
+
+.bannerInnerSection.contactBannerSec{height: auto; padding-bottom: 200px;
+    .wrapper{height: auto;
+        .bannerContent{width: 100%; max-width: 1352px;
+            .bannerHeading{
+                h4{font-weight: 600; margin-bottom: 2px;}
+                h1{margin-bottom: 24px;}
+                p{width: auto; font-weight: 500;}
             }
         }
     }
-
     .contactLines{position: absolute; top: 29.75vw; left: 0; width: 100%; height: 28.5vw; pointer-events: none; z-index: 1;
         img{position: absolute; top: 0; width: 57%; height: auto;}
         .linesLeft{left: -15.1%;}
@@ -67,7 +65,6 @@ body.page-template-contact-us {
         }
         .wpcf7-response-output{margin: 24px 0 0; padding: 12px 16px; border-radius: 12px; color: #fff; font-size: 16px; line-height: 150%; text-align: center;}
     }
-
     @media screen and (max-width: 1800px){
         .bannerInnerSection.contactBannerSec{padding-bottom: 180px;}
     }
@@ -147,3 +144,6 @@ body.page-template-contact-us {
         }
     }
 }
+
+
+
