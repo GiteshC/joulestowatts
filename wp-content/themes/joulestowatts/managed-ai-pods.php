@@ -18,9 +18,10 @@
     </div>
 </section>
 
-<section class="introSection">
-    <div class="mpodsLens" aria-hidden="true">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/mpods-lens-glow.webp' ); ?>" alt="" loading="eager">
+<section class="introSection homeImpactSec">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
     <div class="wrapper">
         <div class="introContent">
@@ -150,7 +151,7 @@
     </div>
 </section>
 
-<section class="resultSection homeImpactSec">
+<section class="resultSection platformResultSec">
     <div class="secWrapper">
         <?php if( have_rows('use_cases') ): ?>
             <?php while( have_rows('use_cases') ): the_row(); ?>
@@ -202,15 +203,12 @@
     </div>
 </section>
 
-<section class="talkToPartnerSec">
-    <div class="mpodsLens" aria-hidden="true">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/mpods-lens-glow.webp' ); ?>" alt="" loading="lazy">
+<section class="talkToPartnerSec homeImpactSec">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
     <div class="secWrapper">
-        <!-- <div class="imgBox">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div> -->
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
                 <div class="secHeading">
@@ -227,6 +225,72 @@
             <?php endwhile; ?>
         <?php endif; ?>
     </div>
+</section>
+
+<section class="deployedSec">
+	<div class="dsWrap">
+		<div class="dsHead">
+			<h2 class="manrope">Deployed at client sites.</h2>
+			<p>Every expert works inside a client team and stays connected to JoulestoWatts for support, learning, and their next challenge.</p>
+		</div>
+	</div>
+	<div class="dsTrack testomonialSlider" tabindex="0" aria-label="Team stories, scroll sideways for more">
+		<div class="dsCard">
+			<p class="dsQuote">Even while working deployed at a client location, J2W provides a highly supportive corporate environment defined by a cooperative HR team and a friendly atmosphere. The management remains genuinely approachable and communicative, ensuring that off-site consultants feel connected, heard, and valued.</p>
+			<div class="dsPerson">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/client1.webp' ); ?>" alt="" loading="lazy">
+				<div class="dsInfo">
+					<p class="dsName">Queen Rachel Joyce D</p>
+					<p class="dsRole">Principal Software Engineer &middot; 10.5 years</p>
+					<p class="dsSector">Industrial, Auto and Engineering</p>
+				</div>
+			</div>
+		</div>
+		<div class="dsCard">
+			<p class="dsQuote">It's been a great experience working here, with a collaborative team, a supportive work culture, and opportunities to take on meaningful challenges. As a Principal Lead Engineer, I've enjoyed contributing to impactful projects while continuously learning and growing professionally.</p>
+			<div class="dsPerson">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/client2.webp' ); ?>" alt="" loading="lazy">
+				<div class="dsInfo">
+					<p class="dsName">Veeresh</p>
+					<p class="dsRole">Principal Lead Engineer &middot; 10.7 years</p>
+					<p class="dsSector">Healthcare and Life Sciences</p>
+				</div>
+			</div>
+		</div>
+		<div class="dsCard">
+			<p class="dsQuote">I'm especially proud of the work I've been doing at J2W for the past 1.5 years. It's been an outstanding environment that challenges me to bring my best architectural thinking to the table every day.</p>
+			<div class="dsPerson">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/client3.webp' ); ?>" alt="" loading="lazy">
+				<div class="dsInfo">
+					<p class="dsName">Siju S</p>
+					<p class="dsRole">Technical Lead &middot; 13 years</p>
+					<p class="dsSector">Industrial, Auto and Engineering</p>
+				</div>
+			</div>
+		</div>
+		<div class="dsCard">
+			<p class="dsQuote">This journey has been an excellent learning experience, allowing me to work on challenging projects, strengthen my expertise in Functional and API testing, and contribute to delivering reliable, high-quality products. Five years completed, and many more milestones to achieve!</p>
+			<div class="dsPerson">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/client1.webp' ); ?>" alt="" loading="lazy">
+				<div class="dsInfo">
+					<p class="dsName">T Rajesh</p>
+					<p class="dsRole">Senior Software Engineer &middot; 5 years</p>
+					<p class="dsSector">Retail and E-commerce</p>
+				</div>
+			</div>
+		</div>
+		<div class="dsCard">
+			<p class="dsQuote">My journey with J2W has been a great learning and growth experience. The supportive environment, continuous learning opportunities, and collaboration with the team have helped me strengthen my technical and professional skills.</p>
+			<div class="dsPerson">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/client2.webp' ); ?>" alt="" loading="lazy">
+				<div class="dsInfo">
+					<p class="dsName">Priya Jadhav</p>
+					<p class="dsRole">GenAI Developer &middot; 4 years</p>
+					<p class="dsSector">Consulting and Professional Services</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <?php get_footer(); ?>
