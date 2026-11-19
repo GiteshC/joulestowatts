@@ -98,39 +98,6 @@ $etd_arrow   = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" v
     <?php endwhile; ?>
 <?php endif; ?>
 
-<!-- <?php if ( have_rows( 'what_you_keep' ) ) : ?>
-    <?php while ( have_rows( 'what_you_keep' ) ) : the_row(); ?>
-        <section class="etdKeepSec">
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
-                </div>
-                <div class="etdKeepCards" data-toggle-group>
-                    <?php if ( have_rows( 'cards' ) ) : ?>
-                        <?php $etd_card = 1; while ( have_rows( 'cards' ) ) : the_row(); ?>
-                            <div class="etdKeepCard" data-toggle-item>
-                                <div class="imgBox">
-                                    <?php $etd_keep_img = get_sub_field( 'image' ); if ( ! empty( $etd_keep_img ) ) : ?>
-                                        <img src="<?php echo esc_url( $etd_keep_img['url'] ); ?>" loading="lazy" alt="<?php echo esc_attr( $etd_keep_img['alt'] ); ?>" />
-                                    <?php endif; ?>
-                                </div>
-                                <div class="etdKeepPanel" role="button" tabindex="0" aria-expanded="false" data-toggle>
-                                    <svg class="tab" viewBox="0 0 196 26" preserveAspectRatio="none" aria-hidden="true"><path class="fill" d="M0 26V24Q0 1 22 1H150Q157 1 163 4.6L196 26Z"/><path class="line" d="M0.3 26V24Q0.3 1.3 22 1.3H150Q156.8 1.3 162.8 4.9L196 25.7" fill="none"/></svg>
-                                    <div class="panelBody">
-                                        <span class="num manrope"><?php echo esc_html( sprintf( '%02d', $etd_card ) ); ?></span>
-                                        <div class="titleBox"><h3><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3></div>
-                                        <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php $etd_card++; endwhile; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </section>
-    <?php endwhile; ?>
-<?php endif; ?> -->
-
 <section class="whyItSection">
     <?php if( have_rows('what_you_keep') ): ?>
         <?php while( have_rows('what_you_keep') ): the_row(); ?>

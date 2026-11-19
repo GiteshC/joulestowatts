@@ -68,7 +68,7 @@
 					<li class="menuGroup">
 						<a href="#" class="menuHeading manrope">Our Offerings</a>
 						<ul class="menuLinks">
-							<li><a href="<?php echo get_site_url(); ?>/workforce-solutions" class="manrope">Talent Solutions: talent composition</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/talent-solutions" class="manrope">Talent Solutions: talent composition</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/managed-ai-pods" class="manrope">Managed Talent Pods</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/ai-accelerators-and-agents" class="manrope">AI accelerators and agents</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/greenfield-consulting" class="manrope">Greenfield: consulting + set up</a></li>
