@@ -203,7 +203,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 	<?php endwhile; ?>
 <?php endif; ?>
 
-<section class="resultSection platformResultSec ">
+<section class="resultSection homeImpactSec">
 	<div class="secWrapper">
 		<?php if ( have_rows( 'impact_stories' ) ) : ?>
 			<?php while ( have_rows( 'impact_stories' ) ) : the_row(); ?>

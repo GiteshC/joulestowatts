@@ -92,90 +92,27 @@
                     <?php endif; ?>
                 </div>
                 <div class="artifactDetailBox">
-                    <div class="artifactDetail active" data-panel="1" >
-                        <div class="detailText">
-                            <span class="manrope step">Step 1 of 4 · Map</span>
-                            <h4 class="manrope">See where you truly stand on AI, from the boardroom to the front line.</h4>
-                            <p>Your leaders complete an adaptive questionnaire across nine layers, from strategy and data to people, process, and governance. Meanwhile, AI Atlas agents hold short voice interviews with the people who do the work, at a time that suits them. Where the answers conflict, such as leaders rating data readiness high while analysts rate it low, AI Atlas flags the gap.</p>
-                        </div>
-                        <div class="detailFacts">
-                            <div class="fact">
-                                <span class="manrope">Method</span>
-                                <p>Leadership questionnaire and AI-led voice interviews</p>
+                    <?php if( have_rows('four_artifacts_content') ): ?>
+                        <?php $counter=1; while( have_rows('four_artifacts_content') ): the_row(); ?>
+                            <div class="artifactDetail <?php if($counter==1) { echo 'active'; } ?>" data-panel="<?php echo $counter; ?>" >
+                                <div class="detailText">
+                                    <span class="manrope step">Step <?php echo $counter; ?> of 4 · Map</span>
+                                    <h4 class="manrope"><?php echo get_sub_field('step_map_heading'); ?></h4>
+                                    <p><?php echo get_sub_field('step_map_description'); ?></p>
+                                </div>
+                                <div class="detailFacts">
+                                    <?php if( have_rows('step_map_facts') ): ?>
+                                        <?php while( have_rows('step_map_facts') ): the_row(); ?>
+                                            <div class="fact">
+                                                <span class="manrope"><?php echo get_sub_field('facts_heading'); ?></span>
+                                                <p><?php echo get_sub_field('facts_description'); ?></p>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                            <div class="fact">
-                                <span class="manrope">Your time</span>
-                                <p>2 to 3 hours</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Outcome</span>
-                                <p>A maturity score for every layer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="artifactDetail"  data-panel="2">
-                        <div class="detailText">
-                            <span class="manrope step">Step 2 of 4 · Map</span>
-                            <h4 class="manrope">See where you truly stand on AI, from the boardroom to the front line.</h4>
-                            <p>AI Atlas writes the AI Charter before anyone writes code. It turns the AI Atlas Diagnostic findings into one clear plan, and every recommendation traces back to evidence from your own people, not a vendor's slides. Each initiative is marked as a need, a ready-made accelerator, or something your team can build, then sequenced on a one- to three-year roadmap.</p>
-                        </div>
-                        <div class="detailFacts">
-                            <div class="fact">
-                                <span class="manrope">Ready in</span>
-                                <p>2 to 3 weeks</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Inside</span>
-                                <p>Your top 10 AI initiatives, ranked by value</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Built on</span>
-                                <p>Evidence from your own people</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="artifactDetail"  data-panel="3">
-                        <div class="detailText">
-                            <span class="manrope step">Step 3 of 4 · Map</span>
-                            <h4 class="manrope">Ready-made AI solutions matched to your plan, so you start from proven building blocks, not a blank page.</h4>
-                            <p>The Atlas Catalog is filtered to your AI Charter, so you only see what fits your function, industry, and data rules. Each accelerator is a complete solution, not a single agent. It brings together the agents, workflows, integrations, and interfaces needed to deliver one business outcome. Deploy one as is, or build your own on the same platform.</p>
-                        </div>
-                        <div class="detailFacts">
-                            <div class="fact">
-                                <span class="manrope">Options</span>
-                                <p>Adopt an accelerator or build your own</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Works with</span>
-                                <p>Microsoft, Google, AWS, and open-source tools</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Step 4 of 4 · Run & Prove</span>
-                                <p>Our cloud, your cloud, or on-premises</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="artifactDetail"  data-panel="4">
-                        <div class="detailText">
-                            <span class="manrope step">Step 4 of 4 · Map</span>
-                            <h4 class="manrope">Every AI investment in one place: who uses it, what it costs, and what it returns.</h4>
-                            <p>Every AI request runs through AI Atlas, so each one is recorded: who made it, which model handled it, what it cost, and what it delivered. Each leader gets the view they need, from spend against budget for the CFO to a full audit trail for the CISO. Measured results are always labeled separately from estimates, so the numbers hold up in the boardroom.</p>
-                        </div>
-                        <div class="detailFacts">
-                            <div class="fact">
-                                <span class="manrope">Tracks</span>
-                                <p>Usage, cost, and outcomes</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">Built for</span>
-                                <p>CFOs, CIOs, CISOs, and function heads</p>
-                            </div>
-                            <div class="fact">
-                                <span class="manrope">The answer</span>
-                                <p>One screen, not 40 spreadsheets</p>
-                            </div>
-                        </div>
-                    </div>
+                        <?php $counter=$counter+1; endwhile; ?>
+                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>

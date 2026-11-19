@@ -122,22 +122,6 @@ body.page-template-workforce-solutions {
         @media all and (max-width: 1440px){padding-top: 70px;}
         @media all and (max-width: 720px){padding-top: 40px;}
     }
-
-    // Closing call to action: lens glow above it, the intro wraps to two lines as in the design, title-case button label.
-    .talkToPartnerSec{padding-top: 60px;
-        &::before{content: ""; position: absolute; top: -290px; left: 50%; transform: translateX(-50%); width: 100%; height: 640px; z-index: 2; mix-blend-mode: screen; pointer-events: none;
-            background: radial-gradient(ellipse 36% 6% at 50% 50%, rgba(190, 220, 222, 0.42) 0%, rgba(190, 220, 222, 0) 100%), radial-gradient(ellipse 46% 48% at 50% 50%, rgba(74, 137, 151, 0.55) 0%, rgba(74, 137, 151, 0.18) 50%, rgba(33, 2, 20, 0) 100%);}
-        .secWrapper .secHeading{
-            p{max-width: 664px;}
-            .primaryCTA span{text-transform: capitalize;}
-        }
-        @media all and (max-width: 1440px){padding-top: 40px;
-            &::before{top: -240px; height: 520px;}
-        }
-        @media all and (max-width: 720px){padding-top: 0;
-            &::before{top: -200px; height: 360px;}
-        }
-    }
 }
 
 // The talent engine: heading, then text | illustration | text.
