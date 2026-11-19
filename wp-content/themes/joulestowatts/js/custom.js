@@ -3173,7 +3173,6 @@ if ($(".aboutNewsSec").length) {
 				settings: {
 					slidesToShow: 3,
 					slidesToScroll: 1,
-					infinite: true,
 				},
 			},
 			{
@@ -4330,3 +4329,41 @@ if ($(".aboutLeadersSec").length) {
 		init();
 	}
 })();
+
+
+if ($(".deployedSec").length) {
+	$(".testomonialSlider").slick({
+		dots: false,
+		infinite: false,
+		arrows: false,
+		slidesToShow: 2.3,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		speed: 1000,
+		responsive: [
+			{
+				breakpoint: 1367,
+				settings: {
+					slidesToShow: 2.1,
+					slidesToScroll: 1,
+					
+				},
+			},
+			{
+				breakpoint: 1081,
+				settings: {
+					slidesToShow: 1.8,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1.1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	});
+}

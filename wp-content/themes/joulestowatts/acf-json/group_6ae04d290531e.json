@@ -319,6 +319,77 @@
                             "parent_repeater": "field_6ae04d2f72620"
                         },
                         {
+                            "key": "field_6afd56be2303c",
+                            "label": "Card Hovered Image",
+                            "name": "card_hovered_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium",
+                            "parent_repeater": "field_6ae04d2f72620"
+                        },
+                        {
+                            "key": "field_6afd56f02303d",
+                            "label": "Card Hovered Heading",
+                            "name": "card_hovered_heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6ae04d2f72620"
+                        },
+                        {
+                            "key": "field_6afd57152303e",
+                            "label": "Card Hovered Description",
+                            "name": "card_hovered_description",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6ae04d2f72620"
+                        },
+                        {
                             "key": "field_6ae04d306c7f8",
                             "label": "Card Heading",
                             "name": "card_heading",
@@ -561,5 +632,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1793095263
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1794988073
 }

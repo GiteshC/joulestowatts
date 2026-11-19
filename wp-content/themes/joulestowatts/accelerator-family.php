@@ -12,7 +12,7 @@ $accfam_url = static function ( $link ) {
 $accfam_arrow = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/></svg>';
 ?>
 
-<section class="bannerInnerSection accFamBanner">
+<section class="bannerInnerSection">
 	<div class="wrapper">
 		<?php if ( have_rows( 'banner_section' ) ) : ?>
 			<?php while ( have_rows( 'banner_section' ) ) : the_row(); ?>
@@ -79,11 +79,38 @@ $accfam_arrow = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
 							$card_text = get_sub_field( 'card_link_text' );
 							?>
 							<article class="accFamCard" data-reveal>
-								<?php if ( get_sub_field( 'card_tag' ) ) : ?>
-									<span class="tag manrope"><?php echo esc_html( get_sub_field( 'card_tag' ) ); ?></span>
-								<?php endif; ?>
+								<div class="topContent">
+									<?php if ( get_sub_field( 'card_tag' ) ) : ?>
+										<span class="tag manrope"><?php echo esc_html( get_sub_field( 'card_tag' ) ); ?></span>
+									<?php endif; ?>
+									<?php
+										$fmlyimg = get_sub_field('card_hovered_image');
+										$hovered_heading = get_sub_field('card_hovered_heading');
+										$hovered_description = get_sub_field('card_hovered_description');
+
+										if ( !empty($fmlyimg) || !empty($hovered_heading) || !empty($hovered_description) ) :
+										?>
+										<div class="hoveredContent">
+
+											<?php if ( !empty($fmlyimg) ) : ?>
+												<img src="<?php echo esc_url($fmlyimg['url']); ?>"
+													loading="lazy"
+													alt="<?php echo esc_attr($fmlyimg['alt']); ?>" />
+											<?php endif; ?>
+
+											<?php if ( !empty($hovered_heading) ) : ?>
+												<h3><?php echo esc_html($hovered_heading); ?></h3>
+											<?php endif; ?>
+
+											<?php if ( !empty($hovered_description) ) : ?>
+												<p><?php echo esc_html($hovered_description); ?></p>
+											<?php endif; ?>
+
+										</div>
+									<?php endif; ?>
+								</div>
 								<div class="bottomContent">
-									<h3 class="manrope"><?php echo esc_html( get_sub_field( 'card_heading' ) ); ?></h3>
+									<h4 class="manrope"><?php echo esc_html( get_sub_field( 'card_heading' ) ); ?></h4>
 									<p><?php echo esc_html( get_sub_field( 'card_description' ) ); ?></p>
 									<?php if ( $card_link && $card_text ) : ?>
 										<a href="<?php echo esc_url( $card_link ); ?>" class="cardLink"><?php echo esc_html( $card_text ); ?></a>
@@ -98,13 +125,12 @@ $accfam_arrow = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
 	</div>
 </section>
 
-<section class="talkToPartnerSec accFamPartner">
-	<div class="accFamBand" aria-hidden="true"></div>
+<section class="talkToPartnerSec homeImpactSec">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="secWrapper">
-		<div class="imgBox">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-		</div>
 		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
 			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
 				<div class="secHeading">
