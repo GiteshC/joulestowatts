@@ -4330,7 +4330,6 @@ if ($(".aboutLeadersSec").length) {
 	}
 })();
 
-
 if ($(".deployedSec").length) {
 	$(".testomonialSlider").slick({
 		dots: false,
@@ -4367,3 +4366,51 @@ if ($(".deployedSec").length) {
 		],
 	});
 }
+// Report viewer: the left tabs switch the report panel. A tab with no matching panel yet does nothing.
+(function () {
+	"use strict";
+
+	function init() {
+		var viewers = document.querySelectorAll(".readinessViewer");
+		Array.prototype.forEach.call(viewers, function (viewer) {
+			var tabs = Array.prototype.slice.call(viewer.querySelectorAll("[data-rv-tab]"));
+			var panels = Array.prototype.slice.call(viewer.querySelectorAll("[data-rv-panel]"));
+			if (!tabs.length || !panels.length) return;
+
+			function show(tab, focus) {
+				var key = tab.getAttribute("data-rv-tab");
+				var panel = viewer.querySelector('[data-rv-panel="' + key + '"]');
+				if (!panel) { if (focus) tab.focus(); return; } // panel not added yet: just move focus
+				tabs.forEach(function (t) {
+					var on = t === tab;
+					t.classList.toggle("is-active", on);
+					t.setAttribute("aria-selected", on ? "true" : "false");
+					t.tabIndex = on ? 0 : -1;
+				});
+				panels.forEach(function (p) {
+					var on = p === panel;
+					p.classList.toggle("is-active", on);
+					p.hidden = !on;
+				});
+				if (focus) tab.focus();
+			}
+
+			tabs.forEach(function (tab, i) {
+				tab.addEventListener("click", function () { show(tab, false); });
+				tab.addEventListener("keydown", function (e) { // arrow keys move between tabs
+					var next = null;
+					if (e.key === "ArrowDown" || e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+					else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+					else if (e.key === "Home") next = tabs[0];
+					else if (e.key === "End") next = tabs[tabs.length - 1];
+					if (!next) return;
+					e.preventDefault();
+					show(next, true);
+				});
+			});
+		});
+	}
+
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	else init();
+})();

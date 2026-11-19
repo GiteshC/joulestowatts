@@ -1,6 +1,6 @@
 @use '../base/_global.scss' as *;
 
-header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 999;
     --logoW: 369px;
     --logoWScrolled: 300px;
     transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;

@@ -135,31 +135,6 @@
 
 body.page-template-greenfield-consulting{
 
-    .bannerInnerSection{padding-top: 278px;
-        .bannerBG{display: none;}
-        .wrapper{
-            .bannerContent{
-                .bannerHeading{
-                    h1{margin-bottom: 24px;}
-                    p{width: 100%; max-width: 1231px;}
-                }
-                > img{width: 904px; max-width: 100%; height: auto; margin-top: 7.75vw;}
-            }
-        }
-        @media screen and (max-width: 1800px) {padding-top: 218px;}
-        @media screen and (max-width: 1280px) {padding-top: 198px;}
-        @media screen and (max-width: 720px) {padding-top: 120px;
-            .wrapper{
-                .bannerContent{
-                    .bannerHeading{
-                        p{width: 90%;}
-                    }
-                    > img{margin-top: 40px;}
-                }
-            }
-        }
-    }
-
     .whatgetSection{padding-top: 200px; margin-bottom: 304px; position: relative;
         &::before{@include gfGlow; top: -15.6vw; height: 31.2vw; z-index: 1;}
         .wrapper{position: relative; z-index: 2;
@@ -276,19 +251,65 @@ body.page-template-greenfield-consulting{
             }
         }
     }
+}
 
-    // .talkToPartnerSec{margin-top: 21.4vw; margin-bottom: 3.4vw; // collapses with the 200px margin under the stories
-    //     .secWrapper{
-    //         .imgBox .desktopBg{visibility: hidden;}
-    //         &::before{@include gfGlow; top: -13.6vw; height: 31.2vw;}
-    //         .secHeading{
-    //             h2{max-width: 664px;}
-    //             p{max-width: 664px;}
-    //             .primaryCTA span{text-transform: capitalize;}
-    //         }
-    //     }
-    //     @media screen and (max-width: 720px) {margin-top: 40px; margin-bottom: 0;
-    //         .secWrapper::before{top: -30vw; height: 60vw;}
-    //     }
-    // }
+.gccreportSection{@include sectionSpacing; position: relative;
+    &::before{content: ''; position: absolute; right: 0; bottom: -200px; height: 70vh; background: url('../images/curved-linebg.webp') bottom right no-repeat; pointer-events: none; width: 50%;}
+    .wrapper{@include wrapper; display: flex; flex-flow: wrap; justify-content: space-between; align-items: center;
+        .secHeading{width: 40%;
+            h3{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase;}
+            h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+            p{color: #DADADA; @include font20; line-height: 160%; margin: 24px 0px;}
+        }
+        .reportImg{width: 40%; z-index: 2;}
+    }
+    @media screen and (max-width: 1800px) {
+        &::before{bottom: -180px;}
+    }
+    @media screen and (max-width: 1600px) {
+        &::before{bottom: -160px;}
+    }
+    @media screen and (max-width: 1440px) {
+        &::before{bottom: -140px;}
+    }
+    @media screen and (max-width: 1280px) {
+        &::before{bottom: -120px;}
+    }
+    @media screen and (max-width: 820px) {
+        &::before{bottom: -100px;}
+        .wrapper{flex-flow: column; align-items: flex-start;
+            .secHeading{width: 100%; margin-bottom: 32px;
+                p{margin: 16px 0px;}
+            }
+            .reportImg{width: 100%;}
+        }
+    }
+    @media screen and (max-width: 720px) {
+        &::before{bottom: -80px;}
+    }
+}
+
+.readinessViewer{@include sectionSpacing; position: relative; z-index: 1;
+	.rvWrap{@include wrapper; display: flex; flex-flow: wrap; align-items: start; justify-content: space-between;
+        .rvTabs{width: 20%; text-align: left;
+            .rvTab{padding: 18px 26px; display: block; width: 100%; color: rgba(255, 255, 255, 0.8); background: transparent; border: 0; border-bottom: 2px solid #ffffff; @include font22; line-height: 180%; cursor: pointer; transition: color 0.3s ease, border-color 0.3s ease; text-align: left;
+                &:hover{color: #FFFFFF;}
+                &.is-active{background: linear-gradient(90deg, #01D3C7 9.1%, #FFF 127.14%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-bottom: 2px solid #01D3C7; padding-bottom: 18px;}
+                &:focus-visible{outline: 2px solid #01D3C7; outline-offset: 2px;}
+            }
+        }
+        .rvReport{width: 75%; border-radius: 12px; overflow: hidden;
+            .rvPanel{position: relative; display: none; overflow: hidden;
+                &.is-active{display: block;}
+            }
+        }
+    }
+    @media screen and (max-width: 800px) {
+        .rvWrap{flex-flow: column; align-items: flex-start;
+            .rvTabs{width: 100%; margin-bottom: 32px; display: flex; flex-flow: wrap; justify-content: space-between;
+                .rvTab{width: 48%; padding: 16px 20px;}
+            }
+            .rvReport{width: 100%;}
+        }
+    }
 }
