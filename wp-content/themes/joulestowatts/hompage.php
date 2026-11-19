@@ -87,6 +87,7 @@ $atlas_sparkles = array(
             <div class="wrapper">
                 <div class="enterpriseContent">
                     <h2 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h2>
+                    <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('sub_heading') ); ?></h3>
                     <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
                     <a href="<?php echo esc_url( $home_link_url( get_sub_field('cta_link') ) ); ?>" class="primaryCTA"><?php echo esc_html( get_sub_field('cta_text') ); ?>
                         <div class="arrowBox">
@@ -97,6 +98,9 @@ $atlas_sparkles = array(
                     </a>
                 </div>
                 <div class="enterpriseAnim globeEffect" aria-hidden="true">
+                    <?php $boximg = get_sub_field('box_image'); if( !empty( $boximg ) ): ?>
+                        <img src="<?php echo esc_url($boximg['url']); ?>" alt="<?php echo esc_attr($boximg['alt']); ?>" />
+                    <?php endif; ?>
                     <?php foreach ( $atlas_sparkles as $sparkle ) : ?>
                         <img class="atlasSparkle" src="<?php echo get_template_directory_uri(); ?>/images/home-sparkle.webp" alt="" style="left: <?php echo esc_attr( $sparkle[0] ); ?>%; top: <?php echo esc_attr( $sparkle[1] ); ?>%; width: <?php echo esc_attr( $sparkle[2] ); ?>px;" />
                     <?php endforeach; ?>

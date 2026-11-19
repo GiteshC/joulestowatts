@@ -93,13 +93,16 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                                     <?php endif; ?>
                                 </div>
                                 <div class="bottomContent">
-                                    <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
-                                    <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
-                                    <div class="description">
-                                        <div class="descriptionInner">
-                                            <p><?php echo wp_kses_post( get_sub_field('box_description') ); ?></p>
+                                    <?php $boxLink = get_sub_field('box_link'); ?>
+                                    <a <?php echo $boxLink ? 'href="' . esc_url( $boxLink ) . '"' : 'tabindex="0"'; ?>>
+                                        <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
+                                        <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('box_heading') ); ?></h3>
+                                        <div class="description">
+                                            <div class="descriptionInner">
+                                                <p><?php echo wp_kses_post( get_sub_field('box_description') ); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         <?php $counter++; endwhile; ?>
@@ -154,7 +157,7 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                     <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
                     <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
                 </div>
-                <div class="ecaTiers" data-accordion data-autoplay="4000">
+                <div class="ecaTiers" data-accordion data-autoplay="3000">
                     <?php if ( have_rows( 'tiers' ) ) : ?>
                         <?php $eca_tier = 0; while ( have_rows( 'tiers' ) ) : the_row(); ?>
                             <div class="ecaTier<?php echo 0 === $eca_tier ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 0 === $eca_tier ? 'true' : 'false'; ?>">
@@ -186,176 +189,138 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
 
 <section class="evidenceSec">
     <div class="wrapper">
-        <div class="secHeading">
-            <h3 class="manrope">Claims, then evidence</h3>
-            <h2 class="manrope">Every claim, tied to evidence</h2>
-            <p>An ECA doesn't just record what people say. Every important claim is logged with its source, evidence, owner, timestamp, confidence, and validation status, so your AI is grounded in what can be proven.</p>
-        </div>
-        <div class="evidenceContent">
-            <div class="boxHeading">
-                <h4 class="manrope">Claim</h4>
-                <h3 class="manrope">Refunds above ₹50,000 need CFO approval.</h3>
-            </div>
-            <div class="evidenceBox">
-                <div class="evidenceBoxInner">
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Source</h4>
-                        <p>Finance policy v3.2</p>
-                    </div>
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Evidence</h4>
-                        <p>14 approval records reviewed</p>
-                    </div>
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Owner</h4>
-                        <p>Finance Controller</p>
-                    </div>
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Timestamp</h4>
-                        <p>12 Oct 2026</p>
-                    </div>
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Confidence</h4>
-                        <p>High</p>
-                    </div>
-                    <div class="evidenceBoxContent">
-                        <h4 class="manrope">Status</h4>
-                        <p>Validated</p>
-                    </div>
+        <?php if( have_rows('evidence_section') ): ?>
+            <?php while( have_rows('evidence_section') ): the_row(); ?>
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
                 </div>
-            </div>
-        </div>
+                <div class="evidenceContent">
+                    <?php if( have_rows('evidence_content') ): ?>
+                        <?php while( have_rows('evidence_content') ): the_row(); ?>
+                            <div class="boxHeading">
+                                <h4 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h4>
+                                <h3 class="manrope"><?php echo get_sub_field('heading'); ?></h3>
+                            </div>
+                            <div class="evidenceBox">
+                                <div class="evidenceBoxInner">
+                                    <?php if( have_rows('evidence_box') ): ?>
+                                        <?php while( have_rows('evidence_box') ): the_row(); ?>
+                                            <div class="evidenceBoxContent">
+                                                <h4 class="manrope"><?php echo get_sub_field('box_heading'); ?></h4>
+                                                <p><?php echo get_sub_field('box_description'); ?></p>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 </section>
 
 <section class="ecaRolesSec">
-	<div class="wrapper">
-		<div class="secHeading">
-			<h3 class="manrope">ECA vs existing roles</h3>
-			<h2 class="manrope">Why can't my existing team do this?</h2>
-			<p>Each role sees part of the picture. An ECA connects all of it and makes it usable by AI.</p>
-		</div>
-
-		<div class="rolesTabs" role="tablist" aria-label="Roles">
-			<button class="rolesTab is-active" type="button" role="tab" id="roleTab1" aria-controls="rolePanel1" aria-selected="true">Business Analyst</button>
-			<button class="rolesTab" type="button" role="tab" id="roleTab2" aria-controls="rolePanel2" aria-selected="false" tabindex="-1">Enterprise Architect</button>
-			<button class="rolesTab" type="button" role="tab" id="roleTab3" aria-controls="rolePanel3" aria-selected="false" tabindex="-1">Data Architect</button>
-			<button class="rolesTab" type="button" role="tab" id="roleTab4" aria-controls="rolePanel4" aria-selected="false" tabindex="-1">ECA</button>
-		</div>
-
-		<div class="rolesPanels">
-			<div class="rolesPanel is-active" role="tabpanel" id="rolePanel1" aria-labelledby="roleTab1">
-				<img class="rolesImg" src="<?php echo get_template_directory_uri(); ?>/images/eca-existing1.webp" alt="" width="660" height="440" loading="lazy">
-				<div class="rolesCols">
-					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
-					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
-					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
-				</div>
-			</div>
-			<!-- Panels 2 to 4: same markup (ids rolePanel2..4, aria-labelledby roleTab2..4, without is-active). -->
-            <div class="rolesPanel" role="tabpanel" id="rolePanel2" aria-labelledby="roleTab2">
-				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
-				<div class="rolesCols">
-					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
-					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
-					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
-				</div>
-			</div>
-            <div class="rolesPanel" role="tabpanel" id="rolePanel3" aria-labelledby="roleTab3">
-				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
-				<div class="rolesCols">
-					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
-					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
-					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
-				</div>
-			</div>
-            <div class="rolesPanel" role="tabpanel" id="rolePanel4" aria-labelledby="roleTab4">
-				<img class="rolesImg" src="images/eca-role-enterprise-architect.webp" alt="" width="660" height="440" loading="lazy">
-				<div class="rolesCols">
-					<div class="rolesCol"><h3>Covers</h3><p>Requirements and process steps.</p></div>
-					<div class="rolesCol"><h3>Misses</h3><p>The tacit rules and exceptions behind real decisions.</p></div>
-					<div class="rolesCol"><h3>ECA adds</h3><p>Validated decision logic, tied to evidence.</p></div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <?php if( have_rows('existing_roles') ): ?>
+        <?php while( have_rows('existing_roles') ): the_row(); ?>
+            <div class="wrapper">
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                    <p><?php echo get_sub_field('description'); ?></p>
+                </div>
+                <div class="rolesTabs" role="tablist" aria-label="Roles">
+                    <?php if( have_rows('roles_tabs_content') ): ?>
+                        <?php $counter=1; while( have_rows('roles_tabs_content') ): the_row(); ?>
+                            <button class="rolesTab <?php if($counter==1) { echo 'is-active'; } ?>" type="button" role="tab" id="roleTab<?php echo $counter; ?>" aria-controls="rolePanel<?php echo $counter; ?>" aria-selected="true"><?php echo get_sub_field('tab_heading'); ?></button>
+                        <?php $counter++; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+                <div class="rolesPanels">
+                    <?php if( have_rows('roles_tabs_content') ): ?>
+                        <?php $counter=1; while( have_rows('roles_tabs_content') ): the_row(); ?>
+                            <div class="rolesPanel <?php if($counter==1) { echo 'is-active'; } ?>" role="tabpanel" id="rolePanel<?php echo $counter; ?>" aria-labelledby="roleTab<?php echo $counter; ?>">
+                                <?php $tabimage = get_sub_field('tab_image'); if( !empty( $tabimage ) ): ?>
+                                    <img src="<?php echo esc_url($tabimage['url']); ?>" loading="lazy" class="rolesImg" alt="<?php echo esc_attr($tabimage['alt']); ?>" />
+                                <?php endif; ?>
+                                <!-- <img  src="<?php echo get_template_directory_uri(); ?>/images/eca-existing1.webp" alt="" width="660" height="440" loading="lazy"> -->
+                                <div class="rolesCols">
+                                    <?php if( have_rows('tab_pointers') ): ?>
+                                        <?php while( have_rows('tab_pointers') ): the_row(); ?>
+                                            <div class="rolesCol">
+                                                <h3><?php echo get_sub_field('pointer_heading'); ?></h3>
+                                                <p><?php echo get_sub_field('pointer_text'); ?></p></div>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php $counter++; endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="ecaChangesSec">
 	<div class="wrapper">
-		<div class="secHeading">
-            <h3 class="manrope">Business outcomes</h3>
-			<h2 class="manrope">What changes for you</h2>
-		</div>
-		<div class="changesGrid">
-			<div class="changeCard">
-				<h3>Faster AI deployment</h3>
-				<p>Use cases start from validated context, not months of discovery.</p>
-			</div>
-			<div class="changeCard">
-				<h3>Better grounding</h3>
-				<p>RAG, copilots and agents answer from what can be proven.</p>
-			</div>
-			<div class="changeCard">
-				<h3>Fewer operational errors</h3>
-				<p>Exceptions and decision rules are captured, not guessed.</p>
-			</div>
-			<div class="changeCard">
-				<h3>Reusable knowledge</h3>
-				<p>Context outlives the project and the people who held it.</p>
-			</div>
-			<div class="changeCard">
-				<h3>Stronger governance</h3>
-				<p>Every context asset has an owner, a version and an audit trail.</p>
-			</div>
-			<div class="changeCard">
-				<h3>Released capacity</h3>
-				<p>Teams spend less time on rework and exceptions, and more on the work only they can do.</p>
-			</div>
-		</div>
+        <?php if( have_rows('business_outcomes') ): ?>
+            <?php while( have_rows('business_outcomes') ): the_row(); ?>
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                </div>
+                <div class="changesGrid">
+                    <?php if( have_rows('outcomes_content') ): ?>
+                        <?php while( have_rows('outcomes_content') ): the_row(); ?>
+                            <div class="changeCard">
+                                <h3><?php echo get_sub_field('box_heading'); ?></h3>
+                                <p><?php echo get_sub_field('box_description'); ?></p>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
 	</div>
 </section>
 
 <section class="ecaWorkSec">
-	<div class="wrapper">
-		<div class="secHeading">
-			<h3 class="manrope">For enterprise leaders</h3>
-			<h2 class="manrope">Two ways to work with them</h2>
-		</div>
-		<div class="workGrid">
-			<div class="workCol">
-				<div class="workHead"><h3>We run AI Atlas for you</h3></div>
-				<div class="workBody">
-                    <div>
-                        <p class="workDesc">Our Enterprise Context Architects run AI Atlas end to end, from first interview to governed AI, and own the outcome against a KPI you sign.</p>
-                    </div>
-					<a class="primaryCTA" href="#">Explore AI Atlas
-						<div class="arrowBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                            </svg>
-                        </div>
-					</a>
-				</div>
-			</div>
-			<div class="workCol">
-				<div class="workHead"><h3>They join your team</h3></div>
-				<div class="workBody">
-                    <div>
-                        <p class="workDesc">Deploy a certified Enterprise Context Architect in your team for discovery and excavation: mapping how work really runs, and surfacing the exceptions, workarounds and unwritten rules your systems miss. You direct the work.</p>
-					    <p class="workNote">Start with ten hours on one business unit: where context is missing, what it is costing you, and where AI will pay back first.</p>
-                    </div>
-					<a class="primaryCTA" href="#">Explore AI Atlas
-                        <div class="arrowBox">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
-                            </svg>
-                        </div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <?php if( have_rows('enterprise_leaders') ): ?>
+        <?php while( have_rows('enterprise_leaders') ): the_row(); ?>
+            <div class="wrapper">
+                <div class="secHeading">
+                    <h3 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h3>
+                    <h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+                </div>
+                <div class="workGrid">
+                    <?php if( have_rows('enterprise_leaders_content') ): ?>
+                        <?php while( have_rows('enterprise_leaders_content') ): the_row(); ?>
+                            <div class="workCol">
+                                <div class="workHead"><h3><?php echo get_sub_field('heading'); ?></h3></div>
+                                <div class="workBody">
+                                    <div>
+                                        <p class="workDesc"><?php echo get_sub_field('description'); ?></p>
+                                        <p class="workNote"><?php echo get_sub_field('note'); ?></p>
+                                    </div>
+                                    <a class="primaryCTA" href="<?php echo get_sub_field('cta_link'); ?>"><?php echo get_sub_field('cta_text'); ?>
+                                        <div class="arrowBox">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <section class="ecaTiersSec">
@@ -366,7 +331,7 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                     <h2 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h2>
                     <p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
                 </div>
-                <div class="ecaTiers" data-accordion data-autoplay="4000">
+                <div class="ecaTiers" data-accordion data-autoplay="3000">
                     <?php if ( have_rows( 'tiers' ) ) : ?>
                         <?php $eca_tier = 0; while ( have_rows( 'tiers' ) ) : the_row(); ?>
                             <div class="ecaTier<?php echo 0 === $eca_tier ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 0 === $eca_tier ? 'true' : 'false'; ?>">
@@ -558,58 +523,41 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
 </section>
 
 <section class="ecaVoicesSec">
-	<img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
-	<div class="wrapper">
-		<div class="secHeading">
-			<h2>Hear from our Enterprise Context Architects</h2>
-			<p>Short films from the people doing the work, on what they found inside real enterprises.</p>
-		</div>
-		<div class="voicesGrid">
-			<div class="voiceCard">
-				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
-					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
-					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
-				</button>
-				<div class="voiceMeta">
-					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
-					<div class="voiceInfo">
-						<h3>Queen Rachel Joyce D</h3>
-						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
-						<p class="voiceDomain">Industrial, Auto and Engineering</p>
-					</div>
-				</div>
-			</div>
-            <div class="voiceCard">
-				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
-					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
-					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
-				</button>
-				<div.o class="voiceMeta">
-					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
-					<div class="voiceInfo">
-						<h3>Queen Rachel Joyce D</h3>
-						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
-						<p class="voiceDomain">Industrial, Auto and Engineering</p>
-					</div>
-				</div.o>
-			</div>
-            <div class="voiceCard">
-				<button class="voicePlay" type="button" data-video="https://www.youtube.com/embed/VIDEO_ID" aria-label="Play video: Queen Rachel Joyce D">
-					<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
-					<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
-				</button>
-				<div class="voiceMeta">
-					<img class="voiceAvatar" src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy">
-					<div class="voiceInfo">
-						<h3>Queen Rachel Joyce D</h3>
-						<p class="voiceRole">Principal Software Engineer · 10.5 years</p>
-						<p class="voiceDomain">Industrial, Auto and Engineering</p>
-					</div>
-				</div>
-			</div> ,.
-			<!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
-		</div>
-	</div>
+    <?php if( have_rows('eca_testimonial') ): ?>
+        <?php while( have_rows('eca_testimonial') ): the_row(); ?>
+            <img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
+            <div class="wrapper">
+                <div class="secHeading">
+                    <h2><?php echo get_sub_field('sub_heading'); ?></h2>
+                    <p><?php echo get_sub_field('sub_heading'); ?></p>
+                </div>
+                <div class="voicesGrid">
+                    <?php if( have_rows('eca_voices') ): ?>
+                        <?php while( have_rows('eca_voices') ): the_row(); ?>
+                            <div class="voiceCard">
+                                <button class="voicePlay" type="button" data-video="<?php echo get_sub_field('video_link'); ?>" aria-label="Play video: Queen Rachel Joyce D">
+                                    <!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+                                    <span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+                                </button>
+                                <div class="voiceMeta">
+                                    <?php $personimage = get_sub_field('person_image'); if( !empty( $personimage ) ): ?>
+                                        <img src="<?php echo esc_url($personimage['url']); ?>" class="voiceAvatar" loading="lazy" alt="<?php echo esc_attr($personimage['alt']); ?>" />
+                                    <?php endif; ?>
+                                    <!-- <img  src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy"> -->
+                                    <div class="voiceInfo">
+                                        <h3><?php echo get_sub_field('name'); ?></h3>
+                                        <p class="voiceRole"><?php echo get_sub_field('role'); ?></p>
+                                        <p class="voiceDomain"><?php echo get_sub_field('domain'); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                    <!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 <?php get_footer(); ?>

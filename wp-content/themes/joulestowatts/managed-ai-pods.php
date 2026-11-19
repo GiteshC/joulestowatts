@@ -150,7 +150,7 @@
     </div>
 </section>
 
-<section class="resultSection platformResultSec mpodsImpactSec">
+<section class="resultSection homeImpactSec">
     <div class="secWrapper">
         <?php if( have_rows('use_cases') ): ?>
             <?php while( have_rows('use_cases') ): the_row(); ?>
@@ -177,11 +177,6 @@
                                         <span class="tag manrope"><?php echo esc_html( get_sub_field('card_tag') ); ?></span>
                                         <div class="bottomContent">
                                             <h3 class="manrope"><?php echo esc_html( get_sub_field('card_heading') ); ?></h3>
-                                            <?php if( get_sub_field('card_description') ): ?>
-                                                <div class="moreContent">
-                                                    <p><?php echo esc_html( get_sub_field('card_description') ); ?></p>
-                                                </div>
-                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </a>

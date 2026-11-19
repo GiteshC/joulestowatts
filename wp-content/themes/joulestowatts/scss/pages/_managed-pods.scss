@@ -26,36 +26,6 @@ body.page-template-managed-ai-pods{
         img{display: block; width: 100%; height: auto;}
     }
 
-    .bannerInnerSection{padding-top: 278px;
-        .wrapper{
-            .bannerContent{width: 100%;
-                .bannerHeading{
-                    h1{margin-bottom: 24px;}
-                    p{width: auto; max-width: 1231px;}
-                }
-                img{width: 944px; max-width: 100%; margin-top: 149px;}
-            }
-        }
-        @media screen and (max-width:1800px) {padding-top: 220px;
-            .wrapper .bannerContent img{width: 820px; margin-top: 110px;}
-        }
-        @media screen and (max-width:1600px) {padding-top: 190px;
-            .wrapper .bannerContent img{width: 720px; margin-top: 90px;}
-        }
-        @media screen and (max-width:1440px) {padding-top: 170px;
-            .wrapper .bannerContent img{width: 640px; margin-top: 70px;}
-        }
-        @media screen and (max-width:1280px) {padding-top: 150px;
-            .wrapper .bannerContent img{width: 580px; margin-top: 56px;}
-        }
-        @media screen and (max-width:720px) {height: auto; min-height: 100svh; padding-top: 140px; padding-bottom: 60px;
-            .wrapper .bannerContent{
-                .bannerHeading p{max-width: 100%; width: 100%;}
-                img{width: 100%; margin-top: 40px;}
-            }
-        }
-    }
-
     .introSection{
         .wrapper{position: relative; z-index: 2;}
         .introPatch{z-index: 1;}

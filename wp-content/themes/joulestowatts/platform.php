@@ -8,6 +8,15 @@
                     <div class="bannerHeading">
                         <h1 class="manrope"><?php echo wp_kses_post( get_sub_field('heading') ); ?></h1>
                         <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
+                        <ul class="bannerctaList">
+                            <?php if( have_rows('cta_lists') ): ?>
+                                <?php while( have_rows('cta_lists') ): the_row(); ?>
+                                    <li>
+                                        <a href="<?php echo esc_url( get_sub_field('cta_link') ); ?>"><?php echo esc_html( get_sub_field('cta_text') ); ?></a>
+                                    </li>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </ul>
                     </div>
                     <?php $bannerimg = get_sub_field('banner_image'); if( !empty( $bannerimg ) ): ?>
                         <img src="<?php echo esc_url($bannerimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($bannerimg['alt']); ?>" />
@@ -41,7 +50,7 @@
     </div>
 </section>
 
-<section class="diagnosisSection">
+<section class="diagnosisSection" id="diagnosis">
     <div class="diagnosisBG">
         <svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" viewBox="0 0 2168 658" fill="none">
             <g filter="url(#filter0_f_952_6788)">
@@ -145,7 +154,7 @@
     </div>
 </section>
 
-<section class="pointitSection platformPointSec">
+<section class="pointitSection platformPointSec" id="pointit">
     <?php if( have_rows('diagnosis_pointit_section') ): ?>
         <?php while( have_rows('diagnosis_pointit_section') ): the_row(); ?>
             <div class="wrapper">
