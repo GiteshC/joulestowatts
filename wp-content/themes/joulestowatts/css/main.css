@@ -4993,7 +4993,7 @@ body.page-template-hompage .enterpriseSection .enterpriseBG img {
   transform: scaleY(-1);
 }
 body.page-template-hompage .enterpriseSection .wrapper {
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 }
 body.page-template-hompage .enterpriseSection .wrapper .enterpriseContent {
@@ -5009,6 +5009,9 @@ body.page-template-hompage .enterpriseSection .wrapper .enterpriseAnim {
   width: 50%;
   position: relative;
   aspect-ratio: 860/711;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 body.page-template-hompage .enterpriseSection .wrapper .enterpriseAnim .atlasSparkle {
   position: absolute;

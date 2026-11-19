@@ -1196,12 +1196,12 @@ body.page-template-hompage{
         .enterpriseBG{transform: none; align-items: flex-start; justify-content: center; height: auto; pointer-events: none;
             img{display: block; width: 87.08%; height: auto; transform: scaleY(-1);}
         }
-        .wrapper{align-items: flex-end; justify-content: space-between;
+        .wrapper{align-items: center; justify-content: space-between;
             .enterpriseContent{width: 45.64%;
                 h2{width: 100%;}
                 p{margin-bottom: 60px;}
             }
-            .enterpriseAnim{width: 50%; position: relative; aspect-ratio: 860 / 711;
+            .enterpriseAnim{width: 50%; position: relative; aspect-ratio: 860 / 711; display: flex; align-items: center; justify-content: center;
                 .atlasSparkle{position: absolute; height: auto;}
                 .atlasChip{position: absolute; left: 23.95%; top: 37.55%; display: flex; align-items: center; font-size: 33.77px; padding: 0.65em 1em 0.65em 1.1em; border: 1.4px solid transparent; border-radius: 0.83em; background: linear-gradient(#292940, #292940) padding-box, linear-gradient(180deg, #7898D1 0%, #565977 100%) border-box;
                     img{display: block; width: 1.98em; height: 1.69em; object-fit: cover; object-position: center bottom; flex-shrink: 0;}

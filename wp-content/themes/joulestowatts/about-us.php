@@ -35,331 +35,169 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
-	<div class="wrapper">
-		<div class="questionsIntro">
-			<h2 class="manrope" id="aboutQuestionsTitle">Every capability center starts with the same questions.</h2>
-			<p>We answer them as one partner, from the first diagnosis to the team that runs your center day to day.</p>
-			<a href="#" class="transparentCTA manrope">Explore more
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-			</a>
-		</div>
-		<ol class="questionsList">
-			<li class="questionRow">
-				<div class="questionHead">
-					<span class="num" aria-hidden="true">01</span>
-					<h3>Where should we build, and what will it cost?</h3>
-				</div>
-				<div class="questionBody">
-					<h4>GCC Accelerator</h4>
-					<p>Reads your public footprint, benchmarks peer GCCs, and models where to build and what it costs.</p>
-				</div>
-			</li>
-			<li class="questionRow">
-				<div class="questionHead">
-					<span class="num" aria-hidden="true">02</span>
-					<h3>How does our enterprise really work?</h3>
-				</div>
-				<div class="questionBody">
-					<h4>Enterprise Context Architects (ECAs)</h4>
-					<p>Engineers trained to read an enterprise before changing it, each accountable for a business number.</p>
-				</div>
-			</li>
-			<li class="questionRow">
-				<div class="questionHead">
-					<span class="num" aria-hidden="true">03</span>
-					<h3>Where will AI pay back?</h3>
-				</div>
-				<div class="questionBody">
-					<h4>AI Atlas</h4>
-					<p>Writes the AI Charter: why, where, and how AI goes, with the return at each step.</p>
-				</div>
-			</li>
-			<li class="questionRow">
-				<div class="questionHead">
-					<span class="num" aria-hidden="true">04</span>
-					<h3>Who will run it, day to day?</h3>
-				</div>
-				<div class="questionBody">
-					<h4>Talent Solutions and Managed Talent Pods</h4>
-					<p>The right mix of people and pods, composed for the outcome you need.</p>
-				</div>
-			</li>
-		</ol>
+	<div class="aboutQuestionBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
+	<?php if( have_rows('capability_section') ): ?>
+		<?php while( have_rows('capability_section') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="questionsIntro">
+					<h2 class="manrope" id="aboutQuestionsTitle"><?php echo get_sub_field('heading'); ?></h2>
+					<p><?php echo get_sub_field('description'); ?></p>
+					<a href="<?php echo get_sub_field('cta_link'); ?>" class="transparentCTA manrope"><?php echo get_sub_field('cta_text'); ?>
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+					</a>
+				</div>
+				<ol class="questionsList">
+					<?php if( have_rows('capability_content') ): ?>
+						<?php $counter=1; while( have_rows('capability_content') ): the_row(); ?>
+							<li class="questionRow">
+								<div class="questionHead">
+									<span class="num" aria-hidden="true"><?php echo sprintf('%02d', $counter); ?></span>
+									<h3><?php echo get_sub_field('question'); ?></h3>
+								</div>
+								<div class="questionBody">
+									<h4><?php echo get_sub_field('answer_heading'); ?></h4>
+									<p><?php echo get_sub_field('answer_description'); ?></p>
+								</div>
+							</li>
+						<?php $counter++; endwhile; ?>
+					<?php endif; ?>
+				</ol>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="aboutLeadersSec" id="leaders">
-	<div class="wrapper">
-		<h2 class="manrope">The leaders behind the journey</h2>
-		<div class="leadersGrid">
-			<div class="leaderCard" id="leaderCard1">
-				<div class="leaderPerson">
-					<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-					<div>
-						<p class="name">Priti Sawant</p>
-						<p class="role">Founder and CEO</p>
-					</div>
-				</div>
-				<div class="leaderBody">
-					<div class="leaderText">
-						<p class="eyebrow manrope">From the CEO’s desk</p>
-						<h3>Why JoulestoWatts exists, and where it goes next</h3>
-						<p>A decade of building for India's Global Capability Centers (GCCs), and the next ten years.</p>
-					</div>
-					<button class="transparentCTA manrope" type="button" data-letter="cooLetter" aria-haspopup="dialog" aria-controls="cooLetter" aria-expanded="false">Read the letter
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-					</button>
-				</div>
-			</div>
-			<div class="leaderCard" id="leaderCard2">
-				<div class="leaderPerson">
-					<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-					<div>
-						<p class="name">Priya Mohan</p>
-						<p class="role">Chief Operating Officer</p>
-					</div>
-				</div>
-				<div class="leaderBody">
-					<div class="leaderText">
-						<p class="eyebrow manrope">From the COO's desk</p>
-						<h3>How we run today, and how we scale</h3>
-						<p>How JoulestoWatts delivers for its clients now, and how the company is building for its next phase.</p>
-					</div>
-
-					<button class="transparentCTA manrope" type="button" data-letter="cooLetter" aria-haspopup="dialog" aria-controls="cooLetter" aria-expanded="false">Read the letter
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-					</button>
-				</div>
-			</div>
-		</div>
+	<div class="aboutLeadersBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-top.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
+	<?php if( have_rows('leadersmain_section') ): ?>
+		<?php while( have_rows('leadersmain_section') ): the_row(); ?>
+			<div class="wrapper">
+				<h2 class="manrope"><?php echo get_sub_field('section_heading'); ?></h2>
+				<div class="leadersGrid">
+					<?php if( have_rows('leaders_content') ): ?>
+						<?php $counter=1; while( have_rows('leaders_content') ): the_row(); ?>
+							<div class="leaderCard" id="leaderCard<?php echo $counter; ?>">
+								<div class="leaderPerson">
+									<?php $leaderimage = get_sub_field('leader_image'); if( !empty( $leaderimage ) ): ?>
+										<img src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
+									<?php endif; ?>
+									<div>
+										<p class="name"><?php echo get_sub_field('leaders_name'); ?></p>
+										<p class="role"><?php echo get_sub_field('leaders_designation'); ?></p>
+									</div>
+								</div>
+								<div class="leaderBody">
+									<div class="leaderText">
+										<p class="eyebrow manrope"><?php echo get_sub_field('sub_heading'); ?></p>
+										<h3><?php echo get_sub_field('heading'); ?></h3>
+										<p><?php echo get_sub_field('card_description'); ?></p>
+										<!-- <?php $content = wp_strip_all_tags(get_sub_field('description')); echo '<p class="">' . substr($content, 0, 250) . '...</p>'; ?> -->
+									</div>
+									<button class="transparentCTA manrope" type="button" data-letter="cooLetter" aria-haspopup="dialog" aria-controls="cooLetter" aria-expanded="false"><?php echo get_sub_field('cta_text'); ?>
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+									</button>
+								</div>
+							</div>
+						<?php $counter++; endwhile; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <!-- Drawers: one per letter. The JS moves them to the end of body. -->
-<aside class="aboutLetterDrawer " id="founder1" role="dialog" aria-modal="true" aria-label="Why JoulestoWatts exists, and where it goes next">
-	<div class="drawerOverlay"></div>
-	<div class="drawerPanel">
-		<button class="drawerClose" type="button" aria-label="Close letter">
-			<svg viewBox="0 0 35 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 6.5 28 27.5M28 6.5 7 27.5"/></svg>
-		</button>
-		<div class="drawerScroll">
-			<div class="drawerHead">
-				<p class="eyebrow manrope">From the founder's desk</p>
-				<h3 class="manrope">Why JoulestoWatts exists, and where it goes next</h3>
-			</div>
-			<div class="drawerAuthor">
-				<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-				<div>
-					<p class="name">Priti Sawant</p>
-					<p class="role">Founder and CEO</p>
+<?php if( have_rows('leadersmain_section') ): ?>
+<?php while( have_rows('leadersmain_section') ): the_row(); ?>
+<?php if( have_rows('leaders_content') ): ?>
+	<?php $counter=1; while( have_rows('leaders_content') ): the_row(); ?>
+		<aside class="aboutLetterDrawer" id="founder<?php echo $counter; ?>" role="dialog" aria-modal="true" aria-label="Why JoulestoWatts exists, and where it goes next">
+			<div class="drawerOverlay"></div>
+			<div class="drawerPanel">
+				<button class="drawerClose" type="button" aria-label="Close letter">
+					<svg viewBox="0 0 35 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 6.5 28 27.5M28 6.5 7 27.5"/></svg>
+				</button>
+				<div class="drawerScroll">
+					<div class="drawerHead">
+						<p class="eyebrow manrope"><?php echo get_sub_field('sub_heading'); ?></p>
+						<h3 class="manrope"><?php echo get_sub_field('heading'); ?></h3>
+					</div>
+					<div class="drawerAuthor">
+						<?php $leaderimage = get_sub_field('leader_image'); if( !empty( $leaderimage ) ): ?>
+							<img src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
+						<?php endif; ?>
+						<div>
+							<p class="name"><?php echo get_sub_field('leaders_name'); ?></p>
+							<p class="role"><?php echo get_sub_field('leaders_designation'); ?></p>
+						</div>
+					</div>
+					<p class="drawerMeta">12 Dec 2026 • 8 min Read</p>
+					<div class="drawerBody">
+						<div class="innerBody">
+							<p><?php echo get_sub_field('description'); ?></p>
+						</div>				
+					</div>
 				</div>
 			</div>
-			<p class="drawerMeta">12 Dec 2026 • 8 min Read</p>
-			<div class="drawerBody">
-				<div class="innerBody">
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-				</div>				
-			</div>
-		</div>
-	</div>
-</aside>
-
-<aside class="aboutLetterDrawer" id="founder2" role="dialog" aria-modal="true" aria-label="How we run today, and how we scale">
-	<div class="drawerOverlay"></div>
-	<div class="drawerPanel">
-		<button class="drawerClose" type="button" aria-label="Close letter">
-			<svg viewBox="0 0 35 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 6.5 28 27.5M28 6.5 7 27.5"/></svg>
-		</button>
-		<div class="drawerScroll">
-			<div class="drawerHead">
-				<p class="eyebrow manrope">From the COO's desk</p>
-				<h3 class="manrope">How we run today, and how we scale</h3>
-			</div>
-			<div class="drawerAuthor">
-				<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-				<div>
-					<p class="name">Priya Mohan</p>
-					<p class="role">Chief Operating Officer</p>
-				</div>
-			</div>
-			<p class="drawerMeta">12 Dec 2026 • 8 min Read</p>
-			<div class="drawerBody">
-				<div class="innerBody">
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-					<p>lorem ipsum dolor sit amet consectetur adipiscing elit in elit adipiscing sint esse nulla imperdiet dolor tempore iusto labore proident deleniti quo eiusmod lorem voluptate anim similique ut vel distinctio et do deserunt fugiat voluptas proident velit praesentium soluta esse voluptate mollit placeat esse cum culpa placeat accusamus quas blanditiis</p>
-				</div>				
-			</div>
-		</div>
-	</div>
-</aside>
+		</aside>
+	<?php $counter++; endwhile; ?>
+<?php endif; ?>
+<?php endwhile; ?>
+<?php endif; ?>
 
 <section class="aboutDecadeSec homeImpactSec" id="first-ten-years">
 	<div class="homeImpactGlow" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
-	<div class="wrapper">
-		<div class="decadeHead">
-			<h2 class="manrope">The first ten years of a billion-dollar ambition.</h2>
-			<p>Keep scrolling to move through the years, or pick a year. Red marks the years that changed the company.</p>
-		</div>
-		<div class="yearTabs" aria-label="Pick a year">
-			<button class="yearTab is-active" type="button" aria-current="true">2015</button>
-			<button class="yearTab" type="button">2016</button>
-			<button class="yearTab" type="button">2017</button>
-			<button class="yearTab" type="button">2018</button>
-			<button class="yearTab" type="button">2019</button>
-			<button class="yearTab" type="button">2020</button>
-			<button class="yearTab" type="button">2021</button>
-			<button class="yearTab" type="button">2022</button>
-			<button class="yearTab" type="button">2023</button>
-			<button class="yearTab" type="button">2024</button>
-			<button class="yearTab" type="button">2025</button>
-			<button class="yearTab" type="button">2026</button>
-		</div>
+	<div class="aboutDecadeBg" aria-hidden="true">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
-	<div class="decadeStage">
-		<span class="decadeLine" aria-hidden="true"></span>
-		<div class="decadeViewport" tabindex="0" role="region" aria-label="Company timeline, 2015 to 2026">
-			<ol class="decadeTrack">
-				<li class="decadeItem is-active">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-1.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2015</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg"><img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-2.webp" alt="" loading="lazy"></figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2016</span>
-						<h3>Backed by India's first women-focused tech fund</h3>
-						<p>Saha Fund, India's first women entrepreneurship</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-3.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2017</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-4.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2018</span>
-						<h3>Backed by India's first women-focused tech fund</h3>
-						<p>Saha Fund, India's first women entrepreneurship</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-5.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2019</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-6.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2020</span>
-						<h3>Backed by India's first women-focused tech fund</h3>
-						<p>Saha Fund, India's first women entrepreneurship</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-7.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2021</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-8.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2022</span>
-						<h3>Backed by India's first women-focused tech fund</h3>
-						<p>Saha Fund, India's first women entrepreneurship</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-9.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2023</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-10.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2024</span>
-						<h3>Backed by India's first women-focused tech fund</h3>
-						<p>Saha Fund, India's first women entrepreneurship</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-11.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2025</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-				<li class="decadeItem">
-					<figure class="decadeImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/timeline-img-12.webp" alt="" loading="lazy">
-					</figure>
-					<span class="dot" aria-hidden="true"></span>
-					<div class="decadeCard">
-						<span class="year manrope">2026</span>
-						<h3>A founder bets on India's GCCs</h3>
-						<p>In July 2015, serial entrepreneur Priti Sawant founded JoulestoWatts in Bengaluru on one conviction: India's</p>
-					</div>
-				</li>
-			</ol>
-		</div>
-	</div>
+	<?php if( have_rows('our_story') ): ?>
+		<?php while( have_rows('our_story') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="decadeHead">
+					<h2 class="manrope"><?php echo get_sub_field('sub_heading'); ?></h2>
+					<p><?php echo get_sub_field('heading'); ?></p>
+				</div>
+				<div class="yearTabs" aria-label="Pick a year">
+					<?php if( have_rows('timeline') ): ?>
+						<?php $counter=1; while( have_rows('timeline') ): the_row(); ?>
+							<button class="yearTab <?php if($counter==1) { echo 'is-active'; } ?>" type="button" aria-current="true"><?php echo get_sub_field('year'); ?></button>
+						<?php $counter++; endwhile; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="decadeStage">
+				<span class="decadeLine" aria-hidden="true"></span>
+				<div class="decadeViewport" tabindex="0" role="region" aria-label="Company timeline, 2015 to 2026">
+					<ol class="decadeTrack">
+						<?php if( have_rows('timeline') ): ?>
+							<?php $counter=1; while( have_rows('timeline') ): the_row(); ?>
+								<li class="decadeItem <?php if($counter==1) { echo 'is-active'; } ?>">
+									<figure class="decadeImg">
+										<?php $tlimage = get_sub_field('image'); if( !empty( $tlimage ) ): ?>
+											<img src="<?php echo esc_url($tlimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($tlimage['alt']); ?>" />
+										<?php endif; ?>
+									</figure>
+									<span class="dot" aria-hidden="true"></span>
+									<div class="decadeCard">
+										<span class="year manrope"><?php echo get_sub_field('year'); ?></span>
+										<h3><?php echo get_sub_field('caption'); ?></h3>
+										<p><?php echo get_sub_field('description'); ?></p>
+									</div>
+								</li>
+							<?php $counter++; endwhile; ?>
+						<?php endif; ?>
+					</ol>
+				</div>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="aboutAwardsSec" id="our-awards">
@@ -721,63 +559,49 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="boardSection">
-	<div class="wrapper">
-		<!-- Board: design not shared yet -->
-		<div class="teamPanel" role="tabpanel" id="team-panel-2" aria-labelledby="team-tab-2" data-team-panel >
-			<div class="panelTitle">
-				<h2 class="manrope teamTitle">Board and investors</h2>
+	<?php if( have_rows('investors_section') ): ?>
+		<?php while( have_rows('investors_section') ): the_row(); ?>
+			<div class="wrapper">
+				<!-- Board: design not shared yet -->
+				<div class="teamPanel" role="tabpanel" id="team-panel-2" aria-labelledby="team-tab-2" data-team-panel >
+					<div class="panelTitle">
+						<h2 class="manrope teamTitle"><?php echo get_sub_field('heading'); ?></h2>
+					</div>
+					<ul class="infoGrid">
+						<?php if( have_rows('investors_box') ): ?>
+							<?php while( have_rows('investors_box') ): the_row(); ?>
+								<li class="infoCard hasAvatar">
+									<div class="cardRow">
+										<figure class="cardAvatar">
+											<?php $avimage = get_sub_field('photo'); if( !empty( $avimage ) ): ?>
+												<img src="<?php echo esc_url($avimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($avimage['alt']); ?>" />
+											<?php endif; ?>
+										</figure>
+										<div class="cardText">
+											<h4><?php echo get_sub_field('name'); ?></h4>
+											<p><?php echo get_sub_field('role'); ?></p>
+										</div>
+									</div>
+								</li>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</ul>
+					<div class="quoteRow">
+						<?php if( have_rows('quotes') ): ?>
+							<?php while( have_rows('quotes') ): the_row(); ?>
+								<figure class="quoteItem">
+									<div class="quoteBody">
+										<blockquote class="manrope"><?php echo get_sub_field('quote'); ?></blockquote>
+										<figcaption class="quoteBy"><strong><?php echo get_sub_field('name'); ?></strong><span><?php echo get_sub_field('role'); ?></span></figcaption>
+									</div>
+								</figure>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
+				</div>
 			</div>
-			<ul class="infoGrid">
-				<li class="infoCard hasAvatar">
-					<div class="cardRow">
-						<figure class="cardAvatar">
-							<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-						</figure>
-						<div class="cardText">
-							<h4>Priti Sawant</h4>
-							<p>Founder and CEO</p>
-						</div>
-					</div>
-				</li>
-				<li class="infoCard hasAvatar">
-					<div class="cardRow">
-						<figure class="cardAvatar">
-							<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-						</figure>
-						<div class="cardText">
-							<h4>Priti Sawant</h4>
-							<p>Founder and CEO</p>
-						</div>
-					</div>
-				</li>
-				<li class="infoCard hasAvatar">
-					<div class="cardRow">
-						<figure class="cardAvatar">
-							<img src="<?php bloginfo('template_directory'); ?>/images/priti-sawant-profile-pic.webp" alt="" loading="lazy">
-						</figure>
-						<div class="cardText">
-							<h4>Priti Sawant</h4>
-							<p>Founder and CEO</p>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<div class="quoteRow">
-				<figure class="quoteItem">
-					<div class="quoteBody">
-						<blockquote class="manrope">“Our 40x MOIC on JoulestoWatts is a strong validation of our early confidence in Priti and her vision, reinforcing our commitment to supporting women-led enterprises”</blockquote>
-						<figcaption class="quoteBy"><strong>Ankita Vashistha</strong><span>Founder, Saha Fund</span></figcaption>
-					</div>
-				</figure>
-				<figure class="quoteItem">
-					<div class="quoteBody">
-						<blockquote class="manrope">“This milestone validates our belief in JoulestoWatts' strategic growth path, its visionary leadership, and the long-term value we see in the company”</blockquote>
-						<figcaption class="quoteBy"><strong>Dr. Ranjan Pai</strong><span>Chairman, MEMG</span></figcaption>
-					</div>
-				</figure>
-			</div>
-		</div>
-	</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="backedBySection homeImpactSec">
@@ -785,48 +609,42 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
-	<div class="wrapper">
-		<!-- 3. Backed By (note the isBacked class) -->
-		<div class="teamPanel isBacked" role="tabpanel" id="team-panel-3" aria-labelledby="team-tab-3" data-team-panel >
-			<div class="panelTitle">
-				<h2 class="manrope teamTitle">Backed By</h2>
+	<?php if( have_rows('backed_section') ): ?>
+		<?php while( have_rows('backed_section') ): the_row(); ?>
+			<div class="wrapper">
+				<!-- 3. Backed By (note the isBacked class) -->
+				<div class="teamPanel isBacked" role="tabpanel" id="team-panel-3" aria-labelledby="team-tab-3" data-team-panel >
+					<div class="panelTitle">
+						<h2 class="manrope teamTitle"><?php echo get_sub_field('heading'); ?></h2>
+					</div>
+					<ul class="infoGrid">
+						<?php if( have_rows('backed_box') ): ?>
+							<?php while( have_rows('backed_box') ): the_row(); ?>
+								<li class="infoCard">
+									<div class="cardText">
+										<h4><?php echo get_sub_field('heading'); ?></h4>
+										<p><?php echo get_sub_field('description'); ?></p>
+									</div>
+								</li>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</ul>
+					<div class="quoteRow">
+						<?php if( have_rows('quotes') ): ?>
+							<?php while( have_rows('quotes') ): the_row(); ?>
+								<figure class="quoteItem">
+									<div class="quoteBody">
+										<blockquote class="manrope"><?php echo get_sub_field('quote'); ?></blockquote>
+										<figcaption class="quoteBy"><strong><?php echo get_sub_field('name'); ?></strong><span><?php echo get_sub_field('role'); ?></span></figcaption>
+									</div>
+								</figure>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
+				</div>
 			</div>
-			<ul class="infoGrid">
-				<li class="infoCard">
-					<div class="cardText">
-						<h4>Manipal Education and Medical Group (MEMG)</h4>
-						<p>Long-term investor</p>
-					</div>
-				</li>
-				<li class="infoCard">
-					<div class="cardText">
-						<h4>Manipal Global Education Services (MaGE)</h4>
-						<p>Backer since our first year</p>
-					</div>
-				</li>
-				<li class="infoCard">
-					<div class="cardText">
-						<h4>Saha Fund</h4>
-						<p>Early investor, 2016 to 2025</p>
-					</div>
-				</li>
-			</ul>
-			<div class="quoteRow">
-				<figure class="quoteItem">
-					<div class="quoteBody">
-						<blockquote class="manrope">“Our 40x MOIC on JoulestoWatts is a strong validation of our early confidence in Priti and her vision, reinforcing our commitment to supporting women-led enterprises”</blockquote>
-						<figcaption class="quoteBy"><strong>Ankita Vashistha</strong><span>Founder, Saha Fund</span></figcaption>
-					</div>
-				</figure>
-				<figure class="quoteItem">
-					<div class="quoteBody">
-						<blockquote class="manrope">“This milestone validates our belief in JoulestoWatts' strategic growth path, its visionary leadership, and the long-term value we see in the company”</blockquote>
-						<figcaption class="quoteBy"><strong>Dr. Ranjan Pai</strong><span>Chairman, MEMG</span></figcaption>
-					</div>
-				</figure>
-			</div>
-		</div>
-	</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="aboutNewsSec" id="in-the-news">
@@ -1191,8 +1009,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 		<span data-f="category">Delivery</span>
 		<div data-f="bio"><p>Manish drives AI implementation and technology delivery.</p></div>
 	</article>
-
-
 
 </div>
 
