@@ -1,0 +1,13 @@
+@use '../base/_global.scss' as *;
+
+.careersLife{
+    &::before{display: none;}
+    .dsWrap{
+        .dsHead{
+            h3{color: #00ACB4; @include font20; line-height: 160%; letter-spacing: 2px; text-transform: uppercase;}
+        }
+    }
+    .dsTrack{@include wrapper; display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px;
+        .dsCard{margin-right: 0;}
+    }
+}
