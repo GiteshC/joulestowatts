@@ -28,15 +28,13 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
-	<div class="bannerBG">
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/about-hero-glow.webp" alt="" aria-hidden="true">
-	</div>
 </section>
 
-<section class="aboutQuestionsSec" aria-labelledby="aboutQuestionsTitle">
-	<div class="aboutQuestionBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="aboutQuestionsSec homeImpactSec" aria-labelledby="aboutQuestionsTitle">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="wrapper">
 		<div class="questionsIntro">
 			<h2 class="manrope" id="aboutQuestionsTitle">Every capability center starts with the same questions.</h2>
@@ -91,9 +89,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutLeadersSec" id="leaders">
-	<div class="aboutLeadersBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-top.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
 	<div class="wrapper">
 		<h2 class="manrope">The leaders behind the journey</h2>
 		<div class="leadersGrid">
@@ -203,10 +198,11 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 	</div>
 </aside>
 
-<section class="aboutDecadeSec" id="first-ten-years">
-	<div class="aboutDecadeBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="aboutDecadeSec homeImpactSec" id="first-ten-years">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="wrapper">
 		<div class="decadeHead">
 			<h2 class="manrope">The first ten years of a billion-dollar ambition.</h2>
@@ -725,9 +721,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="boardSection">
-	<div class="aboutBoardSecBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-top.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
 	<div class="wrapper">
 		<!-- Board: design not shared yet -->
 		<div class="teamPanel" role="tabpanel" id="team-panel-2" aria-labelledby="team-tab-2" data-team-panel >
@@ -787,10 +780,11 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 	</div>
 </section>
 
-<section class="backedBySection">
-	<div class="aboutBackedBySecBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="backedBySection homeImpactSec">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="wrapper">
 		<!-- 3. Backed By (note the isBacked class) -->
 		<div class="teamPanel isBacked" role="tabpanel" id="team-panel-3" aria-labelledby="team-tab-3" data-team-panel >
@@ -836,9 +830,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutNewsSec" id="in-the-news">
-	<div class="aboutNewsSecBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-top.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
 	<div class="wrapper">
 		<div class="newsHead">
 			<div class="newsIntro">
@@ -894,10 +885,11 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 	</div>	
 </section>
 
-<section class="aboutOfficesSec" id="where-we-are">
-	<div class="aboutOfficesSecBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="aboutOfficesSec homeImpactSec" id="where-we-are">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="wrapper">
 		<div class="officesHead">
 			<p class="eyebrow manrope">Where we are</p>
@@ -1031,7 +1023,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </div>
 
 <div hidden>
-
     <article data-profile-item data-profile-id="priti-sawant">
         <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
         <span data-f="name">Priti Sawant</span>
@@ -1204,6 +1195,5 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 
 
 </div>
-
 
 <?php get_footer(); ?>
