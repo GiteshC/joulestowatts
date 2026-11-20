@@ -28501,4 +28501,72 @@ body.single-case_study .csExploreSec::after {
     width: 30vw;
     bottom: -30vw;
   }
+}
+.careersLife::before {
+  display: none;
+}
+.careersLife .dsWrap .dsHead h3 {
+  color: #00ACB4;
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .careersLife .dsWrap .dsHead h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .careersLife .dsWrap .dsHead h3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .careersLife .dsWrap .dsHead h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .careersLife .dsWrap .dsHead h3 {
+    font-size: 12px;
+  }
+}
+.careersLife .dsWrap .dsHead h3 {
+  line-height: 160%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.careersLife .dsTrack {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+@media screen and (max-width: 1800px) {
+  .careersLife .dsTrack {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .careersLife .dsTrack {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .careersLife .dsTrack {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .careersLife .dsTrack {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.careersLife .dsTrack {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+.careersLife .dsTrack .dsCard {
+  margin-right: 0;
 }/*# sourceMappingURL=main.css.map */
