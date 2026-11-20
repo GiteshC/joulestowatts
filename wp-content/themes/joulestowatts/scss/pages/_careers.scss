@@ -11,3 +11,103 @@
         .dsCard{margin-right: 0;}
     }
 }
+
+.bannerSec{@include sectionSpacing; padding-top: 200px;
+    .wrapper{@include wrapper; display: flex; flex-flow: wrap; align-items: center; justify-content: space-between;
+        .bannerTxt{width: 45%;
+            h3{color: #00ACB4; font-family: $manrope; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;}
+            h1{font-family: $manrope; @include font72; font-weight: 500; line-height: 120%; text-transform: capitalize;background: linear-gradient(94deg, rgba(1, 211, 199, 0.98) -4.08%, rgba(255, 255, 255, 0.98) 47.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+            p{color: rgba(221, 225, 225, 0.80); @include font20; line-height: 160%; margin: 32px 0px;}
+            .primaryCTA{margin-right: 24px;}
+        }
+        .chForm {width: 45%; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 32px; border-radius: 16px; background: #2f0a20; }
+        .chFormTitle { margin: 0; @include font32; background: linear-gradient(-42.27deg, #00acb4 28.65%, #fff 73.46%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+        .chFor { margin: -16px 0 0; @include font20; letter-spacing: 2px; text-transform: uppercase; color: #00acb4; }
+        .chFields { display: flex; flex-direction: column; gap: 32px; }
+        .chField { position: relative; display: block; }
+        .chSr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        .chInput { display: block; width: 100%; height: 72px; box-sizing: border-box; padding: 0 24px; border-radius: 12px; border: 0.6px solid rgba(152, 152, 152, 0.39); background: #230216; color: #fff; font: 400 18px/1 'Poppins', sans-serif; transition: border-color 0.2s, box-shadow 0.2s;
+            &::placeholder { color: rgba(255, 255, 255, 0.6); }
+            &:focus { outline: none; border-color: #00acb4; box-shadow: 0 0 0 3px rgba(0, 172, 180, 0.25); }
+        }
+        .chUpload { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; box-sizing: border-box; padding: 0 24px; border-radius: 12px; border: 1px dashed #00acb4; background: #230216; cursor: pointer; transition: background 0.2s;
+            &:hover { background: #2a051c; }
+            &:focus-within { box-shadow: 0 0 0 3px rgba(0, 172, 180, 0.25); }
+        }
+        .chFile { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+        .chUploadText { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 18px/1 'Poppins', sans-serif; color: rgba(255, 255, 255, 0.6); }
+        .chUpload.has-file .chUploadText { color: #fff; }
+        .chUploadBtn { flex: none; font: 500 16px/1 'Poppins', sans-serif; color: #00acb4; }
+        .chNote { margin: 0; @include font18; color: rgba(255, 255, 255, 0.6); }
+        .chSubmit { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; height: 63px; border: 0; border-radius: 12px; background: #00acb4; color: #210214; font: 500 16px/1 'Poppins', sans-serif; text-transform: capitalize; cursor: pointer; transition: background 0.25s;
+            svg { transition: transform 0.25s; }
+            &:hover { background: #01d3c7; svg { transform: translate(3px, -3px); } }
+            &:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+        }
+    }
+    @media screen and (max-width: 820px) {
+        .wrapper{
+            .bannerTxt{width: 100%; margin-bottom: 48px;}
+            .chForm{width: 100%; padding: 20px;}
+        }
+    }
+}
+
+.openrolseSec{@include sectionSpacing; position: relative;
+    .wrapper{@include wrapper;
+        .secHeading{margin-bottom: 50px;
+            h3{color: #00ACB4; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;}
+            h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; margin-bottom: 12px; background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+            .rolesDate{display: flex; flex-flow: wrap; align-items: center; justify-content: space-between;
+                p{color: #C0C6C6; @include font20; line-height: 170%;}
+            }
+        }
+        .osGroup{
+            .osRegion{color: #00ACB4; font-family: $manrope; @include font20; font-weight: 600; line-height: 160%; letter-spacing: 2px; text-transform: uppercase;}
+            .osList{
+                .osRow{display: flex; flex-flow: wrap; align-items: center; justify-content: space-between; padding: 32px 0px; border-top: 1px dashed rgba(26, 155, 164, 0.50);
+                    &:first-child{border-top: 0px;}
+                    .osInfo{
+                        .osTitleRow{display: flex; flex-flow: wrap; align-items: center; margin-bottom: 16px;
+                            h4{font-family: $manrope; @include font32; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                            span{border-radius: 24px; background: rgba(255, 255, 255, 0.20); padding: 10px 16px; color: #FFF; font-family: $manrope; @include font16; margin-left: 12px;}
+                        }
+                        p{color: rgba(255, 255, 255, 0.80); @include font18;line-height: 180%;}
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1800px) {
+        .wrapper{
+            .secHeading{margin-bottom: 40px;}
+            .osGroup{
+                .osList{
+                    .osRow{padding: 28px 0px;
+                        .osInfo{
+                            .osTitleRow{margin-bottom: 14px;
+                                span{padding: 8px 14px; margin-left: 10px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1440px) {
+        .wrapper{
+            .secHeading{margin-bottom: 36px;}
+            .osGroup{
+                .osList{
+                    .osRow{padding: 24px 0px;
+                        .osInfo{
+                            .osTitleRow{margin-bottom: 12px;
+                                span{padding: 8px 12px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

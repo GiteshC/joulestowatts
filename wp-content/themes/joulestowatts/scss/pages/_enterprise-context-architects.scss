@@ -460,3 +460,54 @@ body.page-template-enterprise-context-architects{
 	}
 }
 body.modalOpen{overflow: hidden;}
+
+.ecaTiersSec{position: relative; overflow-x: clip; @include sectionSpacing;
+        .ecaTiersWaves{position: absolute; left: dp(900); top: dp(536); width: dp(1058); height: auto; opacity: 0.1; pointer-events: none;}
+        .wrapper{@include wrapper; position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between;
+            .secHeading{width: 21%; margin-top: dp(26);
+                h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                p{margin-top: 16px; color: #C0C6C6; @include font20; line-height: 170%;}
+            }
+            .ecaTiers{width: 74.7%; display: grid; grid-template-columns: 456fr 455fr 374fr;
+                .ecaTier{position: relative; height: clamp(420px, 34.3vw, 659px); padding: 0 40px 32px; display: flex; flex-flow: column; justify-content: flex-end; border-left: 1px solid rgba(255, 255, 255, 0.14); cursor: pointer; overflow: hidden; outline: none;
+                    .tierBg{position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; pointer-events: none;}
+                    .tierImg{position: relative; z-index: 1; flex: 1 1 0; min-height: 0; align-self: center; width: calc((100% + 2 * var(--tierPad)) * 0.662); max-width: none; height: auto; margin: 24px 0 16px; object-fit: contain; object-position: center top; transform: translateY(16px); opacity: 0; transition: opacity 0.6s ease, transform 0.8s cubic-bezier(.22, .7, .2, 1); pointer-events: none;}
+                    .tierText{position: relative; z-index: 1;
+                        h3{@include font28; font-weight: 500; line-height: 120%; text-transform: capitalize; background: linear-gradient(274deg, rgba(1, 211, 199, 0.98) 28.65%, rgba(255, 255, 255, 0.98) 73.46%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+                        .tierDesc{max-height: 0; overflow: hidden; opacity: 0; visibility: hidden;
+    transition: max-height 0.6s cubic-bezier(.22, .7, .2, 1), opacity 0.4s ease, visibility 0s linear 0.6s;
+    ul{margin: 12px 0px 0; display: flex; flex-flow: row wrap; gap: 12px;
+        li{color: rgba(88, 255, 245, 0.98); @include font14; line-height: 120%; text-transform: capitalize; padding: 2px 8px; border-radius: 100px; border: 1px solid #00ACB4;}
+    }
+    p{margin-top: 12px; color: rgba(255, 255, 255, 0.80); @include font20; line-height: 120%; text-transform: capitalize;}
+}
+                    }
+                    &:hover .tierText h3{opacity: 0.85;}
+                    &:focus-visible{outline: 1px dashed rgba(0, 172, 180, 0.8); outline-offset: -4px;}
+                    &.is-open{
+    .tierBg{opacity: 1;}
+    .tierImg{opacity: 1; transform: none;}
+    .tierText .tierDesc{max-height: 320px; opacity: 1; visibility: visible; transition-delay: 0s;}
+}
+                }
+            }
+        }
+        @media screen and (max-width: 1280px) {
+            .wrapper .ecaTiers .ecaTier{padding: 0 24px 24px;}
+        }
+        @media screen and (max-width: 820px) {
+            .wrapper{flex-flow: column;
+                .secHeading{width: 100%; margin: 0 0 32px;}
+                .ecaTiers{width: 100%;}
+            }
+        }
+        @media screen and (max-width: 720px) {
+            .ecaTiersWaves{display: none;}
+            .wrapper .ecaTiers{grid-template-columns: 1fr; gap: 12px;
+                .ecaTier{height: auto; padding: 20px 16px; border: 1px solid rgba(255, 255, 255, 0.12);
+                    .tierImg{position: relative; top: auto; left: auto; display: block; width: 70%; max-height: 0; margin: 0 auto; transform: none;}
+                    &.is-open .tierImg{max-height: 420px; margin-bottom: 16px; transform: none;}
+                }
+            }
+        }
+    }

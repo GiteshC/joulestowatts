@@ -376,180 +376,47 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutTeamSec" id="our-team" data-team>
-	<div class="wrapper">
-		<h2 class="teamTitle manrope" data-team-title>Leadership</h2>
-		<div class="teamTabs" role="tablist" aria-label="Team">
-			<button type="button" class="teamTab is-active" role="tab" id="team-tab-1" aria-controls="team-panel-1" data-team-tab data-title="Leadership">Leadership</button>
-			<button type="button" class="teamTab" role="tab" id="team-tab-2" aria-controls="team-panel-2" data-team-tab data-title="Board">Board</button>
-			<button type="button" class="teamTab" role="tab" id="team-tab-3" aria-controls="team-panel-3" data-team-tab data-title="Backed By">Backed By</button>
-		</div>
+	<?php if( have_rows('leaders_section') ): ?>
+		<?php while( have_rows('leaders_section') ): the_row(); ?>
+			<div class="wrapper">
+				<h2 class="teamTitle manrope" data-team-title><?php echo get_sub_field('heading'); ?></h2>
+				<div class="teamTabs" role="tablist" aria-label="Team">
+					<button type="button" class="teamTab is-active" role="tab" id="team-tab-1" aria-controls="team-panel-1" data-team-tab data-title="Leadership">Leadership</button>
+					<button type="button" class="teamTab" role="tab" id="team-tab-2" aria-controls="team-panel-2" data-team-tab data-title="Board">Board</button>
+					<button type="button" class="teamTab" role="tab" id="team-tab-3" aria-controls="team-panel-3" data-team-tab data-title="Backed By">Backed By</button>
+				</div>
 
-		<!-- Leadership -->
-		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
-			<div class="panelHead">
-				<h3 class="manrope">Leadership</h3>
-				<p>Business heads and directors who listen, scope your need and stay with the account.</p>
+				<!-- Leadership -->
+				 <?php if( have_rows('leaders_content_box') ): ?>
+					<?php while( have_rows('leaders_content_box') ): the_row(); ?>
+						<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
+							<div class="panelHead">
+								<h3 class="manrope"><?php echo get_sub_field('heading'); ?></h3>
+								<p><?php echo get_sub_field('description'); ?></p>
+							</div>
+							<ul class="leaderGrid">
+								<?php if( have_rows('leaders') ): ?>
+									<?php while( have_rows('leaders') ): the_row(); ?>
+										<li class="leaderCard" data-profile-open="<?php $str = get_sub_field('name'); echo str_replace(' ', '-', strtolower($str));?>">
+											<figure class="leaderImg">
+												<?php $leaderimage = get_sub_field('photo'); if( !empty( $leaderimage ) ): ?>
+													<img src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
+												<?php endif; ?>
+											</figure>
+											<div class="leaderInfo">
+												<h4><?php echo get_sub_field('name'); ?></h4>
+												<p><?php echo get_sub_field('role'); ?></p>
+											</div>
+										</li>
+									<?php endwhile; ?>
+								<?php endif; ?>
+							</ul>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
-			<ul class="leaderGrid">
-				<li class="leaderCard" data-profile-open="priti-sawant">
-					<figure class="leaderImg">
-							<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Priti Sawant</h4>
-						<p>Founder &amp; Chief Executive Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="priya-mohan">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Priya Mohan</h4>
-						<p>Chief Operating Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="banita-chaudhary">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Banita Choudhary</h4>
-						<p>Chief Finance Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="deepak-desai">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Deepak Desai</h4>
-						<p>Chief Business Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="ashok-datla">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Ashok Datla</h4>
-						<p>VP, Engineering</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="manish-kapoor">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Manish Kapoor</h4>
-						<p>Head of AI</p>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<!-- Your first conversation -->
-		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
-			<div class="panelHead">
-				<h3 class="manrope">Your first conversation</h3>
-				<p>Business heads and directors who listen, scope your need and stay with the account.</p>
-			</div>
-			<ul class="leaderGrid" data-profile-open="priti-sawant">
-				<li class="leaderCard">
-					<figure class="leaderImg">
-							<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Priti Sawant</h4>
-						<p>Founder &amp; Chief Executive Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="priya-mohan">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Priya Mohan</h4>
-						<p>Chief Operating Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="banita-chaudhary">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Banita Choudhary</h4>
-						<p>Chief Finance Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="deepak-desai">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Deepak Desai</h4>
-						<p>Chief Business Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="ashok-datla">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Ashok Datla</h4>
-						<p>VP, Engineering</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="manish-kapoor">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Manish Kapoor</h4>
-						<p>Head of AI</p>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<!-- Leadership -->
-		<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
-			<div class="panelHead">
-				<h3 class="manrope">Delivery</h3>
-				<p>The people who run your engagement day to day.</p>
-			</div>
-			<ul class="leaderGrid">
-				<li class="leaderCard" data-profile-open="priti-sawant">
-					<figure class="leaderImg">
-							<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Priti Sawant</h4>
-						<p>Founder &amp; Chief Executive Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="priya-mohan">
-					<figure class="leaderImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Priya Mohan</h4>
-						<p>Chief Operating Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="banita-chaudhary">
-					<figure class="leaderImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Banita Choudhary</h4>
-						<p>Chief Finance Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="deepak-desai">
-					<figure class="leaderImg">
-						<img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy">
-					</figure>
-					<div class="leaderInfo">
-						<h4>Deepak Desai</h4>
-						<p>Chief Business Officer</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="ashok-datla">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Ashok Datla</h4>
-						<p>VP, Engineering</p>
-					</div>
-				</li>
-				<li class="leaderCard" data-profile-open="manish-kapoor">
-					<figure class="leaderImg"><img src="<?php bloginfo('template_directory'); ?>/images/about-team-dummy.webp" alt="" loading="lazy"></figure>
-					<div class="leaderInfo">
-						<h4>Manish Kapoor</h4>
-						<p>Head of AI</p>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="boardSection">
@@ -642,58 +509,57 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutNewsSec" id="in-the-news">
-	<div class="wrapper">
-		<div class="newsHead">
-			<div class="newsIntro">
-				<p class="eyebrow manrope">JoulestoWatts in the news</p>
-				<h2 class="manrope">What our investors say</h2>
-				<p>Published coverage from 2025 and 2026. Hover to pause.</p>
-			</div>
-			<a class="manrope transparentCTA" href="#">See all Coverage
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-			</a>
-		</div>
-		<!-- Featured story -->
-		<a class="newsFeature" href="#">
-			<div class="newsText">
-				<span class="tag">GCC News • Industry</span>
-				<h3>What's moving across India's capability centers</h3>
-				<p class="lead">New GCCs, expansions and the numbers behind them, tracked by our team.</p>
-				<span class="source">The NFA Post · 8 Oct 2025</span>
-			</div>
-			<figure class="newsMedia">
-				<img src="<?php bloginfo('template_directory'); ?>/images/aboutus-investors-say-feature-img.webp" alt="" loading="lazy">
-			</figure>
-		</a>
-
-		<!-- Story cards: outside the wrapper so the row runs edge to edge. -->
-		<div class="newsMarquee">
-			<div class="marqueeTrack">
-				<div class="investorMarqueeGroup investorSlider">
-					<a class="newsCard" href="#">
-						<span class="tag">Milestone</span>
-						<h4>JoulestoWatts Delivers 40× Investor Exit in Landmark Buyback, Redefines India's GCC Growth Story</h4>
-						<span class="source">The NFA Post · 8 Oct 2025</span>
-					</a>
-					<a class="newsCard" href="#">
-						<span class="tag">Feature</span>
-						<h4>JoulestoWatts Delivers 40× Investor Exit in Landmark Buyback, Redefines India's GCC Growth Story</h4>
-						<span class="source">The NFA Post · 8 Oct 2025</span>
-					</a>
-					<a class="newsCard" href="#">
-						<span class="tag">Growth</span>
-						<h4>JoulestoWatts Delivers 40× Investor Exit in Landmark Buyback, Redefines India's GCC Growth Story</h4>
-						<span class="source">The NFA Post · 8 Oct 2025</span>
-					</a>
-					<a class="newsCard" href="#">
-						<span class="tag">Event</span>
-						<h4>JoulestoWatts Delivers 40× Investor Exit in Landmark Buyback, Redefines India's GCC Growth Story</h4>
-						<span class="source">The NFA Post · 8 Oct 2025</span>
+	<?php if( have_rows('news_section') ): ?>
+		<?php while( have_rows('news_section') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="newsHead">
+					<div class="newsIntro">
+						<p class="eyebrow manrope"><?php echo get_sub_field('sub_heading'); ?></p>
+						<h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+						<p><?php echo get_sub_field('description'); ?></p>
+					</div>
+					<a class="manrope transparentCTA" href="<?php echo get_sub_field('cta_link'); ?>"><?php echo get_sub_field('cta_text'); ?>
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
 					</a>
 				</div>
+				<?php if( have_rows('feature_news') ): ?>
+					<?php while( have_rows('feature_news') ): the_row(); ?>
+						<!-- Featured story -->
+						<a class="newsFeature" href="<?php echo get_sub_field('news_link'); ?>">
+							<div class="newsText">
+								<span class="tag"><?php echo get_sub_field('sub_heading'); ?></span>
+								<h3><?php echo get_sub_field('heading'); ?></h3>
+								<p class="lead"><?php echo get_sub_field('description'); ?></p>
+								<span class="source"><?php echo get_sub_field('date_box'); ?></span>
+							</div>
+							<figure class="newsMedia">
+								<?php $newsimage = get_sub_field('news_image'); if( !empty( $newsimage ) ): ?>
+									<img src="<?php echo esc_url($newsimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($newsimage['alt']); ?>" />
+								<?php endif; ?>
+							</figure>
+						</a>
+					<?php endwhile; ?>
+				<?php endif; ?>
+
+				<!-- Story cards: outside the wrapper so the row runs edge to edge. -->
+				<div class="newsMarquee">
+					<div class="marqueeTrack">
+						<div class="investorMarqueeGroup investorSlider">
+							<?php if( have_rows('news_content') ): ?>
+								<?php while( have_rows('news_content') ): the_row(); ?>
+									<a class="newsCard" href="<?php echo get_sub_field('news_link'); ?>">
+										<span class="tag"><?php echo get_sub_field('news_tag'); ?></span>
+										<h4><?php echo get_sub_field('heading'); ?></h4>
+										<span class="source"><?php echo get_sub_field('date'); ?></span>
+									</a>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>	
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="aboutOfficesSec homeImpactSec" id="where-we-are">
@@ -701,71 +567,34 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
-	<div class="wrapper">
-		<div class="officesHead">
-			<p class="eyebrow manrope">Where we are</p>
-			<h2 class="manrope">Ten offices, one India delivery hub</h2>
-			<p>Headquartered in Bengaluru, with teams close to clients across Asia, the Middle East, Europe and North America.</p>
-		</div>
-
-		<div class="officesGrid">
-			<div class="region">
-				<p class="regionName manrope">India</p>
-				<div class="office">
-					<h3 class="manrope">Bengaluru - HQ</h3>
-					<p>Novel MSR, Marathahalli</p>
+	<?php if( have_rows('where_we_are') ): ?>
+		<?php while( have_rows('where_we_are') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="officesHead">
+					<p class="eyebrow manrope"><?php echo get_sub_field('sub_heading'); ?></p>
+					<h2 class="manrope"><?php echo get_sub_field('heading'); ?></h2>
+					<p><?php echo get_sub_field('description'); ?></p>
 				</div>
-				<div class="office">
-					<h3 class="manrope">Hyderabad</h3>
-					<p>Sinman Dwaraka, HITEC City</p>
-				</div>
-				<div class="office">
-					<h3 class="manrope">Mumbai</h3>
-					<p>Eureka Towers, Mindspace, Malad West</p>
-				</div>
-				<div class="office">
-					<h3 class="manrope">New Delhi</h3>
-					<p>Saira Tower, Gulmohar Park</p>
-				</div>
-			</div>
-			<div class="region">
-				<p class="regionName manrope">North America</p>
-				<div class="office">
-					<h3 class="manrope">Dallas</h3>
-					<p>JoulestoWatts Consulting Inc, Texas, USA</p>
+				<div class="officesGrid">
+					<?php if( have_rows('country_box') ): ?>
+						<?php while( have_rows('country_box') ): the_row(); ?>
+							<div class="region">
+								<p class="regionName manrope"><?php echo get_sub_field('country_name'); ?></p>
+								<?php if( have_rows('locations') ): ?>
+									<?php while( have_rows('locations') ): the_row(); ?>
+										<div class="office">
+											<h3 class="manrope"><?php echo get_sub_field('location_name'); ?></h3>
+											<p><?php echo get_sub_field('location_address'); ?></p>
+										</div>
+									<?php endwhile; ?>
+								<?php endif; ?>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</div>
 			</div>
-			<div class="region">
-				<p class="regionName manrope">Middle East</p>
-				<div class="office">
-					<h3 class="manrope">Dubai</h3>
-					<p>Al Garhoud, UAE</p>
-				</div>
-			</div>
-			<div class="region">
-				<p class="regionName manrope">Southeast Asia</p>
-				<div class="office">
-					<h3 class="manrope">Singapore</h3>
-					<p>Paya Lebar Square</p>
-				</div>
-				<div class="office">
-					<h3 class="manrope">Penang</h3>
-					<p>Perai, Malaysia</p>
-				</div>
-				<div class="office">
-					<h3 class="manrope">Taguig</h3>
-					<p>Bonifacio Global City, Philippines</p>
-				</div>
-			</div>
-			<div class="region">
-				<p class="regionName manrope">Europe</p>
-				<div class="office">
-					<h3 class="manrope">Warsaw</h3>
-					<p>Poland</p>
-				</div>
-			</div>
-		</div>
-	</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </section>
 
 <section class="talkToPartnerSec">
@@ -782,7 +611,8 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 							</svg>
 						</div>
 					</a>
-					<a href="#" class="transparentCTA manrope">Start the GCC Accelerator readiness scan
+					<a href="<?php echo get_sub_field('second_cta_link'); ?>" class="transparentCTA manrope">
+						<span><?php echo get_sub_field('second_cta_text' ); ?></span>
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
 					</a>
 				</div>
@@ -830,175 +660,29 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </div>
 
 <div hidden>
-    <article data-profile-item data-profile-id="priti-sawant">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Priti Sawant</span>
-        <span data-f="role">Founder &amp; Chief Executive Officer</span>
-        <span data-f="category">Leadership</span>
-        <div data-f="bio">
-            <p>Priti Sawant is a visionary leader with extensive experience in business strategy and organizational growth.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-            <p>She is passionate about building innovative teams and creating meaningful business impact.</p>
-        </div>
-    </article>
-
-    <article data-profile-item data-profile-id="priya-mohan">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Priya Mohan</span>
-        <span data-f="role">Chief Operating Officer</span>
-        <span data-f="category">Leadership</span>
-        <div data-f="bio">
-            <p>Priya is an experienced operator, investor and entrepreneur with over 20 years of experience.</p>
-            <p>She has worked across venture capital, high-growth startups and investment banking.</p>
-        </div>
-    </article>
-
-    <article data-profile-item data-profile-id="banita-chaudhary">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Banita Chaudhary</span>
-        <span data-f="role">Chief Finance Officer</span>
-        <span data-f="category">Leadership</span>
-        <div data-f="bio">
-            <p>Banita is a finance professional specializing in financial planning, strategic investments and business operations.</p>
-            <p>She brings strong financial leadership and analytical expertise to the organization.</p>
-        </div>
-    </article>
-
-    <article data-profile-item data-profile-id="deepak-desai">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Deepak Desai</span>
-        <span data-f="role">Chief Business Officer</span>
-        <span data-f="category">Leadership</span>
-        <div data-f="bio">
-            <p>Deepak Desai brings extensive experience in business development and strategic planning.</p>
-            <p>He focuses on building strong client relationships and driving business growth.</p>
-        </div>
-    </article>
-
-    <article data-profile-item data-profile-id="ashok-datla">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Ashok Datla</span>
-        <span data-f="role">VP, Engineering</span>
-        <span data-f="category">Engineering</span>
-        <div data-f="bio">
-            <p>Ashok Datla leads engineering initiatives with a focus on technology, innovation and scalable solutions.</p>
-            <p>He is passionate about building reliable products and high-performing engineering teams.</p>
-        </div>
-    </article>
-
-    <article data-profile-item data-profile-id="manish-kapoor">
-        <img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-        <span data-f="name">Manish Kapoor</span>
-        <span data-f="role">Head of AI</span>
-        <span data-f="category">Technology</span>
-        <div data-f="bio">
-            <p>Manish Kapoor works on artificial intelligence and emerging technology initiatives.</p>
-            <p>He focuses on developing intelligent solutions that create meaningful business impact.</p>
-        </div>
-    </article>
-	
-	<article data-profile-item data-profile-id="conversation-priti">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Priti Sawant</span>
-		<span data-f="role">Founder &amp; Chief Executive Officer</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Priti leads business strategy and client relationships.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="conversation-priya">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Priya Mohan</span>
-		<span data-f="role">Chief Operating Officer</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Priya drives operational excellence and business growth.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="conversation-banita">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Banita Choudhary</span>
-		<span data-f="role">Chief Finance Officer</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Banita oversees financial strategy and planning.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="conversation-deepak">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Deepak Desai</span>
-		<span data-f="role">Chief Business Officer</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Deepak focuses on business development and client partnerships.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="conversation-ashok">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Ashok Datla</span>
-		<span data-f="role">VP, Engineering</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Ashok leads engineering and technology development.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="conversation-manish">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Manish Kapoor</span>
-		<span data-f="role">Head of AI</span>
-		<span data-f="category">Your first conversation</span>
-		<div data-f="bio"><p>Manish leads AI innovation and intelligent solutions.</p></div>
-	</article>
-
-
-	<!-- Delivery -->
-	<article data-profile-item data-profile-id="delivery-priti">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Priti Sawant</span>
-		<span data-f="role">Founder &amp; Chief Executive Officer</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Priti oversees strategic direction and organizational growth.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="delivery-priya">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Priya Mohan</span>
-		<span data-f="role">Chief Operating Officer</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Priya manages operations and delivery excellence.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="delivery-banita">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Banita Choudhary</span>
-		<span data-f="role">Chief Finance Officer</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Banita manages financial operations and planning.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="delivery-deepak">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Deepak Desai</span>
-		<span data-f="role">Chief Business Officer</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Deepak manages business operations and client engagement.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="delivery-ashok">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Ashok Datla</span>
-		<span data-f="role">VP, Engineering</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Ashok drives engineering execution and technical delivery.</p></div>
-	</article>
-
-	<article data-profile-item data-profile-id="delivery-manish">
-		<img data-f="image" src="<?php echo esc_url( get_template_directory_uri() . '/images/priti-sawant-profile-pic.webp' ); ?>" alt="">
-		<span data-f="name">Manish Kapoor</span>
-		<span data-f="role">Head of AI</span>
-		<span data-f="category">Delivery</span>
-		<div data-f="bio"><p>Manish drives AI implementation and technology delivery.</p></div>
-	</article>
-
+	<?php if( have_rows('leaders_section') ): ?>
+		<?php while( have_rows('leaders_section') ): the_row(); ?>
+			<?php if( have_rows('leaders_content_box') ): ?>
+				<?php while( have_rows('leaders_content_box') ): the_row(); ?>
+					<?php if( have_rows('leaders') ): ?>
+						<?php while( have_rows('leaders') ): the_row(); ?>
+							<article data-profile-item data-profile-id="priti-sawant">
+								<?php $leaderimage = get_sub_field('photo'); if( !empty( $leaderimage ) ): ?>
+									<img data-f="image" src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
+								<?php endif; ?>
+								<span data-f="name"><?php echo get_sub_field('name'); ?></span>
+								<span data-f="role"><?php echo get_sub_field('role'); ?></span>
+								<span data-f="category"><?php echo get_sub_field('category'); ?></span>
+								<div data-f="bio">
+									<p><?php echo get_sub_field('bio'); ?></p>
+								</div>
+							</article>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		<?php endwhile; ?>
+	<?php endif; ?>
 </div>
 
 <?php get_footer(); ?>

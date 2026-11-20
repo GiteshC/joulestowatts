@@ -75,7 +75,7 @@
 						</ul>
 					</li>
 					<li class="menuGroup">
-						<a href="<?php echo get_site_url(); ?>/customer-success-stories" class="menuHeading manrope">Customer Success stories</a>
+						<a href="<?php echo get_site_url(); ?>/case-studies" class="menuHeading manrope">Customer Success stories</a>
 					</li>
 					<li class="menuGroup">
 						<a href="<?php echo get_site_url(); ?>/about-us" class="menuHeading manrope">About us</a>
