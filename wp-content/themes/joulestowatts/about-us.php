@@ -70,9 +70,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 </section>
 
 <section class="aboutLeadersSec" id="leaders">
-	<div class="aboutLeadersBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-top.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
 	<?php if( have_rows('leadersmain_section') ): ?>
 		<?php while( have_rows('leadersmain_section') ): the_row(); ?>
 			<div class="wrapper">
@@ -154,9 +151,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
         <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
     </div>
-	<div class="aboutDecadeBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/common-light-bottom.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
 	<?php if( have_rows('our_story') ): ?>
 		<?php while( have_rows('our_story') ): the_row(); ?>
 			<div class="wrapper">
@@ -659,7 +653,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
 			</a>
 		</div>
-
 		<!-- Featured story -->
 		<a class="newsFeature" href="#">
 			<div class="newsText">
@@ -775,12 +768,8 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 	</div>
 </section>
 
-<section class="talkToPartnerSec aboutTalkSec">
+<section class="talkToPartnerSec">
 	<div class="secWrapper">
-		<div class="imgBox">
-			<!-- <img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-			<img src="<?php bloginfo( 'template_directory' ); ?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg"> -->
-		</div>
 		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
 			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
 				<div class="secHeading">
