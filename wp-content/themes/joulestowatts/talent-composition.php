@@ -46,7 +46,11 @@ $glow_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" v
     <div class="bannerBG"><?php echo $glow_svg; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup ?></div>
 </section>
 
-<section class="solutionSection scrollAnimation talentcompoSpace" id="offerings">
+<section class="solutionSection scrollAnimation homeImpactSec" id="offerings">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
     <div class="secWrapper">
         <?php if( have_rows('steps_section') ): ?>
             <?php while( have_rows('steps_section') ): the_row(); ?>
@@ -97,7 +101,11 @@ $glow_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="2168" height="658" v
     </div>
 </section>
 
-<section class="talkToPartnerSec">
+<section class="talkToPartnerSec homeImpactSec">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
     <div class="secWrapper">
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
