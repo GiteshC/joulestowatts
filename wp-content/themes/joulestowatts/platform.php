@@ -210,7 +210,8 @@
                 <div class="cardContainer" data-accordion>
                     <?php if( have_rows('solution_content') ): ?>
                         <?php $solutionsec = get_field('solution_section'); $solutioncount = ! empty( $solutionsec['solution_content'] ) ? count( $solutionsec['solution_content'] ) : 0; $counter=1; while( have_rows('solution_content') ): the_row(); ?>
-                            <div class="solutionCard<?php echo $counter === $solutioncount ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo $counter === $solutioncount ? 'true' : 'false'; ?>">
+                            <div class="solutionCard" data-accordion-item role="button" tabindex="0" aria-expanded="false">
+                                
                                 <div class="imgBox">
                                     <?php $solutionimg = get_sub_field('box_image'); if( !empty( $solutionimg ) ): ?>
                                         <img src="<?php echo esc_url($solutionimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($solutionimg['alt']); ?>" />

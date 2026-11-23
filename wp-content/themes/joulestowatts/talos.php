@@ -30,7 +30,7 @@ $talos_glow = function () {
 $talos_horizon = get_template_directory_uri() . '/images/gcc-horizon.webp';
 ?>
 
-<section class="bannerInnerSection talosBannerSec">
+<section class="bannerInnerSection">
     <div class="wrapper">
         <?php if( have_rows('banner_section') ): ?>
             <?php while( have_rows('banner_section') ): the_row(); ?>

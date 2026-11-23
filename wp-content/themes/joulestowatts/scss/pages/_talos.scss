@@ -189,11 +189,10 @@ body.page-template-talos{
 
 .counterSectionTalos{position: relative; padding-top: 140px; overflow: hidden;
     .wrapper{
-        .secHeading{text-align: center; margin-bottom: 50px;
+        .secHeading{@include wrapper; text-align: center; margin-bottom: 50px; 
             h2{@include font48; font-weight: 500; line-height: 120%; text-transform: capitalize; margin: 0px auto 32px; width: fit-content; background: linear-gradient(104deg, rgba(1, 211, 199, 0.98) -40.33%, rgba(255, 255, 255, 0.98) 60.22%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
             p{line-height: 170%; color: #C0C6C6; @include font20;}
         }
-        .counterContent{display: grid; grid-template-columns: repeat(5, 1fr);}
     }
     @media screen and (max-width:1800px) {padding-top: 120px;
         .wrapper{
@@ -209,8 +208,6 @@ body.page-template-talos{
             }
         }
     }
-    @media screen and (max-width:1440px) {}
-    @media screen and (max-width:1280px) {}
-    @media screen and (max-width:820px) {}
+    @media screen and (max-width:820px) {padding-top: 80px;}
     @media screen and (max-width:720px) {}
 }
