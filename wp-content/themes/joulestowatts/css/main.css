@@ -7709,6 +7709,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   .solutionSection .secWrapper .cardContainer .solutionCard.solutionActiveCard .imgBox {
     opacity: 1;
     margin-bottom: 10px;
+    min-height: 200px;
   }
   .solutionSection .secWrapper .cardContainer .solutionCard.solutionActiveCard .bottomContent .description {
     grid-template-rows: 1fr;
@@ -14152,40 +14153,6 @@ body.page-template-talent-composition .talentStepsCTA .teritaryCTA:hover {
   }
   body.page-template-talent-composition .talentStepsCTA .teritaryCTA span {
     border-width: 1px;
-  }
-}
-
-.talentcompoSpace {
-  margin-top: 200px;
-}
-@media screen and (max-width: 1800px) {
-  .talentcompoSpace {
-    margin-top: 180px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .talentcompoSpace {
-    margin-top: 160px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .talentcompoSpace {
-    margin-top: 140px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .talentcompoSpace {
-    margin-top: 120px;
-  }
-}
-@media screen and (max-width: 820px) {
-  .talentcompoSpace {
-    margin-top: 100px;
-  }
-}
-@media screen and (max-width: 720px) {
-  .talentcompoSpace {
-    margin-top: 80px;
   }
 }
 

@@ -566,7 +566,7 @@
                     }
 
                     &.solutionActiveCard{width: 100%; 
-                        .imgBox{opacity: 1; margin-bottom: 10px;}
+                        .imgBox{opacity: 1; margin-bottom: 10px; min-height: 200px; }
                         .bottomContent{
                             .description{grid-template-rows:1fr; opacity:1;}
                         }
