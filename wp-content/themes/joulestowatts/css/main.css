@@ -5712,7 +5712,6 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
   font-weight: 500;
   text-transform: capitalize;
   display: inline-block;
-  margin-top: 32px;
   transition: all 0.4s ease;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .bannerctaList li a:hover {
@@ -5754,7 +5753,7 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
     padding-top: 140px;
   }
   .bannerInnerSection .wrapper .bannerContent {
-    width: 60%;
+    width: 80%;
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     margin-bottom: 28px;
@@ -5772,9 +5771,6 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
   }
 }
 @media screen and (max-width: 1440px) {
-  .bannerInnerSection .wrapper .bannerContent {
-    width: 70%;
-  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 60px;
   }
@@ -5795,6 +5791,15 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
   }
   .bannerInnerSection .wrapper .bannerContent {
     width: 95%;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
+    margin: 0 auto 30px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading .bannerctaList {
+    gap: 20px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading .bannerctaList li a {
+    padding: 12px 16px;
   }
 }
 @media screen and (max-width: 720px) {
@@ -6162,7 +6167,6 @@ body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContain
   }
   .diagnosisSection .wrapper .diagnosisContent .leftBox, .diagnosisSection .wrapper .diagnosisContent .rightBox {
     width: 100%;
-    text-align: center;
   }
   .diagnosisSection .wrapper .diagnosisContent .middleBox {
     width: 100%;
@@ -9155,7 +9159,7 @@ body.page-template-platform .platformRouteSec .routeCards .routeCard::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url(../images/platform-horizon-glow.webp) no-repeat center top/100% 200%;
+  background: url(../images/platform-boxbg.webp) no-repeat center top/100% 200%;
   filter: saturate(0.55);
   pointer-events: none;
 }
@@ -13687,12 +13691,16 @@ body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox .readsIm
 }
 body.page-template-talos .talosReadsSec .readsLinesLeft {
   top: auto;
-  bottom: -330px;
-  transform: none;
+  bottom: -200px;
+  transform: rotate(180deg);
 }
 @media all and (max-width: 1800px) {
   body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox {
     width: 480px;
+  }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -180px;
   }
 }
 @media all and (max-width: 1600px) {
@@ -13702,10 +13710,18 @@ body.page-template-talos .talosReadsSec .readsLinesLeft {
   body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox {
     width: 440px;
   }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -160px;
+  }
 }
 @media all and (max-width: 1440px) {
   body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox {
     width: 400px;
+  }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -140px;
   }
 }
 @media all and (max-width: 1280px) {
@@ -13714,6 +13730,10 @@ body.page-template-talos .talosReadsSec .readsLinesLeft {
   }
   body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox {
     width: 360px;
+  }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -120px;
   }
 }
 @media all and (max-width: 1080px) {
@@ -13724,6 +13744,10 @@ body.page-template-talos .talosReadsSec .readsLinesLeft {
 @media all and (max-width: 820px) {
   body.page-template-talos .talosReadsSec {
     padding: 70px 0 60px;
+  }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -100px;
   }
 }
 @media all and (max-width: 720px) {
@@ -13736,6 +13760,10 @@ body.page-template-talos .talosReadsSec .readsLinesLeft {
   }
   body.page-template-talos .talosReadsSec .wrapper .mainContainer .imgBox .readsImg img {
     max-height: 320px;
+  }
+  body.page-template-talos .talosReadsSec .readsLinesLeft {
+    top: auto;
+    bottom: -80px;
   }
 }
 body.page-template-talos .talosOpsSec {
