@@ -81,6 +81,9 @@
 						<a href="<?php echo get_site_url(); ?>/about-us" class="menuHeading manrope">About us</a>
 					</li>
 					<li class="menuGroup">
+						<a href="<?php echo get_site_url(); ?>/careers" class="menuHeading manrope">Careers</a>
+					</li>
+					<li class="menuGroup">
 						<a href="<?php echo get_site_url(); ?>/contact-us" class="menuHeading manrope">Contact Us</a>
 					</li>
 				</ul>
