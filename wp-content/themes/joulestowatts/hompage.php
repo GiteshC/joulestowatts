@@ -661,7 +661,7 @@ $atlas_sparkles = array(
 
 <section class="buildingSection">
     <div class="secWrapper">
-        <div class="cardContainer">
+        <div class="cardContainer buildingCardSlider">
             <?php if( have_rows('building_section') ): ?>
                 <?php $counter=1; while( have_rows('building_section') ): the_row(); ?>
                     <div class="slide" data-index="0">

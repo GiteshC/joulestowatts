@@ -947,6 +947,38 @@
             }
         }
     }
+    @media screen and (max-width: 1024px){
+        .secWrapper {
+            .cardContainer {
+                .slide {background: transparent; border: none; width: 100%; margin: 0 4px 40px; opacity: 0.5; transform: scale(0.85); transition: opacity 0.4s ease, transform 0.4s ease;
+                    &.is-center { opacity: 1; transform: scale(1);}
+                    .card-link{
+                        .body{padding: 28px; 
+                            .arrow{
+                                svg{width: 16px; height: 16px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 720px){
+        .secWrapper{
+            .cardContainer{
+                .slide{transform: scale(0.9); margin: 0 0px 20px;
+                    h2{margin-bottom: 40px;}
+                    .card-link{
+                        .body{padding: 12px 12px 20px; gap: 20px;
+                            .arrow{
+                                svg{width: 12px; height: 12px;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .resultSection{@include sectionSpacing; padding-top: 185px; position: relative; 
@@ -960,7 +992,7 @@
         .resultsCardLayout{ padding-left: 100px; padding-right: 0px; position: relative;
             .commanCard{width: 100%;
                 a{display: block; cursor: pointer;
-                    .box{border-radius: 12px; height: 320px; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-position: contain; position: relative;
+                    .box{border-radius: 12px; height: 320px; border: 1px solid rgba(255, 255, 255, 0.20); background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat; background-size: contain; position: relative;
                         .tag{position:absolute; top:32px; left:32px; display: inline-block; padding: 10px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.20); color: #fff; @include font16;}
                         .bottomContent{position:absolute; left:0; right:0; bottom:0; padding: 32px 32px 58px;
                             h3{@include font24; font-weight: 500; text-transform: capitalize; color: #ffffff;}
@@ -1092,13 +1124,6 @@
                             .bottomContent{padding: 16px;
                                 .moreContent {grid-template-rows: 1fr;opacity: 1;
                                     p{padding-top: 12px;}
-                                }
-                            }
-                            &:hover{background: #E4E1DD;
-                                .bottomContent{
-                                    .moreContent{
-                                        p{padding-top: 12px;}
-                                    }
                                 }
                             }
                         }
@@ -1343,32 +1368,6 @@ body.page-template-hompage{
         }
     }
 
-    .buildingSection{
-        .secWrapper .cardContainer .slide{
-            .card-link{transition: background 0.4s ease;
-                .body{padding: 31px 37px 33px;
-                    h3{font-family: $manrope; transition: color 0.4s ease;}
-                    p{color: #525454; line-height: 142%; transition: color 0.4s ease;}
-                    .arrow{transition: opacity 0.4s ease;}
-                }
-            }
-        }
-        // Stacked cards (below the carousel breakpoint): the heading sits on the dark page, above its card.
-        &:not(.is-carousel) .secWrapper .cardContainer .slide{background: transparent; border: none;
-            > h2{margin-bottom: 20px;}
-        }
-        &.is-carousel .secWrapper .cardContainer .slide{width: min(67.45vw, calc((100vh - 260px) * 1.6)); transition: background 0.4s ease, border-color 0.4s ease;
-            &:not(.is-active){background: transparent; border-color: transparent;
-                .card-link{background: transparent;
-                    .body{
-                        h3{color: #ffffff;}
-                        p{color: #D4D2D2;}
-                        .arrow{opacity: 0;}
-                    }
-                }
-            }
-        }
-    }
 }
 .homeImpactSec{padding-top: 222px;
     .homeImpactGlow{position: absolute; left: 0; top: calc(33px - 39.17vw); width: 100%; z-index: 0; pointer-events: none;

@@ -4342,6 +4342,45 @@ footer .footerWrapper .footerlogo .logoBox .logo {
 .buildingSection.is-carousel .secWrapper .cardContainer .slide.is-active > h2 {
   opacity: 1;
 }
+@media screen and (max-width: 1024px) {
+  .buildingSection .secWrapper .cardContainer .slide {
+    background: transparent;
+    border: none;
+    width: 100%;
+    margin: 0 4px 40px;
+    opacity: 0.5;
+    transform: scale(0.85);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .buildingSection .secWrapper .cardContainer .slide.is-center {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body {
+    padding: 28px;
+  }
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body .arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .buildingSection .secWrapper .cardContainer .slide {
+    transform: scale(0.9);
+    margin: 0 0px 20px;
+  }
+  .buildingSection .secWrapper .cardContainer .slide h2 {
+    margin-bottom: 40px;
+  }
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body {
+    padding: 12px 12px 20px;
+    gap: 20px;
+  }
+  .buildingSection .secWrapper .cardContainer .slide .card-link .body .arrow svg {
+    width: 12px;
+    height: 12px;
+  }
+}
 
 .resultSection {
   margin-bottom: 200px;
@@ -4499,7 +4538,7 @@ footer .footerWrapper .footerlogo .logoBox .logo {
   height: 320px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: linear-gradient(-150deg, #341827 31.34%, #342332 48.6%, #313240 65.86%, #365462 98.04%) no-repeat;
-  background-position: contain;
+  background-size: contain;
   position: relative;
 }
 .resultSection .secWrapper .resultsCardLayout .commanCard a .box .tag {
@@ -4773,12 +4812,6 @@ footer .footerWrapper .footerlogo .logoBox .logo {
     opacity: 1;
   }
   .resultSection .secWrapper .resultsCardLayout .commanCard a .box .bottomContent .moreContent p {
-    padding-top: 12px;
-  }
-  .resultSection .secWrapper .resultsCardLayout .commanCard a .box:hover {
-    background: #E4E1DD;
-  }
-  .resultSection .secWrapper .resultsCardLayout .commanCard a .box:hover .bottomContent .moreContent p {
     padding-top: 12px;
   }
   .resultSection .secWrapper .resultsCardLayout .commanCard a.slick-slide {
@@ -5349,51 +5382,6 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoundsAnim {
     width: 100%;
   }
-}
-body.page-template-hompage .buildingSection .secWrapper .cardContainer .slide .card-link {
-  transition: background 0.4s ease;
-}
-body.page-template-hompage .buildingSection .secWrapper .cardContainer .slide .card-link .body {
-  padding: 31px 37px 33px;
-}
-body.page-template-hompage .buildingSection .secWrapper .cardContainer .slide .card-link .body h3 {
-  font-family: "Manrope", sans-serif;
-  transition: color 0.4s ease;
-}
-body.page-template-hompage .buildingSection .secWrapper .cardContainer .slide .card-link .body p {
-  color: #525454;
-  line-height: 142%;
-  transition: color 0.4s ease;
-}
-body.page-template-hompage .buildingSection .secWrapper .cardContainer .slide .card-link .body .arrow {
-  transition: opacity 0.4s ease;
-}
-body.page-template-hompage .buildingSection:not(.is-carousel) .secWrapper .cardContainer .slide {
-  background: transparent;
-  border: none;
-}
-body.page-template-hompage .buildingSection:not(.is-carousel) .secWrapper .cardContainer .slide > h2 {
-  margin-bottom: 20px;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide {
-  width: min(67.45vw, (100vh - 260px) * 1.6);
-  transition: background 0.4s ease, border-color 0.4s ease;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) {
-  background: transparent;
-  border-color: transparent;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) .card-link {
-  background: transparent;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) .card-link .body h3 {
-  color: #ffffff;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) .card-link .body p {
-  color: #D4D2D2;
-}
-body.page-template-hompage .buildingSection.is-carousel .secWrapper .cardContainer .slide:not(.is-active) .card-link .body .arrow {
-  opacity: 0;
 }
 
 .homeImpactSec {
