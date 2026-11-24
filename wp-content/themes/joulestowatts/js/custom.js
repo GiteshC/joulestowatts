@@ -3177,7 +3177,7 @@ if ($(".aboutAwardsSec").length) {
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 1.5,
+					slidesToShow: 1.2,
 					slidesToScroll: 1,
 				},
 			},
@@ -3236,10 +3236,11 @@ if ($(".aboutNewsSec").length) {
 				},
 			},
 			{
-				breakpoint: 600,
+				breakpoint: 721,
 				settings: {
-					slidesToShow: 1.5,
+					slidesToShow: 1.2,
 					slidesToScroll: 1,
+					dots: true,
 				},
 			},
 		],

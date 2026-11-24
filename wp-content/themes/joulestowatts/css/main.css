@@ -701,6 +701,13 @@ button:focus {
     gap: 6px;
   }
 }
+@media screen and (max-width: 720px) {
+  .transparentCTA {
+    padding: 10px 16px;
+    gap: 10px;
+    font-size: 12px;
+  }
+}
 
 .headingIcon {
   transform: translateX(-20px);
@@ -5716,7 +5723,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 .bannerInnerSection .wrapper .casestudyCTA {
   position: absolute;
-  bottom: 35px;
+  bottom: 14vh;
   right: 100px;
   width: fit-content;
   display: flex;
@@ -5771,6 +5778,11 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 @media screen and (max-width: 1280px) {
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .bannerInnerSection {
+    height: 80vh;
   }
 }
 @media screen and (max-width: 820px) {
@@ -21325,6 +21337,16 @@ body.page-template-about-us {
     width: 70%;
   }
 }
+@media screen and (max-width: 1024px) {
+  .aboutBannerSec .wrapper .bannerContent img {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutBannerSec .wrapper .bannerContent img {
+    width: 100%;
+  }
+}
 
 .aboutQuestionsSec {
   margin-bottom: 200px;
@@ -21696,6 +21718,9 @@ body.page-template-about-us {
   .aboutQuestionsSec .wrapper {
     gap: 40px;
   }
+  .aboutQuestionsSec .wrapper .questionsIntro p {
+    font-size: 14px;
+  }
   .aboutQuestionsSec .wrapper .questionsList .questionRow {
     grid-template-columns: 1fr;
     row-gap: 16px;
@@ -21997,6 +22022,9 @@ body.page-template-about-us {
   .aboutLeadersSec .aboutLeadersBg {
     bottom: -121px;
   }
+  .aboutLeadersSec .wrapper h2 {
+    margin-bottom: 40px;
+  }
   .aboutLeadersSec .wrapper .leadersGrid {
     gap: 40px;
   }
@@ -22036,6 +22064,17 @@ body.page-template-about-us {
   .aboutLeadersSec .letterBtn svg {
     width: 20px;
     height: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutLeadersSec .wrapper h2 {
+    margin-bottom: 24px;
+  }
+  .aboutLeadersSec .wrapper .leadersGrid {
+    gap: 24px;
+  }
+  .aboutLeadersSec .wrapper .leadersGrid .leaderCard {
+    padding: 24px 20px;
   }
 }
 
@@ -22898,6 +22937,13 @@ body.aboutLetterOpen {
   }
 }
 @media screen and (max-width: 720px) {
+  .aboutDecadeSec .wrapper .decadeHead p {
+    font-size: 14px;
+  }
+  .aboutDecadeSec .wrapper .yearTabs .yearTab {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
   .aboutDecadeSec .decadeStage {
     margin-top: 24px;
   }
@@ -23473,6 +23519,97 @@ body.aboutLetterOpen {
     display: none;
   }
 }
+@media screen and (max-width: 720px) {
+  .aboutAwardsSec .wrapper {
+    padding: 0;
+  }
+  .aboutAwardsSec .wrapper .awardsHead {
+    margin-bottom: 28px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+@media screen and (max-width: 720px) and (max-width: 1800px) {
+  .aboutAwardsSec .wrapper .awardsHead {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 720px) and (max-width: 1440px) {
+  .aboutAwardsSec .wrapper .awardsHead {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media screen and (max-width: 720px) and (max-width: 1280px) {
+  .aboutAwardsSec .wrapper .awardsHead {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 720px) and (max-width: 720px) {
+  .aboutAwardsSec .wrapper .awardsHead {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutAwardsSec .wrapper .awardsHead p {
+    font-size: 14px;
+  }
+  .aboutAwardsSec .wrapper .awardsFeature {
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 10px 24px;
+    gap: 24px;
+  }
+  .aboutAwardsSec .wrapper .awardsFeature::after {
+    width: 90%;
+    right: -40%;
+    top: -10%;
+  }
+  .aboutAwardsSec .wrapper .awardsFeature .featureArt {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .aboutAwardsSec .wrapper .awardsFeature .featureText {
+    max-width: 100%;
+    gap: 12px;
+  }
+  .aboutAwardsSec .wrapper .awardsMore {
+    margin-top: 32px;
+  }
+  .aboutAwardsSec .awardsMarquee {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard {
+    width: 280px;
+    min-height: 120px;
+    margin-right: 12px;
+    padding: 16px;
+    gap: 14px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard .badgeIcon {
+    width: 55px;
+    height: 55px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard .badgeIcon .year {
+    font-size: 14px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard .badgeText {
+    gap: 4px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard .badgeText h4 {
+    font-size: 16px;
+  }
+  .aboutAwardsSec .awardsMarquee .marqueeRow .marqueeGroup .awardCard .badgeText p {
+    font-size: 12px;
+  }
+  .aboutAwardsSec::after {
+    display: none;
+  }
+}
 @media screen and (prefers-reduced-motion: reduce) {
   .aboutAwardsSec .marqueeRow {
     overflow-x: auto;
@@ -23912,6 +24049,15 @@ body.aboutLetterOpen {
   }
 }
 @media screen and (max-width: 720px) {
+  .aboutTeamSec .wrapper .teamTabs .teamTab {
+    font-size: 14px;
+  }
+  .aboutTeamSec .wrapper .teamPanel .panelHead h3 {
+    font-size: 20px;
+  }
+  .aboutTeamSec .wrapper .teamPanel .panelHead p {
+    font-size: 14px;
+  }
   .aboutTeamSec .wrapper .teamPanel .leaderGrid {
     grid-template-columns: 1fr;
   }
@@ -24177,7 +24323,34 @@ body.aboutLetterOpen {
 }
 .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
   margin: 0;
-  font-size: max(18px, 32px * var(--aboutS));
+  font-size: 32px;
+}
+@media screen and (max-width: 1800px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
+    font-size: 16px;
+  }
+}
+.boardSection .wrapper .teamPanel .quoteRow .quoteItem blockquote {
   font-weight: 400;
   line-height: 160%;
   text-transform: capitalize;
@@ -24188,13 +24361,62 @@ body.aboutLetterOpen {
   flex-flow: column;
 }
 .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
-  font-size: max(17px, 24px * var(--aboutS));
+  font-size: 24px;
+}
+@media screen and (max-width: 1800px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
+    font-size: 14px;
+  }
+}
+.boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy strong {
   font-weight: 400;
   line-height: 180%;
   color: rgba(255, 255, 255, 0.8);
 }
 .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
-  font-size: max(14px, 20px * var(--aboutS));
+  font-size: 20px;
+}
+@media screen and (max-width: 1600px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
+    font-size: 12px;
+  }
+}
+.boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBy span {
   line-height: 180%;
   color: #01D3C7;
 }
@@ -24277,12 +24499,12 @@ body.aboutLetterOpen {
   .boardSection .wrapper .teamPanel .infoGrid .infoCard.hasAvatar {
     padding-top: 24px;
   }
-  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardAvatar {
-    width: 64px;
-    height: 64px;
-  }
   .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow {
     gap: 16px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardAvatar {
+    width: 64px;
+    height: 64px;
   }
   .boardSection .wrapper .teamPanel .quoteRow {
     margin-top: 32px;
@@ -24293,6 +24515,27 @@ body.aboutLetterOpen {
   }
   .boardSection .wrapper .teamPanel .quoteRow .quoteItem .quoteBody {
     gap: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard {
+    padding: 20px 18px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard.hasAvatar {
+    padding-top: 24px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow {
+    gap: 16px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardAvatar {
+    width: 64px;
+    height: 64px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardText h4 {
+    font-size: 16px;
+  }
+  .boardSection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardText p {
+    font-size: 14px;
   }
 }
 
@@ -24707,6 +24950,27 @@ body.aboutLetterOpen {
   }
   .backedBySection .wrapper .teamPanel .quoteRow .quoteItem .quoteBody {
     gap: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard {
+    padding: 20px 18px;
+  }
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard.hasAvatar {
+    padding-top: 24px;
+  }
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard .cardRow {
+    gap: 16px;
+  }
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardAvatar {
+    width: 64px;
+    height: 64px;
+  }
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardText h4 {
+    font-size: 16px;
+  }
+  .backedBySection .wrapper .teamPanel .infoGrid .infoCard .cardRow .cardText p {
+    font-size: 14px;
   }
 }
 
@@ -25213,15 +25477,69 @@ body.aboutLetterOpen {
   }
   .aboutNewsSec .wrapper .newsMarquee {
     margin-top: 20px;
+    margin-right: 0;
   }
-  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .newsCard {
-    width: 280px;
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .newsCard {
     min-height: 240px;
     margin-right: 16px;
     padding: 20px 20px 16px;
   }
-  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .newsCard h4 {
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .newsCard h4 {
     margin-top: 16px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .aboutNewsSec .wrapper .newsHead .newsIntro {
+    gap: 12px;
+  }
+  .aboutNewsSec .wrapper .newsHead .newsIntro p {
+    font-size: 12px;
+  }
+  .aboutNewsSec .wrapper .newsFeature {
+    gap: 24px;
+  }
+  .aboutNewsSec .wrapper .newsFeature .newsText {
+    order: 2;
+  }
+  .aboutNewsSec .wrapper .newsFeature .newsText h3 {
+    margin-top: 20px;
+  }
+  .aboutNewsSec .wrapper .newsFeature .newsMedia {
+    order: 1;
+  }
+  .aboutNewsSec .wrapper .newsMarquee {
+    margin-top: 20px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .newsCard {
+    min-height: 260px;
+    margin-right: 16px;
+    padding: 20px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .newsCard h4 {
+    margin-top: 16px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .slick-list {
+    margin-right: -16px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .slick-dots {
+    right: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .slick-dots li {
+    width: 6px;
+    height: 6px;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .slick-dots li button {
+    background: rgba(255, 255, 255, 0.25);
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+  }
+  .aboutNewsSec .wrapper .newsMarquee .marqueeTrack .investorMarqueeGroup .slick-dots li.slick-active button {
+    background: #00ACB4;
   }
 }
 
@@ -25599,8 +25917,17 @@ body.aboutLetterOpen {
   }
 }
 @media screen and (max-width: 720px) {
+  .aboutOfficesSec .wrapper .officesHead p {
+    font-size: 12px;
+  }
   .aboutOfficesSec .wrapper .officesGrid {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .aboutOfficesSec .wrapper .officesGrid .region .office h3 {
+    font-size: 22px;
+  }
+  .aboutOfficesSec .wrapper .officesGrid .region .office p {
+    font-size: 14px;
   }
 }
 @media screen and (prefers-reduced-motion: reduce) {
@@ -28027,9 +28354,17 @@ body.profileDrawerOpen {
 .csDetailHero .caseGlance.js-reveal.is-in [data-glance-reveal] {
   clip-path: inset(0 0 0 0);
 }
+@media screen and (max-width: 1080px) {
+  .csDetailHero .caseGlance .glanceRow .glanceStake {
+    flex: 0 0 53%;
+  }
+}
 @media screen and (max-width: 1024px) {
   .csDetailHero .caseGlance .glanceRow {
     gap: 48px;
+  }
+  .csDetailHero .caseGlance .glanceRow .glanceStake {
+    flex: 0 0 auto;
   }
   .csDetailHero .caseGlance .glanceImpact {
     flex-basis: 300px;

@@ -387,7 +387,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 				</div>
 
 				<!-- Leadership -->
-				 <?php if( have_rows('leaders_content_box') ): ?>
+				<?php if( have_rows('leaders_content_box') ): ?>
 					<?php while( have_rows('leaders_content_box') ): the_row(); ?>
 						<div class="teamPanel" role="tabpanel" aria-labelledby="team-tab-1" data-team-panel>
 							<div class="panelHead">
@@ -629,31 +629,31 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 		</button>
 		<div class="pdScroll">
 			<div class="pdHead">
-				<p class="pdCount manrope" data-pd-count>01/01</p>
+				<p class="pdCount manrope" data-pd-count></p>
 				<div class="pdPerson">
 					<img src="" alt="" width="145" height="145" data-pd-img>
 					<div class="pdId">
-						<h3 class="pdName manrope" data-pd-name>Priya Mohan</h3>
-						<p class="pdRole" data-pd-role>Chief Operating Officer</p>
+						<h3 class="pdName manrope" data-pd-name></h3>
+						<p class="pdRole" data-pd-role></p>
 					</div>
 				</div>
 			</div>
-			<p class="pdCategory" data-pd-category>Leadership</p>
+			<p class="pdCategory" data-pd-category></p>
 			<div class="pdBio" >
 				<div class="innerBio" data-pd-bio>
-					<p>An operator, investor and entrepreneur with 20+ years across venture capital, high-growth startups and investment banking. Priya was most recently a Partner at General Catalyst India and earlier Managing Partner at Venture Highway.</p>
-					<p>She co-founded the EdTech platform Vidyartha, which was acquired by Byju's. A Chartered Accountant and ISB graduate, she is a Kamalnayan Bajaj Aspen Fellow.</p>
+					<p></p>
+					<p></p>
 				</div>
 			</div>
 		</div>
 		<nav class="pdNav" aria-label="Profiles">
 			<button class="pdNavBtn is-prev" type="button" data-pd-prev>
 				<span class="pdNavLabel manrope">Previous</span>
-				<span class="pdNavName" data-pd-nav-name>Priti Sawant</span>
+				<span class="pdNavName" data-pd-nav-name></span>
 			</button>
 			<button class="pdNavBtn is-next" type="button" data-pd-next>
 				<span class="pdNavLabel manrope">Next</span>
-				<span class="pdNavName" data-pd-nav-name>Banita Chaudhary</span>
+				<span class="pdNavName" data-pd-nav-name></span>
 			</button>
 		</nav>
 	</aside>
@@ -666,7 +666,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 				<?php while( have_rows('leaders_content_box') ): the_row(); ?>
 					<?php if( have_rows('leaders') ): ?>
 						<?php while( have_rows('leaders') ): the_row(); ?>
-							<article data-profile-item data-profile-id="priti-sawant">
+							<article data-profile-item data-profile-id="<?php $str = get_sub_field('name'); echo str_replace(' ', '-', strtolower($str));?>">
 								<?php $leaderimage = get_sub_field('photo'); if( !empty( $leaderimage ) ): ?>
 									<img data-f="image" src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
 								<?php endif; ?>
