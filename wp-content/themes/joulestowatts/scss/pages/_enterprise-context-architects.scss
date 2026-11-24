@@ -403,7 +403,7 @@ body.page-template-enterprise-context-architects{
 	}
 }
 
-.ecaVoicesSec{position: relative; overflow-x: clip; @include sectionSpacing; padding-top: dp(120);
+.ecaVoicesSec{position: relative; overflow-x: clip; padding-top: dp(120);
 	&::before{content: ""; position: absolute; left: 50%; top: 0; width: 70%; height: dp(320); transform: translateX(-50%); background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(140, 190, 195, 0.45), rgba(140, 190, 195, 0) 70%); pointer-events: none;}
 	.ecaVoicesWaves{position: absolute; left: 0; bottom: 0; width: dp(560); height: auto; opacity: 0.1; pointer-events: none;}
 	.wrapper{@include wrapper; position: relative; z-index: 1;
