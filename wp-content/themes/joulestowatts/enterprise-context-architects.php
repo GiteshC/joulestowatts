@@ -56,6 +56,44 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
     </div>
 </section>
 
+<section class="ecaVoicesSec">
+    <?php if( have_rows('eca_testimonial') ): ?>
+        <?php while( have_rows('eca_testimonial') ): the_row(); ?>
+            <img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
+            <div class="wrapper">
+                <div class="secHeading">
+                    <h2><?php echo get_sub_field('sub_heading'); ?></h2>
+                    <p><?php echo get_sub_field('sub_heading'); ?></p>
+                </div>
+                <div class="voicesGrid">
+                    <?php if( have_rows('eca_voices') ): ?>
+                        <?php while( have_rows('eca_voices') ): the_row(); ?>
+                            <div class="voiceCard">
+                                <button class="voicePlay" type="button" data-video="<?php echo get_sub_field('video_link'); ?>" aria-label="Play video: Queen Rachel Joyce D">
+                                    <!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+                                    <span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+                                </button>
+                                <div class="voiceMeta">
+                                    <?php $personimage = get_sub_field('person_image'); if( !empty( $personimage ) ): ?>
+                                        <img src="<?php echo esc_url($personimage['url']); ?>" class="voiceAvatar" loading="lazy" alt="<?php echo esc_attr($personimage['alt']); ?>" />
+                                    <?php endif; ?>
+                                    <!-- <img  src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy"> -->
+                                    <div class="voiceInfo">
+                                        <h3><?php echo get_sub_field('name'); ?></h3>
+                                        <p class="voiceRole"><?php echo get_sub_field('role'); ?></p>
+                                        <p class="voiceDomain"><?php echo get_sub_field('domain'); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                    <!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
+                </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
+
 <section class="introSection">
     <div class="wrapper">
         <div class="introContent">
@@ -516,44 +554,6 @@ $eca_dashed  = '<svg class="lineanim" width="669" height="25" viewBox="0 0 669 2
                             </div>
                         <?php $counter=$counter+1; endwhile; ?>
                     <?php endif; ?>
-                </div>
-            </div>
-        <?php endwhile; ?>
-    <?php endif; ?>
-</section>
-
-<section class="ecaVoicesSec">
-    <?php if( have_rows('eca_testimonial') ): ?>
-        <?php while( have_rows('eca_testimonial') ): the_row(); ?>
-            <img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
-            <div class="wrapper">
-                <div class="secHeading">
-                    <h2><?php echo get_sub_field('sub_heading'); ?></h2>
-                    <p><?php echo get_sub_field('sub_heading'); ?></p>
-                </div>
-                <div class="voicesGrid">
-                    <?php if( have_rows('eca_voices') ): ?>
-                        <?php while( have_rows('eca_voices') ): the_row(); ?>
-                            <div class="voiceCard">
-                                <button class="voicePlay" type="button" data-video="<?php echo get_sub_field('video_link'); ?>" aria-label="Play video: Queen Rachel Joyce D">
-                                    <!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
-                                    <span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
-                                </button>
-                                <div class="voiceMeta">
-                                    <?php $personimage = get_sub_field('person_image'); if( !empty( $personimage ) ): ?>
-                                        <img src="<?php echo esc_url($personimage['url']); ?>" class="voiceAvatar" loading="lazy" alt="<?php echo esc_attr($personimage['alt']); ?>" />
-                                    <?php endif; ?>
-                                    <!-- <img  src="<?php echo get_template_directory_uri(); ?>/images/eca-video-person.png" alt="Queen Rachel Joyce D" width="76" height="76" loading="lazy"> -->
-                                    <div class="voiceInfo">
-                                        <h3><?php echo get_sub_field('name'); ?></h3>
-                                        <p class="voiceRole"><?php echo get_sub_field('role'); ?></p>
-                                        <p class="voiceDomain"><?php echo get_sub_field('domain'); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
                 </div>
             </div>
         <?php endwhile; ?>

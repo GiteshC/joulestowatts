@@ -666,7 +666,7 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 				<?php while( have_rows('leaders_content_box') ): the_row(); ?>
 					<?php if( have_rows('leaders') ): ?>
 						<?php while( have_rows('leaders') ): the_row(); ?>
-							<article data-profile-item data-profile-id="priti-sawant">
+							<article data-profile-item data-profile-id="<?php $str = get_sub_field('name'); echo str_replace(' ', '-', strtolower($str));?>">
 								<?php $leaderimage = get_sub_field('photo'); if( !empty( $leaderimage ) ): ?>
 									<img data-f="image" src="<?php echo esc_url($leaderimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($leaderimage['alt']); ?>" />
 								<?php endif; ?>
