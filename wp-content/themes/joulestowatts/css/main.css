@@ -28919,6 +28919,12 @@ body.single-case_study .csExploreSec::after {
 .careersLife .dsTrack .dsCard {
   margin-right: 0;
 }
+@media screen and (max-width: 768px) {
+  .careersLife .dsTrack {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 
 .bannerSec {
   margin-bottom: 200px;
