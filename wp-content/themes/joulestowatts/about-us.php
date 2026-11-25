@@ -17,7 +17,6 @@ $about_img_url = function ( $img, $size = 'medium_large' ) {
 			<?php while ( have_rows( 'banner_section' ) ) : the_row(); ?>
 				<div class="bannerContent">
 					<div class="bannerHeading">
-						<h4 class="manrope"><?php echo esc_html( get_sub_field( 'sub_heading' ) ); ?></h4>
 						<h1 class="manrope"><?php echo esc_html( get_sub_field( 'heading' ) ); ?></h1>
 						<p><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
 					</div>
