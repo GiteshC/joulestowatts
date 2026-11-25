@@ -3767,7 +3767,7 @@ if ($(".aboutNewsSec").length) {
 	"use strict";
 
 	document.addEventListener("DOMContentLoaded", function () {
-		var buttons = document.querySelectorAll(".ecaVoicesSec .voicePlay");
+		var buttons = document.querySelectorAll(".ecaVoicesSec .voicePlay, .acceleratorworkSec .voicePlay");
 		if (!buttons.length) return;
 
 		var modal = document.createElement("div");
@@ -4549,4 +4549,47 @@ if ($(".deployedSec").length) {
 	} else {
 		init();
 	}
+})();
+
+// Expand Box JS
+(function () {
+	"use strict";
+
+	function init() {
+		var sections = document.querySelectorAll(".expandBoxSec");
+		Array.prototype.forEach.call(sections, function (sec) {
+			var btn = sec.querySelector("[data-expand-toggle]");
+			var box = sec.querySelector(".expandBox");
+			if (!btn || !box) return;
+
+			function setOpen(open) {
+				sec.classList.toggle("is-open", open);
+				btn.setAttribute("aria-expanded", open ? "true" : "false");
+				box.setAttribute("aria-hidden", open ? "false" : "true");
+			}
+
+			btn.addEventListener("click", function (e) {
+				e.preventDefault();
+				setOpen(!sec.classList.contains("is-open"));
+			});
+
+			// Space key on role="button" link
+			btn.addEventListener("keydown", function (e) {
+				if (e.key === " " || e.key === "Spacebar") {
+					e.preventDefault();
+					setOpen(!sec.classList.contains("is-open"));
+				}
+			});
+
+			// The page height changes when this opens or closes, so refresh ScrollTrigger once the animation ends
+			box.addEventListener("transitionend", function (e) {
+				if (e.propertyName === "grid-template-rows" && window.ScrollTrigger) {
+					window.ScrollTrigger.refresh();
+				}
+			});
+		});
+	}
+
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	else init();
 })();

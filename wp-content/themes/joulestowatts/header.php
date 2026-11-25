@@ -60,7 +60,7 @@
 						<a href="#" class="menuHeading manrope">The Proprietary IP</a>
 						<ul class="menuLinks">
 							<li><a href="<?php echo get_site_url(); ?>/ai-atlas" class="manrope">AI Atlas</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/enterprise-context-architects" class="manrope">ECA</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/enterprise-context-architects" class="manrope">Enterprise Context Architects</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/talos" class="manrope">Talos</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/gcc-accelerator" class="manrope">Greenfield Accelerator</a></li>
 						</ul>

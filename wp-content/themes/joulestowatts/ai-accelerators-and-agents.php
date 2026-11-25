@@ -77,7 +77,73 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 	<?php endwhile; ?>
 <?php endif; ?>
 
-<section class="projectTabsSection">
+<section class="acceleratorworkSec">
+	<img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
+	<?php if( have_rows('accelerator_work_sec') ): ?>
+		<?php while( have_rows('accelerator_work_sec') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="secHeading">
+					<h2><?php echo get_sub_field('heading'); ?></h2>
+				</div>
+				<div class="voicesGrid">
+					<?php if( have_rows('video_content') ): ?>
+						<?php while( have_rows('video_content') ): the_row(); ?>
+							<?php
+								$video_link    = get_sub_field('video_link');
+								$video_heading = get_sub_field('video_box_heading');
+							?>
+							<div class="voiceCard">
+								<button class="voicePlay" type="button"<?php if ( $video_link ) : ?> data-video="<?php echo esc_url( $video_link ); ?>"<?php endif; ?> aria-label="<?php echo $video_link ? 'Play video: ' . esc_attr( $video_heading ) : esc_attr( $video_heading ); ?>">
+									<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+									<?php if ( $video_link ) : ?>
+										<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+									<?php else : ?>
+										<div class="videoTxt">
+											<h4><?php echo esc_html( $video_heading ); ?></h4>
+											<p><?php echo esc_html( get_sub_field('video_box_description') ); ?></p>
+										</div>
+									<?php endif; ?>
+								</button>
+								<div class="voiceMeta">
+									<div class="voiceInfo">
+										<h3><?php echo esc_html( get_sub_field('box_heading') ); ?></h3>
+										<p class="voiceRole"><?php echo esc_html( get_sub_field('box_description') ); ?></p>
+										<?php $value = get_sub_field( "box_cta_link" ); if ( $value ) {?>
+											<a href="<?php echo esc_url( get_sub_field('box_cta_link') ); ?>" class="transparentCTA manrope"><?php echo esc_html( get_sub_field('box_cta_text') ); ?>
+												<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg>
+											</a>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+					<!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
+				</div>
+				<div class="expandBoxSec">
+					<div class="expandButton">
+						<p><?php echo get_sub_field('expand_box_heading'); ?></p>
+						<a href="#" class="primaryCTA" role="button" aria-expanded="false" aria-controls="expandBoxPanel" data-expand-toggle><?php echo get_sub_field('expand_cta_text'); ?>
+							<div class="arrowBox">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="expandBox" id="expandBoxPanel" aria-hidden="true">
+						<div class="expandBoxInner">
+							<?php echo get_sub_field('expand_content'); ?>
+							<!-- your expanded content goes here -->
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
+</section>
+
+<!-- <section class="projectTabsSection">
 	<div class="ProjectTabsBg" aria-hidden="true">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/section-bottom-light-bg.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
@@ -137,7 +203,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <section class="talkToPartnerSec aiaPointItSec">
 	<div class="aiaPointItBg" aria-hidden="true">
