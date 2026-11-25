@@ -127,10 +127,10 @@
                         </div>
                     </a>
                 </div>
-                <div class="ecaTiers" data-accordion data-autoplay="3000">
+                <div class="ecaTiers"  data-autoplay="3000">
                     <?php if ( have_rows( 'what_you_get_content' ) ) : ?>
                         <?php $eca_tier = 0; while ( have_rows( 'what_you_get_content' ) ) : the_row(); ?>
-                            <div class="ecaTier<?php echo 0 === $eca_tier ? ' is-open' : ''; ?> is-open" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 0 === $eca_tier ? 'true' : 'false'; ?>">
+                            <div class="ecaTier">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/images/whatgetbg.webp' ); ?>" class="tierBg" alt="" loading="lazy">
                                 <?php $eca_tier_img = get_sub_field( 'card_image' ); if ( ! empty( $eca_tier_img ) ) : ?>
                                     <img src="<?php echo esc_url( $eca_tier_img['url'] ); ?>" loading="lazy" class="tierImg" alt="<?php echo esc_attr( $eca_tier_img['alt'] ); ?>" />

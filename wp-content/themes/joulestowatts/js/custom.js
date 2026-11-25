@@ -469,6 +469,8 @@ if ($(".ourAiSection").length) {
 	});
 })();
 
+
+
 // Counter section — each number animates from 0 up to its target value
 // once it scrolls into view.
 (function () {
@@ -4549,4 +4551,219 @@ if ($(".deployedSec").length) {
 	} else {
 		init();
 	}
+})();
+
+
+ //ECA Page  What Get Section
+// What You Get: ECA Tiers accordion (autoplay + click/keyboard)
+// (function () {
+//     "use strict";
+
+//     function initEcaTiers() {
+//         var accordions = document.querySelectorAll(".ecaTiers");
+//         if (!accordions.length) return;
+
+//         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+//         var desktopMQ = window.matchMedia("(min-width: 721px)"); // 820 tak mobile
+
+//         accordions.forEach(function (acc) {
+//             var items = Array.prototype.slice.call(acc.querySelectorAll(".ecaTier"));
+//             if (items.length < 2) return;
+
+//             var delay = parseInt(acc.getAttribute("data-autoplay"), 10) || 3000;
+//             var current = -1;
+//             var timer = null;
+//             var inView = false;
+//             var hovering = false;
+
+//             function open(index) {
+//                 current = index;
+//                 items.forEach(function (item, i) {
+//                     item.classList.toggle("isActive", i === index);
+//                 });
+//             }
+
+//             function closeAll() {
+//                 current = -1;
+//                 items.forEach(function (item) {
+//                     item.classList.remove("isActive");
+//                 });
+//             }
+
+//             function canAutoplay() {
+//                 return !reduceMotion && desktopMQ.matches && inView && !hovering;
+//             }
+
+//             function stop() {
+//                 clearTimeout(timer);
+//                 timer = null;
+//             }
+
+//             function schedule() {
+//                 stop();
+//                 if (!canAutoplay()) return;
+//                 timer = setTimeout(function () {
+//                     open((current + 1) % items.length);
+//                     schedule();
+//                 }, delay);
+//             }
+
+//             // Default: pehla card open (desktop + mobile)
+//             open(0);
+
+//             // Click
+//             items.forEach(function (item, i) {
+//                 item.addEventListener("click", function () {
+//                     if (current === i && !desktopMQ.matches) {
+//                         closeAll(); // mobile: open card par dobara click = close
+//                     } else {
+//                         open(i);
+//                     }
+//                     schedule();
+//                 });
+//             });
+
+//             // Hover par autoplay pause
+//             acc.addEventListener("mouseenter", function () { hovering = true; stop(); });
+//             acc.addEventListener("mouseleave", function () { hovering = false; schedule(); });
+
+//             // Sirf viewport mein autoplay
+//             if ("IntersectionObserver" in window) {
+//                 new IntersectionObserver(function (entries) {
+//                     inView = entries[0].isIntersecting;
+//                     if (inView) {
+//                         if (current === -1) open(0);
+//                         schedule();
+//                     } else {
+//                         stop();
+//                     }
+//                 }, { threshold: 0.3 }).observe(acc);
+//             }
+
+//             // Resize par desktop/mobile switch
+//             var onMQChange = function () {
+//                 if (current === -1) open(0);
+//                 if (desktopMQ.matches) schedule(); else stop();
+//             };
+//             if (desktopMQ.addEventListener) {
+//                 desktopMQ.addEventListener("change", onMQChange);
+//             } else {
+//                 desktopMQ.addListener(onMQChange);
+//             }
+//         });
+//     }
+
+//     if (document.readyState === "loading") {
+//         document.addEventListener("DOMContentLoaded", initEcaTiers);
+//     } else {
+//         initEcaTiers();
+//     }
+// })();
+
+(function () {
+    "use strict";
+
+    function initEcaTiers() {
+        var accordions = document.querySelectorAll(".ecaTiers");
+        if (!accordions.length) return;
+
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var desktopMQ = window.matchMedia("(min-width: 768px)");
+
+        accordions.forEach(function (acc) {
+            var items = Array.prototype.slice.call(acc.querySelectorAll(".ecaTier"));
+            if (items.length < 2) return;
+
+            var delay = parseInt(acc.getAttribute("data-autoplay"), 10) || 3000;
+            var current = -1;
+            var timer = null;
+            var inView = false;
+            var hovering = false;
+
+            function open(index) {
+                current = index;
+                items.forEach(function (item, i) {
+                    item.classList.toggle("isActive", i === index);
+                });
+            }
+
+            function openAll() {
+                current = -1;
+                items.forEach(function (item) {
+                    item.classList.add("isActive");
+                });
+            }
+
+            function canAutoplay() {
+                return !reduceMotion && desktopMQ.matches && inView && !hovering;
+            }
+
+            function stop() {
+                clearTimeout(timer);
+                timer = null;
+            }
+
+            function schedule() {
+                stop();
+                if (!canAutoplay()) return;
+                timer = setTimeout(function () {
+                    open((current + 1) % items.length);
+                    schedule();
+                }, delay);
+            }
+
+            // Apply the correct mode for the current viewport
+            function applyMode() {
+                if (desktopMQ.matches) {
+                    acc.classList.remove("isStatic");
+                    open(0);
+                    schedule();
+                } else {
+                    stop();
+                    acc.classList.add("isStatic"); // CSS hook for the 1fr layout
+                    openAll();
+                }
+            }
+
+            // Click: desktop only
+            items.forEach(function (item, i) {
+                item.addEventListener("click", function () {
+                    if (!desktopMQ.matches) return;
+                    open(i);
+                    schedule();
+                });
+            });
+
+            // Pause autoplay on hover (desktop only)
+            acc.addEventListener("mouseenter", function () { hovering = true; stop(); });
+            acc.addEventListener("mouseleave", function () { hovering = false; schedule(); });
+
+            // Autoplay only while in viewport
+            if ("IntersectionObserver" in window) {
+                new IntersectionObserver(function (entries) {
+                    inView = entries[0].isIntersecting;
+                    if (inView) {
+                        schedule();
+                    } else {
+                        stop();
+                    }
+                }, { threshold: 0.3 }).observe(acc);
+            }
+
+            // Switch modes on resize
+            if (desktopMQ.addEventListener) {
+                desktopMQ.addEventListener("change", applyMode);
+            } else {
+                desktopMQ.addListener(applyMode);
+            }
+
+            applyMode();
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initEcaTiers);
+    } else {
+        initEcaTiers();
+    }
 })();
