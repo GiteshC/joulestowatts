@@ -5644,7 +5644,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
   color: #ffffff;
   line-height: 170%;
-  margin: 0 auto 20px;
+  margin-bottom: 20px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   color: rgba(255, 255, 255, 0.7);
@@ -5760,7 +5760,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
     margin-bottom: 28px;
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
-    margin: 0 auto 18px;
+    margin-bottom: 18px;
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     width: 75%;
@@ -5795,7 +5795,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
     margin-bottom: 16px;
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
-    margin: 0 auto 16px;
+    margin-bottom: 16px;
   }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     margin: 0 auto 16px;
