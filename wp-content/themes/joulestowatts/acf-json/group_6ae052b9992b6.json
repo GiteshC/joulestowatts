@@ -314,11 +314,11 @@
                     ]
                 },
                 {
-                    "key": "field_6ae052c002e7f",
-                    "label": "Outcomes Strip",
-                    "name": "outcomes",
+                    "key": "field_6b06b56cdcdd2",
+                    "label": "CTA Lists",
+                    "name": "cta_lists",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -327,12 +327,55 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_6b06b577dcdd3",
+                            "label": "CTA Text",
+                            "name": "cta_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6b06b56cdcdd2"
+                        },
+                        {
+                            "key": "field_6b06b57ddcdd4",
+                            "label": "CTA Link",
+                            "name": "cta_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "allow_in_bindings": 0,
+                            "parent_repeater": "field_6b06b56cdcdd2"
+                        }
+                    ]
                 }
             ]
         },
@@ -1026,5 +1069,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795593844
+    "modified": 1795601803
 }
