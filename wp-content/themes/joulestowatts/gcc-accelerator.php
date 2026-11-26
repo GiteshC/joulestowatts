@@ -29,7 +29,7 @@ $gcc_glow = function () {
 };
 ?>
 
-<section class="bannerInnerSection gccBannerSec">
+<section class="bannerInnerSection">
     <div class="wrapper">
         <?php if( have_rows('banner_section') ): ?>
             <?php while( have_rows('banner_section') ): the_row(); ?>
