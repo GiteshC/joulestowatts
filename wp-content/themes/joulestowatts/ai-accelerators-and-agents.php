@@ -321,10 +321,11 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 							<div class="arrowBox"><?php echo $aia_arrow; ?></div>
 						</a>
 					<?php endif; ?>
-					<a href="#acceleratorwork" class="transparentCTA manrope">Already Know The Use Case? Pick An Accelerator
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-					</a>
-					
+					<?php if ( get_sub_field( 'secondary_cta_text' ) ) : ?>
+						<a href="<?php echo esc_url( $aia_url( get_sub_field( 'secondary_cta_link' ) ) ); ?>" class="transparentCTA manrope"><span><?php echo esc_html( get_sub_field( 'secondary_cta_text' ) ); ?></span>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+						</a>
+					<?php endif; ?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>

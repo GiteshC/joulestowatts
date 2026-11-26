@@ -851,6 +851,7 @@ header .menuBox .mainMenu nav .menuGroups .menuHeading {
   line-height: 130%;
   font-weight: 500;
   transition: color 0.3s ease;
+  text-transform: capitalize;
 }
 header .menuBox .mainMenu nav .menuGroups .menuHeading:hover {
   color: #00ACB4;
@@ -902,6 +903,7 @@ header .menuBox .mainMenu nav .menuGroups .menuLinks a {
   line-height: 150%;
   font-weight: 400;
   transition: color 0.3s ease, transform 0.3s ease;
+  text-transform: capitalize;
 }
 header .menuBox .mainMenu nav .menuGroups .menuLinks a:hover {
   color: #00ACB4;
@@ -5482,9 +5484,9 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 
 .bannerInnerSection {
-  padding-top: 100px;
+  padding-top: 200px;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   position: relative;
   overflow: hidden;
 }
@@ -5526,13 +5528,8 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   z-index: 2;
 }
 .bannerInnerSection .wrapper .bannerContent {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
+  width: 90%;
+  text-align: center;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
   font-size: 20px;
@@ -5644,7 +5641,6 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
   color: #ffffff;
   line-height: 170%;
-  margin-bottom: 20px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   color: rgba(255, 255, 255, 0.7);
@@ -5673,7 +5669,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   line-height: 170%;
   width: 80%;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .bannerctaList {
   display: flex;
@@ -5722,7 +5718,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading a {
   margin: 0px auto;
 }
-.bannerInnerSection .wrapper .bannerContent .bannerImg img {
+.bannerInnerSection .wrapper .bannerContent img {
   margin: 0 auto;
   display: block;
   height: auto;
@@ -5751,7 +5747,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 @media screen and (max-width: 1800px) {
   .bannerInnerSection {
-    padding-top: 80px;
+    padding-top: 140px;
   }
   .bannerInnerSection .wrapper .bannerContent {
     width: 80%;
@@ -5759,47 +5755,29 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     margin-bottom: 28px;
   }
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
-    margin-bottom: 18px;
-  }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     width: 75%;
   }
 }
 @media screen and (max-width: 1600px) {
+  .bannerInnerSection {
+    padding-top: 120px;
+  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 80px;
   }
 }
 @media screen and (max-width: 1440px) {
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
-    margin-bottom: 20px;
-  }
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
-    margin: 0 auto 20px;
-  }
-  .bannerInnerSection .wrapper .bannerContent img {
-    max-width: 80%;
-  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 60px;
   }
 }
 @media screen and (max-width: 1366px) {
   .bannerInnerSection {
-    padding-top: 60px;
+    padding-top: 100px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
-    margin-bottom: 16px;
-  }
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
-    margin-bottom: 16px;
-  }
-  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
-    margin: 0 auto 16px;
-  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 40px;
   }
@@ -10008,32 +9986,32 @@ body.videoModalOpen {
 .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact {
   width: 291px;
 }
-.fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+.fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
   display: block;
   color: #D9D9D9;
   font-size: 18px;
 }
 @media screen and (max-width: 1800px) {
-  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1600px) {
-  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 1280px) {
-  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 720px) {
-  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+  .fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
     font-size: 11px;
   }
 }
-.fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact span {
+.fourArtifactsSec .secWrapper .artifactDetailBox .artifactDetail .detailFacts .fact a {
   font-weight: 500;
   letter-spacing: 3.6px;
   text-transform: uppercase;

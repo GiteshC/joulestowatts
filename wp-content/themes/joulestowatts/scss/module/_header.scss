@@ -27,13 +27,13 @@ header{padding: 20px 100px; display: flex; flex-flow: wrap; justify-content: spa
             // with floors below 1280 so the menu stays easy to read and tap.
             nav .menuGroups{list-style: none; margin: 0; padding: 0; display: flex; flex-flow: column; gap: clamp(32px, 2.9vw, 56px);
                 .menuGroup{opacity: 0; transform: translateX(24px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.7, 0.2, 1);}
-                .menuHeading{display: inline-block; color: #ffffff; @include font32; line-height: 130%; font-weight: 500; transition: color 0.3s ease;
+                .menuHeading{display: inline-block; color: #ffffff; @include font32; line-height: 130%; font-weight: 500; transition: color 0.3s ease; text-transform: capitalize;
                     &:hover{color: #00ACB4;}
                     @media screen and (max-width:1280px) {font-size: 22px;}
                     @media screen and (max-width:720px) {font-size: 24px;}
                 }
                 .menuLinks{list-style: none; margin: clamp(10px, 0.85vw, 16px) 0 0; padding: 0; display: flex; flex-flow: column; gap: clamp(10px, 0.95vw, 18px);
-                    a{display: inline-block; color: rgba(255, 255, 255, 0.80); @include font20; line-height: 150%; font-weight: 400; transition: color 0.3s ease, transform 0.3s ease;
+                    a{display: inline-block; color: rgba(255, 255, 255, 0.80); @include font20; line-height: 150%; font-weight: 400; transition: color 0.3s ease, transform 0.3s ease; text-transform: capitalize;
                         &:hover{color: #00ACB4; transform: translateX(4px);}
                         @media screen and (max-width:1280px) {font-size: 16px;}
                         @media screen and (max-width:720px) {font-size: 17px;}
