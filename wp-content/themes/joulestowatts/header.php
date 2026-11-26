@@ -68,17 +68,17 @@
 					<li class="menuGroup">
 						<a href="#" class="menuHeading manrope">Our Offerings</a>
 						<ul class="menuLinks">
-							<li><a href="<?php echo get_site_url(); ?>/talent-solutions" class="manrope">Talent Solutions: talent composition</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/talent-solutions" class="manrope">Talent Solutions: Talent Composition</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/managed-ai-pods" class="manrope">Managed Talent Pods</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/ai-accelerators-and-agents" class="manrope">AI accelerators and agents</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/greenfield-consulting" class="manrope">Greenfield: consulting + set up</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/ai-accelerators-and-agents" class="manrope">AI Accelerators And Agents</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/greenfield-consulting" class="manrope">Greenfield: Consulting + Set Up</a></li>
 						</ul>
 					</li>
 					<li class="menuGroup">
-						<a href="<?php echo get_site_url(); ?>/case-studies" class="menuHeading manrope">Customer Success stories</a>
+						<a href="<?php echo get_site_url(); ?>/case-studies" class="menuHeading manrope">Customer Success Stories</a>
 					</li>
 					<li class="menuGroup">
-						<a href="<?php echo get_site_url(); ?>/about-us" class="menuHeading manrope">About us</a>
+						<a href="<?php echo get_site_url(); ?>/about-us" class="menuHeading manrope">About Us</a>
 					</li>
 					<li class="menuGroup">
 						<a href="<?php echo get_site_url(); ?>/careers" class="menuHeading manrope">Careers</a>

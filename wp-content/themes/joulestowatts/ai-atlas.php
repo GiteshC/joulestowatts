@@ -112,8 +112,11 @@
                                 <div class="detailFacts">
                                     <?php if( have_rows('step_map_facts') ): ?>
                                         <?php while( have_rows('step_map_facts') ): the_row(); ?>
+                                            <?php $boxLink = get_sub_field('site_map_heading_link'); ?>
                                             <div class="fact">
-                                                <span class="manrope"><?php echo get_sub_field('facts_heading'); ?></span>
+                                                <a <?php echo $boxLink ? 'href="' . esc_url( $boxLink ) . '"' : 'tabindex="0"'; ?>>
+                                                    <span class="manrope"><?php echo get_sub_field('facts_heading'); ?></span>
+                                                </a>
                                                 <p><?php echo get_sub_field('facts_description'); ?></p>
                                             </div>
                                         <?php endwhile; ?>
