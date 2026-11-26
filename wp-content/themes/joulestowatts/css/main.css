@@ -5482,9 +5482,9 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 
 .bannerInnerSection {
-  padding-top: 200px;
+  padding-top: 100px;
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 }
@@ -5527,14 +5527,12 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 .bannerInnerSection .wrapper .bannerContent {
   width: 100%;
-  text-align: center;
-  display: flex;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 50px;
-}
-.bannerInnerSection .wrapper .bannerContent .bannerHeading {
-  width: 50%;
+  gap: 60px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
   font-size: 20px;
@@ -5646,6 +5644,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
   color: #ffffff;
   line-height: 170%;
+  margin-bottom: 20px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   color: rgba(255, 255, 255, 0.7);
@@ -5674,7 +5673,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
   line-height: 170%;
   width: 80%;
-  margin: 0 auto 50px;
+  margin-bottom: 50px;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading .bannerctaList {
   display: flex;
@@ -5723,11 +5722,10 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 .bannerInnerSection .wrapper .bannerContent .bannerHeading a {
   margin: 0px auto;
 }
-.bannerInnerSection .wrapper .bannerContent img {
+.bannerInnerSection .wrapper .bannerContent .bannerImg img {
   margin: 0 auto;
   display: block;
   height: auto;
-  width: 50%;
 }
 .bannerInnerSection .wrapper .casestudyCTA {
   position: absolute;
@@ -5753,7 +5751,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
 }
 @media screen and (max-width: 1800px) {
   .bannerInnerSection {
-    padding-top: 140px;
+    padding-top: 80px;
   }
   .bannerInnerSection .wrapper .bannerContent {
     width: 80%;
@@ -5761,29 +5759,47 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
     margin-bottom: 28px;
   }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
+    margin-bottom: 18px;
+  }
   .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
     width: 75%;
   }
 }
 @media screen and (max-width: 1600px) {
-  .bannerInnerSection {
-    padding-top: 120px;
-  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 80px;
   }
 }
 @media screen and (max-width: 1440px) {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
+    margin-bottom: 20px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
+    margin: 0 auto 20px;
+  }
+  .bannerInnerSection .wrapper .bannerContent img {
+    max-width: 80%;
+  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 60px;
   }
 }
 @media screen and (max-width: 1366px) {
   .bannerInnerSection {
-    padding-top: 100px;
+    padding-top: 60px;
   }
 }
 @media screen and (max-width: 1280px) {
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading h1 {
+    margin-bottom: 16px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading .tagline {
+    margin-bottom: 16px;
+  }
+  .bannerInnerSection .wrapper .bannerContent .bannerHeading p {
+    margin: 0 auto 16px;
+  }
   .bannerInnerSection .wrapper .casestudyCTA {
     right: 40px;
   }
