@@ -5526,8 +5526,15 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   z-index: 2;
 }
 .bannerInnerSection .wrapper .bannerContent {
-  width: 90%;
+  width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.bannerInnerSection .wrapper .bannerContent .bannerHeading {
+  width: 50%;
 }
 .bannerInnerSection .wrapper .bannerContent .bannerHeading h4 {
   font-size: 20px;
@@ -5720,6 +5727,7 @@ body.page-template-hompage .compoundsSection .wrapper .compoundsContent .compoun
   margin: 0 auto;
   display: block;
   height: auto;
+  width: 50%;
 }
 .bannerInnerSection .wrapper .casestudyCTA {
   position: absolute;

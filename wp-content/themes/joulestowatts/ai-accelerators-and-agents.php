@@ -52,7 +52,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 
 <?php if ( have_rows( 'accelerators_section' ) ) : ?>
 	<?php while ( have_rows( 'accelerators_section' ) ) : the_row(); ?>
-		<section class="aiaNamedSec homeImpactSec">
+		<section class="aiaNamedSec homeImpactSec" id="namedAccelerators">
 			<div class="homeImpactGlow" aria-hidden="true">
 				<img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
 				<img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
@@ -210,8 +210,8 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/result-sec-shadow.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
 	<div class="secWrapper">
-		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
-			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
+		<?php if ( have_rows( 'point_it_section' ) ) : ?>
+			<?php while ( have_rows( 'point_it_section' ) ) : the_row(); ?>
 				<div class="secHeading">
 					<h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h2>
 					<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
@@ -231,7 +231,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 		<section class="aiaOverviewSec">
 			<div class="wrapper">
 				<?php if ( get_sub_field( 'intro_text' ) ) : ?>
-					<h2 class="manrope">Every agent ladders to one of four goals</h2>
+					<h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'section_heading' ) ); ?></h2>
 					<p class="aiaLead" data-reveal><?php echo wp_kses_post( get_sub_field( 'intro_text' ) ); ?></p>
 				<?php endif; ?>
 				<div class="aiaTable" data-reveal>
