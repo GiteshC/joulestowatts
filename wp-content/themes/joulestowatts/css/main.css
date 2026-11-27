@@ -26917,6 +26917,7 @@ body.profileDrawerOpen {
 }
 .bannerInnerSection.contactBannerSec .contactFormBox .wpcf7 {
   margin: 0;
+  width: 100%;
 }
 .bannerInnerSection.contactBannerSec .contactFormBox form {
   margin: 0;
