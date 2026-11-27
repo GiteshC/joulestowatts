@@ -205,10 +205,11 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 	</div>
 </section> -->
 
-<section class="talkToPartnerSec aiaPointItSec">
-	<div class="aiaPointItBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/result-sec-shadow.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="talkToPartnerSec aiaPointItSec homeImpactSec">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="secWrapper">
 		<?php if ( have_rows( 'point_it_section' ) ) : ?>
 			<?php while ( have_rows( 'point_it_section' ) ) : the_row(); ?>
