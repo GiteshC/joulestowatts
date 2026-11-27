@@ -10,6 +10,9 @@
     .dsTrack{@include wrapper; display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px;
         .dsCard{margin-right: 0;}
     }
+    @media screen and (max-width: 768px) {
+        .dsTrack{grid-template-columns: 1fr; gap: 20px;}
+    }
 }
 
 .bannerSec{@include sectionSpacing; padding-top: 200px;

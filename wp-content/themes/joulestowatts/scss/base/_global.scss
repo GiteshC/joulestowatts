@@ -582,6 +582,7 @@ button:focus{outline: none;}
     @media screen and (max-width:1800px) {padding: 18px; gap: 10px;}
     @media screen and (max-width:1600px) {padding: 16px; gap: 8px;}
     @media screen and (max-width:1280px) {padding: 14px; gap: 6px;}
+    @media screen and (max-width: 720px) {padding: 10px 16px; gap: 10px; font-size: 12px;}
 }
 
 .headingIcon{transform: translateX(-20px); animation: blinker 1.5s infinite;

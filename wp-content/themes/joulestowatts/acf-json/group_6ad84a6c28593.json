@@ -82,6 +82,44 @@
                     "append": ""
                 },
                 {
+                    "key": "field_6b051fbb17d37",
+                    "label": "Primary CTA Text",
+                    "name": "primary_cta_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6b051fcd17d38",
+                    "label": "Primary CTA Link",
+                    "name": "primary_cta_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "allow_in_bindings": 0
+                },
+                {
                     "key": "field_6ad84b47c653d",
                     "label": "Banner Image",
                     "name": "banner_image",
@@ -854,5 +892,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795003189
+    "modified": 1795497991
 }

@@ -1,0 +1,17 @@
+{
+	"name": "joulestowatts/video-voices",
+	"title": "Video Voices",
+	"description": "Video cards with play button or text fallback.",
+	"category": "joulestowatts",
+	"icon": "format-video",
+	"keywords": ["video", "voices", "cards"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"jsx": false
+	}
+}

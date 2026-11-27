@@ -366,6 +366,7 @@
                             "collapsed": "",
                             "button_label": "Add Row",
                             "rows_per_page": 20,
+                            "parent_repeater": "field_6ad88d2ef6202",
                             "sub_fields": [
                                 {
                                     "key": "field_6afeac6a46cc9",
@@ -410,9 +411,26 @@
                                     "prepend": "",
                                     "append": "",
                                     "parent_repeater": "field_6afeac5b46cc8"
+                                },
+                                {
+                                    "key": "field_6b0824a39476a",
+                                    "label": "Site Map Heading Link",
+                                    "name": "site_map_heading_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_6afeac5b46cc8"
                                 }
-                            ],
-                            "parent_repeater": "field_6ad88d2ef6202"
+                            ]
                         }
                     ]
                 }
@@ -698,5 +716,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795075300
+    "modified": 1795695791
 }

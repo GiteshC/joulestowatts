@@ -83,8 +83,16 @@
         &.js-reveal [data-glance-reveal="c"]{transition-delay: 1.65s;}
         &.js-reveal.is-in [data-glance-reveal]{clip-path: inset(0 0 0 0);}
 
+        @media screen and (max-width: 1080px) {
+            .glanceRow{
+                .glanceStake{flex: 0 0 53%;}
+            }
+        }
+
         @media screen and (max-width: 1024px) {
-            .glanceRow{gap: 48px;}
+            .glanceRow{gap: 48px;
+                .glanceStake{flex: 0 0 auto;}
+            }
             .glanceImpact{flex-basis: 300px;}
         }
         @media screen and (max-width: 720px) {padding: 16px 16px 32px; gap: 20px; border-radius: 16px;

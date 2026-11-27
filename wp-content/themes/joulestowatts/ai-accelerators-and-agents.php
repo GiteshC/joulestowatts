@@ -26,12 +26,19 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 					<div class="bannerHeading">
 						<h1 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h1>
 						<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
+						<a href="<?php echo get_sub_field('primary_cta_link'); ?>" class="primaryCTA"><?php echo get_sub_field('primary_cta_text'); ?>
+							<div class="arrowBox">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+								</svg>
+							</div>
+						</a>
 					</div>
 					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/ai-acc-agent-banner.gif" alt="" aria-hidden="true">
 				</div>
 				<?php if ( get_sub_field( 'cta_text' ) ) : ?>
 					<div class="casestudyCTA">
-						<a href="<?php echo esc_url( $aia_url( get_sub_field( 'cta_link' ) ) ); ?>" class="teritaryCTA"><?php echo esc_html( get_sub_field( 'cta_text' ) ); ?>
+						<a href="<?php echo get_sub_field('video_cta_link'); ?>" class="teritaryCTA" data-video-open><?php echo get_sub_field('cta_text'); ?>
 							<span>
 								<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.35288 9.41198C2.35288 9.56799 2.41486 9.71761 2.52517 9.82792C2.63549 9.93824 2.78511 10.0002 2.94112 10.0002H14.4624L10.172 14.2899C10.1173 14.3446 10.074 14.4095 10.0444 14.4809C10.0148 14.5523 9.99961 14.6288 9.99961 14.7061C9.99961 14.7834 10.0148 14.8599 10.0444 14.9313C10.074 15.0027 10.1173 15.0676 10.172 15.1223C10.2267 15.1769 10.2915 15.2203 10.3629 15.2499C10.4343 15.2794 10.5109 15.2947 10.5882 15.2947C10.6655 15.2947 10.742 15.2794 10.8134 15.2499C10.8848 15.2203 10.9497 15.1769 11.0044 15.1223L16.2985 9.82815C16.3532 9.77352 16.3965 9.70865 16.4262 9.63724C16.4558 9.56582 16.471 9.48928 16.471 9.41198C16.471 9.33467 16.4558 9.25813 16.4262 9.18672C16.3965 9.11531 16.3532 9.05043 16.2985 8.9958L11.0044 3.70168C10.894 3.59131 10.7443 3.5293 10.5882 3.5293C10.4321 3.5293 10.2824 3.59131 10.172 3.70168C10.0616 3.81206 9.99961 3.96176 9.99961 4.11786C9.99961 4.27396 10.0616 4.42366 10.172 4.53404L14.4624 8.82374H2.94112C2.78511 8.82374 2.63549 8.88572 2.52517 8.99603C2.41486 9.10635 2.35288 9.25597 2.35288 9.41198Z" fill="white"/></svg>
 							</span>
@@ -45,7 +52,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 
 <?php if ( have_rows( 'accelerators_section' ) ) : ?>
 	<?php while ( have_rows( 'accelerators_section' ) ) : the_row(); ?>
-		<section class="aiaNamedSec homeImpactSec">
+		<section class="aiaNamedSec homeImpactSec" id="namedAccelerators">
 			<div class="homeImpactGlow" aria-hidden="true">
 				<img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
 				<img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
@@ -70,7 +77,73 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 	<?php endwhile; ?>
 <?php endif; ?>
 
-<section class="projectTabsSection">
+<section class="acceleratorworkSec" id="acceleratorwork">
+	<img class="ecaVoicesWaves" src="images/eca-waves.svg" alt="" aria-hidden="true">
+	<?php if( have_rows('accelerator_work_sec') ): ?>
+		<?php while( have_rows('accelerator_work_sec') ): the_row(); ?>
+			<div class="wrapper">
+				<div class="secHeading">
+					<h2><?php echo get_sub_field('heading'); ?></h2>
+				</div>
+				<div class="voicesGrid">
+					<?php if( have_rows('video_content') ): ?>
+						<?php while( have_rows('video_content') ): the_row(); ?>
+							<?php
+								$video_link    = get_sub_field('video_link');
+								$video_heading = get_sub_field('video_box_heading');
+							?>
+							<div class="voiceCard">
+								<button class="voicePlay" type="button"<?php if ( $video_link ) : ?> data-video="<?php echo esc_url( $video_link ); ?>"<?php endif; ?> aria-label="<?php echo $video_link ? 'Play video: ' . esc_attr( $video_heading ) : esc_attr( $video_heading ); ?>">
+									<!-- <img class="voicePoster" src="images/eca-voice-1.webp" alt="" loading="lazy"> -->
+									<?php if ( $video_link ) : ?>
+										<span class="playIcon" aria-hidden="true"><svg viewBox="0 0 68 68" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><circle cx="34" cy="34" r="32"/><path d="M28 22 46 34 28 46Z"/></svg></span>
+									<?php else : ?>
+										<div class="videoTxt">
+											<h4><?php echo esc_html( $video_heading ); ?></h4>
+											<p><?php echo esc_html( get_sub_field('video_box_description') ); ?></p>
+										</div>
+									<?php endif; ?>
+								</button>
+								<div class="voiceMeta">
+									<div class="voiceInfo">
+										<h3><?php echo esc_html( get_sub_field('box_heading') ); ?></h3>
+										<p class="voiceRole"><?php echo esc_html( get_sub_field('box_description') ); ?></p>
+										<?php $value = get_sub_field( "box_cta_link" ); if ( $value ) {?>
+											<a href="<?php echo esc_url( get_sub_field('box_cta_link') ); ?>" class="transparentCTA manrope"><?php echo esc_html( get_sub_field('box_cta_text') ); ?>
+												<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg>
+											</a>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+					<!-- Cards 2 and 3: same markup, own video URL, poster and avatar. -->
+				</div>
+				<div class="expandBoxSec">
+					<div class="expandButton">
+						<p><?php echo get_sub_field('expand_box_heading'); ?></p>
+						<a href="#" class="primaryCTA" role="button" aria-expanded="false" aria-controls="expandBoxPanel" data-expand-toggle><?php echo get_sub_field('expand_cta_text'); ?>
+							<div class="arrowBox">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path d="M18.7504 15.7496V5.99958C18.7504 5.80067 18.6714 5.6099 18.5307 5.46925C18.3901 5.3286 18.1993 5.24958 18.0004 5.24958H8.25042C8.0515 5.24958 7.86074 5.3286 7.72009 5.46925C7.57943 5.6099 7.50042 5.80067 7.50042 5.99958C7.50042 6.19849 7.57943 6.38926 7.72009 6.52991C7.86074 6.67057 8.0515 6.74958 8.25042 6.74958H16.1901L5.46979 17.469C5.32906 17.6097 5.25 17.8006 5.25 17.9996C5.25 18.1986 5.32906 18.3895 5.46979 18.5302C5.61052 18.6709 5.80139 18.75 6.00042 18.75C6.19944 18.75 6.39031 18.6709 6.53104 18.5302L17.2504 7.8099V15.7496C17.2504 15.9485 17.3294 16.1393 17.4701 16.2799C17.6107 16.4206 17.8015 16.4996 18.0004 16.4996C18.1993 16.4996 18.3901 16.4206 18.5307 16.2799C18.6714 16.1393 18.7504 15.9485 18.7504 15.7496Z" fill="#19060F"/>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="expandBox" id="expandBoxPanel" aria-hidden="true">
+						<div class="expandBoxInner">
+							<?php echo get_sub_field('expand_content'); ?>
+							<!-- your expanded content goes here -->
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
+</section>
+
+<!-- <section class="projectTabsSection">
 	<div class="ProjectTabsBg" aria-hidden="true">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/section-bottom-light-bg.webp' ); ?>" alt="" loading="lazy" class="lines">
 	</div>
@@ -130,15 +203,16 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
-<section class="talkToPartnerSec aiaPointItSec">
-	<div class="aiaPointItBg" aria-hidden="true">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/images/result-sec-shadow.webp' ); ?>" alt="" loading="lazy" class="lines">
-	</div>
+<section class="talkToPartnerSec aiaPointItSec homeImpactSec">
+	<div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
 	<div class="secWrapper">
-		<?php if ( have_rows( 'talk_to_partner' ) ) : ?>
-			<?php while ( have_rows( 'talk_to_partner' ) ) : the_row(); ?>
+		<?php if ( have_rows( 'point_it_section' ) ) : ?>
+			<?php while ( have_rows( 'point_it_section' ) ) : the_row(); ?>
 				<div class="secHeading">
 					<h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'heading' ) ); ?></h2>
 					<p><?php echo wp_kses_post( get_sub_field( 'description' ) ); ?></p>
@@ -158,7 +232,7 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 		<section class="aiaOverviewSec">
 			<div class="wrapper">
 				<?php if ( get_sub_field( 'intro_text' ) ) : ?>
-					<h2 class="manrope">Every agent ladders to one of four goals</h2>
+					<h2 class="manrope"><?php echo wp_kses_post( get_sub_field( 'section_heading' ) ); ?></h2>
 					<p class="aiaLead" data-reveal><?php echo wp_kses_post( get_sub_field( 'intro_text' ) ); ?></p>
 				<?php endif; ?>
 				<div class="aiaTable" data-reveal>
@@ -176,27 +250,17 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 					<?php endforeach; ?>
 				</div>
 				<div class="aiaOutcomes">
-					<a href="#">Deploy an accelerator
-						<span>
-							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
-								</svg>
-						</span>
-					</a>
-					<a href="#">Start with the AI Atlas Diagnostic
-						<span>
-							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
-								</svg>
-						</span>
-					</a>
-					<a href="#">Meet the Enterprise Context Architects
-						<span>
-							<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
-								</svg>
-						</span>
-					</a>
+					<?php if( have_rows('cta_lists') ): ?>
+						<?php while( have_rows('cta_lists') ): the_row(); ?>
+							<a href="<?php echo get_sub_field('cta_link'); ?>"><?php echo get_sub_field('cta_text'); ?>
+								<span>
+									<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M5.43594e-05 5.88268C5.43594e-05 6.03869 0.0620279 6.18831 0.172344 6.29863C0.28266 6.40894 0.43228 6.47091 0.588289 6.47091H12.1096L7.81917 10.7606C7.76452 10.8153 7.72117 10.8802 7.69159 10.9516C7.66201 11.023 7.64679 11.0995 7.64679 11.1768C7.64679 11.2541 7.66201 11.3306 7.69159 11.402C7.72117 11.4734 7.76452 11.5383 7.81917 11.593C7.87382 11.6476 7.93871 11.691 8.01011 11.7206C8.08152 11.7501 8.15806 11.7654 8.23535 11.7654C8.31264 11.7654 8.38917 11.7501 8.46058 11.7206C8.53199 11.691 8.59687 11.6476 8.65153 11.593L13.9456 6.29886C14.0003 6.24423 14.0437 6.17935 14.0733 6.10794C14.1029 6.03653 14.1182 5.95998 14.1182 5.88268C14.1182 5.80538 14.1029 5.72883 14.0733 5.65742C14.0437 5.58601 14.0003 5.52113 13.9456 5.4665L8.65153 0.172386C8.54115 0.062009 8.39144 -1.16301e-09 8.23535 0C8.07925 1.16301e-09 7.92955 0.062009 7.81917 0.172386C7.70879 0.282763 7.64679 0.432466 7.64679 0.588562C7.64679 0.744659 7.70879 0.894362 7.81917 1.00474L12.1096 5.29444H0.588289C0.43228 5.29444 0.28266 5.35642 0.172344 5.46673C0.0620279 5.57705 5.43594e-05 5.72667 5.43594e-05 5.88268Z" fill="white"/>
+										</svg>
+								</span>
+							</a>
+						<?php endwhile; ?>
+					<?php endif; ?>
                 </div>
 			</div>
 		</section>
@@ -258,10 +322,11 @@ $aia_hero   = get_template_directory() . '/images/ai-accelerators-hero-draw.svg'
 							<div class="arrowBox"><?php echo $aia_arrow; ?></div>
 						</a>
 					<?php endif; ?>
-					<a href="#" class="transparentCTA manrope">Already Know The Use Case? Pick An Accelerator
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-					</a>
-					
+					<?php if ( get_sub_field( 'secondary_cta_text' ) ) : ?>
+						<a href="<?php echo esc_url( $aia_url( get_sub_field( 'secondary_cta_link' ) ) ); ?>" class="transparentCTA manrope"><span><?php echo esc_html( get_sub_field( 'secondary_cta_text' ) ); ?></span>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+						</a>
+					<?php endif; ?>
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>

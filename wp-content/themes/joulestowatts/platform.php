@@ -149,12 +149,13 @@
             </div>
         <?php endif; ?>
     </div>
-    <div class="routeGlow" aria-hidden="true">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/platform-horizon-glow.webp" alt="" loading="lazy" />
-    </div>
 </section>
 
-<section class="pointitSection platformPointSec" id="pointit">
+<section class="pointitSection homeImpactSec platformPointSec" id="pointit">
+    <div class="homeImpactGlow" aria-hidden="true">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+        <img src="<?php echo get_template_directory_uri(); ?>/images/home-glow.webp" alt="" />
+    </div>
     <?php if( have_rows('diagnosis_pointit_section') ): ?>
         <?php while( have_rows('diagnosis_pointit_section') ): the_row(); ?>
             <div class="wrapper">
@@ -209,7 +210,8 @@
                 <div class="cardContainer" data-accordion>
                     <?php if( have_rows('solution_content') ): ?>
                         <?php $solutionsec = get_field('solution_section'); $solutioncount = ! empty( $solutionsec['solution_content'] ) ? count( $solutionsec['solution_content'] ) : 0; $counter=1; while( have_rows('solution_content') ): the_row(); ?>
-                            <div class="solutionCard<?php echo $counter === $solutioncount ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo $counter === $solutioncount ? 'true' : 'false'; ?>">
+                            <div class="solutionCard" data-accordion-item role="button" tabindex="0" aria-expanded="false">
+                                
                                 <div class="imgBox">
                                     <?php $solutionimg = get_sub_field('box_image'); if( !empty( $solutionimg ) ): ?>
                                         <img src="<?php echo esc_url($solutionimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($solutionimg['alt']); ?>" />
@@ -238,10 +240,6 @@
 
 <section class="talkToPartnerSec">
     <div class="secWrapper">
-        <!-- <div class="imgBox">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg.webp" alt="" class="desktopBg">
-            <img src="<?php bloginfo('template_directory');?>/images/talk-to-partner-bg-mbl.webp" alt="" class="mblBg">
-        </div> -->
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
                 <div class="secHeading">
@@ -257,29 +255,6 @@
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
-    </div>
-    <div class="talkToPartnerBG">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2168 658" fill="none">
-            <g filter="url(#filter0_f_952_6788)">
-                <path d="M1891.15 658C1891.15 517.314 1806.12 382.39 1654.74 282.91C1503.37 183.43 1298.07 127.542 1084 127.542C869.929 127.542 664.626 183.43 513.255 282.91C361.885 382.39 276.845 517.314 276.845 658L1891.15 658Z" fill="url(#paint0_linear_952_6788)" fill-opacity="0.984314"/>
-            </g>
-            <defs>
-                <filter id="filter0_f_952_6788" x="-123.155" y="-272.458" width="2414.31" height="1330.46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_952_6788"/>
-                </filter>
-                <linearGradient id="paint0_linear_952_6788" x1="1084" y1="658" x2="1109.13" y2="-74.7586" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#01D3C7"/>
-                    <stop offset="0.151345" stop-color="#08A8A2" stop-opacity="0.57"/>
-                    <stop offset="0.237738" stop-color="#0B908E" stop-opacity="0.49"/>
-                    <stop offset="0.320429" stop-color="#0F797A" stop-opacity="0.34"/>
-                    <stop offset="0.43204" stop-color="#14595F" stop-opacity="0.28"/>
-                    <stop offset="0.740931" stop-color="#210214" stop-opacity="0"/>
-                    <stop offset="1" stop-color="#210214"/>
-                </linearGradient>
-            </defs>
-        </svg>
     </div>
 </section>
 
@@ -401,8 +376,6 @@
         <?php endif; ?>
     </div>
 </section>
-
-<!-- <div class ="ourAibgImgBox"></div> -->
 
 <section class="resultSection homeImpactSec">
     <div class="homeImpactGlow" aria-hidden="true">

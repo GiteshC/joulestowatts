@@ -13,9 +13,11 @@
                         <h1 class="manrope"><?php echo esc_html( get_sub_field('heading') ); ?></h1>
                         <p><?php echo wp_kses_post( get_sub_field('description') ); ?></p>
                     </div>
-                    <?php $bannerimage = get_sub_field('banner_image'); if( !empty( $bannerimage ) ): ?>
-                        <img src="<?php echo esc_url($bannerimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($bannerimage['alt']); ?>" />
-                    <?php endif; ?>
+                    <div class="bannerImg">
+                        <?php $bannerimage = get_sub_field('banner_image'); if( !empty( $bannerimage ) ): ?>
+                            <img src="<?php echo esc_url($bannerimage['url']); ?>" loading="lazy" alt="<?php echo esc_attr($bannerimage['alt']); ?>" />
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <div class="casestudyCTA">
                     <a href="<?php echo get_sub_field('video_link'); ?>" class="teritaryCTA" data-video-open><?php echo get_sub_field('cta_text'); ?>
@@ -103,8 +105,11 @@
                                 <div class="detailFacts">
                                     <?php if( have_rows('step_map_facts') ): ?>
                                         <?php while( have_rows('step_map_facts') ): the_row(); ?>
+                                            <?php $boxLink = get_sub_field('site_map_heading_link'); ?>
                                             <div class="fact">
-                                                <span class="manrope"><?php echo get_sub_field('facts_heading'); ?></span>
+                                                <a <?php echo $boxLink ? 'href="' . esc_url( $boxLink ) . '"' : 'tabindex="0"'; ?>>
+                                                    <span class="manrope"><?php echo get_sub_field('facts_heading'); ?></span>
+                                                </a>
                                                 <p><?php echo get_sub_field('facts_description'); ?></p>
                                             </div>
                                         <?php endwhile; ?>

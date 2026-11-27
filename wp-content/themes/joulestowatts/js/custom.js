@@ -469,6 +469,8 @@ if ($(".ourAiSection").length) {
 	});
 })();
 
+
+
 // Counter section — each number animates from 0 up to its target value
 // once it scrolls into view.
 (function () {
@@ -564,7 +566,7 @@ if ($(".ourAiSection").length) {
 			section.querySelectorAll(".cardContainer .slide"),
 		);
 		var total = slides.length;
-		var isDesktop = window.matchMedia("(min-width: 992px)").matches;
+		var isDesktop = window.matchMedia("(min-width: 1025px)").matches;
 		var reduceMotion = window.matchMedia(
 			"(prefers-reduced-motion: reduce)",
 		).matches;
@@ -681,6 +683,48 @@ if ($(".ourAiSection").length) {
 		window.addEventListener("load", initBuilding);
 	}
 })();
+
+if (window.innerWidth <= 1024) {
+	var $slider = $(".buildingCardSlider");
+
+	function setCenter(slick, targetIndex) {
+		var total = slick.slideCount;
+		var target = ((targetIndex % total) + total) % total;
+
+		slick.$slider.find(".slick-slide").each(function () {
+			var idx = parseInt($(this).attr("data-slick-index"), 10);
+			idx = ((idx % total) + total) % total; // clones ko real index me convert
+			$(this).toggleClass("is-center", idx === target);
+		});
+	}
+
+	$slider.on("init", function (e, slick) {
+		setCenter(slick, slick.currentSlide);
+	});
+
+	$slider.on("beforeChange", function (e, slick, current, next) {
+		setCenter(slick, next);
+	});
+
+	$slider.slick({
+		slidesToShow: 1,
+		centerMode: true,
+		centerPadding: "10%",
+		arrows: false,
+		infinite: true,
+		speed: 400,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: { centerPadding: "8%", slidesToShow: 1 },
+			},
+			{
+				breakpoint: 721,
+				settings: { centerPadding: "5px", slidesToShow: 1 },
+			},
+		],
+	});
+}
 
 if (window.innerWidth <= 1024) {
 	$(".whyItSlider").slick({
@@ -942,145 +986,163 @@ $(document).ready(function () {
 })();
 
 //Solution Section JS
-document.addEventListener("DOMContentLoaded", () => {
-	const containers = document.querySelectorAll(".secWrapper .cardContainer");
+if ($(".solutionSection").length) {
+	document.addEventListener("DOMContentLoaded", () => {
+		const containers = document.querySelectorAll(
+			".secWrapper .cardContainer",
+		);
 
-	const mobileQuery = window.matchMedia("(max-width: 820px)");
+		const mobileQuery = window.matchMedia("(max-width: 820px)");
 
-	containers.forEach((container) => {
-		const cards = [...container.querySelectorAll(".solutionCard")];
+		containers.forEach((container) => {
+			const cards = [...container.querySelectorAll(".solutionCard")];
 
-		if (!cards.length) return;
+			if (!cards.length) return;
 
-		function setImageHeight(card, isOpen) {
-			const imgBox = card.querySelector(".imgBox");
+			function setImageHeight(card, isOpen) {
+				const imgBox = card.querySelector(".imgBox");
 
-			if (!imgBox) return;
+				if (!imgBox) return;
 
-			if (!mobileQuery.matches || !isOpen) {
-				imgBox.style.maxHeight = "";
-				return;
-			}
-
-			const updateHeight = () => {
-				if (
-					!mobileQuery.matches ||
-					!card.classList.contains("solutionActiveCard")
-				) {
+				if (!mobileQuery.matches || !isOpen) {
+					imgBox.style.maxHeight = "";
 					return;
 				}
 
-				imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
-			};
+				imgBox.style.maxHeight = "100%";
 
-			const img = imgBox.querySelector("img");
+				const updateHeight = () => {
+					if (
+						!mobileQuery.matches ||
+						!card.classList.contains("solutionActiveCard")
+					) {
+						return;
+					}
 
-			if (img && !img.complete) {
-				img.addEventListener("load", updateHeight, { once: true });
-				img.addEventListener("error", updateHeight, { once: true });
-			} else {
-				requestAnimationFrame(updateHeight);
+					imgBox.style.maxHeight = `${imgBox.scrollHeight}px`;
+				};
+
+				const img = imgBox.querySelector("img");
+
+				if (img && !img.complete) {
+					img.addEventListener("load", updateHeight, { once: true });
+					img.addEventListener("error", updateHeight, { once: true });
+				} else {
+					requestAnimationFrame(updateHeight);
+				}
 			}
-		}
 
-		function openCard(activeCard) {
-			if (!mobileQuery.matches) return;
+			function openCard(activeCard) {
+				if (!mobileQuery.matches) return;
+
+				cards.forEach((card) => {
+					const isActive = card === activeCard;
+
+					card.classList.toggle("solutionActiveCard", isActive);
+					setImageHeight(card, isActive);
+				});
+			}
+
+			function closeAllCards() {
+				cards.forEach((card) => {
+					card.classList.remove("solutionActiveCard");
+					setImageHeight(card, false);
+				});
+			}
+
+			function initializeAccordion() {
+				if (mobileQuery.matches) {
+					// First card ko sirf tab open karo jab initial setup ho.
+					const activeCard = cards.find((card) =>
+						card.classList.contains("solutionActiveCard"),
+					);
+
+					if (activeCard) {
+						openCard(activeCard);
+					} else if (!container.dataset.accordionInitialized) {
+						openCard(cards[0]);
+					}
+
+					container.dataset.accordionInitialized = "true";
+				} else {
+					closeAllCards();
+
+					cards.forEach((card) => {
+						const imgBox = card.querySelector(".imgBox");
+
+						if (imgBox) {
+							imgBox.style.maxHeight = "";
+						}
+					});
+
+					container.dataset.accordionInitialized = "";
+				}
+			}
+
+			initializeAccordion();
 
 			cards.forEach((card) => {
-				const isActive = card === activeCard;
+				card.addEventListener("click", (event) => {
+					if (!mobileQuery.matches) return;
 
-				card.classList.toggle("solutionActiveCard", isActive);
-				setImageHeight(card, isActive);
+					const link = event.target.closest("a");
+					const isActive =
+						card.classList.contains("solutionActiveCard");
+
+					// Closed card: first click only opens the card
+					if (!isActive) {
+						if (link) {
+							event.preventDefault();
+						}
+
+						openCard(card);
+						return;
+					}
+
+					// Open card: link should work normally
+					if (link) {
+						return;
+					}
+
+					// Open card: clicking outside link closes it
+					closeAllCards();
+				});
 			});
-		}
 
-		function closeAllCards() {
-			cards.forEach((card) => {
-				card.classList.remove("solutionActiveCard");
-				setImageHeight(card, false);
+			// Outside click par accordion state change nahi hogi
+			document.addEventListener("click", (event) => {
+				if (!mobileQuery.matches) return;
+
+				const clickedInside = event.target.closest(
+					".secWrapper .cardContainer .solutionCard",
+				);
+
+				if (!clickedInside) {
+					// Intentionally do nothing
+					return;
+				}
 			});
-		}
 
-		function initializeAccordion() {
-			if (mobileQuery.matches) {
-				// First card ko sirf tab open karo jab initial setup ho.
+			if (mobileQuery.addEventListener) {
+				mobileQuery.addEventListener("change", initializeAccordion);
+			} else {
+				mobileQuery.addEventListener(initializeAccordion);
+			}
+
+			window.addEventListener("resize", () => {
+				if (!mobileQuery.matches) return;
+
 				const activeCard = cards.find((card) =>
 					card.classList.contains("solutionActiveCard"),
 				);
 
 				if (activeCard) {
-					openCard(activeCard);
-				} else if (!container.dataset.accordionInitialized) {
-					openCard(cards[0]);
-				}
-
-				container.dataset.accordionInitialized = "true";
-			} else {
-				closeAllCards();
-
-				cards.forEach((card) => {
-					const imgBox = card.querySelector(".imgBox");
-
-					if (imgBox) {
-						imgBox.style.maxHeight = "";
-					}
-				});
-
-				container.dataset.accordionInitialized = "";
-			}
-		}
-
-		initializeAccordion();
-
-		cards.forEach((card) => {
-			card.addEventListener("click", (event) => {
-				if (!mobileQuery.matches) return;
-
-				// Links aur buttons ko ignore karo
-				if (event.target.closest("a, button")) return;
-
-				// Sirf clicked card ki state change hogi
-				if (card.classList.contains("solutionActiveCard")) {
-					closeAllCards();
-				} else {
-					openCard(card);
+					setImageHeight(activeCard, true);
 				}
 			});
 		});
-
-		// Outside click par accordion state change nahi hogi
-		document.addEventListener("click", (event) => {
-			if (!mobileQuery.matches) return;
-
-			const clickedInside = event.target.closest(
-				".secWrapper .cardContainer .solutionCard",
-			);
-
-			if (!clickedInside) {
-				// Intentionally do nothing
-				return;
-			}
-		});
-
-		if (mobileQuery.addEventListener) {
-			mobileQuery.addEventListener("change", initializeAccordion);
-		} else {
-			mobileQuery.addEventListener(initializeAccordion);
-		}
-
-		window.addEventListener("resize", () => {
-			if (!mobileQuery.matches) return;
-
-			const activeCard = cards.find((card) =>
-				card.classList.contains("solutionActiveCard"),
-			);
-
-			if (activeCard) {
-				setImageHeight(activeCard, true);
-			}
-		});
 	});
-});
+}
 
 // Platform page — Diagnosis section intro:
 // heading rises from the section centre to its place, then the image zooms in
@@ -3117,7 +3179,7 @@ if ($(".aboutAwardsSec").length) {
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 1.5,
+					slidesToShow: 1.2,
 					slidesToScroll: 1,
 				},
 			},
@@ -3176,10 +3238,11 @@ if ($(".aboutNewsSec").length) {
 				},
 			},
 			{
-				breakpoint: 600,
+				breakpoint: 721,
 				settings: {
-					slidesToShow: 1.5,
+					slidesToShow: 1.2,
 					slidesToScroll: 1,
+					dots: true,
 				},
 			},
 		],
@@ -3706,7 +3769,7 @@ if ($(".aboutNewsSec").length) {
 	"use strict";
 
 	document.addEventListener("DOMContentLoaded", function () {
-		var buttons = document.querySelectorAll(".ecaVoicesSec .voicePlay");
+		var buttons = document.querySelectorAll(".ecaVoicesSec .voicePlay, .acceleratorworkSec .voicePlay");
 		if (!buttons.length) return;
 
 		var modal = document.createElement("div");
@@ -4488,4 +4551,262 @@ if ($(".deployedSec").length) {
 	} else {
 		init();
 	}
+})();
+
+
+ //ECA Page  What Get Section
+// What You Get: ECA Tiers accordion (autoplay + click/keyboard)
+// (function () {
+//     "use strict";
+
+//     function initEcaTiers() {
+//         var accordions = document.querySelectorAll(".ecaTiers");
+//         if (!accordions.length) return;
+
+//         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+//         var desktopMQ = window.matchMedia("(min-width: 721px)"); // 820 tak mobile
+
+//         accordions.forEach(function (acc) {
+//             var items = Array.prototype.slice.call(acc.querySelectorAll(".ecaTier"));
+//             if (items.length < 2) return;
+
+//             var delay = parseInt(acc.getAttribute("data-autoplay"), 10) || 3000;
+//             var current = -1;
+//             var timer = null;
+//             var inView = false;
+//             var hovering = false;
+
+//             function open(index) {
+//                 current = index;
+//                 items.forEach(function (item, i) {
+//                     item.classList.toggle("isActive", i === index);
+//                 });
+//             }
+
+//             function closeAll() {
+//                 current = -1;
+//                 items.forEach(function (item) {
+//                     item.classList.remove("isActive");
+//                 });
+//             }
+
+//             function canAutoplay() {
+//                 return !reduceMotion && desktopMQ.matches && inView && !hovering;
+//             }
+
+//             function stop() {
+//                 clearTimeout(timer);
+//                 timer = null;
+//             }
+
+//             function schedule() {
+//                 stop();
+//                 if (!canAutoplay()) return;
+//                 timer = setTimeout(function () {
+//                     open((current + 1) % items.length);
+//                     schedule();
+//                 }, delay);
+//             }
+
+//             // Default: pehla card open (desktop + mobile)
+//             open(0);
+
+//             // Click
+//             items.forEach(function (item, i) {
+//                 item.addEventListener("click", function () {
+//                     if (current === i && !desktopMQ.matches) {
+//                         closeAll(); // mobile: open card par dobara click = close
+//                     } else {
+//                         open(i);
+//                     }
+//                     schedule();
+//                 });
+//             });
+
+//             // Hover par autoplay pause
+//             acc.addEventListener("mouseenter", function () { hovering = true; stop(); });
+//             acc.addEventListener("mouseleave", function () { hovering = false; schedule(); });
+
+//             // Sirf viewport mein autoplay
+//             if ("IntersectionObserver" in window) {
+//                 new IntersectionObserver(function (entries) {
+//                     inView = entries[0].isIntersecting;
+//                     if (inView) {
+//                         if (current === -1) open(0);
+//                         schedule();
+//                     } else {
+//                         stop();
+//                     }
+//                 }, { threshold: 0.3 }).observe(acc);
+//             }
+
+//             // Resize par desktop/mobile switch
+//             var onMQChange = function () {
+//                 if (current === -1) open(0);
+//                 if (desktopMQ.matches) schedule(); else stop();
+//             };
+//             if (desktopMQ.addEventListener) {
+//                 desktopMQ.addEventListener("change", onMQChange);
+//             } else {
+//                 desktopMQ.addListener(onMQChange);
+//             }
+//         });
+//     }
+
+//     if (document.readyState === "loading") {
+//         document.addEventListener("DOMContentLoaded", initEcaTiers);
+//     } else {
+//         initEcaTiers();
+//     }
+// })();
+
+(function () {
+    "use strict";
+
+    function initEcaTiers() {
+        var accordions = document.querySelectorAll(".ecaTiers");
+        if (!accordions.length) return;
+
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var desktopMQ = window.matchMedia("(min-width: 768px)");
+
+        accordions.forEach(function (acc) {
+            var items = Array.prototype.slice.call(acc.querySelectorAll(".ecaTier"));
+            if (items.length < 2) return;
+
+            var delay = parseInt(acc.getAttribute("data-autoplay"), 10) || 3000;
+            var current = -1;
+            var timer = null;
+            var inView = false;
+            var hovering = false;
+
+            function open(index) {
+                current = index;
+                items.forEach(function (item, i) {
+                    item.classList.toggle("isActive", i === index);
+                });
+            }
+
+            function openAll() {
+                current = -1;
+                items.forEach(function (item) {
+                    item.classList.add("isActive");
+                });
+            }
+
+            function canAutoplay() {
+                return !reduceMotion && desktopMQ.matches && inView && !hovering;
+            }
+
+            function stop() {
+                clearTimeout(timer);
+                timer = null;
+            }
+
+            function schedule() {
+                stop();
+                if (!canAutoplay()) return;
+                timer = setTimeout(function () {
+                    open((current + 1) % items.length);
+                    schedule();
+                }, delay);
+            }
+
+            // Apply the correct mode for the current viewport
+            function applyMode() {
+                if (desktopMQ.matches) {
+                    acc.classList.remove("isStatic");
+                    open(0);
+                    schedule();
+                } else {
+                    stop();
+                    acc.classList.add("isStatic"); // CSS hook for the 1fr layout
+                    openAll();
+                }
+            }
+
+            // Click: desktop only
+            items.forEach(function (item, i) {
+                item.addEventListener("click", function () {
+                    if (!desktopMQ.matches) return;
+                    open(i);
+                    schedule();
+                });
+            });
+
+            // Pause autoplay on hover (desktop only)
+            acc.addEventListener("mouseenter", function () { hovering = true; stop(); });
+            acc.addEventListener("mouseleave", function () { hovering = false; schedule(); });
+
+            // Autoplay only while in viewport
+            if ("IntersectionObserver" in window) {
+                new IntersectionObserver(function (entries) {
+                    inView = entries[0].isIntersecting;
+                    if (inView) {
+                        schedule();
+                    } else {
+                        stop();
+                    }
+                }, { threshold: 0.3 }).observe(acc);
+            }
+
+            // Switch modes on resize
+            if (desktopMQ.addEventListener) {
+                desktopMQ.addEventListener("change", applyMode);
+            } else {
+                desktopMQ.addListener(applyMode);
+            }
+
+            applyMode();
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initEcaTiers);
+    } else {
+        initEcaTiers();
+    }
+})();
+
+// Expand Box JS
+(function () {
+	"use strict";
+
+	function init() {
+		var sections = document.querySelectorAll(".expandBoxSec");
+		Array.prototype.forEach.call(sections, function (sec) {
+			var btn = sec.querySelector("[data-expand-toggle]");
+			var box = sec.querySelector(".expandBox");
+			if (!btn || !box) return;
+
+			function setOpen(open) {
+				sec.classList.toggle("is-open", open);
+				btn.setAttribute("aria-expanded", open ? "true" : "false");
+				box.setAttribute("aria-hidden", open ? "false" : "true");
+			}
+
+			btn.addEventListener("click", function (e) {
+				e.preventDefault();
+				setOpen(!sec.classList.contains("is-open"));
+			});
+
+			// Space key on role="button" link
+			btn.addEventListener("keydown", function (e) {
+				if (e.key === " " || e.key === "Spacebar") {
+					e.preventDefault();
+					setOpen(!sec.classList.contains("is-open"));
+				}
+			});
+
+			// The page height changes when this opens or closes, so refresh ScrollTrigger once the animation ends
+			box.addEventListener("transitionend", function (e) {
+				if (e.propertyName === "grid-template-rows" && window.ScrollTrigger) {
+					window.ScrollTrigger.refresh();
+				}
+			});
+		});
+	}
+
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+	else init();
 })();

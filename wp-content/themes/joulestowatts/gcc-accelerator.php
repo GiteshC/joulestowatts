@@ -29,7 +29,7 @@ $gcc_glow = function () {
 };
 ?>
 
-<section class="bannerInnerSection gccBannerSec">
+<section class="bannerInnerSection">
     <div class="wrapper">
         <?php if( have_rows('banner_section') ): ?>
             <?php while( have_rows('banner_section') ): the_row(); ?>
@@ -120,25 +120,25 @@ $gcc_glow = function () {
                     <?php endif; ?>
                 </div>
                 <div class="cardContainer" data-accordion>
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/gcc-horizon.webp" class="gccHorizon gccHorizonDown" alt="" loading="lazy">
                     <?php if( have_rows('returns_content') ): ?>
-                        <?php $counter = 1; while( have_rows('returns_content') ): the_row(); ?>
-                            <div class="solutionCard<?php echo 1 === $counter ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo 1 === $counter ? 'true' : 'false'; ?>">
+                        <?php $solutionsec = get_field('what_it_returns'); $solutioncount = ! empty( $solutionsec['returns_content'] ) ? count( $solutionsec['returns_content'] ) : 0; $counter=1; while( have_rows('returns_content') ): the_row(); ?>
+                            <div class="solutionCard<?php echo $counter === $solutioncount ? ' is-open' : ''; ?>" data-accordion-item role="button" tabindex="0" aria-expanded="<?php echo $counter === $solutioncount ? 'true' : 'false'; ?>">
                                 <div class="imgBox">
-                                    <?php $faimg = get_sub_field('card_image'); if( !empty( $faimg ) ): ?>
-                                        <img src="<?php echo esc_url($faimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($faimg['alt']); ?>" />
+                                    <?php $solutionimg = get_sub_field('card_image'); if( !empty( $solutionimg ) ): ?>
+                                        <img src="<?php echo esc_url($solutionimg['url']); ?>" loading="lazy" alt="<?php echo esc_attr($solutionimg['alt']); ?>" />
                                     <?php endif; ?>
                                 </div>
                                 <div class="bottomContent">
-                                    <span class="manrope num"><?php echo esc_html( sprintf( '%02d', $counter ) ); ?></span>
-                                    <h3 class="manrope"><?php echo esc_html( get_sub_field('card_heading') ); ?></h3>
-                                    <div class="description">
-                                        <div class="descriptionInner">
-                                            <?php if( get_sub_field('card_description') ): ?>
+                                    <?php $boxLink = get_sub_field('card_link'); ?>
+                                    <a <?php echo $boxLink ? 'href="' . esc_url( $boxLink ) . '"' : 'tabindex="0"'; ?>>
+                                        <span class="manrope num"><?php echo sprintf('%02d', $counter); ?></span>
+                                        <h3 class="manrope"><?php echo wp_kses_post( get_sub_field('card_heading') ); ?></h3>
+                                        <div class="description">
+                                            <div class="descriptionInner">
                                                 <p><?php echo wp_kses_post( get_sub_field('card_description') ); ?></p>
-                                            <?php endif; ?>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         <?php $counter++; endwhile; ?>
@@ -150,7 +150,7 @@ $gcc_glow = function () {
     <div class="fourArtifactsBG"><?php $gcc_glow(); ?></div>
 </section>
 
-<section class="talkToPartnerSec oneInstrumentSec">
+<section class="talkToPartnerSec">
     <div class="secWrapper">
         <?php if( have_rows('talk_to_partner') ): ?>
             <?php while( have_rows('talk_to_partner') ): the_row(); ?>
